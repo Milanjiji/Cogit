@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import {
     SafeAreaView,
     ScrollView,
@@ -7,7 +7,8 @@ import {
     Text,
     useColorScheme,
     View,
-    TextInput
+    TextInput,
+    TouchableOpacity
   } from 'react-native';
   import {NavigationContainer} from '@react-navigation/native';
   import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -33,14 +34,15 @@ const MediumItalic = 'Montserrat-MediumItalic';
 async function sendToOpenAI(input) {
     const response = await axios({
       method: 'post',
-      url: 'https://api.openai.com/v1/engines/text-davinci-002/completions',
+      url: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
+      // text-davince-003
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${OPENAI_API_KEY}`
       },
       data: {
         prompt: input,
-        max_tokens: 2048,
+        max_tokens: 4000,
         n: 1,
         stop: ['\n']
       }
@@ -54,10 +56,12 @@ const Ai = ({navigation,route}) =>{
   const [inputValue, setInputValue] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
   const [note,setNote] = useState(true);
-  const [typing,doneTyping] = useState()
+  const [typing,doneTyping] = useState();
+  const [height,setHeight] = useState('40%');
 
   const handleInputSubmit = async () => {
     setNote(false)
+    setHeight('80%')
     const prompt = `The user said: ${inputValue}\nAI response:`;
     setChatHistory([...chatHistory, { author: 'user', message: inputValue }, { author: 'bot', message: '.....' }]);
     let output = '';
@@ -68,33 +72,49 @@ const Ai = ({navigation,route}) =>{
       doneTyping(false)
     setChatHistory([...chatHistory, { author: 'user', message: inputValue }, { author: 'bot', message: output }]);
     setInputValue('');
+
   }
+  
+    const scrollViewRef = useRef();
+  
+    const handleContentSizeChange = () => {
+      scrollViewRef.current.scrollToEnd({ animated: true });
+    };
+  
     
 
     return(
-        <View  style={styles.background} >
-         
-          <ScrollView style={{marginHorizontal:30,marginTop:20}} >
-            <Text style={[styles.note,{display : note == true ? 'flex' : 'none'}]} >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos laborum corrupti, dolorem nobis odit aliquam aspernatur, cumque laboriosam fuga numquam fugiat maiores repellat! Debitis facere velit dolore itaque aliquam officiis.
-            </Text>
+        <View  style={[styles.background,{
+          height:height
+        }]} >
+          <TouchableOpacity >
+            <Text style={styles.i} >i</Text>
+          </TouchableOpacity>
+          <ScrollView ref={scrollViewRef} onContentSizeChange={handleContentSizeChange} style={{marginHorizontal:20,marginTop:20}} >
+            <View style={[styles.note,{display : note == true ? 'flex' : 'none'}]} >
+              
+            </View>
             {chatHistory.map(({ author, message }, index) => (
                 <Text style={[styles.text,{
-                  backgroundColor:author === 'user' ? secondry : primary
-                }]} key={index}>{author}: {message}</Text>
+                  backgroundColor:author === 'user' ? secondry : primary,
+                  textAlign : author === 'user' ? 'right' : 'left', 
+                }]} key={index}>{message}</Text>
             ))}
-
-            
     </ScrollView>
     <Text style={styles.typing} >{typing == true ? 'Ai is typing...' : 'Ai is Online'}</Text>
-    <TextInput style={styles.textInput} value={inputValue} onChangeText={setInputValue} onSubmitEditing={handleInputSubmit} />
-        </View>
+    
+      <TextInput style={styles.textInput} 
+      value={inputValue} 
+      onChangeText={setInputValue} 
+      onSubmitEditing={handleInputSubmit} />
+      
+    </View>
     );
 }
 const styles = StyleSheet.create({
     background:{
         backgroundColor:primary,
-        height:'40%'
+        
     },
     label:{
       color:white,
@@ -106,12 +126,14 @@ const styles = StyleSheet.create({
     text:{
       color:white,
       marginVertical:5,
-      padding:10
+      padding:10,
+      paddingHorizontal:20,
+      borderRadius:10
     },
     textInput:{
       color:white,
       backgroundColor:secondry,
-      marginHorizontal:30,
+      marginHorizontal:20,
       paddingHorizontal:20,
       borderRadius:10,
       marginBottom:-20
@@ -127,6 +149,14 @@ const styles = StyleSheet.create({
       borderRadius:10,
       padding:10,
       
+    },
+    i:{
+      color:white,
+      textAlign:'right',
+      fontSize:20,
+      marginRight:20,
+      marginTop:10,
+      marginBottom:-20
     },
 
 })
