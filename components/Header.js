@@ -5,13 +5,20 @@ import {
     StatusBar,
     StyleSheet,
     Text,
+    Touchable,
+    TouchableOpacity,
     useColorScheme,
     View,
     
   } from 'react-native';
-  import {NavigationContainer} from '@react-navigation/native';
+  
+  import {CurrentRenderContext, NavigationContainer} from '@react-navigation/native';
   import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
+  
+               
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faMugSaucer,faCheckSquare } from '@fortawesome/free-regular-svg-icons'
+import { faInfo, faInfoCircle, faNavicon } from '@fortawesome/free-solid-svg-icons';
 const primary = "#04103a"
 const secondry = "#283459"
 const blue = '#3fb0c9'
@@ -28,24 +35,57 @@ const MediumItalic = 'Montserrat-MediumItalic';
 const Header = ({navigation,route,...props}) =>{
     return(
         <View style={styles.background} >
+
+            <TouchableOpacity>
+                <FontAwesomeIcon style={styles.iLeft} icon={faNavicon} />
+            </TouchableOpacity>
+
+
             <Text style={styles.title} >{props.title}</Text>
+            
+            <TouchableOpacity >
+               
+                <FontAwesomeIcon style={styles.iRight} icon={faInfoCircle} />
+               
+            </TouchableOpacity>
+
         </View>
     );
 }
 const styles = StyleSheet.create({
     background:{
-        backgroundColor:'white',
-        height:50,
-        backgroundColor:blue,
         
+        height:50,
+        backgroundColor:'#fdfcfd',
+        flexDirection:'row',
+        justifyContent:'space-between',
+        margin:3,
+        borderRadius:10
     },
     title:{
         color:primary,
-        fontSize:20,
+        fontSize:25,
         fontFamily:Bold,
+        paddingVertical:7,
+        letterSpacing:4
+    },
+    nav:{
+        fontSize:20,
         padding:10,
-        paddingLeft:20,
+        paddingLeft:20
+    },
+    
+    iRight:{
+        fontSize:40,
+        marginRight:20,
+        marginTop:17,
         
-    }
+    },
+    iLeft:{
+        fontSize:40,
+        marginLeft:20,
+        marginTop:17,
+        
+    },
 })
 export default Header;

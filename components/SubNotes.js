@@ -10,38 +10,29 @@ import {
   } from 'react-native';
   import {NavigationContainer} from '@react-navigation/native';
   import {createNativeStackNavigator} from '@react-navigation/native-stack';
-  import Ai from './Ai'
-  import Header from './Header'
-import Notes from './Notes';
+
   const primary = "#04103a"
 const secondry = "#283459"
 
 const black = "black"
 const white = "white"
-const Regular = 'Roboto-Regular';
+const Bold = "Montserrat-Bold"
+const Regular = 'Montserrat-Regular';
 const BoldItalic = 'Montserrat-BoldItalic';
 const ExtraBold = 'Montserrat-ExtraBold';
 const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
 const Medium = 'Montserrat-Medium';
 const MediumItalic = 'Montserrat-MediumItalic';
-
-const Homepage = ({navigation,route}) =>{
+const SubNotes = ({navigation,route}) =>{
     return(
-            <View  style={styles.background} >
-                
-                <Header title={'Cogit'} />
-                <Ai />
-                <ScrollView>
-                <Notes />
-                </ScrollView>
-            </View>
+        <View style={styles.background} >
+            <Text>hello</Text>
+        </View>
     );
 }
 const styles = StyleSheet.create({
     background:{
-        backgroundColor:'#2b1499',
-        flex:1,
-        
+        backgroundColor:'white',
     },
 })
-export default Homepage;
+export default SubNotes;
