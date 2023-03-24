@@ -36,6 +36,7 @@ const Medium = 'Montserrat-Medium';
 const MediumItalic = 'Montserrat-MediumItalic';
 
 async function sendToOpenAI(input) {
+
     const response = await axios({
       method: 'post',
       url: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
@@ -52,9 +53,12 @@ async function sendToOpenAI(input) {
         stop: ['\n']
       }
     });
-  
     return response.data.choices[0].text;
-  }
+  } 
+  
+    
+  
+
 
 const Ai = ({navigation,route}) =>{
 
@@ -65,6 +69,7 @@ const Ai = ({navigation,route}) =>{
   const [height,setHeight] = useState('50%');
 
   const handleInputSubmit = async () => {
+    
     setNote(false)
     setHeight('85%')
     const prompt = `The user said: ${inputValue}\nAI response:`;
@@ -132,7 +137,7 @@ const Ai = ({navigation,route}) =>{
                   setHeight('85%')
                 }
               }} >
-                <Text style={styles.iconArrow} >{height === '0%' ? <FontAwesomeIcon icon={faArrowAltCircleDown} /> : <FontAwesomeIcon icon={faArrowAltCircleUp} />}</Text>
+                <Text style={styles.iconArrow} >{height === '16%' ? <FontAwesomeIcon icon={faArrowAltCircleDown} /> : <FontAwesomeIcon icon={faArrowAltCircleUp} />}</Text>
               </TouchableOpacity>
           </View>
           
@@ -202,7 +207,7 @@ const styles = StyleSheet.create({
       textAlign:'center',
       marginHorizontal:3,
       borderRadius:10,
-      marginTop:5
+      marginTop:15
     },
     
 

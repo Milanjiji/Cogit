@@ -1,10 +1,13 @@
 import React from 'react';
 import {
+    Image,
+    ImageBackground,
     SafeAreaView,
     ScrollView,
     StatusBar,
     StyleSheet,
     Text,
+    TouchableOpacity,
     useColorScheme,
     View,
   } from 'react-native';
@@ -26,7 +29,18 @@ const MediumItalic = 'Montserrat-MediumItalic';
 const SubNotes = ({navigation,route}) =>{
     return(
         <View style={styles.background} >
-            <Text>hello</Text>
+            <TouchableOpacity>
+                <ImageBackground style={[styles.Image,{
+                    marginTop:-10
+                }]} source={require('../assets/images/maths.png')} >
+                    <Text style={styles.Text}  >Maths</Text>
+                </ImageBackground>
+            </TouchableOpacity>
+            <TouchableOpacity >
+                <ImageBackground style={styles.Image} source={require('../assets/images/physics.png')} >
+                    <Text style={styles.Text} >Physics</Text>
+                </ImageBackground>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -34,5 +48,21 @@ const styles = StyleSheet.create({
     background:{
         backgroundColor:'white',
     },
+    Text:{
+        display:'flex',
+        color:white,
+        textAlign:'center',
+        fontSize:30,
+        fontFamily:ExtraBold,
+        width:150,
+        height:130,
+        
+       padding:10,
+      
+    },
+    Image:{
+        marginTop:10,  
+        
+    }
 })
 export default SubNotes;

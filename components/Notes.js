@@ -38,12 +38,14 @@ const styles = StyleSheet.create({
         marginTop:10,
         borderRadius:10,
         margin:3,
+        padding:15
     },
     title:{
         color:primary,
         fontSize:30,
-        fontFamily:ExtraBold,
-        paddingLeft:20
+        fontFamily:Bold,
+        paddingLeft:20,
+        marginBottom:0
     },
     align:{
         display:'flex',

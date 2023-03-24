@@ -4,7 +4,8 @@ import {
     Text,
     View,
     Image,
-    ImageBackground
+    ImageBackground,
+    TouchableOpacity
   } from 'react-native';
   import {NavigationContainer} from '@react-navigation/native';
   import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -24,17 +25,19 @@ const MediumItalic = 'Montserrat-MediumItalic';
 const SubNote = ({navigation,route}) =>{
     return(
         <View style={styles.background} >
-            <ImageBackground style={styles.chemistry} source={require('../assets/images/chemistry.png')} >
-                <Text style={styles.ctext} >Chemistry</Text>
-            </ImageBackground>
+            <TouchableOpacity>
+                <ImageBackground style={styles.chemistry} source={require('../assets/images/chemistry.png')} >
+                    <Text style={styles.ctext} >Chemistry</Text>
+                </ImageBackground>
+            </TouchableOpacity>
         </View>
     );
 }
 const styles = StyleSheet.create({
     background:{
-        backgroundColor:'white',
+        
         marginTop:-30,
-       
+      
     },
     title:{
         color:primary,
@@ -44,18 +47,19 @@ const styles = StyleSheet.create({
         
     },
     chemistry:{
-       
-        
+       marginBottom:10
+    
     },
     ctext:{
         height:300,
-        width:180,
+        width:150,
         color:white,
         paddingTop:20,
-        fontSize:30,
+        fontSize:27,
         textAlign:'center',
         fontFamily:ExtraBold,
-        borderRadius:10
+        
+        
     }
 })
 export default SubNote;
