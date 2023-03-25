@@ -18,7 +18,7 @@ import {
                
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faMugSaucer,faCheckSquare } from '@fortawesome/free-regular-svg-icons'
-import { faInfo, faInfoCircle, faNavicon } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleDown, faInfo, faInfoCircle, faNavicon } from '@fortawesome/free-solid-svg-icons';
 const primary = "#04103a"
 const secondry = "#283459"
 const blue = '#3fb0c9'
@@ -39,15 +39,18 @@ const Header = ({navigation,route,...props}) =>{
             <TouchableOpacity>
                 <FontAwesomeIcon style={styles.iLeft} icon={faNavicon} />
             </TouchableOpacity>
-
-
-            <Text style={styles.title} >{props.title}</Text>
-            
-            <TouchableOpacity >
-               
-                <FontAwesomeIcon style={styles.iRight} icon={faInfoCircle} />
-               
-            </TouchableOpacity>
+            <Text style={[styles.title,{
+                letterSpacing: props.letterpacing == 'y' ? 4 : 0
+            }]} >{props.title}</Text>
+            <View>
+                {props.info == "info" ?
+                <TouchableOpacity >
+                    <FontAwesomeIcon style={styles.iRight} icon={faInfoCircle} />
+                </TouchableOpacity> : props.info == "#" ? 
+                <TouchableOpacity >
+                    <FontAwesomeIcon style={styles.iRight} icon={faArrowAltCircleDown} />
+                </TouchableOpacity> : ''}
+            </View>
 
         </View>
     );
@@ -67,7 +70,7 @@ const styles = StyleSheet.create({
         fontSize:25,
         fontFamily:Bold,
         paddingVertical:7,
-        letterSpacing:4
+        
     },
     nav:{
         fontSize:20,
