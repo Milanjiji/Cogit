@@ -17,7 +17,8 @@ import {
   import Notes from './Notes';
   import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
   import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons';
-  import { faArrowAltCircleDown, faArrowAltCircleUp } from '@fortawesome/free-regular-svg-icons';
+  import { faArrowAltCircleDown, faArrowAltCircleUp, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons';
 
 const OPENAI_API_KEY = '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';
 
@@ -66,12 +67,13 @@ const Ai = ({navigation,route}) =>{
   const [chatHistory, setChatHistory] = useState([]);
   const [note,setNote] = useState(true);
   const [typing,doneTyping] = useState();
-  const [height,setHeight] = useState('50%');
+  const [singleRun,setSingleRun] = useState(false)
+  
 
   const handleInputSubmit = async () => {
     
     setNote(false)
-    setHeight('85%')
+    console.log("the question send to AI is ",inputValue);
     const prompt = `The user said: ${inputValue}\nAI response:`;
     setChatHistory([...chatHistory, { author: 'user', message: inputValue }, { author: 'bot', message: '.....' }]);
     let output = '';
@@ -90,13 +92,18 @@ const Ai = ({navigation,route}) =>{
     const handleContentSizeChange = () => {
       scrollViewRef.current.scrollToEnd({ animated: true });
     };
+    if(inputValue === 'Can you explain the concept of quantum mechanics?' && singleRun === false ){
+      handleInputSubmit();
+      setSingleRun(true)
+
+    }
   
     
 
     return(
         
           
-          <View  style={[styles.background,{height:height}]} >
+          <View  style={styles.background} >
           
           <ScrollView ref={scrollViewRef} onContentSizeChange={handleContentSizeChange} style={{marginHorizontal:20,marginTop:20}} >
             <View style={[styles.note,{display : note == true ? 'flex' : 'none'}]} >
@@ -115,6 +122,29 @@ const Ai = ({navigation,route}) =>{
                 * Write the electronic configuration of the elements with atomic numbers
                  6, 13, and 17. Also, state the group and period to which these elements belong.
               </Text>
+              <Text style={styles.noteText} >
+                LIMITATIONS {"\n"}
+                :- Limited context understanding{"\n"}
+                :- Dependence on training data{"\n"}
+                :- Lack of common sense{"\n"}
+                :- Limited creativity{"\n"}
+                :- Answers may be incomplete sometimes
+
+              </Text>
+              <Text style={styles.noteText} >
+                Some Sample questions are given below. click one the below to ask. 
+              </Text>
+
+              <TouchableOpacity onPress={() =>{
+                setInputValue('Can you explain the concept of quantum mechanics?')
+              }} >
+                <Text style={[styles.noteText,{
+                  backgroundColor:primary,
+                  textAlign:'center',
+                  borderRadius:10,
+                  padding:10
+                }]} >Can you explain the concept of quantum mechanics?</Text>
+              </TouchableOpacity>
             </View>
             {chatHistory.map(({ author, message }, index) => (
                 <Text style={[styles.text,{
@@ -129,19 +159,13 @@ const Ai = ({navigation,route}) =>{
               <TextInput style={styles.textInput} 
               value={inputValue} 
               onChangeText={setInputValue} 
-              onSubmitEditing={handleInputSubmit} />
-              <TouchableOpacity onPress={() =>{
-                if(height === '50%' || height === '85%'){
-                  setHeight('16%');
-                }else{
-                  setHeight('85%')
-                }
-              }} >
-                <Text style={styles.iconArrow} >{height === '16%' ? <FontAwesomeIcon icon={faArrowAltCircleDown} /> : <FontAwesomeIcon icon={faArrowAltCircleUp} />}</Text>
+              onSubmitEditing={handleInputSubmit}
+              placeholder={'Ask your questions here'} />
+              <TouchableOpacity onPress={handleInputSubmit} >
+                <FontAwesomeIcon style={styles.iconPlane} color={white} size={30} icon={faPaperPlane} />
               </TouchableOpacity>
+
           </View>
-          
-          
         </View>
           
         
@@ -154,7 +178,8 @@ const styles = StyleSheet.create({
         backgroundColor:primary,
         margin:3,
         marginTop:0,
-        borderRadius:10
+        borderRadius:10,
+        flex:1
     },
     label:{
       color:white,
@@ -172,11 +197,19 @@ const styles = StyleSheet.create({
     },
     textInput:{
       color:white,
+      paddingHorizontal:20,
+      flex:1
+    },
+    input:{
       backgroundColor:secondry,
       marginHorizontal:20,
-      paddingHorizontal:20,
       borderRadius:10,
-      // marginBottom:-40
+      marginBottom:10,
+      flexDirection:'row',
+      justifyContent:'space-between'
+    },
+    iconPlane:{
+      margin:10
     },
     typing:{
       color:'#36477c',

@@ -2,12 +2,9 @@ import React from 'react';
 import {
     StyleSheet,
     Text,
+    TouchableOpacity,
     View,
   } from 'react-native';
-  import {NavigationContainer} from '@react-navigation/native';
-  import {createNativeStackNavigator} from '@react-navigation/native-stack';
-  import SubNote from './SubNote';
-  import SubNotes from './SubNotes';
 
 const primary = "#04103a"
 const secondry = "#283459"
@@ -25,10 +22,26 @@ const Notes = ({navigation,route,...props}) =>{
     return(
         <View style={styles.background}>
             <Text style={styles.title} >Notes</Text>
-            <View style={styles.align}>
-                <SubNotes/>  
-                <SubNote/>   
-            </View>   
+            <View style={styles.btnContainer} >
+                <View style={styles.secondBtnContainer} >
+                    <TouchableOpacity style={styles.btn} >
+                        <Text style={styles.btnText} >Maths</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btn} >
+                        <Text style={styles.btnText} >Chemistry</Text>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    <TouchableOpacity style={styles.btn} >
+                        <Text style={styles.btnText} >Physics</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.btn} >
+                        <Text style={styles.btnText} >Biology</Text>
+                    </TouchableOpacity>
+                </View>
+            </View>
+                 
+            
         </View>
     );
 }
@@ -38,7 +51,8 @@ const styles = StyleSheet.create({
         marginTop:10,
         borderRadius:10,
         margin:3,
-        padding:15
+        padding:15,
+
     },
     title:{
         color:primary,
@@ -47,11 +61,26 @@ const styles = StyleSheet.create({
         paddingLeft:20,
         marginBottom:0
     },
-    align:{
-        display:'flex',
-        flexDirection:'row',
-        justifyContent:'space-around',
-        alignItems:'center'
-    }
+    btn:{
+        backgroundColor:'red',
+        width:150,
+        height:100,
+        borderRadius:10,
+        justifyContent:'flex-end',
+        marginVertical:10
+
+    },
+    btnText:{
+        color:white,
+        fontSize:20,
+        fontFamily:Bold,
+        textAlign:'right',
+        padding:20
+    },
+    btnContainer:{
+        flexDirection: 'row', // Arrange children horizontally
+        justifyContent: 'space-around',  
+    },
+    
 })
 export default Notes;

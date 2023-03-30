@@ -12,8 +12,9 @@ import {
   import {createNativeStackNavigator} from '@react-navigation/native-stack';
   import Ai from './Ai'
   import Header from './Header'
-import Notes from './Notes';
-  const primary = "#04103a"
+  import Notes from './Notes';
+  import HomePageFootor from './HomePageFootor';
+const primary = "#04103a"
 const secondry = "#283459"
 
 const black = "black"
@@ -25,15 +26,16 @@ const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
 const Medium = 'Montserrat-Medium';
 const MediumItalic = 'Montserrat-MediumItalic';
 
+
 const Homepage = ({navigation,route}) =>{
     return(
             <View  style={styles.background} >
                 
-                <Header title={'Cogit'} />
-                <Ai />
+                <Header info={'info'} letterpacing={'y'} title={'Cogit'} />
                 <ScrollView>
                 <Notes />
                 </ScrollView>
+                <HomePageFootor />
             </View>
     );
 }
