@@ -11,14 +11,14 @@ import {
     TouchableOpacity,
     Touchable
   } from 'react-native';
-  import {NavigationContainer} from '@react-navigation/native';
-  import {createNativeStackNavigator} from '@react-navigation/native-stack';
+  
   import axios from 'axios';
   import Notes from './Notes';
   import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
   import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons';
   import { faArrowAltCircleDown, faArrowAltCircleUp, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons';
+import HomePageFootor from './HomePageFootor';
 
 const OPENAI_API_KEY = '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';
 
@@ -61,7 +61,7 @@ async function sendToOpenAI(input) {
   
 
 
-const Ai = ({navigation,route}) =>{
+const Ai = ({navigation,route,...props}) =>{
 
   const [inputValue, setInputValue] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
@@ -72,19 +72,22 @@ const Ai = ({navigation,route}) =>{
 
   const handleInputSubmit = async () => {
     
-    setNote(false)
-    console.log("the question send to AI is ",inputValue);
-    const prompt = `The user said: ${inputValue}\nAI response:`;
-    setChatHistory([...chatHistory, { author: 'user', message: inputValue }, { author: 'bot', message: '.....' }]);
-    let output = '';
-      while (!output) {
-        output = await sendToOpenAI(prompt);
-        doneTyping(true)
-      }
-      doneTyping(false)
-    setChatHistory([...chatHistory, { author: 'user', message: inputValue }, { author: 'bot', message: output }]);
-    setInputValue('');
-
+    if(!inputValue){
+      
+    }else{
+      setNote(false)
+      const prompt = `The user said: ${inputValue}\nAI response:`;
+      setChatHistory([...chatHistory, { author: 'user', message: inputValue }, { author: 'bot', message: '.....' }]);
+      let output = '';
+        while (!output) {
+          output = await sendToOpenAI(prompt);
+          doneTyping(true)
+        }
+        doneTyping(false)
+      setChatHistory([...chatHistory, { author: 'user', message: inputValue }, { author: 'bot', message: output }]);
+      setInputValue('');
+    }
+    
   }
   
     const scrollViewRef = useRef();
@@ -92,18 +95,20 @@ const Ai = ({navigation,route}) =>{
     const handleContentSizeChange = () => {
       scrollViewRef.current.scrollToEnd({ animated: true });
     };
-    if(inputValue === 'Can you explain the concept of quantum mechanics?' && singleRun === false ){
-      handleInputSubmit();
-      setSingleRun(true)
-
+    if(inputValue === 'Can you explain the concept of quantum mechanics?' 
+    || inputValue === 'Can you explain the concept of photosynthesis?'
+    || inputValue === 'What are the three main types of rocks and how are they formed?'){
+      if(singleRun === false){
+        handleInputSubmit();
+        setSingleRun(true)
+      }
     }
-  
-    
 
     return(
         
           
-          <View  style={styles.background} >
+          
+            <View  style={styles.background} >
           
           <ScrollView ref={scrollViewRef} onContentSizeChange={handleContentSizeChange} style={{marginHorizontal:20,marginTop:20}} >
             <View style={[styles.note,{display : note == true ? 'flex' : 'none'}]} >
@@ -145,6 +150,28 @@ const Ai = ({navigation,route}) =>{
                   padding:10
                 }]} >Can you explain the concept of quantum mechanics?</Text>
               </TouchableOpacity>
+
+              <TouchableOpacity onPress={() =>{
+                setInputValue('Can you explain the concept of photosynthesis?')
+              }} >
+                <Text style={[styles.noteText,{
+                  backgroundColor:primary,
+                  textAlign:'center',
+                  borderRadius:10,
+                  padding:10
+                }]} >Can you explain the concept of photosynthesis?</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() =>{
+                setInputValue('What are the three main types of rocks and how are they formed?')
+              }} >
+                <Text style={[styles.noteText,{
+                  backgroundColor:primary,
+                  textAlign:'center',
+                  borderRadius:10,
+                  padding:10
+                }]} >What are the three main types of rocks and how are they formed?</Text>
+              </TouchableOpacity>
             </View>
             {chatHistory.map(({ author, message }, index) => (
                 <Text style={[styles.text,{
@@ -166,7 +193,11 @@ const Ai = ({navigation,route}) =>{
               </TouchableOpacity>
 
           </View>
+          <HomePageFootor navigation={navigation} />
         </View>
+        
+          
+        
           
         
           

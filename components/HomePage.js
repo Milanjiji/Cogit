@@ -14,6 +14,7 @@ import {
   import Header from './Header'
   import Notes from './Notes';
   import HomePageFootor from './HomePageFootor';
+import MainSection from './MainSection';
 const primary = "#04103a"
 const secondry = "#283459"
 
@@ -33,9 +34,10 @@ const Homepage = ({navigation,route}) =>{
                 
                 <Header info={'info'} letterpacing={'y'} title={'Cogit'} />
                 <ScrollView>
-                <Notes />
+                    <MainSection/>
+                    <Notes />
                 </ScrollView>
-                <HomePageFootor />
+                <HomePageFootor navigation={navigation} />
             </View>
     );
 }
