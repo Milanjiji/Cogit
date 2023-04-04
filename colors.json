@@ -1,0 +1,13 @@
+{   
+    "Background":"#2b1499",
+    "primary":"#12156c",
+    "secondary":"#0e1158",
+    "black":"black",
+    "white":"white",
+    "Regular":"Roboto-Regular",
+    "BoldItalic":"Montserrat-BoldItalic",
+    "ExtraBold":"Montserrat-ExtraBold",
+    "ExtraBoldItalic":"Montserrat-ExtraBoldItalic",
+    "Medium":"Montserrat-Medium",
+    "MediumItalic":"Montserrat-MediumItalic"
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { View,Text,ScrollView,StyleSheet,TouchableOpacity } from "react-native";
-import Header from "../../../Header";
+import Header from "../../../../components/Header";
 
 
 const primary = "#04103a"

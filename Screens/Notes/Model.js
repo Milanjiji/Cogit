@@ -1,6 +1,6 @@
 import React from "react";
 import { Text,View,StyleSheet, SafeAreaView, ScrollView } from "react-native";
-import Header from "../Header";
+import Header from "../../components/Header";
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import { faMehBlank } from "@fortawesome/free-solid-svg-icons";

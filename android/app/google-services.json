@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "618058200247",
+    "project_id": "fir-e4bcf",
+    "storage_bucket": "fir-e4bcf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618058200247:android:0b05e8f98be68f4e0ec932",
+        "android_client_info": {
+          "package_name": "com.cogitone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618058200247-t90hlq9cs6itqmfod2n9f0ek9acg6cdd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfNeWRQ9ukM_92CE3_KSspeQNqevWv4OA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618058200247-t90hlq9cs6itqmfod2n9f0ek9acg6cdd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

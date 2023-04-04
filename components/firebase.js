@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import 'firebase/database';
+import 'firebase/storage';
+import { initializeApp } from 'firebase/app';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDhsPtvKQnVm9n880VB3ew6Dvi5D_y1mlc",
@@ -13,8 +16,6 @@ const firebaseConfig = {
     measurementId: "G-29QRYVQHZG"
   };
 
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-  }
-  
-  export { firebase };
+firebase.initializeApp(firebaseConfig);
+
+export default firebase;

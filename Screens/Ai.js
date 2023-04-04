@@ -1,24 +1,17 @@
 import React, { useState,useRef } from 'react';
 import {
-    SafeAreaView,
     ScrollView,
-    StatusBar,
     StyleSheet,
     Text,
-    useColorScheme,
     View,
     TextInput,
     TouchableOpacity,
-    Touchable
   } from 'react-native';
   
-  import axios from 'axios';
-  import Notes from './Notes';
-  import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-  import { faCircleArrowUp } from '@fortawesome/free-solid-svg-icons';
-  import { faArrowAltCircleDown, faArrowAltCircleUp, faPaperPlane } from '@fortawesome/free-regular-svg-icons';
-import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons';
-import HomePageFootor from './HomePageFootor';
+import axios from 'axios';  
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
+import HomePageFootor from '../components/HomePageFootor';
 
 const OPENAI_API_KEY = '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';
 
@@ -30,11 +23,7 @@ const black = "black"
 const white = "white"
 
 const Regular = 'Roboto-Regular';
-const BoldItalic = 'Montserrat-BoldItalic';
-const ExtraBold = 'Montserrat-ExtraBold';
-const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
-const Medium = 'Montserrat-Medium';
-const MediumItalic = 'Montserrat-MediumItalic';
+
 
 async function sendToOpenAI(input) {
 

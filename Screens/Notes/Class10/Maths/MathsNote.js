@@ -10,8 +10,8 @@ import {
   import {createNativeStackNavigator} from '@react-navigation/native-stack';
   import Pdf from 'react-native-pdf';
 import Model from '../../Model';
-import Footor from '../../../Footor';
-import Questions from '../../../Questions';
+import Footor from '../../../../components/Footor';
+import Questions from '../../../../components/Questions';
 import note from './mathsNotes.json'
 const primary = "#04103a"
 const secondry = "#283459"

@@ -4,20 +4,19 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-import Homepage from './HomePage'
-import MathsNote10 from './Notes/Class10/Maths/MathsNote'
+import Homepage from '../Screens/HomePage'
+import MathsNote10 from '../Screens/Notes/Class10/Maths/MathsNote'
 import FileSys from './FileSystem';
 import Download from './Download';
-import Model from './Notes/Model';
+import Model from "../Screens/Notes/Model";
 import SampleFetch from './SampleFetch';
-import Classification from "./Notes/Class10/Maths/Classification";
-import Ai from "./Ai";
-import ChatScreen from "./ChatScreen";
-import Chat from "./Chat/Chat";
-import Login from "./Chat/Login";
-import SignUp from "./Chat/SignUp";
+import Classification from "../Screens/Notes/Class10/Maths/Classification";
+import Ai from "../Screens/Ai";
+import Forum from "../Screens/Forum";
 
-import { firebase } from './Chat/Firebase';
+
+
+
 
 
 
@@ -27,62 +26,44 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator initialRouteName='SignUp' screenOptions={{headerShown:false}} >
+        <Stack.Navigator  initialRouteName='Forum' screenOptions={{headerShown:false}} >
+        
           <Stack.Screen
             name="Home" 
-            component={Homepage} 
-            options={{ headerShown: false }}/>
+            component={Homepage} />
             
             <Stack.Screen
             name="MathsNote10" 
-            component={MathsNote10} 
-            options={{ headerShown: false }}/>
+            component={MathsNote10} />
   
             <Stack.Screen
             name="File" 
-            component={FileSys} 
-            options={{ headerShown: true }}/>
+            component={FileSys} />
   
             <Stack.Screen
             name="Download" 
-            component={Download} 
-            options={{ headerShown: true }}/>
+            component={Download} />
   
             <Stack.Screen
             name="Model" 
-            component={Model} 
-            options={{ headerShown: false }}/>
+            component={Model} />
   
             <Stack.Screen
             name="Fetch" 
-            component={SampleFetch} 
-            options={{ headerShown: false }}/>
+            component={SampleFetch} />
 
             <Stack.Screen
             name="MathsClassification" 
-            component={Classification} 
-            options={{ headerShown: false }}/>
+            component={Classification} />
 
             <Stack.Screen
             name="Ai" 
-            component={Ai} 
-            options={{ headerShown: false }}/> 
+            component={Ai} />
             <Stack.Screen
-            name="chatScreen" 
-            component={ChatScreen} 
-            options={{ headerShown: false }}/>  
-            <Stack.Screen
-            name="chat" 
-            component={Chat} 
-            options={{ headerShown: false }}/>  
-             <Stack.Screen
-            name="Login" 
-            component={Login} 
-            options={{ headerShown: false }}/> 
-            <Stack.Screen
-            name="SignUp" 
-            component={SignUp} 
-            options={{ headerShown: false }}/>  
+            name="Forum" 
+            component={Forum} />
+            
+             
   
         </Stack.Navigator>
       </NavigationContainer>
@@ -90,3 +71,5 @@ const Screens = () =>{
 }
 
 export default Screens;
+
+

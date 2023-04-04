@@ -11,10 +11,10 @@ import {
   import {NavigationContainer} from '@react-navigation/native';
   import {createNativeStackNavigator} from '@react-navigation/native-stack';
   import Ai from './Ai'
-  import Header from './Header'
-  import Notes from './Notes';
-  import HomePageFootor from './HomePageFootor';
-import MainSection from './MainSection';
+  import Header from '../components/Header';
+  import Notes from '../components/Notes';
+  import HomePageFootor from '../components/HomePageFootor';
+import MainSection from '../components/MainSection';
 const primary = "#04103a"
 const secondry = "#283459"
 
@@ -43,7 +43,8 @@ const Homepage = ({navigation,route}) =>{
 }
 const styles = StyleSheet.create({
     background:{
-        backgroundColor:'#2b1499',
+        // backgroundColor:'#2b1499',
+        backgroundColor:"#12156c",
         flex:1,
         
     },
