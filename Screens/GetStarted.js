@@ -2,12 +2,11 @@ import React,{useState} from 'react';
 import { View,
         Text,
         StyleSheet,
-        SafeareaView,
-        TextInput,
-        Button,
         TouchableOpacity,
-        ImageBackground
+        Dimensions
         } from 'react-native'
+
+import colors from '../colors.json'
 
 const primary = "#04103a"
 const secondry = "#3fb0c9"
@@ -19,7 +18,8 @@ const fontBold = "Montserrat-Bold"
 
 const GetStarted = ({navigation}) =>{
     const [name,setname] = useState("");
-   
+    const height = Dimensions.get('window').height
+    const width = Dimensions.get('window').width
     const inputHandler = (text)=>{
         setname(text);   
     }
@@ -27,13 +27,18 @@ const GetStarted = ({navigation}) =>{
     
     return (
         <View style={styles.background} >
-            <ImageBackground  ></ImageBackground>
+           
             <Text style={styles.name} >Cogit</Text>
-            <Text style={styles.quote} >Transform the way you learn with Cogit</Text>
+            <Text style={[styles.quote,{
+                fontSize:width/8,marginTop:height/6.5
+            }]} >Transform the way you learn with Cogit</Text>
+            <Text style={styles.smallquote} >Get ahead in your studies with Cogit {"\n"} - the student-friendly app.</Text>
             <TouchableOpacity onPress={()=>{
                 navigation.navigate('Details')
             }} >
-                <Text style={styles.btn} >Get Started</Text>
+                <Text style={[styles.btn,{
+                    marginTop: Dimensions.get('window').height / 4.5
+                }]} >Get Started</Text>
             </TouchableOpacity>
         </View>
 
@@ -42,8 +47,7 @@ const GetStarted = ({navigation}) =>{
 const styles = StyleSheet.create({
     background:{
         backgroundColor:primary,
-        flex:1,
-        
+        flex:1
     },
     name:{
         fontSize:35,
@@ -55,9 +59,7 @@ const styles = StyleSheet.create({
     quote:{
         color:secondry,
         fontFamily:fontBold,
-        fontSize:64,
         padding:20,
-        marginTop:110,
         textShadowColor:secondry,
         textShadowOffset:{width:2,height:2},
         textShadowRadius:20,
@@ -71,8 +73,12 @@ const styles = StyleSheet.create({
         textAlign:'center',
         padding:10,
         borderRadius:10,
-        marginTop:180
-    }
+    },
+    smallquote:{
+        marginHorizontal:20,
+        fontFamily:colors.BoldItalic,
+        color:white
+    },
 })
 
 export default GetStarted;

@@ -1,20 +1,20 @@
 import React from 'react';
 import {
-    SafeAreaView,
     ScrollView,
-    StatusBar,
     StyleSheet,
-    Text,
-    useColorScheme,
     View,
+    Dimensions
   } from 'react-native';
-  import {NavigationContainer} from '@react-navigation/native';
-  import {createNativeStackNavigator} from '@react-navigation/native-stack';
-  import Ai from './Ai'
-  import Header from '../components/Header';
-  import Notes from '../components/Notes';
-  import HomePageFootor from '../components/HomePageFootor';
-import MainSection from '../components/MainSection';
+import Ai from './Ai'
+import Header from '../components/Header';
+import Notes from '../components/Notes';
+import HomePageFootor from '../components/HomePageFootor';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Profile from '../components/Profile';
+import Events from '../components/Events';
+import Utilities from '../components/Utilities';
+import Achievement from '../components/Achivements';
+import PrevSection from '../components/PrevSection';
 const primary = "#04103a"
 const secondry = "#283459"
 
@@ -29,14 +29,22 @@ const MediumItalic = 'Montserrat-MediumItalic';
 
 
 const Homepage = ({navigation,route}) =>{
+    const width = Dimensions.get('window').width
+    console.log(width-100);
     return(
             <View  style={styles.background} >
                 
                 <Header info={'info'} letterpacing={'y'} title={'Cogit'} />
                 <ScrollView>
-                    <MainSection/>
+                    <Events />
+                    <PrevSection/>
+                    <View style={{flexDirection:'row',width:width,padding:10}} >
+                        <Achievement />
+                        <Utilities/>
+                    </View>
                     <Notes />
                 </ScrollView>
+                
                 <HomePageFootor navigation={navigation} />
             </View>
     );

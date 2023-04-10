@@ -9,5 +9,7 @@
     "ExtraBold":"Montserrat-ExtraBold",
     "ExtraBoldItalic":"Montserrat-ExtraBoldItalic",
     "Medium":"Montserrat-Medium",
-    "MediumItalic":"Montserrat-MediumItalic"
+    "MediumItalic":"Montserrat-MediumItalic",
+    "Bold":"Montserrat-Bold",
+    "NoteBackground":"#faf0e6"
 }

@@ -12,7 +12,7 @@ import {
   
   import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
   import {  faBook, faGear, faHome, faMessage } from '@fortawesome/free-solid-svg-icons';
-import { faFileText } from '@fortawesome/free-regular-svg-icons';
+import { faFileText, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
   const primary = "#04103a"
@@ -20,13 +20,8 @@ const secondry = "#283459"
 
 const black = "black"
 const white = "white"
-const Bold = "Montserrat-Bold"
-const Regular = 'Montserrat-Regular';
-const BoldItalic = 'Montserrat-BoldItalic';
 const ExtraBold = 'Montserrat-ExtraBold';
-const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
-const Medium = 'Montserrat-Medium';
-const MediumItalic = 'Montserrat-MediumItalic';
+
 const HomePageFootor = ({navigation,route,...props}) =>{
     return(
         <View style={styles.background}   >
@@ -42,12 +37,12 @@ const HomePageFootor = ({navigation,route,...props}) =>{
                 <Text style={{color:black,fontSize:23,fontFamily:ExtraBold}} >AI</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.iconContainer} >
+            <TouchableOpacity onPress={()=>{navigation.navigate('Forum')}} style={styles.iconContainer} >
                 <FontAwesomeIcon style={styles.icon} size={23} icon={faMessage} />
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.iconContainer} >
-                <FontAwesomeIcon style={styles.icon} size={23} icon={faGear} />
+                <FontAwesomeIcon style={styles.icon} size={23} icon={faUser} />
             </TouchableOpacity>
         </View>
     );

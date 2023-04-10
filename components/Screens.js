@@ -5,15 +5,17 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 import Homepage from '../Screens/HomePage'
-import MathsNote10 from '../Screens/Notes/Class10/Maths/MathsNote'
-import FileSys from './FileSystem';
-import Download from './Download';
+// import MathsNote10 from '../Screens/Notes/Class10/Maths/MathsNote'
+// import FileSys from './FileSystem';
+// import Download from './Download';
 import Model from "../Screens/Notes/Model";
 import SampleFetch from './SampleFetch';
 import Classification from "../Screens/Notes/Class10/Maths/Classification";
 import Ai from "../Screens/Ai";
 import Forum from "../Screens/Forum";
-
+import GetStarted from "../Screens/GetStarted";
+import Details from "../Screens/Details";
+import NoteCreator from "../Screens/NoteCreator";
 
 
 
@@ -26,42 +28,42 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='Forum' screenOptions={{headerShown:false}} >
-        
+        <Stack.Navigator  initialRouteName='NoteCreator' screenOptions={{headerShown:false,animation:'none'}} >
           <Stack.Screen
-            name="Home" 
-            component={Homepage} />
-            
-            <Stack.Screen
-            name="MathsNote10" 
-            component={MathsNote10} />
-  
-            <Stack.Screen
-            name="File" 
-            component={FileSys} />
-  
-            <Stack.Screen
-            name="Download" 
-            component={Download} />
-  
-            <Stack.Screen
-            name="Model" 
-            component={Model} />
-  
-            <Stack.Screen
-            name="Fetch" 
-            component={SampleFetch} />
+           name="getStarted" 
+           component={GetStarted} />
 
-            <Stack.Screen
-            name="MathsClassification" 
-            component={Classification} />
+          <Stack.Screen
+           name="Details" 
+           component={Details} />
 
-            <Stack.Screen
-            name="Ai" 
-            component={Ai} />
-            <Stack.Screen
-            name="Forum" 
-            component={Forum} />
+          <Stack.Screen
+           name="Home" 
+           component={Homepage} />
+          <Stack.Screen
+           name="NoteCreator" 
+           component={NoteCreator} />
+
+          <Stack.Screen
+           name="Model" 
+           component={Model} />
+
+  
+          <Stack.Screen
+           name="Fetch" 
+           component={SampleFetch} />
+
+          <Stack.Screen
+           name="MathsClassification" 
+           component={Classification} />
+
+          <Stack.Screen
+           name="Ai" 
+           component={Ai} />
+
+          <Stack.Screen
+           name="Forum" 
+           component={Forum} />
             
              
   

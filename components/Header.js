@@ -1,27 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
     StyleSheet,
     Text,
-    Touchable,
     TouchableOpacity,
-    useColorScheme,
     View,
-    
+    DrawerLayoutAndroid
   } from 'react-native';
   
-  import {CurrentRenderContext, NavigationContainer} from '@react-navigation/native';
-  import {createNativeStackNavigator} from '@react-navigation/native-stack';
   
                
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faMugSaucer,faCheckSquare } from '@fortawesome/free-regular-svg-icons'
-import { faArrowAltCircleDown, faInfo, faInfoCircle, faNavicon } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleDown, faEllipsisV, faGear, faGears, faInfo, faInfoCircle, faNavicon } from '@fortawesome/free-solid-svg-icons';
 const primary = "#04103a"
-const secondry = "#283459"
-const blue = '#3fb0c9'
+
 
 const black = "black"
 const white = "white"
@@ -33,11 +24,11 @@ const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
 const Medium = 'Montserrat-Medium';
 const MediumItalic = 'Montserrat-MediumItalic';
 const Header = ({navigation,route,...props}) =>{
+    
     return(
         <View style={styles.background} >
-
             <TouchableOpacity>
-                <FontAwesomeIcon style={styles.iLeft} icon={faNavicon} />
+                <FontAwesomeIcon style={styles.iLeft} icon={faGear} />
             </TouchableOpacity>
             <Text style={[styles.title,{
                 letterSpacing: props.letterpacing == 'y' ? 4 : 0
@@ -49,6 +40,9 @@ const Header = ({navigation,route,...props}) =>{
                 </TouchableOpacity> : props.info == "#" ? 
                 <TouchableOpacity >
                     <FontAwesomeIcon style={styles.iRight} icon={faArrowAltCircleDown} />
+                </TouchableOpacity> : props.info == 'ellipsis' ?
+                <TouchableOpacity >
+                <FontAwesomeIcon style={styles.iRight} icon={faEllipsisV} />
                 </TouchableOpacity> : ''}
             </View>
 

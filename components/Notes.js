@@ -4,6 +4,8 @@ import {
     Text,
     TouchableOpacity,
     View,
+    ScrollView,
+    ImageBackground
   } from 'react-native';
 
 const primary = "#04103a"
@@ -22,24 +24,34 @@ const Notes = ({navigation,route,...props}) =>{
     return(
         <View style={styles.background}>
             <Text style={styles.title} >Notes</Text>
-            <View style={styles.btnContainer} >
-                <View style={styles.secondBtnContainer} >
-                    <TouchableOpacity style={styles.btn} >
-                        <Text style={styles.btnText} >Maths</Text>
+            <ScrollView showsHorizontalScrollIndicator={false} horizontal style={{flexDirection:'row'}} >
+                <View style={{flexDirection:'row'}} >
+                    <TouchableOpacity style={[styles.btn,{backgroundColor:'#f6b26b'}]} >
+                        <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1tHfRi8UikHq30wR5Nq1m4IZjCjH0PU9z'}} >
+                                <Text style={styles.btnText} >Maths</Text>
+                        </ImageBackground>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn} >
-                        <Text style={styles.btnText} >Chemistry</Text>
+                    
+                    <TouchableOpacity style={[styles.btn,{backgroundColor:'#5d5eab'}]} >
+                        <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1NQIJtTmPXC7BS95fe-fc6tI-UCgEMZa9'}} >
+                                <Text style={styles.btnText} >Chemistry</Text>
+                        </ImageBackground>
                     </TouchableOpacity>
+                    
+                    <TouchableOpacity style={[styles.btn,{backgroundColor:'#7dcfb6'}]} >
+                        <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1IdNwwJfD5g4BAK1ZWIVQovF_VjfqZvd_'}} >
+                                <Text style={styles.btnText} >Physics</Text>
+                        </ImageBackground>
+                    </TouchableOpacity>
+                    
+                    <TouchableOpacity style={[styles.btn,{backgroundColor:'#a26a7b'}]} >
+                        <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1dSy9ZT7xkAz9HcWzFwp0yQpexsfKbRhb'}} >
+                                <Text style={styles.btnText} >Biology</Text>
+                        </ImageBackground>
+                    </TouchableOpacity>
+                    
                 </View>
-                <View>
-                    <TouchableOpacity style={styles.btn} >
-                        <Text style={styles.btnText} >Physics</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn} >
-                        <Text style={styles.btnText} >Biology</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
+            </ScrollView>
                  
             
         </View>
@@ -51,35 +63,34 @@ const styles = StyleSheet.create({
         marginTop:10,
         borderRadius:10,
         margin:3,
-        padding:15,
-
+        padding:10
     },
     title:{
         color:primary,
-        fontSize:30,
-        fontFamily:Bold,
-        paddingLeft:20,
-        marginBottom:0
+        fontFamily:ExtraBold,
+        fontSize:16,
+        
+        
     },
     btn:{
-        backgroundColor:'red',
         width:150,
         height:100,
         borderRadius:10,
         justifyContent:'flex-end',
-        marginVertical:10
-
+        marginVertical:2,
+        marginHorizontal:2
     },
     btnText:{
         color:white,
         fontSize:20,
         fontFamily:Bold,
         textAlign:'right',
-        padding:20
+        padding:20,
+        height:100,
+        marginTop:40
     },
     btnContainer:{
-        flexDirection: 'row', // Arrange children horizontally
-        justifyContent: 'space-around',  
+        flexDirection:'row' 
     },
     
 })

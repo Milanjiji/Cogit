@@ -1,0 +1,88 @@
+import React,{useState,useEffect,useRef} from "react";
+import { View,Text,StyleSheet,ImageBackground, Linking, FlatList, Button,Dimensions } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import firestore from '@react-native-firebase/firestore';
+import colors from '../colors.json'
+
+
+const Events = () =>{
+    const [docNumber,setDocNumber] = useState(0)
+    const [data,setData] = useState([]) 
+
+    
+
+    
+        useEffect(() => {
+            const get = async () =>{
+                const users = await firestore().collection('Events').get()
+                const events = users.docs.map(doc => doc.data())
+                const size = users.docs.map(doc => doc.data())
+                setDocNumber(users.size)
+                setData(events);
+            }
+            get();
+          }, []);
+        
+
+        const renderItem = ({item}) =>{
+            return(
+               
+                <View style={styles.event_container} >
+                <ImageBackground  borderRadius={10} source={{ uri: item.imageSource }}  >
+                    <View style={{height:item.height}} >
+                    <Text style={[styles.title,{color:item.color,width:item.titleWidth}]} >{item.title}</Text>
+                    <Text style={[styles.disc,{marginTop:item.marginTop,width:item.width,color:item.color}]} >{item.disc}</Text>
+                    <Text style={[styles.link,{color:item.color}]} onPress={()=> Linking.openURL(item.link)} >Learn more</Text>
+                    </View>
+                </ImageBackground>
+            </View> 
+            )
+        }
+        
+        return(
+        <View style={styles.body}  >
+            <Text style={styles.Events} >Events ({docNumber})</Text>
+            <FlatList
+            data={data}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={renderItem}
+            horizontal={true}
+            />
+            
+        </View>
+    );
+}
+const styles = StyleSheet.create({
+    body:{
+        backgroundColor:colors.white,
+        borderRadius:10,
+        marginTop:5
+    },
+    Events:{
+        color:colors.black,
+        marginLeft:10,
+        marginTop:10,
+        fontFamily:colors.ExtraBold
+    },
+    event_container:{
+        marginHorizontal:5,
+        marginVertical:5,
+        borderRadius:10,
+    },
+    title:{
+        marginLeft:10,
+        marginTop:10,
+        fontSize:20,
+        fontFamily:colors.ExtraBold
+    },
+    disc:{
+        marginTop:15,
+        marginLeft:10,
+    },
+    link:{
+        marginLeft:10,
+        marginVertical:5
+    }
+
+})
+export default Events;
