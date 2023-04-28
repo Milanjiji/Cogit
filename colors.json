@@ -11,5 +11,6 @@
     "Medium":"Montserrat-Medium",
     "MediumItalic":"Montserrat-MediumItalic",
     "Bold":"Montserrat-Bold",
-    "NoteBackground":"#faf0e6"
+    "NoteBackground":"#faf0e6",
+    "NoteButton":"#f2dabf"
 }

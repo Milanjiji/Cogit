@@ -4,14 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faBookOpen, faMessage, faNoteSticky, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import Colors from '../colors.json'
 
-const PrevSection = () =>{
+const PrevSection = ({navigation}) =>{
+    const jump = (place) =>{
+        navigation.navigate(place)
+    }
     return(
         <View style={styles.body} >
-           <TouchableOpacity style={styles.btn_container} >
+           <TouchableOpacity onPress={jump} style={styles.btn_container} >
                 <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faBookOpen} color={Colors.black} />
            </TouchableOpacity>
            
-           <TouchableOpacity style={styles.btn_container} >
+           <TouchableOpacity onPress={()=>jump('NoteCreator_Classification')} style={styles.btn_container} >
                 <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faNoteSticky} color={Colors.black} />
            </TouchableOpacity>
 

@@ -29,7 +29,7 @@ async function sendToOpenAI(input) {
 
     const response = await axios({
       method: 'post',
-      url: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
+      url: 'https://api.openai.com/v1/engines/text-davinci-002/completions',
       // text-davince-003
       headers: {
         'Content-Type': 'application/json',
@@ -185,20 +185,12 @@ const Ai = ({navigation,route,...props}) =>{
           <HomePageFootor navigation={navigation} />
         </View>
         
-          
-        
-          
-        
-          
-       
     );
 }
 const styles = StyleSheet.create({
     background:{
         backgroundColor:primary,
-        margin:3,
         marginTop:0,
-        borderRadius:10,
         flex:1
     },
     label:{

@@ -18,13 +18,10 @@ const Achievement = () =>{
         {id:9,mission:'complete a mission'},
         {id:10,mission:'complete a mission'}
     ])
+    const missionsToRender = missions.filter(missions => missions.id < 7)
     const width =Dimensions.get('window').width
 
-    const renderItem = ({item}) =>{
-        if(item.id <= 6){
-            return <Text style={{color:'black'}} >{item.mission}</Text>
-        }
-    }
+    
     return(
         <View style={[styles.body,{width:width-140}]} >
             <Text style={styles.title} >Achievements(0)</Text>
@@ -34,10 +31,13 @@ const Achievement = () =>{
                 <Text style={styles.mission_Info} >Complete Missions to earn badges</Text>
             </View>
             <Text style={styles.mission_title} >Missions</Text>
-            <FlatList
-            data={missions}
-            renderItem={renderItem}
-            />
+            <View  >
+            {
+                missionsToRender.map(item =>{
+                    return <Text style={{color:'black'}} key={item.id} >{item.mission}</Text>
+                })
+            }
+            </View>
             
             <TouchableOpacity style={styles.Missions_Container} >
                 <Text style={styles.open_Missions} >Missions </Text>
@@ -92,7 +92,8 @@ const styles=  StyleSheet.create({
         justifyContent:'space-around',
         width:150,
         paddingHorizontal:20,
-        paddingVertical:5
+        paddingVertical:5,
+        marginTop:7
     },
     mission_title:{
         color:Colors.black,
