@@ -18,6 +18,7 @@ import Details from "../Screens/Details";
 import NoteCreator from "../Screens/NoteCreator";
 import Note_Classification from "../Screens/Note_Classification";
 import FocusMode from "../Screens/FocusMode";
+import Notes from "../Screens/Notes";
 
 
 
@@ -30,7 +31,7 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='Focus' screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator  initialRouteName='Notes' screenOptions={{headerShown:false,animation:'none'}} >
           <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
@@ -76,6 +77,9 @@ const Screens = () =>{
           <Stack.Screen
            name="Focus" 
            component={FocusMode} />  
+           <Stack.Screen
+           name="Notes" 
+           component={Notes} />  
   
         </Stack.Navigator>
       </NavigationContainer>

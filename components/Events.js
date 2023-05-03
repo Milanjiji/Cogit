@@ -19,6 +19,7 @@ const Events = () =>{
                 const size = users.docs.map(doc => doc.data())
                 setDocNumber(users.size)
                 setData(events);
+
             }
             get();
           }, []);
@@ -44,7 +45,7 @@ const Events = () =>{
             <Text style={styles.Events} >Events ({docNumber})</Text>
             <FlatList
             data={data}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.id}
             renderItem={renderItem}
             horizontal={true}
             />

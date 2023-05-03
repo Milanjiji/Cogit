@@ -6,10 +6,7 @@ import {
     View,
     DrawerLayoutAndroid
   } from 'react-native';
-  
-  
-               
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowAltCircleDown, faEllipsisV, faGear, faGears, faInfo, faInfoCircle, faNavicon } from '@fortawesome/free-solid-svg-icons';
 const primary = "#04103a"
 
@@ -27,7 +24,7 @@ const Header = ({navigation,route,...props}) =>{
     
     return(
         <View style={styles.background} >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={props.GearFunc} >
                 <FontAwesomeIcon style={styles.iLeft} icon={faGear} />
             </TouchableOpacity>
             <Text style={[styles.title,{
@@ -35,13 +32,15 @@ const Header = ({navigation,route,...props}) =>{
             }]} >{props.title}</Text>
             <View>
                 {props.info == "info" ?
-                <TouchableOpacity >
+                <TouchableOpacity onPress={props.pageSettings} >
                     <FontAwesomeIcon style={styles.iRight} icon={faInfoCircle} />
                 </TouchableOpacity> : props.info == "#" ? 
-                <TouchableOpacity >
+
+                <TouchableOpacity onPress={props.pageSettings} >
                     <FontAwesomeIcon style={styles.iRight} icon={faArrowAltCircleDown} />
                 </TouchableOpacity> : props.info == 'ellipsis' ?
-                <TouchableOpacity >
+
+                <TouchableOpacity onPress={props.pageSettings} >
                 <FontAwesomeIcon style={styles.iRight} icon={faEllipsisV} />
                 </TouchableOpacity> : ''}
             </View>
