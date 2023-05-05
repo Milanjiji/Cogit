@@ -55,12 +55,13 @@ const Events = () =>{
 }
 const styles = StyleSheet.create({
     body:{
-        backgroundColor:colors.white,
+        backgroundColor:colors.primary,
         borderRadius:10,
-        marginTop:5
+        margin:5,
+        elevation:10
     },
     Events:{
-        color:colors.black,
+        color:colors.white,
         marginLeft:10,
         marginTop:10,
         fontFamily:colors.ExtraBold

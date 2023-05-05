@@ -19,6 +19,9 @@ import NoteCreator from "../Screens/NoteCreator";
 import Note_Classification from "../Screens/Note_Classification";
 import FocusMode from "../Screens/FocusMode";
 import Notes from "../Screens/Notes";
+import Community from "../Screens/Community_Note";
+import ArticleView from "../Screens/ArticleView";
+import Missions from "../Screens/Missions";
 
 
 
@@ -31,7 +34,7 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='Notes' screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator  initialRouteName='Missions' screenOptions={{headerShown:false,animation:'none'}} >
           <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
@@ -79,7 +82,16 @@ const Screens = () =>{
            component={FocusMode} />  
            <Stack.Screen
            name="Notes" 
-           component={Notes} />  
+           component={Notes} /> 
+           <Stack.Screen
+           name="Community" 
+           component={Community} />
+           <Stack.Screen
+           name="ViewArticle" 
+           component={ArticleView} /> 
+           <Stack.Screen
+           name="Missions" 
+           component={Missions} /> 
   
         </Stack.Navigator>
       </NavigationContainer>

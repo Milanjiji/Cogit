@@ -7,19 +7,9 @@ import {
     ScrollView,
     ImageBackground
   } from 'react-native';
+import Colors from '../colors.json'
 
-const primary = "#04103a"
-const secondry = "#283459"
 
-const black = "black"
-const white = "white"
-const Bold = "Montserrat-Bold"
-const Regular = 'Montserrat-Regular';
-const BoldItalic = 'Montserrat-BoldItalic';
-const ExtraBold = 'Montserrat-ExtraBold';
-const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
-const Medium = 'Montserrat-Medium';
-const MediumItalic = 'Montserrat-MediumItalic';
 const Notes = ({navigation,route,...props}) =>{
     return(
         <View style={styles.background}>
@@ -59,18 +49,16 @@ const Notes = ({navigation,route,...props}) =>{
 }
 const styles = StyleSheet.create({
     background:{
-        backgroundColor:'white',
+        backgroundColor:Colors.white,
         marginTop:10,
         borderRadius:10,
         margin:3,
         padding:10
     },
     title:{
-        color:primary,
-        fontFamily:ExtraBold,
+        color:Colors.primary,
+        fontFamily:Colors.ExtraBold,
         fontSize:16,
-        
-        
     },
     btn:{
         width:150,
@@ -81,9 +69,9 @@ const styles = StyleSheet.create({
         marginHorizontal:2
     },
     btnText:{
-        color:white,
+        color:Colors.white,
         fontSize:20,
-        fontFamily:Bold,
+        fontFamily:Colors.Bold,
         textAlign:'right',
         padding:20,
         height:100,

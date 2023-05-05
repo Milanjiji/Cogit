@@ -50,7 +50,7 @@ const Achievement = () =>{
 }
 const styles=  StyleSheet.create({
     body:{
-        backgroundColor:Colors.white,
+        backgroundColor:Colors.primary,
         margin:3,
         borderRadius:10,
         padding:10,
@@ -58,7 +58,7 @@ const styles=  StyleSheet.create({
         alignItems:'center'
     },
     title:{
-        color:Colors.primary,
+        color:Colors.white,
         fontFamily:Colors.Bold,
         alignSelf:'flex-start'
     },
@@ -77,16 +77,16 @@ const styles=  StyleSheet.create({
         alignItems:'center'
     },
     mission_Info:{
-        color:Colors.black,
+        color:Colors.white,
         paddingLeft:10
     },
     open_Missions:{
-        color:Colors.white,
+        color:Colors.primary,
         marginHorizontal:10,
         fontFamily:Colors.ExtraBold,
     },
     Missions_Container:{
-        backgroundColor:Colors.primary,
+        backgroundColor:Colors.white,
         borderRadius:10,
         flexDirection:'row',
         justifyContent:'space-around',
@@ -97,7 +97,7 @@ const styles=  StyleSheet.create({
     },
     mission_title:{
         color:Colors.black,
-        borderBottomColor:Colors.black,
+        borderBottomColor:Colors.white,
         borderBottomWidth:1,
         width:'100%',
         textAlign:'center'

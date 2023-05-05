@@ -11,19 +11,19 @@ const PrevSection = ({navigation}) =>{
     return(
         <View style={styles.body} >
            <TouchableOpacity onPress={jump} style={styles.btn_container} >
-                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faBookOpen} color={Colors.black} />
+                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faBookOpen} color={Colors.white} />
            </TouchableOpacity>
            
            <TouchableOpacity onPress={()=>jump('NoteCreator_Classification')} style={styles.btn_container} >
-                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faNoteSticky} color={Colors.black} />
+                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faNoteSticky} color={Colors.white} />
            </TouchableOpacity>
 
            <TouchableOpacity style={styles.btn_container} >
-                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faTrophy} color={Colors.black} />
+                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faTrophy} color={Colors.white} />
            </TouchableOpacity>
 
            <TouchableOpacity style={styles.btn_container} >
-                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faMessage} color={Colors.black} />
+                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faMessage} color={Colors.white} />
            </TouchableOpacity>
         </View>
     );
@@ -33,13 +33,14 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'space-around',
         alignItems:'center',
-        marginVertical:10,
-        marginTop:15
+        marginVertical:5,
+        marginTop:5
     },
     btn_container:{
-        backgroundColor:Colors.white,
-        padding:10,
-        borderRadius:10
+        backgroundColor:Colors.primary,
+        padding:14,
+        borderRadius:10,
+        elevation:10
     }
 })
 

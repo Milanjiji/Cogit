@@ -40,6 +40,9 @@ const Notes = ({navigation}) =>{
       const log = () =>{
         console.log(panelData);
       }
+      const goTo = (place) =>{
+        navigation.navigate(place);
+      }
 
       
     return(
@@ -64,9 +67,11 @@ const Notes = ({navigation}) =>{
             </View>
 
 
-            <TouchableOpacity style={styles.community} >
-                <Text style={styles.community_Text} >Community</Text>
-                <Text style={styles.community_Disc} >This is where students share their Notes and other News</Text>
+            <TouchableOpacity style={styles.community} onPress={()=>goTo('Community')}>
+                <ImageBackground style={{}} source={{uri : 'https://drive.google.com/uc?id=1S0e5PY_d9G9DJEDvlnYkq8JDwqqTv8B'}} >
+                    <Text style={styles.community_Text} >Community</Text>
+                    <Text style={styles.community_Disc} >This is where students share their Notes and other News</Text>
+                </ImageBackground>
             </TouchableOpacity>
 
 
@@ -174,7 +179,21 @@ const styles = StyleSheet.create({
         flexDirection:'row'
       },
       community:{
-        margin:20
+        margin:10,
+        padding:8,
+        backgroundColor:Colors.primary,
+        borderRadius:10,
+        elevation:10
+      },
+      community_Text:{
+        color:Colors.white,
+        fontFamily:Colors.Bold,
+        fontSize:24
+      },
+      community_Disc:{
+        color:Colors.white,
+        fontFamily:Colors.Regular,
+        width:'60%'
       },
 })
 export default Notes;

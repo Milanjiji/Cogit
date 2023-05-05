@@ -9,12 +9,11 @@ import Ai from './Ai'
 import Header from '../components/Header';
 import Notes from '../components/Notes';
 import HomePageFootor from '../components/HomePageFootor';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import Profile from '../components/Profile';
 import Events from '../components/Events';
 import Utilities from '../components/Utilities';
 import Achievement from '../components/Achivements';
 import PrevSection from '../components/PrevSection';
+import Colors from '../colors.json'
 const primary = "#04103a"
 const secondry = "#283459"
 
@@ -29,13 +28,12 @@ const MediumItalic = 'Montserrat-MediumItalic';
 
 
 const Homepage = ({navigation,route}) =>{
-    const width = Dimensions.get('window').width
-    console.log(width-100);
+    const width = Dimensions.get('window').width;
     return(
             <View  style={styles.background} >
                 
                 <Header info={'info'} letterpacing={'y'} title={'Cogit'} />
-                <ScrollView>
+                <ScrollView showsVerticalScrollIndicator={false} >
                     <Events />
                     <PrevSection navigation={navigation} />
                     <View style={{flexDirection:'row',width:width,padding:10}} >
@@ -52,7 +50,7 @@ const Homepage = ({navigation,route}) =>{
 const styles = StyleSheet.create({
     background:{
         // backgroundColor:'#2b1499',
-        backgroundColor:"#12156c",
+        backgroundColor:Colors.Background,
         flex:1,
         
     },
