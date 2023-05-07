@@ -6853,6 +6853,11 @@
   "resolved" "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.16.tgz"
   "version" "0.71.16"
 
+"react-native-keyframes@^2.0.1":
+  "integrity" "sha512-OvocXmBwbS7h4HhAktzZcmcOLWxJcf8a8wKgW4YYPVTzEXIayrkUOi9BDAzu6ARmHhZIKVE2K+irJxHVJLUqNQ=="
+  "resolved" "https://registry.npmjs.org/react-native-keyframes/-/react-native-keyframes-2.0.1.tgz"
+  "version" "2.0.1"
+
 "react-native-pdf@^6.6.2":
   "integrity" "sha512-gqxNPSzL0lNN1dGYAz9ObSLb0shUTB8x1u69qKLMSmwuxFTpGui5PNNgpH8q/nlpL9zBzMVVc/AXEuDCwRyxEQ=="
   "resolved" "https://registry.npmjs.org/react-native-pdf/-/react-native-pdf-6.6.2.tgz"

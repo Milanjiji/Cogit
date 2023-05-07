@@ -30,6 +30,7 @@
     "react-native": "0.71.4",
     "react-native-blob-util": "^0.17.3",
     "react-native-fs": "^2.20.0",
+    "react-native-keyframes": "^2.0.1",
     "react-native-pdf": "^6.6.2",
     "react-native-ringer-mode": "^2.0.0",
     "react-native-safe-area-context": "^4.5.0",
