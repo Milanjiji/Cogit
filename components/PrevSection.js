@@ -10,7 +10,7 @@ const PrevSection = ({navigation}) =>{
     }
     return(
         <View style={styles.body} >
-           <TouchableOpacity onPress={jump} style={styles.btn_container} >
+           <TouchableOpacity onPress={()=>jump('Notes')} style={styles.btn_container} >
                 <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faBookOpen} color={Colors.white} />
            </TouchableOpacity>
            
@@ -18,11 +18,11 @@ const PrevSection = ({navigation}) =>{
                 <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faNoteSticky} color={Colors.white} />
            </TouchableOpacity>
 
-           <TouchableOpacity style={styles.btn_container} >
+           <TouchableOpacity onPress={()=>jump('Missions')} style={styles.btn_container} >
                 <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faTrophy} color={Colors.white} />
            </TouchableOpacity>
 
-           <TouchableOpacity style={styles.btn_container} >
+           <TouchableOpacity onPress={()=>jump('Forum')} style={styles.btn_container} >
                 <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faMessage} color={Colors.white} />
            </TouchableOpacity>
         </View>

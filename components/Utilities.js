@@ -3,7 +3,7 @@ import { View,Text, StyleSheet, TouchableOpacity } from "react-native";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Colors from '../colors.json'
 import { faClock, faNoteSticky } from "@fortawesome/free-regular-svg-icons";
-const Utilities = () =>{
+const Utilities = ({navigation}) =>{
     return(
         <View style={styles.body} >
             <View style={styles.utility_align_container_1} >
@@ -11,9 +11,9 @@ const Utilities = () =>{
                     <FontAwesomeIcon size={30} color={Colors.white} icon={faClock} />
                     <Text style={styles.text} >Focus Mode</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.container} >
+                <TouchableOpacity onPress={()=>navigation.navigate('NoteCreator_Classification')} style={styles.container} >
                     <FontAwesomeIcon size={30} color={Colors.white} icon={faNoteSticky} />
-                    <Text style={styles.text} >Note Creator</Text>
+                    <Text style={styles.text} >Notes</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -41,7 +41,7 @@ const styles=  StyleSheet.create({
         justifyContent:'center',
         backgroundColor:Colors.primary,
         padding:15,
-        borderRadius:50,
+        borderRadius:10,
         width:100,
         height:100,
         marginVertical:10,

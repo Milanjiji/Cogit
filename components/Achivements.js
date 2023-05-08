@@ -1,25 +1,28 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { View,Text, StyleSheet, TouchableOpacity,Dimensions, FlatList } from "react-native";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Colors from '../colors.json'
-import { faArrowRight, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faHashtag, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 
 const Achievement = () =>{
-    const [missions,setMissions] = useState([
-        {id:1,mission:'complete a mission'},
-        {id:2,mission:'complete a mission'},
-        {id:3,mission:'complete a mission'},
-        {id:4,mission:'complete a mission'},
-        {id:5,mission:'complete a mission'},
-        {id:6,mission:'complete a mission'},
-        {id:7,mission:'complete a mission'},
-        {id:8,mission:'complete a mission'},
-        {id:9,mission:'complete a mission'},
-        {id:10,mission:'complete a mission'}
-    ])
-    const missionsToRender = missions.filter(missions => missions.id < 7)
+    const [missions,setMissions] = useState([])
+    const missionsToRender = missions.filter(missions => missions.id < 3)
     const width =Dimensions.get('window').width
+
+    useEffect(()=>{
+        const fetchItems = async () =>{
+          try{
+            const response = await fetch('https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Missions.json?alt=media&token=7cbf7171-2113-4e17-83b0-6f7c9e701335');
+            const data = await response.json();
+            setMissions(data.missions);
+            console.log(data.missions);
+          }catch(error){
+            console.log(error);
+          }
+        }
+        fetchItems()
+      },[])
 
     
     return(
@@ -27,21 +30,26 @@ const Achievement = () =>{
             <Text style={styles.title} >Achievements(0)</Text>
             
             <View style={styles.mission_Info_container} >
-                <FontAwesomeIcon color={Colors.black} icon={faInfoCircle} />
+                <FontAwesomeIcon color={Colors.white} icon={faInfoCircle} />
                 <Text style={styles.mission_Info} >Complete Missions to earn badges</Text>
             </View>
             <Text style={styles.mission_title} >Missions</Text>
-            <View  >
+            <View style={{height:110,overflow:'hidden',padding:4}} >
             {
                 missionsToRender.map(item =>{
-                    return <Text style={{color:'black'}} key={item.id} >{item.mission}</Text>
+                    return (
+                        <View style={{flexDirection:'row',alignItems:'center'}} >
+                            <FontAwesomeIcon style={{paddingHorizontal:10}} icon={faHashtag} color={Colors.white} />
+                            <Text style={{color:Colors.white,width:220,textAlign:'center'}} key={item.id} >{item.description}</Text>
+                        </View>
+                    )
                 })
             }
             </View>
             
             <TouchableOpacity style={styles.Missions_Container} >
                 <Text style={styles.open_Missions} >Missions </Text>
-                <FontAwesomeIcon color={Colors.white} icon={faArrowRight} />
+                <FontAwesomeIcon color={Colors.black} icon={faArrowRight} />
             </TouchableOpacity>    
             
             
@@ -55,7 +63,8 @@ const styles=  StyleSheet.create({
         borderRadius:10,
         padding:10,
         height:250,
-        alignItems:'center'
+        alignItems:'center',
+        elevation:10
     },
     title:{
         color:Colors.white,
@@ -96,7 +105,7 @@ const styles=  StyleSheet.create({
         marginTop:7
     },
     mission_title:{
-        color:Colors.black,
+        color:Colors.white,
         borderBottomColor:Colors.white,
         borderBottomWidth:1,
         width:'100%',

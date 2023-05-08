@@ -11,12 +11,16 @@ import Colors from '../colors.json'
 
 
 const Notes = ({navigation,route,...props}) =>{
+
+    const goTo = (place) =>{
+        navigation.navigate(place);
+    }
     return(
         <View style={styles.background}>
             <Text style={styles.title} >Notes</Text>
             <ScrollView showsHorizontalScrollIndicator={false} horizontal style={{flexDirection:'row'}} >
                 <View style={{flexDirection:'row'}} >
-                    <TouchableOpacity style={[styles.btn,{backgroundColor:'#f6b26b'}]} >
+                    <TouchableOpacity onPress={()=>goTo('Notes')} style={[styles.btn,{backgroundColor:'#f6b26b'}]} >
                         <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1tHfRi8UikHq30wR5Nq1m4IZjCjH0PU9z'}} >
                                 <Text style={styles.btnText} >Maths</Text>
                         </ImageBackground>
@@ -49,11 +53,12 @@ const Notes = ({navigation,route,...props}) =>{
 }
 const styles = StyleSheet.create({
     background:{
-        backgroundColor:Colors.white,
+        backgroundColor:Colors.primary,
         marginTop:10,
         borderRadius:10,
         margin:3,
-        padding:10
+        padding:10,
+        elevation:10
     },
     title:{
         color:Colors.primary,

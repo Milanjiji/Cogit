@@ -8,6 +8,7 @@ import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 import LoadingAnimation from "../components/LoadingAnimation";
 
 const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 const Missions = ({navigation}) =>{
     const [MissionsTable,setMissionsTable] = useState(true);
     const [data,setData] = useState([])
@@ -54,8 +55,10 @@ const Missions = ({navigation}) =>{
                   <Text style={styles.TabSelector_Text} >Completed</Text>
                 </TouchableOpacity>
               </View>
-
-              <LoadingAnimation />
+              
+              
+                
+             
 
               <View style={{flex:1,padding:8,display: MissionsTable ? 'flex' : 'none',width:width}} >
                 <FlatList
@@ -105,6 +108,11 @@ const styles = StyleSheet.create({
   },
   missionDisc:{
     color:Colors.white
+  },
+  loading:{
+    flex:1,
+    justifyContent:'space-around',
+    alignItems:'center'
   }
 })
 export default Missions;

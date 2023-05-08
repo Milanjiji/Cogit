@@ -7,7 +7,8 @@ import {
     DrawerLayoutAndroid
   } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faArrowAltCircleDown, faEllipsisV, faGear, faGears, faInfo, faInfoCircle, faNavicon } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleDown, faEllipsisV, faGear, faGears, faInfo, faInfoCircle, faNavicon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
 const primary = "#04103a"
 
 
@@ -42,7 +43,15 @@ const Header = ({navigation,route,...props}) =>{
 
                 <TouchableOpacity onPress={props.pageSettings} >
                 <FontAwesomeIcon style={styles.iRight} icon={faEllipsisV} />
-                </TouchableOpacity> : ''}
+                </TouchableOpacity> : props.info == 'darkMode' ?
+
+                <TouchableOpacity onPress={props.pageSettings} >
+                    <FontAwesomeIcon style={styles.iRight} icon={faMoon} />
+                </TouchableOpacity>:  props.info == 'lightMode' ?
+
+                <TouchableOpacity onPress={props.pageSettings} >
+                    <FontAwesomeIcon style={styles.iRight} icon={faSun} />
+                </TouchableOpacity>: ''}
             </View>
 
         </View>

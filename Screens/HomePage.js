@@ -14,6 +14,7 @@ import Utilities from '../components/Utilities';
 import Achievement from '../components/Achivements';
 import PrevSection from '../components/PrevSection';
 import Colors from '../colors.json'
+import Greetings from '../components/Greetings';
 const primary = "#04103a"
 const secondry = "#283459"
 
@@ -34,11 +35,12 @@ const Homepage = ({navigation,route}) =>{
                 
                 <Header info={'info'} letterpacing={'y'} title={'Cogit'} />
                 <ScrollView showsVerticalScrollIndicator={false} >
+                    <Greetings/>
                     <Events />
                     <PrevSection navigation={navigation} />
                     <View style={{flexDirection:'row',width:width,padding:10}} >
                         <Achievement />
-                        <Utilities/>
+                        <Utilities navigation={navigation} />
                     </View>
                     <Notes />
                 </ScrollView>

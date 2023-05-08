@@ -10,6 +10,7 @@ const NoteCreator = ({navigation,route}) =>{
     const textInput = useRef(null)
     const height  = Dimensions.get('window').height
     const {id} = route.params;
+    const [theme,setTheme] = useState(true)
 
 
     useEffect(()=>{
@@ -36,9 +37,12 @@ const NoteCreator = ({navigation,route}) =>{
     const focusToTextInput = () =>{
         textInput.current.focus();
     }
+    const test =() =>{
+
+    }
         return(
-        <View style={styles.body} >
-            <Header title={'Notes'} info={'ellipsis'} />
+        <View style={[styles.body,{backgroundColor:theme ? Colors.NoteBackground : Colors.Background}]} >
+            <Header title={'Notes'} pageSettings={test} info={theme ? 'darkMode' : 'lightMode'} />
             <ScrollView style={styles.area} >
                 <TouchableOpacity activeOpacity={1} style={{height:height-100}} onPress={focusToTextInput} >
 
@@ -63,7 +67,7 @@ const NoteCreator = ({navigation,route}) =>{
 const styles = StyleSheet.create({
     body:{
         flex:1,
-        backgroundColor:Colors.NoteBackground
+        
     },
     area:{
         flex:1,

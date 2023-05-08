@@ -21,7 +21,6 @@ const secondry = "#0e1158"
 
 const black = "black"
 const white = "white"
-
 const Regular = 'Roboto-Regular';
 
 
@@ -65,7 +64,7 @@ const Ai = ({navigation,route,...props}) =>{
       
     }else{
       setNote(false)
-      const prompt = `The user said: ${inputValue}\nAI response:`;
+      const prompt = `The user said: ${inputValue}\nAi response:`;
       setChatHistory([...chatHistory, { author: 'user', message: inputValue }, { author: 'bot', message: '.....' }]);
       let output = '';
         while (!output) {
@@ -99,7 +98,7 @@ const Ai = ({navigation,route,...props}) =>{
           
             <View  style={styles.background} >
           
-          <ScrollView ref={scrollViewRef} onContentSizeChange={handleContentSizeChange} style={{marginHorizontal:20,marginTop:20}} >
+          <ScrollView showsVerticalScrollIndicator={false} ref={scrollViewRef} onContentSizeChange={handleContentSizeChange} style={{marginHorizontal:20,marginTop:20}} >
             <View style={[styles.note,{display : note == true ? 'flex' : 'none'}]} >
               <Text style={styles.noteText} >
               This app has an AI-powered assistant that can help you with 

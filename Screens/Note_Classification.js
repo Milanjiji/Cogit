@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect,useRef } from 'react'
 import { Text, View,StyleSheet, ScrollView, TouchableOpacity, TextInput,Dimensions, FlatList, Touchable } from 'react-native';
 import Header from '../components/Header';
 import HomePageFootor from '../components/HomePageFootor';
@@ -15,6 +15,8 @@ const Note_Classification = ({navigation}) =>{
     const [errorDisplay,setErrorDisplay] = useState(false);
     const [emptyList,setEmptyList] = useState(false);
     const width = Dimensions.get('window').width;
+
+    const FocusTextInput = useRef(null);
 
     useEffect(()=>{
         const fetchNote = async() =>{
@@ -83,7 +85,7 @@ const Note_Classification = ({navigation}) =>{
             <View style={[styles.btn_container,{
                 display : displayAddButton ? 'flex' : 'none'
             }]} >
-                <TextInput value={title} onChangeText={setTitle} style={styles.input}  placeholder='Title eg : Physics Notes'/>
+                <TextInput ref={FocusTextInput} placeholderTextColor={Colors.white} value={title} onChangeText={setTitle} style={styles.input}  placeholder='Title eg : Physics Notes'/>
                 {errorDisplay ? <Text style={styles.warn} >Enter the title !</Text> : ''}
                 
                 <TouchableOpacity onPress={titleAdder} >
@@ -106,8 +108,10 @@ const Note_Classification = ({navigation}) =>{
         <View style={styles.addBtnContainer} >
                 <TouchableOpacity onPress={()=>{
                     setDisplayAddButton(displayAddButton ? false : true);
+                    setEmptyList(false);
+                    FocusTextInput.current.focus()
                 }} style={{alignItems:'center'}} >
-                    <FontAwesomeIcon style={styles.addBtn} size={50} color={Colors.NoteButton} icon={displayAddButton ? faMinusCircle : faPlusCircle} />
+                    <FontAwesomeIcon style={{elevation:10}} size={50} color={Colors.white} icon={displayAddButton ? faMinusCircle : faPlusCircle} />
                 </TouchableOpacity>
             </View>
         <HomePageFootor navigation={navigation} />
@@ -117,7 +121,7 @@ const Note_Classification = ({navigation}) =>{
 const styles = StyleSheet.create({
     body:{
         flex:1,
-        backgroundColor:Colors.NoteBackground
+        backgroundColor:Colors.Background
     },
     btn_container:{
         margin:10,
@@ -132,8 +136,8 @@ const styles = StyleSheet.create({
     },
     btn:{
         fontFamily:Colors.Regular,
-        color:Colors.black,
-        backgroundColor:'#ffdeb3',
+        color:Colors.white,
+        backgroundColor:Colors.primary,
         borderRadius:10,
         textAlign:'center',
         padding:10,
@@ -143,9 +147,9 @@ const styles = StyleSheet.create({
         width:'100%',
         textAlign:'center',
         marginBottom:5,
-        backgroundColor:'#ffdeb3',
+        backgroundColor:Colors.Background,
         borderRadius:10,
-        color:Colors.black
+        color:Colors.white
     },
     warn:{
         color:'red',
