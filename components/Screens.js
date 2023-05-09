@@ -35,7 +35,7 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='Missions' screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator  initialRouteName='getStarted' screenOptions={{headerShown:false,animation:'none'}} >
           <Stack.Screen
            name="getStarted" 
            component={GetStarted} />

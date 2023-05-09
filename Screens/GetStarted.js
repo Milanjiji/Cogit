@@ -5,13 +5,9 @@ import { View,
         TouchableOpacity,
         Dimensions
         } from 'react-native'
+import Colors from '../colors.json'
 
-import colors from '../colors.json'
-
-const primary = "#04103a"
 const secondry = "#3fb0c9"
-const maincolor = "#7F00FF"
-const black = "black"
 const white = "white"
 const fontBold = "Montserrat-Bold"
 
@@ -46,7 +42,7 @@ const GetStarted = ({navigation}) =>{
 }
 const styles = StyleSheet.create({
     background:{
-        backgroundColor:primary,
+        backgroundColor:Colors.Background,
         flex:1
     },
     name:{
