@@ -32,9 +32,10 @@ const Details = ({navigation,route}) =>{
     const [email,setEmail] = useState('');
     const [school,setSchool] = useState('')
     const [phone,setPhone] = useState()
-    const [clas, setClass] = useState();
+    const [clas, setClass] = useState('10');
     const [modelVisible,setModalVisible] = useState(false)
-    const [detailWarn,setDetailWarn] = useState(false)
+    const [detailWarn,setDetailWarn] = useState(false);
+    const [LoginType,setLoginType] = useState(true);
     
     
 
@@ -78,7 +79,13 @@ const Details = ({navigation,route}) =>{
         }
         setDetailWarn(false);
         }else{
-            setDetailWarn(true)
+            setDetailWarn(true);
+            console.log('hwllo');
+            console.log(userName);
+            console.log(Password);
+            console.log(clas);
+            console.log(school);
+            console.log(phone);
         }
         
         
@@ -106,9 +113,13 @@ const Details = ({navigation,route}) =>{
             </View>
         </View>
       </Modal>
-        <Text style={[styles.signup,{
+
+    <Text style={[styles.signup,{
             marginTop:height/50
-            }]} >Sign Up</Text>
+            }]} >Get In</Text>
+
+    <View style={{display: LoginType ? 'flex' :'none'}} >
+        
         <Text style={styles.reg} >Let's get you signed up first</Text>
         <Text style={styles.inputLabe} >User Name</Text>
         <TextInput style={styles.input} onChangeText={setUserName}  placeholder='Name in the id card' />
@@ -140,6 +151,13 @@ const Details = ({navigation,route}) =>{
         <TouchableOpacity onPress={Submit} >
             <Text style={styles.btn} >Register</Text>
         </TouchableOpacity>
+    </View>
+    <View>
+        
+    </View>
+        
+
+
        </ScrollView>
     );
 }

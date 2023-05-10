@@ -38,7 +38,7 @@ const Achievement = () =>{
             {
                 missionsToRender.map(item =>{
                     return (
-                        <View style={{flexDirection:'row',alignItems:'center'}} >
+                        <View key={item.id} style={{flexDirection:'row',alignItems:'center'}} >
                             <FontAwesomeIcon style={{paddingHorizontal:10}} icon={faHashtag} color={Colors.white} />
                             <Text style={{color:Colors.white,width:220,textAlign:'center'}} key={item.id} >{item.description}</Text>
                         </View>

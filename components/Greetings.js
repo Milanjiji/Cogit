@@ -31,7 +31,7 @@ const Greetings = () =>{
             </View>
             <View>
                 <FontAwesomeIcon style={{marginRight:20}} size={80} color={Colors.white} 
-                icon={message == 'Good Morning' ? faCloudSun : message == 'Good AfterNoon' ? faSun : message == 'Good Evening' ? faCloudSun : message == 'Good Night' ? faCloud : none} />
+                icon={message == 'Good Morning' ? faCloudSun : message == 'Good AfterNoon' ? faSun : message == 'Good Evening' ? faCloudSun : message == 'Good Night' ? faCloud : ''} />
             </View>
         </View>
     )

@@ -23,6 +23,7 @@ import Community from "../Screens/Community_Note";
 import ArticleView from "../Screens/ArticleView";
 import Missions from "../Screens/Missions";
 import LoadingAnimation from "./LoadingAnimation";
+import AllSet from "../Screens/AllSet";
 
 
 
@@ -35,7 +36,7 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='getStarted' screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator  initialRouteName='Details' screenOptions={{headerShown:false,animation:'none'}} >
           <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
@@ -96,6 +97,9 @@ const Screens = () =>{
            <Stack.Screen
            name="Animation" 
            component={LoadingAnimation} /> 
+           <Stack.Screen
+           name="Allset" 
+           component={AllSet} /> 
   
         </Stack.Navigator>
       </NavigationContainer>
