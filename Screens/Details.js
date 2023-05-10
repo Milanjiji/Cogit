@@ -35,7 +35,7 @@ const Details = ({navigation,route}) =>{
     const [clas, setClass] = useState('10');
     const [modelVisible,setModalVisible] = useState(false)
     const [detailWarn,setDetailWarn] = useState(false);
-    const [LoginType,setLoginType] = useState(true);
+    const [LoginType,setLoginType] = useState(false);
     
     
 
@@ -152,8 +152,23 @@ const Details = ({navigation,route}) =>{
             <Text style={styles.btn} >Register</Text>
         </TouchableOpacity>
     </View>
-    <View>
+
+    <View style={{display: !LoginType ? 'flex' : 'none',flex:1}} >
+        <Text style={styles.reg} >Login</Text>
+
         
+        <Text style={styles.inputLabe} >User Name</Text>
+        <TextInput style={styles.input} onChangeText={setUserName}  placeholder='Name in the id card' />
+        <Text style={styles.inputLabe} >Password</Text>
+        <TextInput style={styles.input} onChangeText={setPassword} keyboardType={'visible-password'} placeholder='Password'/>
+        
+        
+        <TouchableOpacity style={{}} onPress={Submit} >
+            <Text style={styles.btn} >Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+            <Text style={{}} >Create new account</Text>
+        </TouchableOpacity>
     </View>
         
 
@@ -207,9 +222,7 @@ const styles = StyleSheet.create({
         textAlign:'center',
         padding:10,
         borderRadius:10,
-        marginHorizontal:'10%',
-        width:'80%',
-        alignSelf:'flex-end'
+        marginHorizontal:30,
     },
     inputLabe:{
         marginLeft:40,
