@@ -20,15 +20,10 @@ import firestore from '@react-native-firebase/firestore';
 const primary = "#04103a"
 const secondry = "#283459"
 
-const black = "black"
 const white = "white"
 const Bold = "Montserrat-Bold"
 const Regular = 'Montserrat-Regular';
-const BoldItalic = 'Montserrat-BoldItalic';
-const ExtraBold = 'Montserrat-ExtraBold';
-const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
 const Medium = 'Montserrat-Medium';
-const MediumItalic = 'Montserrat-MediumItalic';
 
   
 const Details = ({navigation,route}) =>{
@@ -50,8 +45,9 @@ const Details = ({navigation,route}) =>{
        
     const Submit = async () =>{
         if(
-            userName && Password && email && school && phone && clas && modelVisible
+            userName && Password && email && school && phone && clas 
         ){
+            console.log(userName,Password,email,school,clas,phone);
         try{
             await AsyncStorage.setItem('userName',userName);
             await AsyncStorage.setItem('email', email)
