@@ -39,7 +39,7 @@ const GetStarted = ({navigation}) =>{
         </View>
 
     )
-}
+} 
 const styles = StyleSheet.create({
     background:{
         backgroundColor:Colors.Background,
