@@ -26,7 +26,7 @@ const GetStarted = ({navigation}) =>{
            
             <Text style={styles.name} >Cogit</Text>
             <Text style={[styles.quote,{
-                fontSize:width/8,marginTop:height/6.5
+                fontSize:width/8,marginTop:'10%'
             }]} >Transform the way you learn with Cogit</Text>
             <Text style={styles.smallquote} >Get ahead in your studies with Cogit {"\n"} - the student-friendly app.</Text>
             <TouchableOpacity onPress={()=>{
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
     smallquote:{
         marginHorizontal:20,
-        fontFamily:colors.BoldItalic,
+        fontFamily:Colors.BoldItalic,
         color:white
     },
 })

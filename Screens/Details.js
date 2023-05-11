@@ -20,15 +20,10 @@ import firestore from '@react-native-firebase/firestore';
 const primary = "#04103a"
 const secondry = "#283459"
 
-const black = "black"
 const white = "white"
 const Bold = "Montserrat-Bold"
 const Regular = 'Montserrat-Regular';
-const BoldItalic = 'Montserrat-BoldItalic';
-const ExtraBold = 'Montserrat-ExtraBold';
-const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
 const Medium = 'Montserrat-Medium';
-const MediumItalic = 'Montserrat-MediumItalic';
 
   
 const Details = ({navigation,route}) =>{
@@ -37,9 +32,10 @@ const Details = ({navigation,route}) =>{
     const [email,setEmail] = useState('');
     const [school,setSchool] = useState('')
     const [phone,setPhone] = useState()
-    const [clas, setClass] = useState();
+    const [clas, setClass] = useState('10');
     const [modelVisible,setModalVisible] = useState(false)
-    const [detailWarn,setDetailWarn] = useState(false)
+    const [detailWarn,setDetailWarn] = useState(false);
+    const [LoginType,setLoginType] = useState(false);
     
     
 
@@ -50,8 +46,9 @@ const Details = ({navigation,route}) =>{
        
     const Submit = async () =>{
         if(
-            userName && Password && email && school && phone && clas && modelVisible
+            userName && Password && email && school && phone && clas 
         ){
+            console.log(userName,Password,email,school,clas,phone);
         try{
             await AsyncStorage.setItem('userName',userName);
             await AsyncStorage.setItem('email', email)
@@ -82,7 +79,13 @@ const Details = ({navigation,route}) =>{
         }
         setDetailWarn(false);
         }else{
-            setDetailWarn(true)
+            setDetailWarn(true);
+            console.log('hwllo');
+            console.log(userName);
+            console.log(Password);
+            console.log(clas);
+            console.log(school);
+            console.log(phone);
         }
         
         
@@ -110,9 +113,13 @@ const Details = ({navigation,route}) =>{
             </View>
         </View>
       </Modal>
-        <Text style={[styles.signup,{
+
+    <Text style={[styles.signup,{
             marginTop:height/50
-            }]} >Sign Up</Text>
+            }]} >Get In</Text>
+
+    <View style={{display: LoginType ? 'flex' :'none'}} >
+        
         <Text style={styles.reg} >Let's get you signed up first</Text>
         <Text style={styles.inputLabe} >User Name</Text>
         <TextInput style={styles.input} onChangeText={setUserName}  placeholder='Name in the id card' />
@@ -144,6 +151,28 @@ const Details = ({navigation,route}) =>{
         <TouchableOpacity onPress={Submit} >
             <Text style={styles.btn} >Register</Text>
         </TouchableOpacity>
+    </View>
+
+    <View style={{display: !LoginType ? 'flex' : 'none',flex:1}} >
+        <Text style={styles.reg} >Login</Text>
+
+        
+        <Text style={styles.inputLabe} >User Name</Text>
+        <TextInput style={styles.input} onChangeText={setUserName}  placeholder='Name in the id card' />
+        <Text style={styles.inputLabe} >Password</Text>
+        <TextInput style={styles.input} onChangeText={setPassword} keyboardType={'visible-password'} placeholder='Password'/>
+        
+        
+        <TouchableOpacity style={{}} onPress={Submit} >
+            <Text style={styles.btn} >Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+            <Text style={{}} >Create new account</Text>
+        </TouchableOpacity>
+    </View>
+        
+
+
        </ScrollView>
     );
 }
@@ -193,9 +222,7 @@ const styles = StyleSheet.create({
         textAlign:'center',
         padding:10,
         borderRadius:10,
-        marginHorizontal:'10%',
-        width:'80%',
-        alignSelf:'flex-end'
+        marginHorizontal:30,
     },
     inputLabe:{
         marginLeft:40,
