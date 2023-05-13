@@ -19,6 +19,7 @@ const GetStarted = ({navigation}) =>{
     const inputHandler = (text)=>{
         setname(text);   
     }
+    // helllo
     
     
     return (
