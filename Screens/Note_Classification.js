@@ -52,14 +52,14 @@ const Note_Classification = ({navigation}) =>{
     }
     
    
-    const openNote = ({id}) =>{
+    const openNote = ({id,title}) =>{
         const ID = String(id)
-        navigation.navigate('NoteCreator',{id:ID})
+        navigation.navigate('NoteCreator',{id:ID,title:title})
     }
 
     const Renderitem = ({item}) =>{
         return(
-            <TouchableOpacity  style={styles.data}  onPress={()=>openNote({id:item.id})} >
+            <TouchableOpacity  style={styles.data}  onPress={()=>openNote({id:item.id,title:item.title})} >
                 <Text style={styles.dataText}>{item.title}</Text>
             </TouchableOpacity>
         )
@@ -73,6 +73,7 @@ const Note_Classification = ({navigation}) =>{
         <TouchableOpacity style={{margin:10}} onPress={()=>{
                     setDisplayAddButton(displayAddButton ? false : true);
                     setEmptyList(false);
+                    FocusTextInput.current.focus();
                 }} >
                 <Text style={[styles.btn,{width:width-60}]} >Create Note</Text>
         </TouchableOpacity>

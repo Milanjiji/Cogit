@@ -22,10 +22,18 @@ const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
 const Medium = 'Montserrat-Medium';
 const MediumItalic = 'Montserrat-MediumItalic';
 const Header = ({navigation,route,...props}) =>{
+
+    const Setting  = () =>{
+        if(props.pageSettings){
+            // navigation.navigate(props.pageSettings);            
+        }else{
+            navigation.navigate('Settings')
+        }
+    }
     
     return(
         <View style={styles.background} >
-            <TouchableOpacity onPress={props.GearFunc} >
+            <TouchableOpacity onPress={Setting} >
                 <FontAwesomeIcon style={styles.iLeft} icon={faGear} />
             </TouchableOpacity>
             <Text style={[styles.title,{

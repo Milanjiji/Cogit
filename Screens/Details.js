@@ -10,11 +10,12 @@ import {
     ScrollView
   } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useRef } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage'; 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import firestore from '@react-native-firebase/firestore';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 
 const primary = "#04103a"
@@ -36,6 +37,11 @@ const Details = ({navigation,route}) =>{
     const [modelVisible,setModalVisible] = useState(false)
     const [detailWarn,setDetailWarn] = useState(false);
     const [LoginType,setLoginType] = useState(false);
+    const [cheakData,setCheakData] = useState([])
+    const [loginWarn,setLoginWarn] = useState(false);
+    const [errorType,setErrorType] = useState('')
+
+    const search = firestore().collection('Users');
     
     
 
@@ -80,7 +86,6 @@ const Details = ({navigation,route}) =>{
         setDetailWarn(false);
         }else{
             setDetailWarn(true);
-            console.log('hwllo');
             console.log(userName);
             console.log(Password);
             console.log(clas);
@@ -90,7 +95,61 @@ const Details = ({navigation,route}) =>{
         
         
     }
-    
+    const loginTypeToggler = () =>{
+        setLoginType(!LoginType);
+    }
+    // login
+
+    const uploadData = async(userName,email,Password,school,phone,clas) =>{
+        try{
+            await AsyncStorage.setItem('userName',userName);
+            await AsyncStorage.setItem('email', email)
+            await AsyncStorage.setItem('password', Password)
+            await AsyncStorage.setItem('school', school);
+            await AsyncStorage.setItem('phone', phone);
+            await AsyncStorage.setItem('class', clas);
+        }catch(e){
+            console.log('err');
+        }
+    }
+    const Login = () =>{
+        console.log('login');
+        if(email && Password){
+            setErrorType('Wrong Credinals')
+            search.where('email', '==', email)
+            .get()
+            .then(querySnapshot => {
+                if(querySnapshot.empty){
+                    setLoginWarn(true);
+                }else{
+                    querySnapshot.forEach(doc => {
+                        
+                        if(doc.data().passcode === Password){
+                            uploadData(doc.data().name,doc.data().email,doc.data().passcode,doc.data().school,doc.data().phone,doc.data().class)
+                            setLoginWarn(false);
+                            navigation.navigate('Allset')
+                        }else{
+                            setErrorType('Wrong Credinals')
+                            setLoginWarn(true);
+                        }
+                        
+                        });
+                }
+                
+            })
+            .catch(error => {
+                console.log('Error getting documents: ', error);
+            });
+        }else{
+            setErrorType('enter Credinals');
+            setLoginWarn(true);
+        }
+        
+        
+
+    }
+
+   
 
     return(
        <ScrollView style={styles.background} >
@@ -151,23 +210,27 @@ const Details = ({navigation,route}) =>{
         <TouchableOpacity onPress={Submit} >
             <Text style={styles.btn} >Register</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={loginTypeToggler} >
+            <Text style={{color:Colors.white,textAlign:'center',marginBottom:20}} >Login</Text>
+        </TouchableOpacity>
     </View>
 
     <View style={{display: !LoginType ? 'flex' : 'none',flex:1}} >
         <Text style={styles.reg} >Login</Text>
 
         
-        <Text style={styles.inputLabe} >User Name</Text>
-        <TextInput style={styles.input} onChangeText={setUserName}  placeholder='Name in the id card' />
+        <Text style={styles.inputLabe} >Email</Text>
+        <TextInput style={[styles.input]} onChangeText={setEmail} keyboardType={'email-address'}  placeholder='Email' />
         <Text style={styles.inputLabe} >Password</Text>
         <TextInput style={styles.input} onChangeText={setPassword} keyboardType={'visible-password'} placeholder='Password'/>
         
+        <Text style={{color:'red',textAlign:'center',display:loginWarn ? 'flex' :'none'}} >{errorType}</Text>
         
-        <TouchableOpacity style={{}} onPress={Submit} >
+        <TouchableOpacity style={{}} onPress={Login} >
             <Text style={styles.btn} >Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
-            <Text style={{}} >Create new account</Text>
+        <TouchableOpacity onPress={loginTypeToggler} >
+            <Text style={{color:Colors.white,textAlign:'center'}} >Create new account</Text>
         </TouchableOpacity>
     </View>
         
