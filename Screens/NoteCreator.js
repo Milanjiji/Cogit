@@ -9,7 +9,7 @@ const NoteCreator = ({navigation,route}) =>{
     const [note,setNote] = useState('');
     const textInput = useRef(null)
     const height  = Dimensions.get('window').height
-    const {id} = route.params;
+    const {id,title} = route.params;
     const [theme,setTheme] = useState(true)
 
 
@@ -21,7 +21,7 @@ const NoteCreator = ({navigation,route}) =>{
             }else{
                 
             }
-            
+            console.log(title);
         }
         getNote();
 
@@ -42,7 +42,7 @@ const NoteCreator = ({navigation,route}) =>{
     }
         return(
         <View style={[styles.body,{backgroundColor:theme ? Colors.NoteBackground : Colors.Background}]} >
-            <Header title={'Notes'} pageSettings={test} info={theme ? 'darkMode' : 'lightMode'} />
+            <Header title={title} pageSettings={test} info={theme ? 'darkMode' : 'lightMode'} />
             <ScrollView style={styles.area} >
                 <TouchableOpacity activeOpacity={1} style={{height:height-100}} onPress={focusToTextInput} >
 

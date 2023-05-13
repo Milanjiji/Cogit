@@ -4,10 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import React,{useEffect,useState,useRef} from 'react'
 import {View,Text, StyleSheet} from 'react-native'
 import Colors from '../colors.json'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const Greetings = () =>{
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleString('en-US', { hour: 'numeric', hour12: false }));
     const [message,setMessage] = useState();
+    const [name,setName] = useState('');
+
+    useEffect(()=>{
+        const getName = async() =>{
+            try{
+                const Name = await AsyncStorage.getItem('userName');
+                setName(Name);
+            }catch(e){
+                console.log(e);
+            }
+        }
+        getName();
+    },[])
     console.log(currentTime);
 
     useEffect(()=>{
@@ -26,7 +40,7 @@ const Greetings = () =>{
     return(
         <View style={styles.body} >
             <View>
-                <Text style={styles.title} > Hello Name</Text>
+                <Text style={styles.title} > Hello {name}</Text>
                 <Text style={styles.time} >{message}</Text>
             </View>
             <View>

@@ -7,7 +7,7 @@ const Utilities = ({navigation}) =>{
     return(
         <View style={styles.body} >
             <View style={styles.utility_align_container_1} >
-                <TouchableOpacity style={styles.container} >
+                <TouchableOpacity onPress={()=>navigation.navigate('Focus')} style={styles.container} >
                     <FontAwesomeIcon size={30} color={Colors.white} icon={faClock} />
                     <Text style={styles.text} >Focus Mode</Text>
                 </TouchableOpacity>

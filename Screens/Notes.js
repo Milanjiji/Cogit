@@ -28,7 +28,6 @@ const Notes = ({navigation}) =>{
             const data = users.docs.map(doc => doc.data())
             const id = randomId(users.size)
             const selectedPanelFromData = data.filter( item => item.id === id);
-            console.log(selectedPanelFromData);
             setImageLink(selectedPanelFromData[0].ImageBackground);
             setPanelTitle(selectedPanelFromData[0].title)
             setPanelDisc(selectedPanelFromData[0].disc)
@@ -49,22 +48,25 @@ const Notes = ({navigation}) =>{
         <View style={styles.App} >
             <Header title="Notes" info='ellipsis' />
             <ScrollView showsVerticalScrollIndicator={false} >
-            <View style={styles.container}>
-                <ImageBackground
-                    source={{ uri: imageLink }}
-                    style={styles.backgroundImage}
-                    imageStyle={{width:200,resizeMode:'cover',left:'40%',height:150,top:50}}
-                >
-                    <View style={styles.overlay}>
-                        <Text style={styles.title}>{panelTitle}</Text>
-                        <Text style={styles.description}>{panelDisc}</Text>
-                        <View style={styles.panelGoBtn}  >
-                            <Text style={{color:Colors.primary,fontFamily:Colors.Bold,paddingRight:10}} >Go </Text>
-                            <FontAwesomeIcon icon={faArrowRight} />
-                        </View>
+                <TouchableOpacity  >
+                    <View style={styles.container}>
+                        <ImageBackground
+                            source={{ uri: imageLink }}
+                            style={styles.backgroundImage}
+                            imageStyle={{width:200,resizeMode:'cover',left:'40%',height:150,top:50}}
+                        >
+                            <View style={styles.overlay}>
+                                <Text style={styles.title}>{panelTitle}</Text>
+                                <Text style={styles.description}>{panelDisc}</Text>
+                                <View style={styles.panelGoBtn}  >
+                                    <Text style={{color:Colors.primary,fontFamily:Colors.Bold,paddingRight:10}} >Go </Text>
+                                    <FontAwesomeIcon icon={faArrowRight} />
+                                </View>
+                            </View>
+                        </ImageBackground>
                     </View>
-                </ImageBackground>
-            </View>
+                </TouchableOpacity>
+            
 
 
             <TouchableOpacity style={styles.community} onPress={()=>goTo('Community')}>

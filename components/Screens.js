@@ -1,5 +1,5 @@
 import React from "react";
-import { View } from "react-native";
+import { Settings, View } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -24,6 +24,7 @@ import ArticleView from "../Screens/ArticleView";
 import Missions from "../Screens/Missions";
 import LoadingAnimation from "./LoadingAnimation";
 import AllSet from "../Screens/AllSet";
+import Setting from "../Screens/Settings";
 
 
 
@@ -36,7 +37,7 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='Details' screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator  initialRouteName='Home' screenOptions={{headerShown:false,animation:'none'}} >
           <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
@@ -100,6 +101,9 @@ const Screens = () =>{
            <Stack.Screen
            name="Allset" 
            component={AllSet} /> 
+           <Stack.Screen
+           name="Settings" 
+           component={Setting} /> 
   
         </Stack.Navigator>
       </NavigationContainer>
