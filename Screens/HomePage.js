@@ -1,11 +1,10 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {
     ScrollView,
     StyleSheet,
     View,
     Dimensions
   } from 'react-native';
-import Ai from './Ai'
 import Header from '../components/Header';
 import Notes from '../components/Notes';
 import HomePageFootor from '../components/HomePageFootor';
@@ -15,25 +14,26 @@ import Achievement from '../components/Achivements';
 import PrevSection from '../components/PrevSection';
 import Colors from '../colors.json'
 import Greetings from '../components/Greetings';
-const primary = "#04103a"
-const secondry = "#283459"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const black = "black"
-const white = "white"
-const Regular = 'Roboto-Regular';
-const BoldItalic = 'Montserrat-BoldItalic';
-const ExtraBold = 'Montserrat-ExtraBold';
-const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
-const Medium = 'Montserrat-Medium';
-const MediumItalic = 'Montserrat-MediumItalic';
 
 
 const Homepage = ({navigation,route}) =>{
     const width = Dimensions.get('window').width;
+    const [Colors,setColors] = useState([]);
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
     return(
-            <View  style={styles.background} >
+            <View  style={[styles.background,{backgroundColor:Colors.Background}]} >
                 
-                <Header info={'info'} letterpacing={'y'} title={'Cogit'} />
+                <Header navigation={navigation} info={'info'} letterpacing={'y'} title={'Cogit'} />
                 <ScrollView showsVerticalScrollIndicator={false} >
                     <Greetings/>
                     <Events />
@@ -51,8 +51,6 @@ const Homepage = ({navigation,route}) =>{
 }
 const styles = StyleSheet.create({
     background:{
-        // backgroundColor:'#2b1499',
-        backgroundColor:Colors.Background,
         flex:1,
         
     },

@@ -32,7 +32,7 @@ const Header = ({navigation,route,...props}) =>{
     }
     
     return(
-        <View style={styles.background} >
+        <View style={[styles.background,{backgroundColor:'white'}]} >
             <TouchableOpacity onPress={Setting} >
                 <FontAwesomeIcon style={styles.iLeft} icon={faGear} />
             </TouchableOpacity>
@@ -55,10 +55,10 @@ const Header = ({navigation,route,...props}) =>{
 
                 <TouchableOpacity onPress={props.pageSettings} >
                     <FontAwesomeIcon style={styles.iRight} icon={faMoon} />
-                </TouchableOpacity>:  props.info == 'lightMode' ?
+                </TouchableOpacity>:  props.info == '' ?
 
                 <TouchableOpacity onPress={props.pageSettings} >
-                    <FontAwesomeIcon style={styles.iRight} icon={faSun} />
+                    <FontAwesomeIcon color='white' style={styles.iRight} icon={faMoon} />
                 </TouchableOpacity>: ''}
             </View>
 
@@ -67,9 +67,8 @@ const Header = ({navigation,route,...props}) =>{
 }
 const styles = StyleSheet.create({
     background:{
-        
+        elevation:10,
         height:50,
-        backgroundColor:'#fdfcfd',
         flexDirection:'row',
         justifyContent:'space-between',
         margin:3,

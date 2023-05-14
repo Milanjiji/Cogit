@@ -36,9 +36,9 @@ const Details = ({navigation,route}) =>{
     const [clas, setClass] = useState('10');
     const [modelVisible,setModalVisible] = useState(false)
     const [detailWarn,setDetailWarn] = useState(false);
-    const [LoginType,setLoginType] = useState(false);
+    const [LoginType,setLoginType] = useState(true);
     const [cheakData,setCheakData] = useState([])
-    const [loginWarn,setLoginWarn] = useState(false);
+    const [loginWarn,setLoginWarn] = useState(true);
     const [errorType,setErrorType] = useState('')
 
     const search = firestore().collection('Users');
@@ -49,7 +49,16 @@ const Details = ({navigation,route}) =>{
     const width = Dimensions.get('window').width;
 
     
-       
+    // useEffect(()=>{
+    //     const timeout = setTimeout(() => {
+    //         setLoginType(true);
+    //         console.log('1 second has passed');
+    //       }, 1000);
+      
+    //       return () => {
+    //         clearTimeout(timeout); // Cleanup function to clear the timeout if component unmounts before 1 second
+    //       };
+    // },[])
     const Submit = async () =>{
         if(
             userName && Password && email && school && phone && clas 
@@ -195,8 +204,7 @@ const Details = ({navigation,route}) =>{
                 setClass(itemValue)}>
 
                 <Picker.Item style={styles.items}  label="10" value="10" />
-                <Picker.Item style={styles.items} label="+1" value="+1" />
-                <Picker.Item style={styles.items} label="+2" value="+2" />
+                <Picker.Item style={styles.items} label="+1/+2" value="+1" />
                 <Picker.Item style={styles.items} label="others" value="others" />
             </Picker>
 
@@ -220,9 +228,9 @@ const Details = ({navigation,route}) =>{
 
         
         <Text style={styles.inputLabe} >Email</Text>
-        <TextInput style={[styles.input]} onChangeText={setEmail} keyboardType={'email-address'}  placeholder='Email' />
+        <TextInput style={[styles.input]} onChangeText={setEmail} keyboardType={'email-address'}  placeholder='     Email' />
         <Text style={styles.inputLabe} >Password</Text>
-        <TextInput style={styles.input} onChangeText={setPassword} keyboardType={'visible-password'} placeholder='Password'/>
+        <TextInput style={styles.input} onChangeText={setPassword} keyboardType={'visible-password'} placeholder='     Password'/>
         
         <Text style={{color:'red',textAlign:'center',display:loginWarn ? 'flex' :'none'}} >{errorType}</Text>
         

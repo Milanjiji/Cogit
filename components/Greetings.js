@@ -10,6 +10,17 @@ const Greetings = () =>{
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleString('en-US', { hour: 'numeric', hour12: false }));
     const [message,setMessage] = useState();
     const [name,setName] = useState('');
+    const [Colors,setColors] = useState([]);
+
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
 
     useEffect(()=>{
         const getName = async() =>{
@@ -38,13 +49,13 @@ const Greetings = () =>{
         }
     },[])
     return(
-        <View style={styles.body} >
+        <View style={[styles.body,{backgroundColor:Colors.primary}]} >
             <View>
-                <Text style={styles.title} > Hello {name}</Text>
-                <Text style={styles.time} >{message}</Text>
+                <Text style={[styles.title,{color:Colors.text}]} > Hello {name}</Text>
+                <Text style={[styles.time,{color:Colors.text}]} >{message}</Text>
             </View>
             <View>
-                <FontAwesomeIcon style={{marginRight:20}} size={80} color={Colors.white} 
+                <FontAwesomeIcon style={{marginRight:20}} size={80} color={Colors.text} 
                 icon={message == 'Good Morning' ? faCloudSun : message == 'Good AfterNoon' ? faSun : message == 'Good Evening' ? faCloudSun : message == 'Good Night' ? faCloud : ''} />
             </View>
         </View>

@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
         borderRadius:10,
         flexDirection:'row',
         justifyContent:'space-around',
-        alignItems:'center'
+        alignItems:'center',
+        elevation:10
     },
     icon:{
         fontSize:30

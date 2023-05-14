@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {
     StyleSheet,
     Text,
@@ -8,70 +8,71 @@ import {
     ImageBackground
   } from 'react-native';
 import Colors from '../colors.json'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Notes = ({navigation,route,...props}) =>{
+    const [Colors,setColors] = useState([]);
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
 
     const goTo = (place) =>{
         navigation.navigate(place);
     }
     return(
-        <View style={styles.background}>
-            <Text style={styles.title} >Notes</Text>
-            <ScrollView showsHorizontalScrollIndicator={false} horizontal style={{flexDirection:'row'}} >
-                <View style={{flexDirection:'row'}} >
-                    <TouchableOpacity onPress={()=>goTo('Notes')} style={[styles.btn,{backgroundColor:'#f6b26b'}]} >
-                        <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1tHfRi8UikHq30wR5Nq1m4IZjCjH0PU9z'}} >
-                                <Text style={styles.btnText} >Maths</Text>
-                        </ImageBackground>
-                    </TouchableOpacity>
-                    
-                    <TouchableOpacity style={[styles.btn,{backgroundColor:'#5d5eab'}]} >
-                        <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1NQIJtTmPXC7BS95fe-fc6tI-UCgEMZa9'}} >
-                                <Text style={styles.btnText} >Chemistry</Text>
-                        </ImageBackground>
-                    </TouchableOpacity>
-                    
-                    <TouchableOpacity style={[styles.btn,{backgroundColor:'#7dcfb6'}]} >
-                        <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1IdNwwJfD5g4BAK1ZWIVQovF_VjfqZvd_'}} >
-                                <Text style={styles.btnText} >Physics</Text>
-                        </ImageBackground>
-                    </TouchableOpacity>
-                    
-                    <TouchableOpacity style={[styles.btn,{backgroundColor:'#a26a7b'}]} >
-                        <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1dSy9ZT7xkAz9HcWzFwp0yQpexsfKbRhb'}} >
-                                <Text style={styles.btnText} >Biology</Text>
-                        </ImageBackground>
-                    </TouchableOpacity>
-                    
+            <View>
+                    <View style={styles.grid} >
+                        <TouchableOpacity  style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                            <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1tHfRi8UikHq30wR5Nq1m4IZjCjH0PU9z'}} >
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Maths</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                        
+                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]}>
+                            <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1NQIJtTmPXC7BS95fe-fc6tI-UCgEMZa9'}} >
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Chemistry</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.grid} >
+                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                            <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1IdNwwJfD5g4BAK1ZWIVQovF_VjfqZvd_'}} >
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Physics</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                        
+                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                            <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1dSy9ZT7xkAz9HcWzFwp0yQpexsfKbRhb'}} >
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Biology</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-            </ScrollView>
-                 
-            
-        </View>
+          
     );
 }
 const styles = StyleSheet.create({
-    background:{
-        backgroundColor:Colors.primary,
-        marginTop:10,
-        borderRadius:10,
-        margin:3,
-        padding:10,
-        elevation:10
-    },
-    title:{
-        color:Colors.primary,
-        fontFamily:Colors.ExtraBold,
-        fontSize:16,
+    grid:{
+        flexDirection:'row',
+        justifyContent:'space-around'
     },
     btn:{
-        width:150,
+        width:160,
         height:100,
         borderRadius:10,
         justifyContent:'flex-end',
-        marginVertical:2,
-        marginHorizontal:2
+        marginVertical:15,
+        marginHorizontal:2,
+        backgroundColor:Colors.primary,
+        elevation:10
     },
     btnText:{
         color:Colors.white,
@@ -83,8 +84,16 @@ const styles = StyleSheet.create({
         marginTop:40
     },
     btnContainer:{
-        flexDirection:'row' 
+        flexDirection:'row' ,
     },
+    container: {
+        margin:10,
+        height:200,
+        borderRadius:10,
+        backgroundColor:'rgba(0,0,0,0.5)',
+        overflow:'hidden',
+        padding:10
+      },
     
 })
 export default Notes;

@@ -3,12 +3,23 @@ import { View,Text, StyleSheet, TouchableOpacity,Dimensions, FlatList } from "re
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Colors from '../colors.json'
 import { faArrowRight, faHashtag, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 const Achievement = () =>{
     const [missions,setMissions] = useState([])
     const missionsToRender = missions.filter(missions => missions.id < 3)
     const width =Dimensions.get('window').width
+    const [Colors,setColors] = useState([]);
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
 
     useEffect(()=>{
         const fetchItems = async () =>{
@@ -26,30 +37,30 @@ const Achievement = () =>{
 
     
     return(
-        <View style={[styles.body,{width:width-140}]} >
-            <Text style={styles.title} >Achievements(0)</Text>
+        <View style={[styles.body,{width:width-140,backgroundColor:Colors.primary}]} >
+            <Text style={[styles.title,{color:Colors.text}]} >Achievements(0)</Text>
             
             <View style={styles.mission_Info_container} >
-                <FontAwesomeIcon color={Colors.white} icon={faInfoCircle} />
-                <Text style={styles.mission_Info} >Complete Missions to earn badges</Text>
+                <FontAwesomeIcon color={Colors.text} icon={faInfoCircle} />
+                <Text style={[styles.mission_Info,{color:Colors.text}]} >Complete Missions to earn badges</Text>
             </View>
-            <Text style={styles.mission_title} >Missions</Text>
+            <Text style={[styles.mission_title,{color:Colors.text}]} >Missions</Text>
             <View style={{height:110,overflow:'hidden',padding:4}} >
             {
                 missionsToRender.map(item =>{
                     return (
                         <View key={item.id} style={{flexDirection:'row',alignItems:'center'}} >
-                            <FontAwesomeIcon style={{paddingHorizontal:10}} icon={faHashtag} color={Colors.white} />
-                            <Text style={{color:Colors.white,width:220,textAlign:'center'}} key={item.id} >{item.description}</Text>
+                            <FontAwesomeIcon style={{paddingHorizontal:10}} icon={faHashtag} color={Colors.text} />
+                            <Text style={{color:Colors.text,width:'90%',textAlign:'center'}} key={item.id} >{item.description}</Text>
                         </View>
                     )
                 })
             }
             </View>
             
-            <TouchableOpacity style={styles.Missions_Container} >
-                <Text style={styles.open_Missions} >Missions </Text>
-                <FontAwesomeIcon color={Colors.black} icon={faArrowRight} />
+            <TouchableOpacity style={[styles.Missions_Container,{backgroundColor:Colors.secondary}]} >
+                <Text style={[styles.open_Missions,{color:Colors.text}]} >Missions </Text>
+                <FontAwesomeIcon color={Colors.text} icon={faArrowRight} />
             </TouchableOpacity>    
             
             

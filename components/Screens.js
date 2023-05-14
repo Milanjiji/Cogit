@@ -5,9 +5,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 import Homepage from '../Screens/HomePage'
-// import MathsNote10 from '../Screens/Notes/Class10/Maths/MathsNote'
-// import FileSys from './FileSystem';
-// import Download from './Download';
 import Model from "../Screens/Notes/Model";
 import SampleFetch from './SampleFetch';
 import Classification from "../Screens/Notes/Class10/Maths/Classification";

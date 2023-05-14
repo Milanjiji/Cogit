@@ -3,15 +3,23 @@ import { View,Text,StyleSheet,ImageBackground, Linking, FlatList, Button,Dimensi
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import firestore from '@react-native-firebase/firestore';
 import colors from '../colors.json'
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 
 const Events = () =>{
     const [docNumber,setDocNumber] = useState(0)
     const [data,setData] = useState([]) 
+    const [Colors,setColors] = useState([]);
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
 
-    
-
-    
         useEffect(() => {
             const get = async () =>{
                 const users = await firestore().collection('Events').get()
@@ -29,47 +37,30 @@ const Events = () =>{
             return(
                
                 <View style={styles.event_container} >
-                <ImageBackground  borderRadius={10} source={{ uri: item.imageSource }}  >
+
+                {/* <ImageBackground  borderRadius={10} source={{ uri: item.imageSource }}  >
                     <View style={{height:item.height}} >
                     <Text style={[styles.title,{color:item.color,width:item.titleWidth}]} >{item.title}</Text>
                     <Text style={[styles.disc,{marginTop:item.marginTop,width:item.width,color:item.color}]} >{item.disc}</Text>
                     <Text style={[styles.link,{color:item.color}]} onPress={()=> Linking.openURL(item.link)} >Learn more</Text>
                     </View>
-                </ImageBackground>
+                </ImageBackground> */}
             </View> 
             )
         }
         
         return(
-        <View style={styles.body}  >
-            <Text style={styles.Events} >Events ({docNumber})</Text>
-            <FlatList
-            data={data}
-            keyExtractor={(item) => item.id}
-            renderItem={renderItem}
-            horizontal={true}
-            />
-            
+        <View style={[styles.body,{backgroundColor:Colors.primary}]}  >
+            <Text style={styles.title} >Events</Text>
+            <Text style={styles.disc} >Cheak what is going happen</Text>
         </View>
     );
 }
 const styles = StyleSheet.create({
     body:{
-        backgroundColor:colors.primary,
         borderRadius:10,
         margin:5,
         elevation:10
-    },
-    Events:{
-        color:colors.white,
-        marginLeft:10,
-        marginTop:10,
-        fontFamily:colors.ExtraBold
-    },
-    event_container:{
-        marginHorizontal:5,
-        marginVertical:5,
-        borderRadius:10,
     },
     title:{
         marginLeft:10,
@@ -78,12 +69,9 @@ const styles = StyleSheet.create({
         fontFamily:colors.ExtraBold
     },
     disc:{
-        marginTop:15,
         marginLeft:10,
-    },
-    link:{
-        marginLeft:10,
-        marginVertical:5
+        marginTop:5,
+        fontFamily:Colors.Medium
     }
 
 })
