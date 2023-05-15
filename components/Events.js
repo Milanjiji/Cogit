@@ -51,12 +51,8 @@ const Events = () =>{
         
         return(
         <View style={[styles.body,{backgroundColor:Colors.primary}]}  >
-            <TouchableOpacity>
-                <Text style={[styles.title,{color:Colors.text}]} >Events</Text>
-                <Text style={[styles.disc,{color:Colors.text}]} >Cheak what is going happen</Text>
-            </TouchableOpacity>
-            
-            
+            <Text style={styles.title} >Events</Text>
+            <Text style={styles.disc} >Cheak what is going happen</Text>
         </View>
     );
 }

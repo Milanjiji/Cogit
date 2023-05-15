@@ -12,16 +12,20 @@ const App = () => {
     const setColors = async () =>{
       const data = JSON.stringify(Colors);
       await AsyncStorage.setItem('Colors',data)
+      console.log('shit');
       
     }
     const getItem = async() =>{
       const color = await AsyncStorage.getItem('Colors');
+      console.log(color);
       if(!color){
         setColors();
+        console.log('hello');
       }else{
 
       }
     }
+    getItem();
     
     
     
@@ -29,6 +33,9 @@ const App = () => {
   
   return (
       <Screens />
+      // <View>
+
+      // </View>
   );
 }
 // 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
