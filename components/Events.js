@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useRef} from "react";
-import { View,Text,StyleSheet,ImageBackground, Linking, FlatList, Button,Dimensions } from "react-native";
+import { View,Text,StyleSheet,ImageBackground, Linking, FlatList, Button,Dimensions, Touchable, TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import firestore from '@react-native-firebase/firestore';
 import colors from '../colors.json'
@@ -51,8 +51,12 @@ const Events = () =>{
         
         return(
         <View style={[styles.body,{backgroundColor:Colors.primary}]}  >
-            <Text style={styles.title} >Events</Text>
-            <Text style={styles.disc} >Cheak what is going happen</Text>
+            <TouchableOpacity>
+                <Text style={[styles.title,{color:Colors.text}]} >Events</Text>
+                <Text style={[styles.disc,{color:Colors.text}]} >Cheak what is going happen</Text>
+            </TouchableOpacity>
+            
+            
         </View>
     );
 }
@@ -71,7 +75,8 @@ const styles = StyleSheet.create({
     disc:{
         marginLeft:10,
         marginTop:5,
-        fontFamily:Colors.Medium
+        fontFamily:Colors.Medium,
+        marginBottom:10
     }
 
 })
