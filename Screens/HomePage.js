@@ -36,7 +36,7 @@ const Homepage = ({navigation,route}) =>{
                 <Header navigation={navigation} info={'info'} letterpacing={'y'} title={'Cogit'} />
                 <ScrollView showsVerticalScrollIndicator={false} >
                     <Greetings/>
-                    <Events />
+                    <Events navigation={navigation} />
                     <PrevSection navigation={navigation} />
                     <View style={{flexDirection:'row',width:width,padding:10}} >
                         <Achievement />

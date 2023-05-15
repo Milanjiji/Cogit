@@ -4,9 +4,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import firestore from '@react-native-firebase/firestore';
 import colors from '../colors.json'
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
 
 
-const Events = () =>{
+const Events = ({navigation}) =>{
     const [docNumber,setDocNumber] = useState(0)
     const [data,setData] = useState([]) 
     const [Colors,setColors] = useState([]);
@@ -51,8 +53,11 @@ const Events = () =>{
         
         return(
         <View style={[styles.body,{backgroundColor:Colors.primary}]}  >
-            <Text style={styles.title} >Events</Text>
-            <Text style={styles.disc} >Cheak what is going happen</Text>
+            <TouchableOpacity onPress={()=>navigation.navigate('Events')} >
+                <Text style={[styles.title,{color:Colors.text}]} >Events</Text>
+                <Text style={[styles.disc,{color:Colors.text}]} >Cheak what is going happen</Text>
+            </TouchableOpacity>
+            <FontAwesomeIcon size={40} color={Colors.text} icon={faBullhorn} style={{ transform: [{ rotateY: '180deg' }], marginRight:20 }} />
         </View>
     );
 }
@@ -60,7 +65,10 @@ const styles = StyleSheet.create({
     body:{
         borderRadius:10,
         margin:5,
-        elevation:10
+        elevation:10,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'space-between'
     },
     title:{
         marginLeft:10,

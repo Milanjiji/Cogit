@@ -22,6 +22,8 @@ import Missions from "../Screens/Missions";
 import LoadingAnimation from "./LoadingAnimation";
 import AllSet from "../Screens/AllSet";
 import Setting from "../Screens/Settings";
+import Events from "../Screens/Events";
+import AddEvents from "../Screens/AddEvent";
 
 
 
@@ -34,7 +36,7 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='Home' screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator  initialRouteName='AddEvent' screenOptions={{headerShown:false,animation:'none'}} >
           <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
@@ -101,6 +103,12 @@ const Screens = () =>{
            <Stack.Screen
            name="Settings" 
            component={Setting} /> 
+           <Stack.Screen
+           name="Events" 
+           component={Events} /> 
+           <Stack.Screen
+           name="AddEvent" 
+           component={AddEvents} /> 
   
         </Stack.Navigator>
       </NavigationContainer>
