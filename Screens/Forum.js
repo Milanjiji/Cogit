@@ -15,17 +15,25 @@ const Forum = ({navigation}) =>{
     const [idCounter, setIdCounter] = useState(0);
     const [sender,setSender] = useState('otherUser');
     const [name,setName] = useState('')
-    const [display,setDisplay] = useState(true)
+    const [display,setDisplay] = useState(true);
+    const [Colors,setColors] = useState([]);
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
 
     const height = Dimensions.get('window').height;
     const flatListRef = useRef(null);
     useEffect(() => {
         const fetchUserReply = async () =>{
-            const ans = await AsyncStorage.getItem('UserReply_Ok');
             const name = await AsyncStorage.getItem('userName');
             console.log(name);
             setName(name);
-            setDisplay(ans);
             
         }
         const unsubscribe = firestore()
@@ -64,9 +72,10 @@ const Forum = ({navigation}) =>{
       const renderItem = ({ item }) => {
         return (
             <View style={[styles.item,{
-                alignSelf: item.name === name ? 'flex-end' :'flex-start'
+                alignSelf: item.name === name ? 'flex-end' :'flex-start',
+                backgroundColor:Colors.primary
                 }]} key={item.id}>
-                <Text style={{color:colors.white}} >{item.message}</Text>
+                <Text style={{color:colors.text}} >{item.message}</Text>
             </View>
         );
       }
@@ -75,20 +84,19 @@ const Forum = ({navigation}) =>{
       };
       const handleUserReply = async () =>{
         setDisplay(false);
-        await AsyncStorage.setItem('UserReply_Ok',false)
       }
     
 
     return(
-        <View style={styles.background}  >
-            <Header title="cogit" info="ellipsis" />
+        <View style={[styles.background,{backgroundColor:Colors.Background}]}  >
+            <Header navigation={navigation} title="cogit" info="ellipsis" />
            <View style={{height:height,justifyContent:'space-around', display:display === true ? 'flex' : "none" }} >
-                <View style={styles.warning} >
-                    <Text style={styles.warningText} >
+                <View style={[styles.warning,{backgroundColor:Colors.primary}]} >
+                    <Text style={[styles.warningText,{color:Colors.text}]} >
                     Welcome to our chat forum! This is a place for people to talk about different things openly. We want everyone to be kind and avoid posting anything mean or wrong. This includes saying things that hurt others, attacking them personally, or sending too many messages. If we see someone doing these things, we'll have to ban them from the forum. We want everyone to feel happy and safe here, so please follow these rules. We're excited to see you join the fun and talk about interesting things!
                     </Text>
                     <TouchableOpacity onPress={handleUserReply} >
-                        <Text style={styles.reply} >OK I GOT IT!</Text>
+                        <Text style={[styles.reply,{color:Colors.text,backgroundColor:Colors.secondary}]} >OK I GOT IT!</Text>
                     </TouchableOpacity>
                 </View>
             
@@ -104,10 +112,10 @@ const Forum = ({navigation}) =>{
                 onLayout={handleContentSizeChange}
                 />
             
-            <View style={styles.Input} >
+            <View style={[styles.Input,{backgroundColor:Colors.primary}]} >
                 <TextInput placeholderTextColor={colors.white} value={message} onChangeText={setMessage}  style={styles.textInput} placeholder="Type your message Here" />
                 <TouchableOpacity onPress={handleSend} style={styles.Send} >
-                    <FontAwesomeIcon size={25} color={colors.white} icon={faPaperPlane} />
+                    <FontAwesomeIcon size={25} color={colors.text} icon={faPaperPlane} />
                 </TouchableOpacity>
             </View>
             <HomePageFootor navigation={navigation} />
@@ -144,9 +152,8 @@ const styles = StyleSheet.create({
     },
     warning:{
         margin:20,
-        backgroundColor:colors.secondary,
         padding:10,
-        
+        borderRadius:10
     },
     warningText:{
         color:colors.white,

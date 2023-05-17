@@ -6,7 +6,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Homepage from '../Screens/HomePage'
 import Model from "../Screens/Notes/Model";
-import SampleFetch from './SampleFetch';
 import Classification from "../Screens/Notes/Class10/Maths/Classification";
 import Ai from "../Screens/Ai";
 import Forum from "../Screens/Forum";
@@ -37,7 +36,7 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='AddArticle' screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator  initialRouteName='Ai' screenOptions={{headerShown:false,animation:'none'}} >
           <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
@@ -63,10 +62,6 @@ const Screens = () =>{
            name="Model" 
            component={Model} />
 
-  
-          <Stack.Screen
-           name="Fetch" 
-           component={SampleFetch} />
 
           <Stack.Screen
            name="MathsClassification" 

@@ -1,4 +1,4 @@
-import React, { useState,useRef } from 'react';
+import React, { useState,useRef,useEffect } from 'react';
 import {
     ScrollView,
     StyleSheet,
@@ -12,16 +12,13 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import HomePageFootor from '../components/HomePageFootor';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const OPENAI_API_KEY = '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';
 
 const primary = "#12156c"
 const secondry = "#0e1158"
 
-
-const black = "black"
-const white = "white"
-const Regular = 'Roboto-Regular';
 
 
 async function sendToOpenAI(input) {
@@ -56,6 +53,16 @@ const Ai = ({navigation,route,...props}) =>{
   const [note,setNote] = useState(true);
   const [typing,doneTyping] = useState();
   const [singleRun,setSingleRun] = useState(false)
+  const [Colors,setColors] = useState([]);
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
   
 
   const handleInputSubmit = async () => {
@@ -96,17 +103,17 @@ const Ai = ({navigation,route,...props}) =>{
         
           
           
-            <View  style={styles.background} >
+            <View  style={[styles.background,{backgroundColor:Colors.Background}]} >
           
           <ScrollView showsVerticalScrollIndicator={false} ref={scrollViewRef} onContentSizeChange={handleContentSizeChange} style={{marginHorizontal:20,marginTop:20}} >
-            <View style={[styles.note,{display : note == true ? 'flex' : 'none'}]} >
-              <Text style={styles.noteText} >
+            <View style={[styles.note,{display : note == true ? 'flex' : 'none',backgroundColor:Colors.primary}]} >
+              <Text style={[styles.noteText,{color:Colors.text,fontFamily:Colors.Medium}]} >
               This app has an AI-powered assistant that can help you with 
               a wide range of tasks using natural language processing. 
               It's always available to provide support and guidance, 
               and it's constantly learning and improving to better serve you.
               </Text>
-              <Text style={styles.noteText} >
+              <Text style={[styles.noteText,{color:Colors.text,fontFamily:Colors.Medium}]} >
                 Ask any question {"\n"}
                 eg: * what is simple pendulam{"\n"}
                 * What is the basic principle behind 
@@ -115,7 +122,7 @@ const Ai = ({navigation,route,...props}) =>{
                 * Write the electronic configuration of the elements with atomic numbers
                  6, 13, and 17. Also, state the group and period to which these elements belong.
               </Text>
-              <Text style={styles.noteText} >
+              <Text style={[styles.noteText,{color:Colors.text,fontFamily:Colors.Medium}]} >
                 LIMITATIONS {"\n"}
                 :- Limited context understanding{"\n"}
                 :- Dependence on training data{"\n"}
@@ -124,7 +131,7 @@ const Ai = ({navigation,route,...props}) =>{
                 :- Answers may be incomplete sometimes
 
               </Text>
-              <Text style={styles.noteText} >
+              <Text style={[styles.noteText,{color:Colors.text,fontFamily:Colors.Medium}]} >
                 Some Sample questions are given below. click one the below to ask. 
               </Text>
 
@@ -135,7 +142,9 @@ const Ai = ({navigation,route,...props}) =>{
                   backgroundColor:primary,
                   textAlign:'center',
                   borderRadius:10,
-                  padding:10
+                  padding:10,
+                  fontFamily:Colors.Medium,
+                  color:Colors.text
                 }]} >Can you explain the concept of quantum mechanics?</Text>
               </TouchableOpacity>
 
@@ -146,7 +155,9 @@ const Ai = ({navigation,route,...props}) =>{
                   backgroundColor:primary,
                   textAlign:'center',
                   borderRadius:10,
-                  padding:10
+                  padding:10,
+                  fontFamily:Colors.Medium,
+                  color:Colors.text
                 }]} >Can you explain the concept of photosynthesis?</Text>
               </TouchableOpacity>
 
@@ -157,27 +168,31 @@ const Ai = ({navigation,route,...props}) =>{
                   backgroundColor:primary,
                   textAlign:'center',
                   borderRadius:10,
-                  padding:10
+                  padding:10,
+                  fontFamily:Colors.Medium,
+                  color:Colors.text
                 }]} >What are the three main types of rocks and how are they formed?</Text>
               </TouchableOpacity>
             </View>
             {chatHistory.map(({ author, message }, index) => (
                 <Text style={[styles.text,{
-                  backgroundColor:author === 'user' ? secondry : primary,
+                  backgroundColor:author === 'user' ? Colors.secondary : Colors.primary,
                   textAlign : author === 'user' ? 'right' : 'left', 
+                  fontFamily:Colors.Medium,
+                  color:Colors.text
                 }]} key={index}>{message}</Text>
             ))}
           </ScrollView>
-          <Text style={styles.typing} >{typing == true ? 'Ai is typing...' : 'Ai is Online'}</Text>
+          <Text style={[styles.typing,{fontFamily:Colors.Medium}]} >{typing == true ? 'Ai is typing...' : 'Ai is Online'}</Text>
     
-          <View style={styles.input} >
-              <TextInput style={styles.textInput} 
+          <View style={[styles.input,{backgroundColor:Colors.primary}]} >
+              <TextInput style={[styles.textInput,{fontFamily:Colors.Medium,color:Colors.text}]} 
               value={inputValue} 
               onChangeText={setInputValue} 
               onSubmitEditing={handleInputSubmit}
               placeholder={'Ask your questions here'} />
               <TouchableOpacity onPress={handleInputSubmit} >
-                <FontAwesomeIcon style={styles.iconPlane} color={white} size={30} icon={faPaperPlane} />
+                <FontAwesomeIcon style={styles.iconPlane} color={Colors.text} size={30} icon={faPaperPlane} />
               </TouchableOpacity>
 
           </View>
@@ -188,31 +203,25 @@ const Ai = ({navigation,route,...props}) =>{
 }
 const styles = StyleSheet.create({
     background:{
-        backgroundColor:primary,
         marginTop:0,
         flex:1
     },
     label:{
-      color:white,
       marginLeft:30,
       marginTop:20,
       fontSize:14,
-      fontFamily:Regular
     },
     text:{
-      color:white,
       marginVertical:5,
       padding:10,
       paddingHorizontal:20,
       borderRadius:10
     },
     textInput:{
-      color:white,
       paddingHorizontal:20,
       flex:1
     },
     input:{
-      backgroundColor:secondry,
       marginHorizontal:20,
       borderRadius:10,
       marginBottom:10,
@@ -228,14 +237,12 @@ const styles = StyleSheet.create({
       marginHorizontal:30
     },
     note:{
-      backgroundColor:secondry,
       marginVertical:0,
       borderRadius:10,
       padding:10,
       
     },
     i:{
-      color:white,
       textAlign:'right',
       fontSize:20,
       marginRight:20,
@@ -244,10 +251,8 @@ const styles = StyleSheet.create({
     },
     noteText:{
       marginVertical:5,
-      color:white
     },
     iconArrow:{
-      backgroundColor:white,
       textAlign:'center',
       marginHorizontal:3,
       borderRadius:10,
@@ -258,18 +263,3 @@ const styles = StyleSheet.create({
 })
 export default Ai;
 
-// Sure! Here are the limitations of AI-powered assistants summarized in single line sentences:
-
-//     Context: May not understand the full context of a question.
-//     Bias: May be influenced by biases in training data or question framing.
-//     Language limitations: Understanding and generation of text may be affected by complexities of different languages.
-//     Uncertainty: May not always provide a definitive or accurate response.
-//     Ethical concerns: Potential ethical issues around use for generating misleading, harmful, or unethical content.
-
-// Sure! Here are some features of AI-powered assistants summarized in single line sentences:
-
-//     24/7 availability: Can provide support and assistance around the clock.
-//     Personalization: Can provide tailored responses based on user input.
-//     Efficiency: Can respond to multiple queries simultaneously.
-//     Learning and adaptation: Can learn from user interactions and adapt to provide better responses.
-//     Integration: Can be integrated into various platforms and systems to provide seamless support.

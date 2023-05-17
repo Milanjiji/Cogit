@@ -89,7 +89,7 @@ const AddArticle = ({navigation}) =>{
     
     return(
         <View style={{flex: 1,backgroundColor:Colors.Background}} >
-            <Header info="ellipsis" title={'Post'} />
+            <Header navigation={navigation} info="ellipsis" title={'Post'} />
             <View style={{flex:1}} >
                 <ScrollView showsVerticalScrollIndicator={false} style={{display:addPreviewToggler ? 'flex' :'none'}} >
                     <View style={{marginHorizontal:20,marginTop:10}} >
