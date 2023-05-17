@@ -35,13 +35,14 @@ const Community = ({navigation}) =>{
         <View style={styles.App} >
             <Header info="ellipsis" title={'Community'} />
             <View style={{flex:1}} >
-                <View style={styles.header} >
-                    <Text style={styles.header_Text} >Try to add one!</Text>
-                    <TouchableOpacity style={styles.header_Btn} >
-                        <FontAwesomeIcon color={Colors.white} size={30} icon={faPlusSquare} />
-                    </TouchableOpacity>
-                </View>
-
+                <TouchableOpacity onPress={()=>navigation.navigate('AddArticle')} >
+                    <View style={styles.header} >
+                        <Text style={styles.header_Text} >Try to post one!</Text>
+                        <TouchableOpacity style={styles.header_Btn} >
+                            <FontAwesomeIcon color={Colors.white} size={30} icon={faPlusSquare} />
+                        </TouchableOpacity>
+                    </View>
+                </TouchableOpacity>
                 <FlatList
                 data={data}
                 keyExtractor={(item)=>item.id}
