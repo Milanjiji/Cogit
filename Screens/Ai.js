@@ -139,7 +139,7 @@ const Ai = ({navigation,route,...props}) =>{
                 setInputValue('Can you explain the concept of quantum mechanics?')
               }} >
                 <Text style={[styles.noteText,{
-                  backgroundColor:primary,
+                  backgroundColor:Colors.secondary,
                   textAlign:'center',
                   borderRadius:10,
                   padding:10,
@@ -152,7 +152,7 @@ const Ai = ({navigation,route,...props}) =>{
                 setInputValue('Can you explain the concept of photosynthesis?')
               }} >
                 <Text style={[styles.noteText,{
-                  backgroundColor:primary,
+                  backgroundColor:Colors.secondary,
                   textAlign:'center',
                   borderRadius:10,
                   padding:10,
@@ -165,7 +165,7 @@ const Ai = ({navigation,route,...props}) =>{
                 setInputValue('What are the three main types of rocks and how are they formed?')
               }} >
                 <Text style={[styles.noteText,{
-                  backgroundColor:primary,
+                  backgroundColor:Colors.secondary,
                   textAlign:'center',
                   borderRadius:10,
                   padding:10,
@@ -183,7 +183,7 @@ const Ai = ({navigation,route,...props}) =>{
                 }]} key={index}>{message}</Text>
             ))}
           </ScrollView>
-          <Text style={[styles.typing,{fontFamily:Colors.Medium}]} >{typing == true ? 'Ai is typing...' : 'Ai is Online'}</Text>
+          <Text style={[styles.typing,{fontFamily:Colors.Medium,color:Colors.text}]} >{typing == true ? 'Ai is typing...' : 'Ai is Online'}</Text>
     
           <View style={[styles.input,{backgroundColor:Colors.primary}]} >
               <TextInput style={[styles.textInput,{fontFamily:Colors.Medium,color:Colors.text}]} 

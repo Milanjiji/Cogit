@@ -24,6 +24,7 @@ import Setting from "../Screens/Settings";
 import Events from "../Screens/Events";
 import AddEvents from "../Screens/AddEvent";
 import AddArticle from "../Screens/AddArticle";
+import User from "../Screens/User";
 
 
 
@@ -36,7 +37,7 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='Ai' screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator  initialRouteName='User' screenOptions={{headerShown:false,animation:'none'}} >
           <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
@@ -108,6 +109,9 @@ const Screens = () =>{
            <Stack.Screen
            name="AddArticle" 
            component={AddArticle} /> 
+           <Stack.Screen
+           name="User" 
+           component={User} /> 
   
         </Stack.Navigator>
       </NavigationContainer>

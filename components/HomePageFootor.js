@@ -41,7 +41,7 @@ const HomePageFootor = ({navigation,route,...props}) =>{
                 <FontAwesomeIcon style={styles.icon} size={23} icon={faMessage} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.iconContainer} >
+            <TouchableOpacity onPress={()=>{navigation.navigate('User')}} style={styles.iconContainer} >
                 <FontAwesomeIcon style={styles.icon} size={23} icon={faUser} />
             </TouchableOpacity>
         </View>

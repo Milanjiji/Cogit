@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import HomePageFootor from "../components/HomePageFootor";
 import firestore from '@react-native-firebase/firestore';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 
@@ -14,6 +15,20 @@ const Notes = ({navigation}) =>{
     const [imageLink,setImageLink] = useState('');
     const [panelTitle,setPanelTitle] = useState('');
     const [panelDisc,setPanelDisc] = useState('');
+    const [Colors,setColors] = useState([]);
+
+
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
+
+
     const width  = Dimensions.get('window').width;
     const randomId = (id) =>{
         const random = Math.floor(Math.random() * id)
@@ -45,22 +60,22 @@ const Notes = ({navigation}) =>{
 
       
     return(
-        <View style={styles.App} >
-            <Header title="Notes" info='ellipsis' />
+        <View style={[styles.App,{backgroundColor:Colors.Background}]} >
+            <Header title="Notes" info='' />
             <ScrollView showsVerticalScrollIndicator={false} >
                 <TouchableOpacity  >
-                    <View style={styles.container}>
+                    <View style={[styles.container,{backgroundColor:Colors.secondary}]}>
                         <ImageBackground
                             source={{ uri: imageLink }}
                             style={styles.backgroundImage}
                             imageStyle={{width:200,resizeMode:'cover',left:'40%',height:150,top:50}}
                         >
                             <View style={styles.overlay}>
-                                <Text style={styles.title}>{panelTitle}</Text>
-                                <Text style={styles.description}>{panelDisc}</Text>
-                                <View style={styles.panelGoBtn}  >
-                                    <Text style={{color:Colors.primary,fontFamily:Colors.Bold,paddingRight:10}} >Go </Text>
-                                    <FontAwesomeIcon icon={faArrowRight} />
+                                <Text style={[styles.title,{color:Colors.text}]}>{panelTitle}</Text>
+                                <Text style={[styles.description,{color:Colors.text}]}>{panelDisc}</Text>
+                                <View style={[styles.panelGoBtn,{color:Colors.text}]}  >
+                                    <Text style={{color:Colors.black,fontFamily:Colors.Bold,paddingRight:10}} >Go </Text>
+                                    <FontAwesomeIcon color={Colors.black} icon={faArrowRight} />
                                 </View>
                             </View>
                         </ImageBackground>
@@ -69,39 +84,39 @@ const Notes = ({navigation}) =>{
             
 
 
-            <TouchableOpacity style={styles.community} onPress={()=>goTo('Community')}>
+            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary}]} onPress={()=>goTo('Community')}>
                 <ImageBackground style={{}} source={{uri : 'https://drive.google.com/uc?id=1S0e5PY_d9G9DJEDvlnYkq8JDwqqTv8B'}} >
-                    <Text style={styles.community_Text} >Community</Text>
-                    <Text style={styles.community_Disc} >This is where students share their Notes and other News</Text>
+                    <Text style={[styles.community_Text,{color:Colors.text}]} >Community</Text>
+                    <Text style={[styles.community_Disc,{color:Colors.text}]} >This is where students share their Notes and other News</Text>
                 </ImageBackground>
             </TouchableOpacity>
 
 
                <View>
                     <View style={styles.grid} >
-                        <TouchableOpacity onPress={log} style={styles.btn} >
+                        <TouchableOpacity onPress={log} style={[styles.btn,{backgroundColor:Colors.primary}]} >
                             <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1tHfRi8UikHq30wR5Nq1m4IZjCjH0PU9z'}} >
-                                    <Text style={styles.btnText} >Maths</Text>
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Maths</Text>
                             </ImageBackground>
                         </TouchableOpacity>
                         
-                        <TouchableOpacity style={styles.btn}>
+                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]}>
                             <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1NQIJtTmPXC7BS95fe-fc6tI-UCgEMZa9'}} >
-                                    <Text style={styles.btnText} >Chemistry</Text>
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Chemistry</Text>
                             </ImageBackground>
                         </TouchableOpacity>
                     </View>
 
                     <View style={styles.grid} >
-                        <TouchableOpacity style={styles.btn} >
+                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
                             <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1IdNwwJfD5g4BAK1ZWIVQovF_VjfqZvd_'}} >
-                                    <Text style={styles.btnText} >Physics</Text>
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Physics</Text>
                             </ImageBackground>
                         </TouchableOpacity>
                         
-                        <TouchableOpacity style={styles.btn} >
+                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
                             <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1dSy9ZT7xkAz9HcWzFwp0yQpexsfKbRhb'}} >
-                                    <Text style={styles.btnText} >Biology</Text>
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Biology</Text>
                             </ImageBackground>
                         </TouchableOpacity>
                     </View>

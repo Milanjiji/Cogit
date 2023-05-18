@@ -13,16 +13,15 @@ const Forum = ({navigation}) =>{
     const [message,setMessage] = useState('');
     const [data,setData] = useState([{message:''}]);
     const [idCounter, setIdCounter] = useState(0);
-    const [sender,setSender] = useState('otherUser');
     const [name,setName] = useState('')
     const [display,setDisplay] = useState(true);
+    const [warn,setWarn] = useState(true);
     const [Colors,setColors] = useState([]);
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
-            console.log("Colors => ",colors);
         }
         getColors();
     },[])
@@ -48,6 +47,7 @@ const Forum = ({navigation}) =>{
                 
                 });
                 setIdCounter(counter)
+                console.log(items);
                 setData(items);
             });
             fetchUserReply();
@@ -55,18 +55,24 @@ const Forum = ({navigation}) =>{
       }, []);
 
       const handleSend = () => {
-        var newId = idCounter + 1;
+        if(message){
+            setWarn(false);
+            var newId = idCounter + 1;
         
-        firestore()
-          .collection('ChatData')
-          .add({ id: newId, message,name:name })
-          .then(() => {
-            console.log('Message sent successfully');
-            setMessage(''); 
-          })
-          .catch((error) => {
-            console.log('Error sending message:', error);
-          });
+            firestore()
+              .collection('ChatData')
+              .add({ id: newId, message,name:name })
+              .then(() => {
+                console.log('Message sent successfully');
+                setMessage(''); 
+              })
+              .catch((error) => {
+                console.log('Error sending message:', error);
+              });
+        }else{
+            setWarn(true)
+        }
+        
       }
     
       const renderItem = ({ item }) => {
@@ -75,6 +81,7 @@ const Forum = ({navigation}) =>{
                 alignSelf: item.name === name ? 'flex-end' :'flex-start',
                 backgroundColor:Colors.primary
                 }]} key={item.id}>
+                <Text style={{color:Colors.text,alignSelf: item.name === name ? 'flex-end' :'flex-start',fontSize:9}} >{item.name}</Text>
                 <Text style={{color:colors.text}} >{item.message}</Text>
             </View>
         );

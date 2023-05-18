@@ -6,9 +6,22 @@ import Header from '../components/Header';
 import HomePageFootor from '../components/HomePageFootor';
 import Colors from '../colors.json'
 import firestore from '@react-native-firebase/firestore';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Community = ({navigation}) =>{
     const [data,setData] = useState([])
+    const [Colors,setColors] = useState([]);
+
+
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
 
     useEffect(() => {
         const get = async () =>{
@@ -25,21 +38,21 @@ const Community = ({navigation}) =>{
       }
       const renderItem = ({item}) =>{
         return(
-            <TouchableOpacity style={styles.container} onPress={()=>goToView(item.Title,item.overView,item.content,item.id)} >
-                <Text style={styles.Title}  >{item.Title}</Text>
-                <Text style={styles.overView}  >{item.overView}</Text>
+            <TouchableOpacity style={[styles.container,{backgroundColor:Colors.primary}]} onPress={()=>goToView(item.Title,item.overView,item.content,item.id)} >
+                <Text style={[styles.Title,{color:Colors.text}]}  >{item.Title}</Text>
+                <Text style={[styles.overView,{color:Colors.text}]}  >{item.overView}</Text>
             </TouchableOpacity>
         )
       }
     return(
-        <View style={styles.App} >
-            <Header info="ellipsis" title={'Community'} />
+        <View style={[styles.App,{backgroundColor:Colors.Background}]} >
+            <Header navigation={navigation} info="" title={'Community'} />
             <View style={{flex:1}} >
                 <TouchableOpacity onPress={()=>navigation.navigate('AddArticle')} >
-                    <View style={styles.header} >
-                        <Text style={styles.header_Text} >Try to post one!</Text>
+                    <View style={[styles.header,{backgroundColor:Colors.primary}]} >
+                        <Text style={[styles.header_Text,{color:Colors.text}]} >Try to post one!</Text>
                         <TouchableOpacity style={styles.header_Btn} >
-                            <FontAwesomeIcon color={Colors.white} size={30} icon={faPlusSquare} />
+                            <FontAwesomeIcon color={Colors.text} size={30} icon={faPlusSquare} />
                         </TouchableOpacity>
                     </View>
                 </TouchableOpacity>

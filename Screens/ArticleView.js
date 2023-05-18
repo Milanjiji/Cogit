@@ -3,21 +3,33 @@ import {View,Text, StyleSheet, FlatList, ScrollView, PermissionsAndroid} from 'r
 import Header from "../components/Header";
 import HomePageFootor from "../components/HomePageFootor";
 import Colors from '../colors.json'
-import { faOptinMonster } from "@fortawesome/free-brands-svg-icons";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const ArticleView = ({route,navigation}) =>{
     const [data,setData] = useState([])
+    const [Colors,setColors] = useState([]);
+
+
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
     useEffect(()=>{
         setData(route.params);
     },[])
     
     return(
         <View style={{flex:1,backgroundColor:Colors.Background}} >
-            <Header title="Community" info='ellipsis' />
+            <Header navigation={navigation} title="Community" info='ellipsis' />
             <ScrollView showsVerticalScrollIndicator={false} style={{flex:1,margin:10,}} >
-               <Text style={styles.title} >{data.title}</Text>
-               <Text style={styles.overView} >{data.overView}</Text>
-               <Text style={styles.content} >{data.content}</Text>
+               <Text style={[styles.title,{color:Colors.text}]} >{data.title}</Text>
+               <Text style={[styles.overView,{color:Colors.text}]} >{data.overView}</Text>
+               <Text style={[styles.content,{color:Colors.text}]} >{data.content}</Text>
                
             </ScrollView>
             <HomePageFootor navigation={navigation} />
@@ -26,24 +38,21 @@ const ArticleView = ({route,navigation}) =>{
 }
 const styles = StyleSheet.create({
     title:{
-        color:Colors.white,
         fontSize:24,
         fontFamily:Colors.ExtraBold,
         textAlign:'center'
     },
     overView:{
-        color:Colors.white,
         fontSize:18,
         paddingVertical:20,
-        textAlign:'center'
+        textAlign:'center',
+        fontFamily:Colors.MediumItalic
     },
     content:{
-        color:Colors.white,
         textAlign:'center',
-        borderBottomColor:Colors.white,
-        borderBottomWidth:2,
         paddingBottom:10,
-        marginBottom:10
+        marginBottom:10,
+        fontFamily:Colors.Medium
     }
 })
 export default ArticleView;
