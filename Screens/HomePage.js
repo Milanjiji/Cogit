@@ -15,34 +15,77 @@ import PrevSection from '../components/PrevSection';
 import Colors from '../colors.json'
 import Greetings from '../components/Greetings';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Bar_Community from '../components/Bar_Community';
 
 
 
 const Homepage = ({navigation,route}) =>{
     const width = Dimensions.get('window').width;
+    const [prevSectionDisplay,setPrevSectionDisplay] = useState();
+    const [Achivemenet,setAchivement] = useState();
+    const [notes,setNotes] = useState();
     const [Colors,setColors] = useState([]);
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
-            console.log("Colors => ",colors);
         }
         getColors();
+        const getSettings = async() =>{
+            try {
+                const prevDisplay = await AsyncStorage.getItem('SmallIconStatus');
+                const value = JSON.parse(prevDisplay)
+                setPrevSectionDisplay(value);
+            } catch (error) {
+                console.log(error);
+            }
+            
+        }
+        getSettings();
+        const getSecondSettings = async() =>{
+            try {
+                const prevDisplay = await AsyncStorage.getItem('AchivementStatus');
+                const value = JSON.parse(prevDisplay)
+                setAchivement(value);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getSecondSettings();
+        const getThirdSettings = async() =>{
+            try {
+                const prevDisplay = await AsyncStorage.getItem('NoteStatus');
+                const value = JSON.parse(prevDisplay)
+                setNotes(value);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getThirdSettings();
     },[])
     return(
             <View  style={[styles.background,{backgroundColor:Colors.Background}]} >
-                
-                <Header navigation={navigation} info={'info'} letterpacing={'y'} title={'Cogit'} />
                 <ScrollView showsVerticalScrollIndicator={false} >
-                    <Greetings/>
-                    <Events navigation={navigation} />
-                    <PrevSection navigation={navigation} />
-                    <View style={{flexDirection:'row',width:width,padding:10}} >
-                        <Achievement />
-                        <Utilities navigation={navigation} />
+                <Greetings navigation={navigation} />
+                        <Events navigation={navigation} />
+                        <Bar_Community navigation={navigation} />
+                    <View style={{display:notes ? 'flex' : 'none'}} >
+                        <Notes />
                     </View>
-                    <Notes />
+                    <View style={{display: !prevSectionDisplay ? 'flex':'none'}} >
+                        <PrevSection navigation={navigation} />
+                    </View>
+                    <View style={{flexDirection:'row',width:width,padding:10}} >
+                        <View style={{display :Achivemenet ?'none' :'flex'}} >
+                            <Achievement />
+                        </View>
+                        <Utilities status={Achivemenet} navigation={navigation} />
+                    </View>
+                    <View style={{display:notes ? 'none' : 'flex'}} >
+                        <Notes />
+                    </View>
+                    
                 </ScrollView>
                 
                 <HomePageFootor navigation={navigation} />

@@ -2,7 +2,7 @@ import React ,{useState,useEffect,useRef} from "react";
 import { View, Text, TextInput, TouchableOpacity,StyleSheet, FlatList,Dimensions } from "react-native";
 import firestore from '@react-native-firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faChalkboardTeacher, faEnvelope, faGear, faLock, faMessage, faPaperPlane, faSchoolFlag, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faChalkboardTeacher, faEnvelope, faGear, faLock, faMessage, faPaperPlane, faSchoolFlag, faUser, faUserAstronaut, faUserCircle, faUserDoctor, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 import colors  from '../colors.json'
 import Header from "../components/Header";
 import HomePageFootor from "../components/HomePageFootor";
@@ -47,21 +47,27 @@ const User = ({navigation}) =>{
         <View style={{backgroundColor:Colors.Background,flex: 1,}}  >
             
                 <View style={{flex: 1,}} >
-                    <View style={[styles.Top,{backgroundColor:Colors.primary}]} >
+                    <View style={[styles.Top,{backgroundColor:Colors.primary,elevation:10,marginBottom:10}]} >
                     <Header navigation={navigation} title="cogit" info="" />
-                        <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:24,paddingHorizontal:20,paddingTop:10}} >hey {data.name}</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,paddingHorizontal:20,paddingVertical:10}} >{data.email}</Text>
+
+
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:24,paddingHorizontal:20,paddingTop:10,paddingBottom:10,textAlign:'center'}} >{data.name}</Text>
+                        <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-around',marginBottom:-20}} >
+                            <FontAwesomeIcon size={50} color={Colors.text} icon={faUserDoctor} />
+                            <FontAwesomeIcon size={100}  color={Colors.text} icon={faUserAstronaut} />
+                            <FontAwesomeIcon size={50} color={Colors.text} icon={faUserFriends} />
+                        </View>
                     </View>
-                    <TouchableOpacity onPress={()=>{navigation.navigate('Settings')}} style={[styles.settingsIcon,{backgroundColor:Colors.primary}]} >
+                    <TouchableOpacity onPress={()=>{navigation.navigate('Settings')}} style={[styles.settingsIcon,{backgroundColor:Colors.primary,elevation:10}]} >
                         <FontAwesomeIcon color={Colors.text} icon={faGear} />
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium}} > Settings</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium}} > Account Settings</Text>
                     </TouchableOpacity>
-                    <View style={{backgroundColor:Colors.primary,borderRadius:10,margin:3,padding: 10,}} >
+                    <View style={{backgroundColor:Colors.primary,borderRadius:10,margin:3,padding: 10,elevation:10}} >
                         <View style={{flexDirection:'row',alignItems:'center'}} >
                             <FontAwesomeIcon color={Colors.text} icon={faUser} />
                             <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:18}} > Personal Info</Text>
                         </View>
-                        <View style={{justifyContent:'space-around'}} >
+                        <View style={{marginLeft:16}} >
 
                             <View style={{flexDirection:'row',alignItems:'center',paddingTop:10}} >
                                 <FontAwesomeIcon size={28} color={Colors.text} icon={faUserCircle} />

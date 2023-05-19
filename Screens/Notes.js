@@ -7,6 +7,7 @@ import HomePageFootor from "../components/HomePageFootor";
 import firestore from '@react-native-firebase/firestore';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Bar_Community from "../components/Bar_Community";
 
 
 
@@ -16,6 +17,8 @@ const Notes = ({navigation}) =>{
     const [panelTitle,setPanelTitle] = useState('');
     const [panelDisc,setPanelDisc] = useState('');
     const [Colors,setColors] = useState([]);
+    const [bannerPos,setBannerPos] = useState();
+    const [notesPos,setNotesPos] = useState();
 
 
     useEffect(()=>{
@@ -23,9 +26,18 @@ const Notes = ({navigation}) =>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
-            console.log("Colors => ",colors);
         }
         getColors();
+        const getSettings = async() =>{
+            const setting1 = await AsyncStorage.getItem('BannerPosition');
+            const parsedSettings1 = JSON.parse(setting1);
+            setBannerPos(parsedSettings1);
+
+            const setting2 = await AsyncStorage.getItem('NotesPosition');
+            const parsedSettings2 = JSON.parse(setting2);
+            setNotesPos(parsedSettings2);
+        }
+        getSettings();
     },[])
 
 
@@ -61,38 +73,10 @@ const Notes = ({navigation}) =>{
       
     return(
         <View style={[styles.App,{backgroundColor:Colors.Background}]} >
-            <Header title="Notes" info='' />
+            <Header title="Notes" info='' navigation={navigation}  />
             <ScrollView showsVerticalScrollIndicator={false} >
-                <TouchableOpacity  >
-                    <View style={[styles.container,{backgroundColor:Colors.secondary}]}>
-                        <ImageBackground
-                            source={{ uri: imageLink }}
-                            style={styles.backgroundImage}
-                            imageStyle={{width:200,resizeMode:'cover',left:'40%',height:150,top:50}}
-                        >
-                            <View style={styles.overlay}>
-                                <Text style={[styles.title,{color:Colors.text}]}>{panelTitle}</Text>
-                                <Text style={[styles.description,{color:Colors.text}]}>{panelDisc}</Text>
-                                <View style={[styles.panelGoBtn,{color:Colors.text}]}  >
-                                    <Text style={{color:Colors.black,fontFamily:Colors.Bold,paddingRight:10}} >Go </Text>
-                                    <FontAwesomeIcon color={Colors.black} icon={faArrowRight} />
-                                </View>
-                            </View>
-                        </ImageBackground>
-                    </View>
-                </TouchableOpacity>
-            
 
-
-            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary}]} onPress={()=>goTo('Community')}>
-                <ImageBackground style={{}} source={{uri : 'https://drive.google.com/uc?id=1S0e5PY_d9G9DJEDvlnYkq8JDwqqTv8B'}} >
-                    <Text style={[styles.community_Text,{color:Colors.text}]} >Community</Text>
-                    <Text style={[styles.community_Disc,{color:Colors.text}]} >This is where students share their Notes and other News</Text>
-                </ImageBackground>
-            </TouchableOpacity>
-
-
-               <View>
+            <View style={{display: notesPos ? 'flex' :'none'}} >
                     <View style={styles.grid} >
                         <TouchableOpacity onPress={log} style={[styles.btn,{backgroundColor:Colors.primary}]} >
                             <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1tHfRi8UikHq30wR5Nq1m4IZjCjH0PU9z'}} >
@@ -121,6 +105,81 @@ const Notes = ({navigation}) =>{
                         </TouchableOpacity>
                     </View>
                 </View>
+
+                <TouchableOpacity style={{display:bannerPos ? 'none' :'flex'}}  >
+                    <View style={[styles.container,{backgroundColor:Colors.secondary}]}>
+                        <ImageBackground
+                            source={{ uri: imageLink }}
+                            style={styles.backgroundImage}
+                            imageStyle={{width:200,resizeMode:'cover',left:'40%',height:150,top:50}}
+                        >
+                            <View style={styles.overlay}>
+                                <Text style={[styles.title,{color:Colors.text}]}>{panelTitle}</Text>
+                                <Text style={[styles.description,{color:Colors.text}]}>{panelDisc}</Text>
+                                <View style={[styles.panelGoBtn,{color:Colors.text}]}  >
+                                    <Text style={{color:Colors.black,fontFamily:Colors.Bold,paddingRight:10}} >Go </Text>
+                                    <FontAwesomeIcon color={Colors.black} icon={faArrowRight} />
+                                </View>
+                            </View>
+                        </ImageBackground>
+                    </View>
+                </TouchableOpacity>
+            
+
+
+            <Bar_Community navigation={navigation} />
+
+
+               <View style={{display: !notesPos ? 'flex' :'none'}} >
+                    <View style={styles.grid} >
+                        <TouchableOpacity onPress={log} style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                            <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1tHfRi8UikHq30wR5Nq1m4IZjCjH0PU9z'}} >
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Maths</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                        
+                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]}>
+                            <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1NQIJtTmPXC7BS95fe-fc6tI-UCgEMZa9'}} >
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Chemistry</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.grid} >
+                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                            <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1IdNwwJfD5g4BAK1ZWIVQovF_VjfqZvd_'}} >
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Physics</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                        
+                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                            <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1dSy9ZT7xkAz9HcWzFwp0yQpexsfKbRhb'}} >
+                                    <Text style={[styles.btnText,{color:Colors.text}]} >Biology</Text>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+
+
+                <TouchableOpacity style={{display:!bannerPos ? 'none' :'flex'}}  >
+                    <View style={[styles.container,{backgroundColor:Colors.secondary}]}>
+                        <ImageBackground
+                            source={{ uri: imageLink }}
+                            style={styles.backgroundImage}
+                            imageStyle={{width:200,resizeMode:'cover',left:'40%',height:150,top:50}}
+                        >
+                            <View style={styles.overlay}>
+                                <Text style={[styles.title,{color:Colors.text}]}>{panelTitle}</Text>
+                                <Text style={[styles.description,{color:Colors.text}]}>{panelDisc}</Text>
+                                <View style={[styles.panelGoBtn,{color:Colors.text}]}  >
+                                    <Text style={{color:Colors.black,fontFamily:Colors.Bold,paddingRight:10}} >Go </Text>
+                                    <FontAwesomeIcon color={Colors.black} icon={faArrowRight} />
+                                </View>
+                            </View>
+                        </ImageBackground>
+                    </View>
+                </TouchableOpacity>
             </ScrollView>
             <HomePageFootor navigation={navigation} />
         </View>

@@ -16,6 +16,18 @@ const Note_Classification = ({navigation}) =>{
     const [emptyList,setEmptyList] = useState(false);
     const width = Dimensions.get('window').width;
 
+    const [Colors,setColors] = useState([]);
+
+
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+        }
+        getColors();
+    },[])
+
     const FocusTextInput = useRef(null);
 
     useEffect(()=>{
@@ -59,13 +71,13 @@ const Note_Classification = ({navigation}) =>{
 
     const Renderitem = ({item}) =>{
         return(
-            <TouchableOpacity  style={styles.data}  onPress={()=>openNote({id:item.id,title:item.title})} >
-                <Text style={styles.dataText}>{item.title}</Text>
+            <TouchableOpacity  style={[styles.data,{backgroundColor:Colors.primary}]}  onPress={()=>openNote({id:item.id,title:item.title})} >
+                <Text style={[styles.dataText,{color:Colors.text}]}>{item.title}</Text>
             </TouchableOpacity>
         )
     } 
     return (
-      <SafeAreaView style={styles.body} >
+      <SafeAreaView style={[styles.body,{backgroundColor:Colors.Background}]} >
         <Header title={"Notes"} info={"ellipsis"} />
         {emptyList ? 
         <View style={styles.emptyList} >

@@ -60,10 +60,10 @@ const GeneralSetting = () =>{
 
     return(
         <View style={[styles.body,{backgroundColor:Colors.primary}]} >
-            <Text style={styles.title} >General</Text>
+            <Text style={[styles.title,{color:Colors.text}]} >General</Text>
 
             <View style={styles.themeContainer} >
-                <Text style={styles.themeTitle} >Use Theme:</Text>
+                <Text style={[styles.themeTitle,{color:Colors.text}]} >Use Theme:</Text>
                 <View style={styles.themeSelectionContainer} >
                     <TouchableOpacity onPress={() => changeColor('normal')} >
                         <View style={[styles.theme,{backgroundColor:'#2b1499',borderWidth:border === 1 ? 2 : 0}]} >

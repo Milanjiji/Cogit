@@ -37,7 +37,7 @@ const Stack = createNativeStackNavigator();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='User' screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator  initialRouteName='Settings' screenOptions={{headerShown:false,animation:'none'}} >
           <Stack.Screen
            name="getStarted" 
            component={GetStarted} />

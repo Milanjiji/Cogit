@@ -31,7 +31,6 @@ const Forum = ({navigation}) =>{
     useEffect(() => {
         const fetchUserReply = async () =>{
             const name = await AsyncStorage.getItem('userName');
-            console.log(name);
             setName(name);
             
         }
@@ -47,7 +46,6 @@ const Forum = ({navigation}) =>{
                 
                 });
                 setIdCounter(counter)
-                console.log(items);
                 setData(items);
             });
             fetchUserReply();
@@ -79,10 +77,11 @@ const Forum = ({navigation}) =>{
         return (
             <View style={[styles.item,{
                 alignSelf: item.name === name ? 'flex-end' :'flex-start',
-                backgroundColor:Colors.primary
+                backgroundColor:Colors.primary,
+                elevation:10
                 }]} key={item.id}>
                 <Text style={{color:Colors.text,alignSelf: item.name === name ? 'flex-end' :'flex-start',fontSize:9}} >{item.name}</Text>
-                <Text style={{color:colors.text}} >{item.message}</Text>
+                <Text style={{color:Colors.text}} >{item.message}</Text>
             </View>
         );
       }
@@ -97,7 +96,7 @@ const Forum = ({navigation}) =>{
     return(
         <View style={[styles.background,{backgroundColor:Colors.Background}]}  >
             <Header navigation={navigation} title="cogit" info="ellipsis" />
-           <View style={{height:height,justifyContent:'space-around', display:display === true ? 'flex' : "none" }} >
+           <View style={{height:height,justifyContent:'space-around', display:display === true ? 'flex' : "none",elevation:10 }} >
                 <View style={[styles.warning,{backgroundColor:Colors.primary}]} >
                     <Text style={[styles.warningText,{color:Colors.text}]} >
                     Welcome to our chat forum! This is a place for people to talk about different things openly. We want everyone to be kind and avoid posting anything mean or wrong. This includes saying things that hurt others, attacking them personally, or sending too many messages. If we see someone doing these things, we'll have to ban them from the forum. We want everyone to feel happy and safe here, so please follow these rules. We're excited to see you join the fun and talk about interesting things!
@@ -122,7 +121,7 @@ const Forum = ({navigation}) =>{
             <View style={[styles.Input,{backgroundColor:Colors.primary}]} >
                 <TextInput placeholderTextColor={colors.white} value={message} onChangeText={setMessage}  style={styles.textInput} placeholder="Type your message Here" />
                 <TouchableOpacity onPress={handleSend} style={styles.Send} >
-                    <FontAwesomeIcon size={25} color={colors.text} icon={faPaperPlane} />
+                    <FontAwesomeIcon size={25} color={message ? Colors.text : Colors.secondary} icon={faPaperPlane} />
                 </TouchableOpacity>
             </View>
             <HomePageFootor navigation={navigation} />

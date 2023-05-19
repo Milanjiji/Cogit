@@ -5,6 +5,9 @@ import GeneralSetting from "../components/GeneralSettings";
 import Header from "../components/Header";
 import HomePageFootor from "../components/HomePageFootor";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import HomeScreenSettings from "../components/HomePageSettings";
+import NoteScreenSettings from "../components/NotesSettings";
+import AiSettings from "../components/AiSettings";
 
 const Setting = ({navigation,route}) =>{
 
@@ -23,6 +26,9 @@ const Setting = ({navigation,route}) =>{
             <Header navigation={navigation} title="Settings" info=""  />
             <ScrollView style={{flex:1}} >
                 <GeneralSetting/>
+                <HomeScreenSettings/>
+                <NoteScreenSettings/>
+                <AiSettings/>
             </ScrollView>
             <HomePageFootor navigation={navigation} />
         </View>

@@ -6,7 +6,7 @@ import { faClock, faNoteSticky } from "@fortawesome/free-regular-svg-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
-const Utilities = ({navigation}) =>{
+const Utilities = ({navigation,status}) =>{
 
     const [Colors,setColors] = useState([]);
     useEffect(()=>{
@@ -14,14 +14,13 @@ const Utilities = ({navigation}) =>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
-            console.log("Colors => ",colors);
         }
         getColors();
     },[])
 
     return(
-        <View style={styles.body} >
-            <View style={styles.utility_align_container_1} >
+        <View style={[styles.body,{width:status ? '100%' :110}]} >
+            <View style={[styles.utility_align_container_1,{flexDirection :status ? 'row' : 'column'}]} >
                 <TouchableOpacity onPress={()=>navigation.navigate('Focus')} style={[styles.container,{backgroundColor:Colors.primary}]} >
                     <FontAwesomeIcon size={30} color={Colors.text} icon={faClock} />
                     <Text style={[styles.text,{color:Colors.text}]} >Focus Mode</Text>
@@ -39,7 +38,6 @@ const styles=  StyleSheet.create({
         margin:3,
         borderRadius:10,
         marginRight:100,
-        width:110
     },
     title:{
         marginTop:10,
@@ -48,7 +46,7 @@ const styles=  StyleSheet.create({
     },
     utility_align_container_1:{
         justifyContent:'space-around',
-        padding:5
+        padding:5,
     },
     container:{
         alignItems:'center',

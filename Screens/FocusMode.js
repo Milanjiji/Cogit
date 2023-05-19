@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Colors from '../colors.json'
 import Header from '../components/Header';
 import HomePageFootor from '../components/HomePageFootor';
-import { faBold, faGears } from '@fortawesome/free-solid-svg-icons';
 import Sound from 'react-native-sound';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const modeText = {
   [RINGER_MODE.silent]: 'Silent',
@@ -21,11 +21,24 @@ const FocusMode = ({navigation}) => {
   const [bgm,setBGM] = useState(true);
   const [bgmConfig,setBGMConfig] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
+  const [sound,setSound] = useState('10YyAB7jvmbGAOvyhBGo7YKuFLkkjV_sF');
+  const [Colors,setColors] = useState([]);
+    
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+            console.log("Colors => ",colors);
+        }
+        getColors();
+    },[])
   
   useEffect(()=>{
     setCurrentState(false);
     setMode(RINGER_MODE.normal);
-    const sound = new Sound('https://drive.google.com/uc?id=', '', (error) => {
+    console.log(`https://drive.google.com/uc?id=${sound}`);
+    const sound = new Sound(`https://drive.google.com/uc?id=${sound}`, '', (error) => {
     if (error) {
       console.log('Error loading sound: ', error);
     } else {
@@ -51,36 +64,37 @@ const FocusMode = ({navigation}) => {
       setBGM(true);
     }
   }
+  
   const BGMconfig = () =>{
     setBGMConfig(true);
   }
-  const BGMSelector = () =>{
+  const BGMSelector = (type) =>{
     setBGMConfig(false);
+    if(type === 1){
+      setSound('10YyAB7jvmbGAOvyhBGo7YKuFLkkjV_sF');
+      const sounds = '10YyAB7jvmbGAOvyhBGo7YKuFLkkjV_sF'
+      console.log(`https://drive.google.com/uc?id=${sounds}`);
+    }
   }
-  const handleToggle = () => {
-    setIsChecked(!isChecked);
-  };
-  const handlePress = () => {
-    setIsChecked(!isChecked);
-  };
+;
   
 
 
 
   return (
-    <View style={styles.background} >
-      {currentState ? '' : <Header title='Foucs Mode' info='ellipsis' pageSettings={BGMconfig} /> }
+    <View style={[styles.background,{backgroundColor:Colors.Background}]} >
+      {currentState ? '' : <Header navigation={navigation} title='Foucs Mode' info='ellipsis' pageSettings={BGMconfig} /> }
       
       
       <View style={styles.App} >
         
-        <TouchableOpacity onPress={FocusModeToggler} style={styles.btn_Container} >
-          <Text style={styles.btn} >{currentState ? 'Disable' :'Enable'}</Text>
+        <TouchableOpacity onPress={FocusModeToggler} style={[styles.btn_Container,{backgroundColor:Colors.primary}]} >
+          <Text style={[styles.btn,{color:Colors.text}]} >{currentState ? 'Disable' :'Enable'}</Text>
         </TouchableOpacity>
         
           {currentState ? '' : 
           <TouchableOpacity onPress={BGM} style={styles.btn_Container_Option} >
-            <Text style={styles.btn} >BGM</Text>
+            <Text style={[styles.btn,{color:bgm ? Colors.text : 'red'}]} >BGM</Text>
           </TouchableOpacity>
           }          
           
@@ -94,7 +108,7 @@ const FocusMode = ({navigation}) => {
         <View style={styles.ModalBackground} >
          <View style={styles.Modal_Container} >
             <Text style={styles.BGMType} >BGM Type</Text>
-            <TouchableOpacity onPress={BGMSelector} style={styles.soundType_Options} >
+            <TouchableOpacity onPress={()=>BGMSelector(1)} style={styles.soundType_Options} >
               <Text style={styles.soundType_Options_Text} >Lofi HipHop</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={BGMSelector} style={styles.soundType_Options} >

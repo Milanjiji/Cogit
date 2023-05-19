@@ -23,8 +23,24 @@ const App = () => {
       }
     }
     getItem();
-    
-    
+    const setSettings = async () =>{
+      const settings1 = await AsyncStorage.getItem('SmallIconStatus');
+      const settings2 = await AsyncStorage.getItem('AchivementStatus');
+      const settings3 = await AsyncStorage.getItem('NoteStatus');
+      const settings4 = await AsyncStorage.getItem('BannerPosition');
+      if(!settings1){
+        await AsyncStorage.setItem('SmallIconStatus',JSON.stringify(false))
+      }else if(!settings2){
+        await AsyncStorage.setItem('AchivementStatus',JSON.stringify(false))
+      }else if(!settings3){
+        await AsyncStorage.setItem('NoteStatus',JSON.stringify(false))
+      }else if(!settings4){
+        await AsyncStorage.setItem('BannerPosition',JSON.stringify(false))
+      }else{
+
+      }
+    }
+    setSettings();
     
   },[])
   

@@ -1,23 +1,22 @@
 import React,{useState,useEffect,useRef} from "react";
-import { View,Text,StyleSheet,ImageBackground, Linking, FlatList, Button,Dimensions, Touchable, TouchableOpacity } from "react-native";
+import { View,Text,StyleSheet,Dimensions,TouchableOpacity } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import firestore from '@react-native-firebase/firestore';
 import colors from '../colors.json'
 import { Colors } from "react-native/Libraries/NewAppScreen";
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
 
+const width = Dimensions.get('window').width
 
 const Events = ({navigation}) =>{
     const [docNumber,setDocNumber] = useState(0)
     const [data,setData] = useState([]) 
     const [Colors,setColors] = useState([]);
+    
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
-            console.log("Colors => ",colors);
         }
         getColors();
     },[])
@@ -55,9 +54,9 @@ const Events = ({navigation}) =>{
         <View style={[styles.body,{backgroundColor:Colors.primary}]}  >
             <TouchableOpacity onPress={()=>navigation.navigate('Events')} >
                 <Text style={[styles.title,{color:Colors.text}]} >Events</Text>
-                <Text style={[styles.disc,{color:Colors.text}]} >Cheak what is going happen</Text>
+                <Text style={[styles.disc,{color:Colors.text}]} >Cheak what is going happen,Let them know whats going to happen</Text>
             </TouchableOpacity>
-            <FontAwesomeIcon size={40} color={Colors.text} icon={faBullhorn} style={{ transform: [{ rotateY: '180deg' }], marginRight:20 }} />
+            
         </View>
     );
 }
@@ -80,7 +79,9 @@ const styles = StyleSheet.create({
         marginLeft:10,
         marginTop:5,
         fontFamily:Colors.Medium,
-        marginBottom:10
+        marginBottom:10,
+        
+    
     }
 
 })

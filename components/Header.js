@@ -25,11 +25,12 @@ const Header = ({navigation,route,...props}) =>{
 
     const Setting  = () =>{
         if(props.pageSettings){
-            // navigation.navigate(props.pageSettings);            
+            navigation.navigate('Settings')         
         }else{
             navigation.navigate('Settings')
-        }
+        
     }
+}
     
     return(
         <View style={[styles.background,{backgroundColor:'white'}]} >

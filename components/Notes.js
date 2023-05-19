@@ -18,7 +18,6 @@ const Notes = ({navigation,route,...props}) =>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
-            console.log("Colors => ",colors);
         }
         getColors();
     },[])
