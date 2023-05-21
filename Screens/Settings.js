@@ -8,6 +8,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import HomeScreenSettings from "../components/HomePageSettings";
 import NoteScreenSettings from "../components/NotesSettings";
 import AiSettings from "../components/AiSettings";
+import AccountSettings from "../components/AccountSettings";
 
 const Setting = ({navigation,route}) =>{
 
@@ -29,6 +30,7 @@ const Setting = ({navigation,route}) =>{
                 <HomeScreenSettings/>
                 <NoteScreenSettings/>
                 <AiSettings/>
+                <AccountSettings/>
             </ScrollView>
             <HomePageFootor navigation={navigation} />
         </View>

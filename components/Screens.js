@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { Settings, View } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 import Homepage from '../Screens/HomePage'
@@ -35,20 +36,38 @@ const Stack = createNativeStackNavigator();
 
 
 const Screens = () =>{
+    const [initialRoute,setInitialRoute] = useState('');
+
+    useEffect(()=>{
+      const initalRouteSet = async() =>{
+        const data = await AsyncStorage.getItem('userName');
+        console.log(data);
+        setInitialRoute(data);
+        
+      }
+      initalRouteSet();
+    },[])
+
     return(
     <NavigationContainer>
-        <Stack.Navigator  initialRouteName='Settings' screenOptions={{headerShown:false,animation:'none'}} >
-          <Stack.Screen
+        <Stack.Navigator  screenOptions={{headerShown:false,animation:'none'}} >
+          {
+            initialRoute ?
+            <Stack.Screen
+           name="Home" 
+           component={Homepage} /> :
+            <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
+
+          }
+          
 
           <Stack.Screen
            name="Details" 
            component={Details} />
 
-          <Stack.Screen
-           name="Home" 
-           component={Homepage} />
+          
           
 
           <Stack.Screen

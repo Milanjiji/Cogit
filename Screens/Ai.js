@@ -21,26 +21,7 @@ const secondry = "#0e1158"
 
 
 
-async function sendToOpenAI(input) {
 
-    const response = await axios({
-      method: 'post',
-      url: 'https://api.openai.com/v1/engines/text-davinci-003/completions',
-      // text-davince-003
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENAI_API_KEY}`
-      },
-      data: {
-        prompt: input,
-        temperature : 0.5,
-        max_tokens: 2048,
-        n: 1,
-        stop: ['\n']
-      }
-    });
-    return response.data.choices[0].text;
-  } 
   
     
   
@@ -54,6 +35,8 @@ const Ai = ({navigation,route,...props}) =>{
   const [typing,doneTyping] = useState();
   const [singleRun,setSingleRun] = useState(false)
   const [Colors,setColors] = useState([]);
+  const [ai,setAi] = useState('text-davinci-003');
+
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
@@ -62,8 +45,39 @@ const Ai = ({navigation,route,...props}) =>{
             console.log("Colors => ",colors);
         }
         getColors();
+        const getAi = async() =>{
+          const data = await AsyncStorage.getItem('Ai');
+          const ai = JSON.parse(data);
+          console.log(ai);
+          if(!ai){
+            setAi('text-davinci-003');
+          }else{
+            setAi('text-davinci-002');
+          }
+        }
+        getAi();
     },[])
-  
+
+    async function sendToOpenAI(input) {
+      console.log(ai);
+      const response = await axios({
+        method: 'post',
+        url: `https://api.openai.com/v1/engines/${ai}/completions`,
+        // text-davince-003
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${OPENAI_API_KEY}`
+        },
+        data: {
+          prompt: input,
+          temperature : 0.5,
+          max_tokens: 2048,
+          n: 1,
+          stop: ['\n']
+        }
+      });
+      return response.data.choices[0].text;
+    } 
 
   const handleInputSubmit = async () => {
     

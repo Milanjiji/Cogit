@@ -235,22 +235,7 @@ const styles = StyleSheet.create({
         padding: 10,
         
     },
-    input:{
-        borderRadius:10,
-        paddingHorizontal:10,
-        elevation:10,
-        marginVertical:10
-    },
-    update:{
-        paddingHorizontal:20 ,
-        paddingVertical:10,
-        borderRadius:10,
-        elevation:10,
-        width:'30%',
-        textAlign:'center',
-        alignSelf:'center',
-        marginVertical:10
-    }
+    
 })
 
 export default AccountSettings;

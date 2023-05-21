@@ -102,6 +102,14 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    signingConfigs {
+           release {
+               storeFile file("my-release-key.keystore")
+               storePassword "m7736744769"
+               keyAlias "my-key-alias"
+               keyPassword "m7736744769"
+           }
+       }
 
     splits {
         abi {
