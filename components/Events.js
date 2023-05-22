@@ -4,6 +4,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import firestore from '@react-native-firebase/firestore';
 import colors from '../colors.json'
 import { Colors } from "react-native/Libraries/NewAppScreen";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 const width = Dimensions.get('window').width
 
@@ -52,9 +54,12 @@ const Events = ({navigation}) =>{
         
         return(
         <View style={[styles.body,{backgroundColor:Colors.primary}]}  >
-            <TouchableOpacity onPress={()=>navigation.navigate('Events')} >
-                <Text style={[styles.title,{color:Colors.text}]} >Events</Text>
-                <Text style={[styles.disc,{color:Colors.text}]} >Cheak what is going happen,Let them know whats going to happen</Text>
+            <TouchableOpacity style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',flex:1}}   onPress={()=>navigation.navigate('Events')} >
+                <View>
+                    <Text style={[styles.title,{color:Colors.text}]} >Events</Text>
+                    <Text style={[styles.disc,{color:Colors.text}]} >Cheak what is going happen,{"\n"}Let them know whats going to happen</Text>
+                </View>
+                <FontAwesomeIcon style={{marginRight:20}} color={Colors.text}  icon={faArrowRightFromBracket} />
             </TouchableOpacity>
             
         </View>
@@ -80,8 +85,6 @@ const styles = StyleSheet.create({
         marginTop:5,
         fontFamily:Colors.Medium,
         marginBottom:10,
-        
-    
     }
 
 })

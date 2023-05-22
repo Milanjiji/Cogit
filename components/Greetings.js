@@ -58,7 +58,7 @@ const Greetings = ({navigation}) =>{
                     <Text style={[styles.time,{color:Colors.text}]} >{message}</Text>
                 </View>
                 <View>
-                    <FontAwesomeIcon style={{marginRight:20}} size={80} color={Colors.text} 
+                    <FontAwesomeIcon style={{marginRight:15}} size={80} color={Colors.text} 
                     icon={message == 'Good Morning' ? faCloudSun : message == 'Good AfterNoon' ? faSun : message == 'Good Evening' ? faCloudSun : message == 'Good Night' ? faCloud : ''} />
                 </View>
             </View>
@@ -67,7 +67,7 @@ const Greetings = ({navigation}) =>{
                     source={{
                     uri: 'https://drive.google.com/uc?export=view&id=1eoBJLNZApvSjOWutgFliH3xJYNlNhQbO',
                     }}
-                    style={{height:300,width:(width/2),marginLeft:20,}}
+                    style={{height:width/1.5,width:(width/2),marginLeft:20,}}
                 />
                 <Text style={{color:Colors.text,width:(width/3)+35,textAlign:'right',marginRight:20,fontFamily:Colors.Medium}} >
                 Feel free to explore the app while I embark on an interplanetary journey to explore the wonders of Jupiter and Help others by sharing what you know

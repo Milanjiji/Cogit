@@ -17,7 +17,7 @@ const AllSet  = ({navigation}) =>{
 
             </View>
             <TouchableOpacity onPress={navigation.navigate('Home')} style={styles.finish} >
-                <Text style={styles.finishBtn} >Finish</Text>
+                <Text style={styles.finishBtn} >Skip</Text>
             </TouchableOpacity>
         </View>
     );
@@ -51,7 +51,8 @@ const styles = StyleSheet.create({
         borderRadius:10,
         flexDirection:'row',
         justifyContent:'space-evenly',
-        alignItems:"center"
+        alignItems:"center",
+        padding:10
     },
     btnText:{
         color:Colors.primary,

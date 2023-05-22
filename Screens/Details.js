@@ -124,12 +124,13 @@ const Details = ({navigation,route}) =>{
     const Login = () =>{
         console.log('login');
         if(email && Password){
-            setErrorType('Wrong Credinals')
+            
             search.where('email', '==', email)
             .get()
             .then(querySnapshot => {
                 if(querySnapshot.empty){
                     setLoginWarn(true);
+                    setErrorType('Wrong Credinals')
                 }else{
                     querySnapshot.forEach(doc => {
                         

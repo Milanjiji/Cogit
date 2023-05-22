@@ -1,9 +1,13 @@
-import React,{useState} from 'react';
+import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import React,{useState,useEffect} from 'react';
+import {  faMusic, faFilm } from '@fortawesome/free-solid-svg-icons';
 import { View,
         Text,
         StyleSheet,
         TouchableOpacity,
-        Dimensions
+        Dimensions,
+        Animated
         } from 'react-native'
 import Colors from '../colors.json'
 
@@ -16,26 +20,28 @@ const GetStarted = ({navigation}) =>{
     const [name,setname] = useState("");
     const height = Dimensions.get('window').height
     const width = Dimensions.get('window').width
-    const inputHandler = (text)=>{
-        setname(text);   
-    }
-    // helllo
+    
     
     
     return (
         <View style={styles.background} >
            
             <Text style={styles.name} >Cogit</Text>
-            <Text style={[styles.quote,{
-                fontSize:width/8,marginTop:'10%'
-            }]} >Transform the way you learn with Cogit</Text>
-            <Text style={styles.smallquote} >Get ahead in your studies with Cogit {"\n"} - the student-friendly app.</Text>
+            <View style={{flex:1,justifyContent:'space-around',marginTop:-100}} >
+            <View>
+                <Text style={[styles.quote,{
+                    fontSize:width/8,
+                }]} >Transform the way you learn with Cogit</Text>
+                <Text style={styles.smallquote} >Get ahead in your studies with Cogit {"\n"} - the student-friendly app.</Text>
+            </View>
+            
+
+            </View>
+            
             <TouchableOpacity onPress={()=>{
                 navigation.navigate('Details')
             }} >
-                <Text style={[styles.btn,{
-                    marginTop: Dimensions.get('window').height / 4.5
-                }]} >Get Started</Text>
+                <Text style={[styles.btn,{}]} >Get Started</Text>
             </TouchableOpacity>
         </View>
 
@@ -58,8 +64,6 @@ const styles = StyleSheet.create({
         fontFamily:fontBold,
         padding:20,
         textShadowColor:secondry,
-        textShadowOffset:{width:2,height:2},
-        textShadowRadius:20,
     },
     btn:{
         fontSize:25,
@@ -74,7 +78,7 @@ const styles = StyleSheet.create({
     smallquote:{
         marginHorizontal:20,
         fontFamily:Colors.BoldItalic,
-        color:white
+        color:white,
     },
 })
 

@@ -33,9 +33,9 @@ const Bar_Community = ({navigation}) =>{
             <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary}]} onPress={()=>goTo('Community')}>
                     <View>
                         <Text style={[styles.community_Text,{color:Colors.text}]} >Community</Text>
-                        <Text style={[styles.community_Disc,{color:Colors.text}]} >This is where students share their Notes and other News</Text>
+                        <Text style={[styles.community_Disc,{color:Colors.text}]} >This is where students share their {"\n"}Notes and other News</Text>
                     </View>
-                    <FontAwesomeIcon color={Colors.text}  icon={faArrowRightFromBracket} />
+                    <FontAwesomeIcon style={{}} color={Colors.text}  icon={faArrowRightFromBracket} />
             </TouchableOpacity>
             
         </View>
@@ -47,13 +47,15 @@ const styles = StyleSheet.create({
         backgroundColor:Colors.Background
     },
       community:{
-        margin:10,
+        margin:5,
         padding:8,
         backgroundColor:Colors.primary,
         borderRadius:10,
         elevation:10,
         flexDirection:'row',
-        alignItems:'center'
+        alignItems:'center',
+        justifyContent:'space-between',
+        paddingRight:20
       },
       community_Text:{
         color:Colors.white,
@@ -63,7 +65,6 @@ const styles = StyleSheet.create({
       community_Disc:{
         color:Colors.white,
         fontFamily:Colors.Regular,
-        width:'60%'
       },
 })
 export default Bar_Community;

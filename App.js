@@ -9,10 +9,10 @@ import Screens from './components/Screens';
 const App = () => {
 
   useEffect(()=>{
+
     const setColors = async () =>{
       const data = JSON.stringify(Colors);
       await AsyncStorage.setItem('Colors',data)
-      
     }
     const getItem = async() =>{
       const color = await AsyncStorage.getItem('Colors');
