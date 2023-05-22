@@ -9,6 +9,8 @@ import HomeScreenSettings from "../components/HomePageSettings";
 import NoteScreenSettings from "../components/NotesSettings";
 import AiSettings from "../components/AiSettings";
 import AccountSettings from "../components/AccountSettings";
+import AboutTheApp from "../components/AboutTheApp";
+import HelpAndSupport from "../components/HelpAndSupportSettings";
 
 const Setting = ({navigation,route}) =>{
 
@@ -31,6 +33,8 @@ const Setting = ({navigation,route}) =>{
                 <NoteScreenSettings/>
                 <AiSettings/>
                 <AccountSettings/>
+                <HelpAndSupport/>
+                <AboutTheApp/>
             </ScrollView>
             <HomePageFootor navigation={navigation} />
         </View>
