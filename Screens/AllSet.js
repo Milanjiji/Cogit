@@ -3,21 +3,20 @@ import React from "react";
 import { View,Text, StyleSheet, TouchableOpacity } from "react-native";
 import  Colors  from "../colors.json";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import Restart from 'react-native-restart';
 
 const AllSet  = ({navigation}) =>{
+    const skip = () =>{
+        Restart.restart()
+    }
     return(
         <View style={styles.body} >
             <Text style={styles.AllSet} > You are all set!</Text>
-            <Text style={styles.tour} >Take a tour</Text>
-            <TouchableOpacity style={styles.go} >
-                <Text style={styles.btnText} >Go</Text>
-                <FontAwesomeIcon color={Colors.primary} icon={faArrowRight} />
-            </TouchableOpacity>
             <View style={{flex:1}} >
 
             </View>
-            <TouchableOpacity onPress={navigation.navigate('Home')} style={styles.finish} >
-                <Text style={styles.finishBtn} >Skip</Text>
+            <TouchableOpacity onPress={skip} style={styles.finish} >
+                <Text style={styles.finishBtn} >Finish</Text>
             </TouchableOpacity>
         </View>
     );

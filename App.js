@@ -9,7 +9,9 @@ import Screens from './components/Screens';
 const App = () => {
 
   useEffect(()=>{
-
+    const clear =  async() =>{
+      await AsyncStorage.clear();
+    }
     const setColors = async () =>{
       const data = JSON.stringify(Colors);
       await AsyncStorage.setItem('Colors',data)
@@ -41,15 +43,18 @@ const App = () => {
       }
     }
     setSettings();
+    // clear();
     
   },[])
   
-  return (
-      <Screens />
-      // <View>
+  // return (
+    
+  //     <Screens />
+  //     // <View>
 
-      // </View>
-  );
+  //     // </View>
+  // );
+  return  <Screens /> ;
 }
 // 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
 

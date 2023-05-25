@@ -16,7 +16,7 @@ const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
 const Medium = 'Montserrat-Medium';
 const MediumItalic = 'Montserrat-MediumItalic';
 
-const Classification = () =>{
+const Classification = ({subject,clas,navigation}) =>{
     return(
         <View style={{backgroundColor:primary,flex:1}} >
             <Header title={'Chapters'} info={'#'} />

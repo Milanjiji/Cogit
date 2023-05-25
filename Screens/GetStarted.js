@@ -9,6 +9,8 @@ import { View,
         Dimensions,
         Animated
         } from 'react-native'
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from '../colors.json'
 
 const secondry = "#3fb0c9"
@@ -17,33 +19,63 @@ const fontBold = "Montserrat-Bold"
 
 
 const GetStarted = ({navigation}) =>{
+    const [delay,setDelay] = useState(false);
     const [name,setname] = useState("");
     const height = Dimensions.get('window').height
     const width = Dimensions.get('window').width
+    useEffect(()=>{
+        const getDetails = async() =>{
+            const name = await AsyncStorage.getItem('userName');
+            console.log(name);
+            setname(name);
+        }
+    },[])
     
-    
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setDelay(true);
+          console.log(true);
+        }, 500);
+        return () => clearTimeout(timer);
+        
+      }, []);
     
     return (
+
         <View style={styles.background} >
-           
-            <Text style={styles.name} >Cogit</Text>
-            <View style={{flex:1,justifyContent:'space-around',marginTop:-100}} >
-            <View>
-                <Text style={[styles.quote,{
-                    fontSize:width/8,
-                }]} >Transform the way you learn with Cogit</Text>
-                <Text style={styles.smallquote} >Get ahead in your studies with Cogit {"\n"} - the student-friendly app.</Text>
-            </View>
-            
+            <View  >
 
             </View>
+            {delay && (
+                <View style={{flex: 1,}}  > 
+                    <Text style={styles.name} >Cogit</Text>
+                    <View style={{flex:1,justifyContent:'space-around',marginTop:-100}} >
+                    <View>
+                        <Text style={[styles.quote,{
+                            fontSize:width/8,
+                        }]} >Transform the way you learn with Cogit</Text>
+                        <Text style={styles.smallquote} >Get ahead in your studies with Cogit {"\n"} - the student-friendly app.</Text>
+                    </View>
+                    
+
+                    </View>
+                    
+                    <TouchableOpacity onPress={()=>{
+                        navigation.navigate('Details')
+                    }} >
+                        <Text style={[styles.btn,{}]} >Get Started</Text>
+                    </TouchableOpacity>
+                </View>
+            )}
+            {!delay && (
+                <View style={{flex: 1,}}  > 
+                    <Text>Logo</Text>
+                </View>
+            )}
             
-            <TouchableOpacity onPress={()=>{
-                navigation.navigate('Details')
-            }} >
-                <Text style={[styles.btn,{}]} >Get Started</Text>
-            </TouchableOpacity>
+            
         </View>
+        
 
     )
 } 

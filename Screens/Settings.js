@@ -34,7 +34,7 @@ const Setting = ({navigation,route}) =>{
                 <AiSettings/>
                 <AccountSettings/>
                 <HelpAndSupport/>
-                <AboutTheApp/>
+                <AboutTheApp navigation={navigation} />
             </ScrollView>
             <HomePageFootor navigation={navigation} />
         </View>

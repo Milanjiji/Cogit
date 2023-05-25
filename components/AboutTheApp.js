@@ -26,15 +26,15 @@ const AboutTheApp = ({navigation}) =>{
         <View style={{backgroundColor:Colors.primary,padding: 10,margin:3,borderRadius:10,elevation:10}}>
 
             <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >About</Text>
-            <TouchableOpacity style={{flexDirection:'row',marginTop:10,justifyContent:'space-between',alignItems:'center'}} >
+            <TouchableOpacity onPress={()=>navigation.navigate('AboutUs')} style={{flexDirection:'row',marginTop:10,justifyContent:'space-between',alignItems:'center'}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >About Us</Text>
                 <FontAwesomeIcon style={{marginRight:10}} color={Colors.text} icon={faAngleRight} />
             </TouchableOpacity>
-            <TouchableOpacity style={{flexDirection:'row',marginTop:10,justifyContent:'space-between',alignItems:'center'}} >
+            <TouchableOpacity  onPress={()=>navigation.navigate('Privacy')} style={{flexDirection:'row',marginTop:10,justifyContent:'space-between',alignItems:'center'}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Privacy Policy</Text>
                 <FontAwesomeIcon style={{marginRight:10}} color={Colors.text} icon={faAngleRight} />
             </TouchableOpacity>
-            <TouchableOpacity style={{flexDirection:'row',marginTop:10,justifyContent:'space-between',alignItems:'center'}} >
+            <TouchableOpacity onPress={()=>navigation.navigate('Terms')} style={{flexDirection:'row',marginTop:10,justifyContent:'space-between',alignItems:'center'}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Terms and Conditions</Text>
                 <FontAwesomeIcon style={{marginRight:10}} color={Colors.text} icon={faAngleRight} />
             </TouchableOpacity>
