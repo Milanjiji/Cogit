@@ -1,0 +1,1224 @@
+{
+    "PhysicalWorld": {
+        "chapter": "Physical World",
+        "chapterOverview": "Chapter 1 of Physics class 11 introduces the concept of the physical world and its fundamental principles. It explores the nature of physics, its scope, and its significance in understanding the physical universe. The chapter also covers the scientific method, measurement, units, and the role of experimentation in physics.",
+        "topics": [
+          {
+            "title": "Introduction to Physics",
+            "content": [
+              {
+                "definition": "Physics",
+                "example": "The branch of science that deals with the study of matter, energy, and their interactions."
+              },
+              {
+                "definition": "Physical World",
+                "example": "The universe and everything that exists in it, including matter, energy, and their interactions."
+              },
+              {
+                "definition": "Scope of Physics",
+                "example": "The wide range of phenomena and concepts that physics explores, from the subatomic to the cosmological scale."
+              }
+            ]
+          },
+          {
+            "title": "Scientific Method",
+            "content": [
+              {
+                "definition": "Scientific Method",
+                "example": "A systematic approach to acquiring knowledge through observation, experimentation, and formulation of theories or laws."
+              },
+              {
+                "definition": "Hypothesis",
+                "example": "A testable explanation or prediction based on available evidence and prior knowledge."
+              },
+              {
+                "definition": "Experimentation",
+                "example": "The process of conducting controlled tests or observations to validate or refute a hypothesis."
+              },
+              {
+                "definition": "Data Analysis",
+                "example": "The examination and interpretation of experimental results to draw meaningful conclusions."
+              },
+              {
+                "definition": "Theory",
+                "example": "A well-substantiated explanation of some aspect of the natural world that is based on a body of evidence and has withstood repeated testing and scrutiny."
+              }
+            ]
+          },
+          {
+            "title": "Measurement and Units",
+            "content": [
+              {
+                "definition": "Measurement",
+                "example": "The process of assigning numbers to physical quantities to describe and compare them."
+              },
+              {
+                "definition": "Fundamental Units",
+                "example": "Basic units of measurement for fundamental physical quantities, such as length, mass, and time."
+              },
+              {
+                "definition": "SI Units",
+                "example": "The International System of Units, which provides a standardized system of measurement for physical quantities."
+              },
+              {
+                "definition": "Prefixes",
+                "example": "Prefixes used with SI units to represent multiples or fractions of the base unit."
+              },
+              {
+                "definition": "Derived Units",
+                "example": "Units obtained by combining fundamental units to represent derived physical quantities, such as velocity, acceleration, and energy."
+              }
+            ]
+          },
+          {
+            "title": "Role of Experimentation",
+            "content": [
+              {
+                "definition": "Experiment",
+                "example": "A controlled procedure carried out to gather data and test hypotheses."
+              },
+              {
+                "definition": "Experimental Design",
+                "example": "The process of planning and organizing an experiment to ensure valid and reliable results."
+              },
+              {
+                "definition": "Variables",
+                "example": "Factors that can change or be controlled in an experiment and may affect the outcome."
+              },
+              {
+                "definition": "Controlled Variables",
+                "example": "Variables that are kept constant or controlled during an experiment to minimize their influence on the results."
+              },
+              {
+                "definition": "Independent Variable",
+                "example": "The variable that is intentionally manipulated or changed by the experimenter."
+              },
+              {
+                "definition": "Dependent Variable",
+                "example": "The variable that is observed or measured and may change in response to the independent variable."
+              }
+            ]
+          }
+        ]
+      },
+      "UnitsAndMeasurement": {
+        "chapter": "Units and Measurement",
+        "chapterOverview": "Chapter 2 of Physics class 11 focuses on the concept of units and measurements. It covers the importance of measurement in science, the need for standard units, and different systems of measurement. The chapter also introduces various physical quantities, their units, and the techniques of measurement in physics.",
+        "topics": [
+          {
+            "title": "Introduction to Units and Measurement",
+            "content": [
+              {
+                "definition": "Measurement",
+                "example": "The process of quantitatively determining the value of a physical quantity."
+              },
+              {
+                "definition": "Physical Quantity",
+                "example": "A property or attribute of an object that can be measured and expressed in numbers."
+              },
+              {
+                "definition": "Unit",
+                "example": "A standard quantity used to express the measurement of a physical quantity."
+              },
+              {
+                "definition": "SI System",
+                "example": "The International System of Units, which is the modern metric system used for scientific and everyday measurements."
+              },
+              {
+                "definition": "Prefixes",
+                "example": "Prefixes used with SI units to represent multiples or fractions of the base unit."
+              }
+            ]
+          },
+          {
+            "title": "Fundamental and Derived Units",
+            "content": [
+              {
+                "definition": "Fundamental Units",
+                "example": "Basic units of measurement for fundamental physical quantities, such as length, mass, time, electric current, temperature, amount of substance, and luminous intensity."
+              },
+              {
+                "definition": "Derived Units",
+                "example": "Units obtained by combining fundamental units to represent derived physical quantities, such as velocity, acceleration, force, energy, and power."
+              },
+              {
+                "definition": "Dimensional Analysis",
+                "example": "A method used to convert units and check the dimensional consistency of equations."
+              }
+            ]
+          },
+          {
+            "title": "Systems of Units",
+            "content": [
+              {
+                "definition": "CGS System",
+                "example": "The centimeter-gram-second system, an older system of units commonly used in physics, which is based on centimeters, grams, and seconds as fundamental units."
+              },
+              {
+                "definition": "FPS System",
+                "example": "The foot-pound-second system, another older system of units commonly used in engineering and everyday measurements, which is based on feet, pounds, and seconds as fundamental units."
+              },
+              {
+                "definition": "Conversion of Units",
+                "example": "The process of converting measurements from one system of units to another."
+              }
+            ]
+          },
+          {
+            "title": "Errors in Measurement",
+            "content": [
+              {
+                "definition": "Error",
+                "example": "The difference between the measured value and the true value of a quantity."
+              },
+              {
+                "definition": "Absolute Error",
+                "example": "The magnitude of the difference between the measured value and the true value."
+              },
+              {
+                "definition": "Relative Error",
+                "example": "The ratio of the absolute error to the true value, expressed as a percentage."
+              },
+              {
+                "definition": "Significant Figures",
+                "example": "Digits in a measured quantity that carry meaning regarding its precision and accuracy."
+              },
+              {
+                "definition": "Propagation of Errors",
+                "example": "The process of determining the uncertainty in a result obtained from mathematical operations on measured quantities."
+              }
+            ]
+          },
+          {
+            "title": "Accuracy, Precision, and Uncertainty",
+            "content": [
+              {
+                "definition": "Accuracy",
+                "example": "The closeness of a measured value to the true value of a quantity."
+              },
+              {
+                "definition": "Precision",
+                "example": "The closeness of multiple measurements of the same quantity to each other."
+              },
+              {
+                "definition": "Uncertainty",
+                "example": "An estimate of the range within which the true value of a measured quantity is likely to lie."
+              },
+              {
+                "definition": "Random Error",
+                "example": "An unpredictable error that occurs randomly and affects the precision of measurements."
+              },
+              {
+                "definition": "Systematic Error",
+                "example": "A consistent error that occurs in the same direction and affects the accuracy of measurements."
+              }
+            ]
+          }
+        ]
+      },
+      "MotionInAStraightLine": {
+        "chapter": "Motion in a Straight Line",
+        "chapterOverview": "Chapter 3 of Physics class 11 deals with the motion of objects in a straight line. It explores the concepts of distance, displacement, speed, velocity, and acceleration. The chapter introduces the equations of motion and covers topics such as uniformly accelerated motion and graphical representation of motion.",
+        "topics": [
+          {
+            "title": "Introduction to Motion in a Straight Line",
+            "content": [
+              {
+                "definition": "Motion",
+                "example": "The change in position of an object with respect to its surroundings over time."
+              },
+              {
+                "definition": "Distance and Displacement",
+                "example": "Distance is the total path length covered by an object, while displacement is the change in position from the initial to the final position."
+              },
+              {
+                "definition": "Scalar and Vector Quantities",
+                "example": "Scalar quantities have magnitude only, while vector quantities have both magnitude and direction."
+              }
+            ]
+          },
+          {
+            "title": "Speed and Velocity",
+            "content": [
+              {
+                "definition": "Speed",
+                "example": "The rate of change of distance with respect to time."
+              },
+              {
+                "definition": "Velocity",
+                "example": "The rate of change of displacement with respect to time; it includes both magnitude and direction."
+              },
+              {
+                "definition": "Average Speed and Average Velocity",
+                "example": "Average speed is the total distance traveled divided by the total time taken, while average velocity is the total displacement divided by the total time taken."
+              }
+            ]
+          },
+          {
+            "title": "Acceleration",
+            "content": [
+              {
+                "definition": "Acceleration",
+                "example": "The rate of change of velocity with respect to time."
+              },
+              {
+                "definition": "Uniformly Accelerated Motion",
+                "example": "Motion in which the acceleration remains constant over time."
+              },
+              {
+                "definition": "Equations of Motion",
+                "example": "Mathematical equations that relate displacement, initial velocity, final velocity, acceleration, and time for uniformly accelerated motion."
+              }
+            ]
+          },
+          {
+            "title": "Graphical Representation of Motion",
+            "content": [
+              {
+                "definition": "Position-Time Graph",
+                "example": "A graph that represents the position of an object as a function of time."
+              },
+              {
+                "definition": "Velocity-Time Graph",
+                "example": "A graph that represents the velocity of an object as a function of time."
+              },
+              {
+                "definition": "Acceleration-Time Graph",
+                "example": "A graph that represents the acceleration of an object as a function of time."
+              }
+            ]
+          }
+        ]
+      },
+      "MotionInAPlane": {
+        "chapter": "Motion in a Plane",
+        "chapterOverview": "Chapter 4 of Physics class 11 explores the motion of objects in a two-dimensional plane. It covers topics such as vectors, vector addition and subtraction, scalar and vector products, projectile motion, and circular motion. The chapter introduces the concept of components of vectors and the use of vector notation to describe motion in a plane.",
+        "topics": [
+          {
+            "title": "Introduction to Motion in a Plane",
+            "content": [
+              {
+                "definition": "Scalar and Vector Quantities",
+                "example": "Scalar quantities have magnitude only, while vector quantities have both magnitude and direction."
+              },
+              {
+                "definition": "Vectors",
+                "example": "Physical quantities that have both magnitude and direction."
+              },
+              {
+                "definition": "Vector Addition and Subtraction",
+                "example": "The process of combining or subtracting vectors to obtain a resultant vector."
+              },
+              {
+                "definition": "Resolution of Vectors",
+                "example": "The process of breaking down a vector into its component vectors along different directions."
+              }
+            ]
+          },
+          {
+            "title": "Motion in Two Dimensions",
+            "content": [
+              {
+                "definition": "Projectile Motion",
+                "example": "The motion of an object projected into the air under the influence of gravity."
+              },
+              {
+                "definition": "Components of Motion",
+                "example": "The independent motion of an object along the x-axis and y-axis."
+              },
+              {
+                "definition": "Range of a Projectile",
+                "example": "The horizontal distance covered by a projectile before landing back on the ground."
+              },
+              {
+                "definition": "Maximum Height of a Projectile",
+                "example": "The highest point reached by a projectile during its motion."
+              }
+            ]
+          },
+          {
+            "title": "Circular Motion",
+            "content": [
+              {
+                "definition": "Circular Motion",
+                "example": "The motion of an object along a circular path."
+              },
+              {
+                "definition": "Angular Displacement, Velocity, and Acceleration",
+                "example": "Angular displacement is the change in angular position, angular velocity is the rate of change of angular displacement, and angular acceleration is the rate of change of angular velocity."
+              },
+              {
+                "definition": "Centripetal Force",
+                "example": "The net force directed toward the center of a circular path, responsible for keeping an object in circular motion."
+              },
+              {
+                "definition": "Centrifugal Force",
+                "example": "The apparent force experienced by an object moving in a circular path, directed away from the center of the circle."
+              }
+            ]
+          }
+        ]
+      },
+      "LawsOfMotion": {
+        "chapter": "Laws of Motion",
+        "chapterOverview": "Chapter 5 of Physics class 11 introduces the fundamental laws of motion as described by Sir Isaac Newton. It covers Newton's three laws of motion, the concept of inertia, force, momentum, and the application of these laws to different physical scenarios.",
+        "topics": [
+          {
+            "title": "Introduction to Laws of Motion",
+            "content": [
+              {
+                "definition": "Force",
+                "example": "A push or pull on an object that can change its state of motion."
+              },
+              {
+                "definition": "Inertia",
+                "example": "The tendency of an object to resist changes in its state of motion."
+              },
+              {
+                "definition": "Newton's First Law of Motion",
+                "example": "Also known as the law of inertia, states that an object at rest will remain at rest, and an object in motion will continue in motion with a constant velocity unless acted upon by an external force."
+              }
+            ]
+          },
+          {
+            "title": "Newton's Second Law of Motion",
+            "content": [
+              {
+                "definition": "Newton's Second Law of Motion",
+                "example": "The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass. It can be expressed as F = ma, where F is the net force, m is the mass of the object, and a is the acceleration produced."
+              },
+              {
+                "definition": "Inertial and Non-inertial Frames of Reference",
+                "example": "Inertial frames of reference are non-accelerating frames where Newton's laws of motion are valid. Non-inertial frames are accelerating frames where these laws do not hold."
+              },
+              {
+                "definition": "Pseudo Forces",
+                "example": "Fictitious forces that appear to act on objects in non-inertial frames of reference to account for the apparent violation of Newton's laws."
+              }
+            ]
+          },
+          {
+            "title": "Newton's Third Law of Motion",
+            "content": [
+              {
+                "definition": "Newton's Third Law of Motion",
+                "example": "For every action, there is an equal and opposite reaction. When one object exerts a force on a second object, the second object exerts a force of equal magnitude in the opposite direction on the first object."
+              },
+              {
+                "definition": "Conservation of Momentum",
+                "example": "The total momentum of a system of objects remains constant if no external forces act on it."
+              },
+              {
+                "definition": "Impulse",
+                "example": "The product of the force acting on an object and the time interval over which it acts, resulting in a change in momentum."
+              }
+            ]
+          },
+          {
+            "title": "Applications of Laws of Motion",
+            "content": [
+              {
+                "definition": "Friction",
+                "example": "A force that opposes the relative motion or tendency of motion between two surfaces in contact."
+              },
+              {
+                "definition": "Circular Motion and Centripetal Force",
+                "example": "The force directed toward the center of a circular path required to keep an object moving in a circular motion."
+              },
+              {
+                "definition": "Banking of Roads",
+                "example": "The tilting of a road surface towards the center of a circular path to provide necessary centripetal force for vehicles moving at high speeds."
+              },
+              {
+                "definition": "Motion of Objects in Fluids",
+                "example": "The motion of objects through fluids (liquids or gases), including buoyant force, terminal velocity, and drag force."
+              }
+            ]
+          }
+        ]
+      },
+      "WorkEnergyPower": {
+        "chapter": "Work-Energy-Power",
+        "chapterOverview": "Chapter 6 of Physics class 11 explores the concepts of work, energy, and power. It covers topics such as the definition of work, different forms of energy, the principle of conservation of energy, various types of energy transformations, and the calculation of power.",
+        "topics": [
+          {
+            "title": "Work",
+            "content": [
+              {
+                "definition": "Work",
+                "example": "In physics, work is defined as the transfer of energy that occurs when an object is moved by a force applied in the direction of displacement."
+              },
+              {
+                "definition": "Scalar Product of Two Vectors",
+                "example": "The scalar product (dot product) of two vectors is a scalar quantity equal to the product of their magnitudes and the cosine of the angle between them."
+              },
+              {
+                "definition": "Work-Energy Theorem",
+                "example": "The work done on an object is equal to the change in its kinetic energy. It can be expressed as W = ΔKE, where W is work done, and ΔKE is the change in kinetic energy."
+              }
+            ]
+          },
+          {
+            "title": "Energy",
+            "content": [
+              {
+                "definition": "Forms of Energy",
+                "example": "Energy exists in various forms such as kinetic energy, potential energy, thermal energy, chemical energy, etc."
+              },
+              {
+                "definition": "Kinetic Energy",
+                "example": "The energy possessed by an object due to its motion and can be calculated using the formula KE = (1/2)mv^2, where m is the mass of the object and v is its velocity."
+              },
+              {
+                "definition": "Potential Energy",
+                "example": "The energy possessed by an object due to its position or state and can be calculated based on its height, elastic potential, or other factors."
+              },
+              {
+                "definition": "Conservation of Mechanical Energy",
+                "example": "In the absence of external forces, the total mechanical energy of a system remains constant."
+              }
+            ]
+          },
+          {
+            "title": "Power",
+            "content": [
+              {
+                "definition": "Power",
+                "example": "Power is the rate at which work is done or energy is transferred, and it can be calculated as the work done per unit time. Power is given by the formula P = W/t, where P is power, W is work done, and t is time."
+              },
+              {
+                "definition": "Commercial Unit of Energy and Power",
+                "example": "The SI unit of energy is the joule (J), and the SI unit of power is the watt (W). Other commonly used units include kilowatt-hour (kWh) for energy and horsepower (hp) for power."
+              }
+            ]
+          },
+          {
+            "title": "Sources of Energy",
+            "content": [
+              {
+                "definition": "Renewable and Non-renewable Sources",
+                "example": "Renewable energy sources can be replenished naturally, such as solar, wind, hydro, geothermal energy, etc. Non-renewable energy sources are finite and will deplete over time, such as fossil fuels (coal, oil, natural gas), nuclear energy, etc."
+              },
+              {
+                "definition": "Commercial Unit of Energy and Power",
+                "example": "The SI unit of energy is the joule (J), and the SI unit of power is the watt (W). Other commonly used units include kilowatt-hour (kWh) for energy and horsepower (hp) for power."
+              }
+            ]
+          }
+        ]
+      },
+      "SystemParticlesRotationalMotion": {
+        "chapter": "System of Particles and Rotational Motion",
+        "chapterOverview": "Chapter 7 of Physics class 11 explores the concepts of system of particles and rotational motion. It covers topics such as the center of mass, linear momentum, torque, angular momentum, rotational dynamics, and the motion of rigid bodies.",
+        "topics": [
+          {
+            "title": "Center of Mass and Linear Momentum",
+            "content": [
+              {
+                "definition": "Center of Mass",
+                "example": "The point at which the entire mass of a system can be considered to be concentrated for certain purposes."
+              },
+              {
+                "definition": "Linear Momentum",
+                "example": "The product of an object's mass and its velocity. It is a vector quantity and is conserved in an isolated system."
+              },
+              {
+                "definition": "Law of Conservation of Linear Momentum",
+                "example": "The total linear momentum of an isolated system remains constant if no external forces act on it."
+              }
+            ]
+          },
+          {
+            "title": "Torque and Angular Momentum",
+            "content": [
+              {
+                "definition": "Torque",
+                "example": "The rotational equivalent of force. It is the product of force and the perpendicular distance from the point of rotation to the line of action of the force. Torque is a vector quantity."
+              },
+              {
+                "definition": "Moment of Inertia",
+                "example": "A measure of an object's resistance to changes in its rotational motion. It depends on the mass distribution of the object and the axis of rotation."
+              },
+              {
+                "definition": "Angular Momentum",
+                "example": "The product of moment of inertia and angular velocity. It is a vector quantity and is conserved in the absence of external torques."
+              }
+            ]
+          },
+          {
+            "title": "Equilibrium of a Rigid Body",
+            "content": [
+              {
+                "definition": "Equilibrium of a Rigid Body",
+                "example": "A state in which a rigid body is at rest or in uniform rotational motion. It requires both translational equilibrium (net force is zero) and rotational equilibrium (net torque is zero)."
+              },
+              {
+                "definition": "Conditions for Equilibrium",
+                "example": "The conditions for equilibrium include the net force and net torque being zero. Additionally, the sum of clockwise torques is equal to the sum of counterclockwise torques."
+              },
+              {
+                "definition": "Stability and Balance",
+                "example": "Stability refers to the ability of an object to return to its equilibrium position after it is displaced. Balance involves distributing the mass of an object to ensure stability."
+              }
+            ]
+          },
+          {
+            "title": "Rotational Motion of a Rigid Body",
+            "content": [
+              {
+                "definition": "Rotational Kinematics",
+                "example": "The branch of mechanics that deals with the motion of objects undergoing rotational motion."
+              },
+              {
+                "definition": "Rotational Dynamics",
+                "example": "The branch of mechanics that deals with the causes of rotational motion and the relationship between torque, moment of inertia, and angular acceleration."
+              },
+              {
+                "definition": "Rolling Motion",
+                "example": "The combined motion of translation and rotation that occurs when a body rolls without slipping on a surface."
+              }
+            ]
+          }
+        ]
+      },
+      "Gravitation": {
+        "chapter": "Gravitation",
+        "chapterOverview": "Chapter 8 of Physics class 11 explores the fundamental concepts of gravitation. It covers topics such as the law of gravitation, Kepler's laws of planetary motion, gravitational potential energy, escape velocity, and the motion of satellites.",
+        "topics": [
+          {
+            "title": "Law of Gravitation",
+            "content": [
+              {
+                "definition": "Law of Gravitation",
+                "example": "Every particle of matter in the universe attracts every other particle with a force that is directly proportional to the product of their masses and inversely proportional to the square of the distance between their centers."
+              },
+              {
+                "definition": "Gravitational Constant",
+                "example": "The constant of proportionality in the law of gravitation equation. It is denoted by G and has a value of approximately 6.67430 × 10^-11 N m^2/kg^2."
+              },
+              {
+                "definition": "Gravitational Field",
+                "example": "The region around a mass where the force of gravity acts on other masses. The gravitational field strength is the force experienced per unit mass at a point in the field."
+              }
+            ]
+          },
+          {
+            "title": "Kepler's Laws of Planetary Motion",
+            "content": [
+              {
+                "definition": "Kepler's First Law",
+                "example": "The orbit of a planet around the Sun is an ellipse, with the Sun at one of the foci of the ellipse."
+              },
+              {
+                "definition": "Kepler's Second Law",
+                "example": "A line that connects a planet to the Sun sweeps out equal areas in equal intervals of time."
+              },
+              {
+                "definition": "Kepler's Third Law",
+                "example": "The square of the period of revolution of a planet is directly proportional to the cube of the semi-major axis of its elliptical orbit."
+              }
+            ]
+          },
+          {
+            "title": "Gravitational Potential Energy",
+            "content": [
+              {
+                "definition": "Gravitational Potential Energy",
+                "example": "The energy possessed by an object due to its position in a gravitational field. It is given by the formula PE = -GMm/r, where PE is the potential energy, G is the gravitational constant, M and m are the masses of the objects, and r is the distance between their centers."
+              },
+              {
+                "definition": "Escape Velocity",
+                "example": "The minimum velocity an object must have to escape the gravitational field of a planet or celestial body."
+              },
+              {
+                "definition": "Satellites",
+                "example": "Objects that revolve around a planet or celestial body due to the gravitational force acting on them. Satellites can be natural (like moons) or artificial (man-made)."
+              }
+            ]
+          },
+          {
+            "title": "Geostationary and Polar Satellites",
+            "content": [
+              {
+                "definition": "Geostationary Satellites",
+                "example": "Satellites that remain fixed relative to a particular point on Earth's surface, as they have an orbital period equal to Earth's rotational period."
+              },
+              {
+                "definition": "Polar Satellites",
+                "example": "Satellites that pass over the polar regions of Earth and have orbits that are nearly perpendicular to the equator."
+              }
+            ]
+          }
+        ]
+      },
+      "MechanicalPropertiesSolids": {
+        "chapter": "Mechanical Properties of Solids",
+        "chapterOverview": "Chapter 9 of Physics class 11 explores the mechanical properties of solids. It covers topics such as stress, strain, elastic behavior, Hooke's law, modulus of elasticity, and various types of deformation and stress-strain relationships.",
+        "topics": [
+          {
+            "title": "Introduction to Mechanical Properties",
+            "content": [
+              {
+                "definition": "Mechanical Properties",
+                "example": "The characteristics of a material that describe its behavior under the action of external forces, including stress, strain, and deformation."
+              },
+              {
+                "definition": "Stress",
+                "example": "The internal resisting force per unit area developed within a material in response to an applied external force. It is calculated as stress = force / area."
+              },
+              {
+                "definition": "Strain",
+                "example": "The measure of deformation or change in shape experienced by a material in response to an applied stress. It is calculated as strain = change in length / original length."
+              }
+            ]
+          },
+          {
+            "title": "Elastic Behavior of Solids",
+            "content": [
+              {
+                "definition": "Elasticity",
+                "example": "The property of a material to regain its original shape and size after the removal of an applied force."
+              },
+              {
+                "definition": "Hooke's Law",
+                "example": "A principle stating that the stress applied to a solid material is directly proportional to the strain produced, within the elastic limit."
+              },
+              {
+                "definition": "Elastic Modulus",
+                "example": "A measure of the stiffness or rigidity of a material. It includes Young's modulus, shear modulus, and bulk modulus."
+              }
+            ]
+          },
+          {
+            "title": "Deformation and Types of Deformation",
+            "content": [
+              {
+                "definition": "Deformation",
+                "example": "The change in shape or size of a material due to the application of external forces."
+              },
+              {
+                "definition": "Elastic Deformation",
+                "example": "Deformation that is reversible and disappears once the applied stress is removed. The material returns to its original shape."
+              },
+              {
+                "definition": "Plastic Deformation",
+                "example": "Deformation that is permanent and non-reversible, even after the removal of the applied stress. The material undergoes a change in shape."
+              },
+              {
+                "definition": "Brittle Materials",
+                "example": "Materials that exhibit little or no plastic deformation and fracture easily when subjected to stress."
+              },
+              {
+                "definition": "Ductile Materials",
+                "example": "Materials that undergo significant plastic deformation before fracturing when subjected to stress."
+              }
+            ]
+          },
+          {
+            "title": "Stress-Strain Relationship",
+            "content": [
+              {
+                "definition": "Stress-Strain Curve",
+                "example": "A graphical representation of the relationship between stress and strain for a material. It helps determine the material's mechanical properties, such as yield strength, ultimate strength, and modulus of elasticity."
+              },
+              {
+                "definition": "Yield Point",
+                "example": "The point on a stress-strain curve where there is a sudden increase in strain without a significant increase in stress. It marks the transition from elastic to plastic deformation."
+              },
+              {
+                "definition": "Elastic Limit",
+                "example": "The maximum stress a material can withstand without undergoing permanent deformation. If the stress exceeds the elastic limit, plastic deformation occurs."
+              }
+            ]
+          }
+        ]
+      },
+      "Fluids": {
+        "chapter": "Fluids",
+        "chapterOverview": "Chapter 10 of Physics class 11 explores the properties and behavior of fluids. It covers topics such as pressure, Pascal's law, Archimedes' principle, buoyancy, surface tension, and viscosity.",
+        "topics": [
+          {
+            "title": "Introduction to Fluids",
+            "content": [
+              {
+                "definition": "Fluids",
+                "example": "Substances that can flow and do not have a fixed shape. They include both liquids and gases."
+              },
+              {
+                "definition": "Pressure",
+                "example": "The force applied per unit area on a surface. It is calculated as pressure = force / area."
+              },
+              {
+                "definition": "Pascal's Law",
+                "example": "A principle stating that when a pressure is applied to a fluid in a confined space, the pressure is transmitted undiminished to all parts of the fluid and the walls of the container."
+              }
+            ]
+          },
+          {
+            "title": "Hydrostatic Pressure and Buoyancy",
+            "content": [
+              {
+                "definition": "Hydrostatic Pressure",
+                "example": "The pressure exerted by a fluid at rest due to the weight of the fluid above it. It increases with depth."
+              },
+              {
+                "definition": "Archimedes' Principle",
+                "example": "A principle stating that an object immersed in a fluid experiences an upward buoyant force equal to the weight of the fluid displaced by the object."
+              },
+              {
+                "definition": "Buoyant Force",
+                "example": "The upward force exerted by a fluid on an object immersed in it. It opposes the weight of the object."
+              },
+              {
+                "definition": "Buoyancy",
+                "example": "The ability of an object to float or rise in a fluid. It depends on the relative densities of the object and the fluid."
+              }
+            ]
+          },
+          {
+            "title": "Surface Tension",
+            "content": [
+              {
+                "definition": "Surface Tension",
+                "example": "The force per unit length acting parallel to the surface of a liquid, tending to minimize the surface area. It is responsible for the formation of droplets and capillary rise."
+              },
+              {
+                "definition": "Capillary Action",
+                "example": "The ability of a liquid to flow in narrow spaces or against the force of gravity, due to adhesive and cohesive forces. It is observed in capillary tubes and plant roots."
+              }
+            ]
+          },
+          {
+            "title": "Viscosity",
+            "content": [
+              {
+                "definition": "Viscosity",
+                "example": "The measure of a fluid's resistance to flow. It is related to the internal friction between adjacent layers of fluid molecules."
+              },
+              {
+                "definition": "Newtonian Fluids",
+                "example": "Fluids that have a constant viscosity, such as water and most common liquids."
+              },
+              {
+                "definition": "Non-Newtonian Fluids",
+                "example": "Fluids that do not have a constant viscosity and can exhibit different flow behaviors, such as shear-thinning or shear-thickening."
+              }
+            ]
+          }
+        ]
+      },
+      "ThermalPropertiesMatter": {
+        "chapter": "Thermal Properties of Matter",
+        "chapterOverview": "Chapter 11 of Physics class 11 explores the thermal properties of matter. It covers topics such as temperature, heat, specific heat capacity, calorimetry, thermal expansion, and the laws of thermodynamics.",
+        "topics": [
+          {
+            "title": "Temperature and Heat",
+            "content": [
+              {
+                "definition": "Temperature",
+                "example": "A measure of the average kinetic energy of the particles in a substance. It determines the direction of heat flow between two objects in thermal contact."
+              },
+              {
+                "definition": "Heat",
+                "example": "The transfer of thermal energy between objects due to a temperature difference. It flows from hotter to colder objects."
+              },
+              {
+                "definition": "Specific Heat Capacity",
+                "example": "The amount of heat required to raise the temperature of a unit mass of a substance by one degree Celsius (or Kelvin). It is denoted by the symbol 'C'."
+              }
+            ]
+          },
+          {
+            "title": "Calorimetry",
+            "content": [
+              {
+                "definition": "Calorimetry",
+                "example": "The experimental measurement of heat changes during physical and chemical processes."
+              },
+              {
+                "definition": "Calorimeter",
+                "example": "A device used to measure the heat absorbed or released by a substance during a chemical or physical process."
+              },
+              {
+                "definition": "Specific Heat Capacity of Water",
+                "example": "Water has a high specific heat capacity, making it an effective heat storage medium and a useful substance for temperature regulation."
+              }
+            ]
+          },
+          {
+            "title": "Thermal Expansion",
+            "content": [
+              {
+                "definition": "Thermal Expansion",
+                "example": "The increase in size (length, area, or volume) of a substance in response to an increase in temperature."
+              },
+              {
+                "definition": "Linear Expansion",
+                "example": "The increase in length of a solid due to an increase in temperature. It is characterized by the coefficient of linear expansion, denoted by 'α'."
+              },
+              {
+                "definition": "Volumetric Expansion",
+                "example": "The increase in volume of a solid or a liquid due to an increase in temperature. It is characterized by the coefficient of volumetric expansion, denoted by 'β'."
+              }
+            ]
+          },
+          {
+            "title": "Laws of Thermodynamics",
+            "content": [
+              {
+                "definition": "Zeroth Law of Thermodynamics",
+                "example": "If two objects are in thermal equilibrium with a third object, then they are in thermal equilibrium with each other."
+              },
+              {
+                "definition": "First Law of Thermodynamics",
+                "example": "The total energy of an isolated system is conserved. It states that energy can be neither created nor destroyed but can be transferred from one form to another or from one object to another."
+              },
+              {
+                "definition": "Second Law of Thermodynamics",
+                "example": "The entropy of an isolated system tends to increase over time. It describes the irreversibility of natural processes and the direction of heat flow."
+              },
+              {
+                "definition": "Third Law of Thermodynamics",
+                "example": "As the temperature approaches absolute zero, the entropy of a system approaches a minimum value. It states that absolute zero cannot be reached."
+              }
+            ]
+          }
+        ]
+      },
+      "Thermodynamics": {
+        "chapter": "Thermodynamics",
+        "chapterOverview": "Chapter 12 of Physics class 11 explores the principles and concepts of thermodynamics. It covers topics such as heat engines, laws of thermodynamics, entropy, Carnot cycle, and efficiency.",
+        "topics": [
+          {
+            "title": "Introduction to Thermodynamics",
+            "content": [
+              {
+                "definition": "Thermodynamics",
+                "example": "The branch of physics that deals with the relationship between heat, work, and energy."
+              },
+              {
+                "definition": "System",
+                "example": "The part of the universe under consideration, separated from the rest by a boundary."
+              },
+              {
+                "definition": "Surroundings",
+                "example": "Everything outside the system with which it can exchange energy or matter."
+              }
+            ]
+          },
+          {
+            "title": "Laws of Thermodynamics",
+            "content": [
+              {
+                "definition": "Zeroth Law of Thermodynamics",
+                "example": "If two systems are in thermal equilibrium with a third system, they are in thermal equilibrium with each other."
+              },
+              {
+                "definition": "First Law of Thermodynamics",
+                "example": "Energy can neither be created nor destroyed; it can only change its form or be transferred from one system to another."
+              },
+              {
+                "definition": "Second Law of Thermodynamics",
+                "example": "The entropy of an isolated system tends to increase over time."
+              },
+              {
+                "definition": "Third Law of Thermodynamics",
+                "example": "As the temperature approaches absolute zero, the entropy of a system approaches a minimum value."
+              }
+            ]
+          },
+          {
+            "title": "Heat Engines",
+            "content": [
+              {
+                "definition": "Heat Engine",
+                "example": "A device that converts heat energy into mechanical work."
+              },
+              {
+                "definition": "Efficiency",
+                "example": "The ratio of the useful work output to the total energy input of a heat engine. It is denoted by the symbol 'η' (eta)."
+              },
+              {
+                "definition": "Carnot Cycle",
+                "example": "An idealized thermodynamic cycle that describes the most efficient heat engine possible."
+              }
+            ]
+          },
+          {
+            "title": "Entropy",
+            "content": [
+              {
+                "definition": "Entropy",
+                "example": "A measure of the randomness or disorder of a system. It increases in natural processes and approaches a maximum value in equilibrium."
+              },
+              {
+                "definition": "Irreversible Processes",
+                "example": "Processes that are not reversible and lead to an increase in entropy."
+              },
+              {
+                "definition": "Reversible Processes",
+                "example": "Processes that can be reversed and do not lead to an increase in entropy."
+              }
+            ]
+          }
+        ]
+      },
+      "KineticTheoryGases": {
+        "chapter": "Kinetic Theory of Gases",
+        "chapterOverview": "Chapter 13 of Physics class 11 focuses on the kinetic theory of gases. It covers topics such as the postulates of the kinetic theory, gas laws, mean free path, and kinetic interpretation of temperature.",
+        "topics": [
+          {
+            "title": "Postulates of the Kinetic Theory",
+            "content": [
+              {
+                "definition": "Postulate 1",
+                "example": "A gas is composed of a large number of identical particles called molecules, which are in constant random motion."
+              },
+              {
+                "definition": "Postulate 2",
+                "example": "The size of the molecules is negligibly small compared to the average separation between them."
+              },
+              {
+                "definition": "Postulate 3",
+                "example": "Collisions between molecules are perfectly elastic, with no net loss or gain of kinetic energy."
+              },
+              {
+                "definition": "Postulate 4",
+                "example": "The average kinetic energy of the molecules is directly proportional to the absolute temperature of the gas."
+              }
+            ]
+          },
+          {
+            "title": "Gas Laws",
+            "content": [
+              {
+                "definition": "Boyle's Law",
+                "example": "The pressure of a gas is inversely proportional to its volume at constant temperature."
+              },
+              {
+                "definition": "Charles's Law",
+                "example": "The volume of a gas is directly proportional to its absolute temperature at constant pressure."
+              },
+              {
+                "definition": "Gay-Lussac's Law",
+                "example": "The pressure of a gas is directly proportional to its absolute temperature at constant volume."
+              },
+              {
+                "definition": "Ideal Gas Law",
+                "example": "The relationship between the pressure, volume, and temperature of an ideal gas: PV = nRT."
+              }
+            ]
+          },
+          {
+            "title": "Mean Free Path",
+            "content": [
+              {
+                "definition": "Mean Free Path",
+                "example": "The average distance a molecule travels between collisions with other molecules."
+              },
+              {
+                "definition": "Collision Frequency",
+                "example": "The number of collisions that a molecule undergoes per unit time."
+              },
+              {
+                "definition": "Mean Speed",
+                "example": "The average speed of the gas molecules, calculated as the square root of the average of the squares of the individual speeds."
+              }
+            ]
+          },
+          {
+            "title": "Kinetic Interpretation of Temperature",
+            "content": [
+              {
+                "definition": "Temperature",
+                "example": "A measure of the average kinetic energy of the gas molecules."
+              },
+              {
+                "definition": "Root-Mean-Square Speed",
+                "example": "The speed of a gas molecule having kinetic energy equal to the average kinetic energy of the gas."
+              },
+              {
+                "definition": "Degrees of Freedom",
+                "example": "The number of independent ways in which a molecule can store energy."
+              }
+            ]
+          }
+        ]
+      },
+      "Oscillations": {
+        "chapter": "Oscillations",
+        "chapterOverview": "Chapter 14 of Physics class 11 explores the concept of oscillations. It covers topics such as simple harmonic motion, oscillatory motion of a mass-spring system, pendulum motion, and resonance.",
+        "topics": [
+          {
+            "title": "Simple Harmonic Motion",
+            "content": [
+              {
+                "definition": "Simple Harmonic Motion",
+                "example": "The motion of an object back and forth about a stable equilibrium position, where the restoring force is directly proportional to the displacement from the equilibrium."
+              },
+              {
+                "definition": "Amplitude",
+                "example": "The maximum displacement from the equilibrium position in simple harmonic motion."
+              },
+              {
+                "definition": "Period",
+                "example": "The time taken to complete one full oscillation in simple harmonic motion."
+              },
+              {
+                "definition": "Frequency",
+                "example": "The number of oscillations per unit time, measured in hertz (Hz)."
+              }
+            ]
+          },
+          {
+            "title": "Oscillatory Motion of a Mass-Spring System",
+            "content": [
+              {
+                "definition": "Hooke's Law",
+                "example": "The force exerted by a spring is directly proportional to the displacement from its equilibrium position."
+              },
+              {
+                "definition": "Spring Constant",
+                "example": "A measure of the stiffness of a spring, denoted by the symbol 'k'. It determines the force required to stretch or compress the spring."
+              },
+              {
+                "definition": "Equilibrium Position",
+                "example": "The position where the net force on the mass-spring system is zero, and the spring is neither stretched nor compressed."
+              }
+            ]
+          },
+          {
+            "title": "Pendulum Motion",
+            "content": [
+              {
+                "definition": "Simple Pendulum",
+                "example": "An idealized system consisting of a mass (bob) attached to a string or rod, which swings back and forth under the influence of gravity."
+              },
+              {
+                "definition": "Period of a Simple Pendulum",
+                "example": "The time taken for one complete back-and-forth swing of a simple pendulum."
+              },
+              {
+                "definition": "Length of a Simple Pendulum",
+                "example": "The distance between the pivot point and the center of mass of the pendulum bob."
+              }
+            ]
+          },
+          {
+            "title": "Resonance",
+            "content": [
+              {
+                "definition": "Resonance",
+                "example": "The phenomenon in which a system vibrates with maximum amplitude when subjected to an external force at its natural frequency."
+              },
+              {
+                "definition": "Natural Frequency",
+                "example": "The frequency at which a system tends to oscillate with the least external interference."
+              },
+              {
+                "definition": "Resonant Frequency",
+                "example": "The frequency at which resonance occurs in a system."
+              }
+            ]
+          }
+        ]
+      },
+      "Waves": {
+        "chapter": "Waves",
+        "chapterOverview": "Chapter 15 of Physics class 11 explores the nature and properties of waves. It covers topics such as types of waves, wave parameters, wave motion, wave interference, and standing waves.",
+        "topics": [
+          {
+            "title": "Types of Waves",
+            "content": [
+              {
+                "definition": "Mechanical Waves",
+                "example": "Waves that require a medium to propagate, such as sound waves and water waves."
+              },
+              {
+                "definition": "Electromagnetic Waves",
+                "example": "Waves that can propagate through a vacuum, such as light waves and radio waves."
+              },
+              {
+                "definition": "Longitudinal Waves",
+                "example": "Waves in which the particles of the medium vibrate parallel to the direction of wave propagation, such as sound waves."
+              },
+              {
+                "definition": "Transverse Waves",
+                "example": "Waves in which the particles of the medium vibrate perpendicular to the direction of wave propagation, such as electromagnetic waves."
+              }
+            ]
+          },
+          {
+            "title": "Wave Parameters",
+            "content": [
+              {
+                "definition": "Amplitude",
+                "example": "The maximum displacement of a particle from its equilibrium position in a wave."
+              },
+              {
+                "definition": "Wavelength",
+                "example": "The distance between two consecutive points in a wave that are in phase, such as two crests or two troughs."
+              },
+              {
+                "definition": "Frequency",
+                "example": "The number of complete oscillations or cycles of a wave per unit time, measured in hertz (Hz)."
+              },
+              {
+                "definition": "Period",
+                "example": "The time taken for one complete oscillation or cycle of a wave."
+              },
+              {
+                "definition": "Wave Speed",
+                "example": "The speed at which a wave propagates through a medium, calculated as the product of wavelength and frequency."
+              }
+            ]
+          },
+          {
+            "title": "Wave Motion",
+            "content": [
+              {
+                "definition": "Wavefront",
+                "example": "A surface containing points that are in phase and have the same displacement at any given time."
+              },
+              {
+                "definition": "Ray",
+                "example": "A line perpendicular to the wavefront that indicates the direction of wave propagation."
+              },
+              {
+                "definition": "Reflection",
+                "example": "The bouncing back of a wave when it encounters a boundary or obstacle."
+              },
+              {
+                "definition": "Refraction",
+                "example": "The bending of a wave as it passes from one medium to another with different properties."
+              },
+              {
+                "definition": "Diffraction",
+                "example": "The bending or spreading out of a wave as it encounters an obstacle or passes through a narrow opening."
+              }
+            ]
+          },
+          {
+            "title": "Wave Interference",
+            "content": [
+              {
+                "definition": "Superposition Principle",
+                "example": "The principle that states that when two or more waves meet at a point in space, the resultant displacement is the vector sum of the individual displacements."
+              },
+              {
+                "definition": "Constructive Interference",
+                "example": "The interference of two waves that are in phase, resulting in a larger amplitude."
+              },
+              {
+                "definition": "Destructive Interference",
+                "example": "The interference of two waves that are out of phase, resulting in a smaller or zero amplitude."
+              },
+              {
+                "definition": "Standing Waves",
+                "example": "Waves that appear to be stationary due to the interference of an incident wave and a reflected wave."
+              }
+            ]
+          }
+        ]
+      }
+}
