@@ -7,7 +7,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import Homepage from '../Screens/HomePage'
 import Model from "../Screens/Notes/Model";
-import Classification from "../Screens/Notes/Class10/Maths/Classification";
+import Classification from "../Screens/Notes/Classification";
 import Ai from "../Screens/Ai";
 import Forum from "../Screens/Forum";
 import GetStarted from "../Screens/GetStarted";
@@ -26,6 +26,9 @@ import Events from "../Screens/Events";
 import AddEvents from "../Screens/AddEvent";
 import AddArticle from "../Screens/AddArticle";
 import User from "../Screens/User";
+import AboutUs from "./AboutUs";
+import PrivacyPolicy from "./PrivacyAndPolicy";
+import TermsCondition from "./TermsAndCondition";
 
 
 
@@ -50,51 +53,39 @@ const Screens = () =>{
 
     return(
     <NavigationContainer>
-        <Stack.Navigator  screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator initialRouteName="Classification" screenOptions={{headerShown:false,animation:'none'}} >
           {
-            initialRoute ?
-            <Stack.Screen
-           name="Home" 
-           component={Homepage} /> :
+            !initialRoute ?
             <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
+           :
+           <Stack.Screen
+           name="Home" 
+           component={Homepage} /> 
 
           }
-          
-
           <Stack.Screen
            name="Details" 
            component={Details} />
-
-          
-          
-
           <Stack.Screen
            name="NoteCreator_Classification" 
            component={Note_Classification} />
-          
           <Stack.Screen
            name="NoteCreator" 
            component={NoteCreator} />
-
           <Stack.Screen
            name="Model" 
            component={Model} />
-
-
           <Stack.Screen
            name="MathsClassification" 
            component={Classification} />
-
           <Stack.Screen
            name="Ai" 
            component={Ai} />
-
           <Stack.Screen
            name="Forum" 
            component={Forum} />
-            
           <Stack.Screen
            name="Focus" 
            component={FocusMode} />  
@@ -131,6 +122,18 @@ const Screens = () =>{
            <Stack.Screen
            name="User" 
            component={User} /> 
+           <Stack.Screen
+           name="AboutUs" 
+           component={AboutUs} />
+            <Stack.Screen
+           name="Privacy" 
+           component={PrivacyPolicy} /> 
+          <Stack.Screen
+           name="Terms" 
+           component={TermsCondition} />
+           <Stack.Screen
+           name="Classification" 
+           component={Classification} /> 
   
         </Stack.Navigator>
       </NavigationContainer>
