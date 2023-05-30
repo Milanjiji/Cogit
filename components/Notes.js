@@ -22,19 +22,19 @@ const Notes = ({navigation,route,...props}) =>{
         getColors();
     },[])
 
-    const goTo = (place) =>{
-        navigation.navigate(place);
+    const goTo = (place,sub) =>{
+        navigation.navigate(place,{sub:sub});
     }
     return(
             <View>
                     <View style={styles.grid} >
-                        <TouchableOpacity  style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                        <TouchableOpacity onPress={()=>goTo('Classification','math')} style={[styles.btn,{backgroundColor:Colors.primary}]} >
                             <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1tHfRi8UikHq30wR5Nq1m4IZjCjH0PU9z'}} >
                                     <Text style={[styles.btnText,{color:Colors.text}]} >Maths</Text>
                             </ImageBackground>
                         </TouchableOpacity>
                         
-                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]}>
+                        <TouchableOpacity onPress={()=>goTo('Classification','chem')} style={[styles.btn,{backgroundColor:Colors.primary}]}>
                             <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1NQIJtTmPXC7BS95fe-fc6tI-UCgEMZa9'}} >
                                     <Text style={[styles.btnText,{color:Colors.text}]} >Chemistry</Text>
                             </ImageBackground>
@@ -42,13 +42,13 @@ const Notes = ({navigation,route,...props}) =>{
                     </View>
 
                     <View style={styles.grid} >
-                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                        <TouchableOpacity onPress={()=>goTo('Classification','phy')} style={[styles.btn,{backgroundColor:Colors.primary}]} >
                             <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1IdNwwJfD5g4BAK1ZWIVQovF_VjfqZvd_'}} >
                                     <Text style={[styles.btnText,{color:Colors.text}]} >Physics</Text>
                             </ImageBackground>
                         </TouchableOpacity>
                         
-                        <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                        <TouchableOpacity onPress={()=>goTo('Classification','bio')} style={[styles.btn,{backgroundColor:Colors.primary}]} >
                             <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1dSy9ZT7xkAz9HcWzFwp0yQpexsfKbRhb'}} >
                                     <Text style={[styles.btnText,{color:Colors.text}]} >Biology</Text>
                             </ImageBackground>

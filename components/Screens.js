@@ -2,7 +2,9 @@ import React,{useEffect,useState} from "react";
 import { Settings, View } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { TransitionPresets } from '@react-navigation/stack';
+import { enableScreens } from 'react-native-screens';
+
 
 
 import Homepage from '../Screens/HomePage'
@@ -30,6 +32,8 @@ import AboutUs from "./AboutUs";
 import PrivacyPolicy from "./PrivacyAndPolicy";
 import TermsCondition from "./TermsAndCondition";
 import Spalsh from "../Screens/SplashScreen";
+import Brief from "../Screens/Notes/Briefly";
+import BriefClassification from "../Screens/Notes/BrieflyClassification";
 
 
 
@@ -38,30 +42,23 @@ import Spalsh from "../Screens/SplashScreen";
 
 const Stack = createNativeStackNavigator();
 
-
+enableScreens();
 const Screens = () =>{
-    const [initialRoute,setInitialRoute] = useState('');
-
-    useEffect(()=>{
-      const initalRouteSet = async() =>{
-        const data = await AsyncStorage.getItem('userName');
-        console.log(data);
-        setInitialRoute(data);
-        
-      }
-      initalRouteSet();
-    },[])
+  
 
     return(
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="Splash"  screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Navigator initialRouteName="Splash"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
+
         <Stack.Screen
            name="Splash" 
-           component={Spalsh} />
+           component={Spalsh} 
+           />
+
             <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
-           :
+           
            <Stack.Screen
            name="Home" 
            component={Homepage} /> 
@@ -136,6 +133,10 @@ const Screens = () =>{
            <Stack.Screen
            name="Classification" 
            component={Classification} /> 
+           <Stack.Screen
+           name="BriefClassfication" 
+           component={BriefClassification} />
+    
   
         </Stack.Navigator>
       </NavigationContainer>

@@ -16,6 +16,7 @@ import Colors from '../colors.json'
 import Greetings from '../components/Greetings';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Bar_Community from '../components/Bar_Community';
+import { NavigationContainer } from '@react-navigation/native';
 
 
 
@@ -71,7 +72,7 @@ const Homepage = ({navigation,route}) =>{
                         <Events navigation={navigation} />
                         <Bar_Community navigation={navigation} />
                     <View style={{display:notes ? 'flex' : 'none'}} >
-                        <Notes />
+                        <Notes navigation={navigation} />
                     </View>
                     <View style={{display: !prevSectionDisplay ? 'flex':'none'}} >
                         <PrevSection navigation={navigation} />
@@ -83,7 +84,7 @@ const Homepage = ({navigation,route}) =>{
                         <Utilities status={Achivemenet} navigation={navigation} />
                     </View>
                     <View style={{display:notes ? 'none' : 'flex'}} >
-                        <Notes />
+                        <Notes navigation={navigation} />
                     </View>
                     
                 </ScrollView>

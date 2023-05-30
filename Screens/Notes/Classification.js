@@ -4,8 +4,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "../../components/Header";
 import HomePageFootor from "../../components/HomePageFootor";
 
-const Classification = ({sub,clas,navigation}) =>{
+const Classification = ({navigation,route}) =>{
     const [Colors,setColors] = useState([])
+    const {sub} = route.params;
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
@@ -13,19 +14,36 @@ const Classification = ({sub,clas,navigation}) =>{
             setColors(colors);
         }
         getColors();
+        console.log(sub);
     },[])
 
     return(
-        <View style={{flex: 1,backgroundColor:Colors.Background}} >
-            <Header navigation={navigation}  title="Maths" info=""/>
+        <View style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around'}} >
+            <Header navigation={navigation}  title={'Learn'} info=""/>
             <View style={{flex: 1,}} >
-                <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                <TouchableOpacity onPress={()=>{navigation.navigate('BriefClassfication',{sub:sub})}} style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Chapter Explained Briefly</Text>
-                    <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Summary of every Topic</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Chapter explained briefly</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Detailed Explanation of Topics</Text>
                     <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Each Topic explained induvidually</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Deep learn</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Chapter explained Deeply</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Video Class</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Video Classes</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Mock Text</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Simple Mock tests</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Mock Text</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Advanced Mock tests</Text>
                 </TouchableOpacity>
             </View>
             <HomePageFootor navigation={navigation} />
