@@ -24,29 +24,21 @@ const GetStarted = ({navigation}) =>{
     const height = Dimensions.get('window').height
     const width = Dimensions.get('window').width
     useEffect(()=>{
-        const getDetails = async() =>{
-            const name = await AsyncStorage.getItem('userName');
-            console.log(name);
-            setname(name);
-        }
+        // const getDetails = async() =>{
+        //     const name = await AsyncStorage.getItem('userName');
+        //     console.log(name);
+        //     setname(name);
+        // }
     },[])
     
-    useEffect(() => {
-        const timer = setTimeout(() => {
-          setDelay(true);
-          console.log(true);
-        }, 500);
-        return () => clearTimeout(timer);
-        
-      }, []);
+    
     
     return (
 
         <View style={styles.background} >
-            <View  >
+          
 
-            </View>
-            {delay && (
+            
                 <View style={{flex: 1,}}  > 
                     <Text style={styles.name} >Cogit</Text>
                     <View style={{flex:1,justifyContent:'space-around',marginTop:-100}} >
@@ -66,12 +58,7 @@ const GetStarted = ({navigation}) =>{
                         <Text style={[styles.btn,{}]} >Get Started</Text>
                     </TouchableOpacity>
                 </View>
-            )}
-            {!delay && (
-                <View style={{flex: 1,}}  > 
-                    <Text>Logo</Text>
-                </View>
-            )}
+            
             
             
         </View>

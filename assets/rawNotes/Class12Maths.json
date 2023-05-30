@@ -1,0 +1,922 @@
+{
+    "ch1":{
+        "chapter": "Relations and Functions",
+    "chapterOverview": "Chapter 1 of Mathematics class 12 introduces the concept of relations and functions and their applications in various mathematical scenarios. It explores the fundamental definitions and properties of relations and functions, including domain, range, and mapping. The chapter covers different types of relations such as reflexive, symmetric, and transitive relations, as well as various types of functions like one-to-one, onto, and composite functions. It also delves into the composition of functions, inverse functions, and binary operations.",
+    "topics": [
+      {
+        "title": "Relations",
+        "content": [
+          {
+            "definition": "Relations",
+            "example": "A relation is a set of ordered pairs, where each ordered pair represents a connection or association between elements of two sets."
+          },
+          {
+            "definition": "Domain",
+            "example": "The set of all first elements (x-values) in a relation."
+          },
+          {
+            "definition": "Range",
+            "example": "The set of all second elements (y-values) in a relation."
+          },
+          {
+            "definition": "Mapping",
+            "example": "A diagrammatic representation of a relation showing the connection between elements of two sets using arrows."
+          },
+          {
+            "definition": "Types of Relations",
+            "example": "Reflexive, symmetric, transitive, and equivalence relations."
+          }
+        ]
+      },
+      {
+        "title": "Functions",
+        "content": [
+          {
+            "definition": "Functions",
+            "example": "A function is a special type of relation where each element of the domain is uniquely mapped to an element in the range."
+          },
+          {
+            "definition": "One-to-One Function",
+            "example": "A function in which each element of the domain is mapped to a unique element in the range, and no two elements in the domain have the same image in the range."
+          },
+          {
+            "definition": "Onto Function",
+            "example": "A function in which every element in the range has a pre-image in the domain."
+          },
+          {
+            "definition": "Composite Function",
+            "example": "A function obtained by combining two or more functions, where the output of one function becomes the input of another function."
+          },
+          {
+            "definition": "Inverse Function",
+            "example": "A function that undoes the effect of another function, such that applying the inverse function to the output of the original function gives back the original input."
+          }
+        ]
+      },
+      {
+        "title": "Binary Operations",
+        "content": [
+          {
+            "definition": "Binary Operations",
+            "example": "Operations that are performed on two elements to produce a third element, such as addition, subtraction, multiplication, and division."
+          },
+          {
+            "definition": "Closure Property",
+            "example": "A binary operation is said to have closure property if the operation performed on any two elements of a set always produces a result within the same set."
+          },
+          {
+            "definition": "Commutative Property",
+            "example": "A binary operation is commutative if changing the order of the operands does not change the result."
+          },
+          {
+            "definition": "Associative Property",
+            "example": "A binary operation is associative if changing the grouping of the operands does not change the result."
+          }
+        ]
+      }
+    ]
+    },
+    "ch2":{
+        "chapter": "Inverse Trigonometric Functions",
+    "chapterOverview": "Chapter 2 of Mathematics class 12 explores the concept of inverse trigonometric functions and their properties. It focuses on the inverse relations of trigonometric functions such as sine, cosine, tangent, cosecant, secant, and cotangent. The chapter discusses the domains and ranges of inverse trigonometric functions, along with their graphs and principal values. It also covers the evaluation of inverse trigonometric functions, their properties, and applications in solving trigonometric equations.",
+    "topics": [
+      {
+        "title": "Inverse Trigonometric Functions",
+        "content": [
+          {
+            "definition": "Inverse Trigonometric Functions",
+            "example": "Functions that provide the angle for a given trigonometric ratio, allowing us to find the angle when the value of a trigonometric function is known."
+          },
+          {
+            "definition": "Principal Values",
+            "example": "The restricted range of inverse trigonometric functions to ensure a one-to-one correspondence with the trigonometric functions."
+          },
+          {
+            "definition": "Domains and Ranges",
+            "example": "The specific intervals over which inverse trigonometric functions are defined and the corresponding ranges of values."
+          },
+          {
+            "definition": "Graphs",
+            "example": "The graphical representation of inverse trigonometric functions, showing the relation between the angle and the trigonometric ratio."
+          }
+        ]
+      },
+      {
+        "title": "Evaluation of Inverse Trigonometric Functions",
+        "content": [
+          {
+            "definition": "Principal Values of Inverse Trigonometric Functions",
+            "example": "The primary values of inverse trigonometric functions in the principal intervals that correspond to specific ranges of trigonometric functions."
+          },
+          {
+            "definition": "Inverse Trigonometric Identities",
+            "example": "Identities used to simplify expressions involving inverse trigonometric functions."
+          },
+          {
+            "definition": "Trigonometric Equations",
+            "example": "Equations that involve trigonometric functions and can be solved using inverse trigonometric functions."
+          }
+        ]
+      },
+      {
+        "title": "Properties and Applications",
+        "content": [
+          {
+            "definition": "Algebraic Properties",
+            "example": "Properties of inverse trigonometric functions under addition, subtraction, multiplication, and division."
+          },
+          {
+            "definition": "Trigonometric Equations",
+            "example": "The use of inverse trigonometric functions to solve trigonometric equations and find the general solution."
+          },
+          {
+            "definition": "Real-Life Applications",
+            "example": "The practical applications of inverse trigonometric functions in various fields such as physics, engineering, and navigation."
+          }
+        ]
+      }
+    ]
+    },
+    "ch3":{
+        "chapter": "Matrices",
+    "chapterOverview": "Chapter 3 of Mathematics class 12 introduces the concept of matrices and their operations. It covers the definition and representation of matrices, matrix addition, matrix subtraction, scalar multiplication, and matrix multiplication. The chapter also explores the properties of matrices, such as the commutative, associative, and distributive properties. It delves into the concept of identity matrix, transpose of a matrix, and inverse of a matrix. The chapter further discusses the applications of matrices in solving linear equations, finding the area of a triangle, and representing transformations in coordinate geometry.",
+    "topics": [
+      {
+        "title": "Introduction to Matrices",
+        "content": [
+          {
+            "definition": "Matrix",
+            "example": "An ordered rectangular arrangement of numbers, symbols, or expressions in rows and columns."
+          },
+          {
+            "definition": "Elements of a Matrix",
+            "example": "The individual numbers, symbols, or expressions within a matrix."
+          },
+          {
+            "definition": "Order of a Matrix",
+            "example": "The number of rows and columns in a matrix, denoted as 'm x n', where 'm' is the number of rows and 'n' is the number of columns."
+          },
+          {
+            "definition": "Types of Matrices",
+            "example": "Row matrix, column matrix, square matrix, diagonal matrix, identity matrix, null matrix, etc."
+          }
+        ]
+      },
+      {
+        "title": "Operations on Matrices",
+        "content": [
+          {
+            "definition": "Matrix Addition",
+            "example": "Adding corresponding elements of two matrices of the same order."
+          },
+          {
+            "definition": "Matrix Subtraction",
+            "example": "Subtracting corresponding elements of two matrices of the same order."
+          },
+          {
+            "definition": "Scalar Multiplication",
+            "example": "Multiplying every element of a matrix by a scalar (a real number)."
+          },
+          {
+            "definition": "Matrix Multiplication",
+            "example": "Multiplying two matrices to obtain a new matrix by combining rows of the first matrix with columns of the second matrix."
+          }
+        ]
+      },
+      {
+        "title": "Properties of Matrices",
+        "content": [
+          {
+            "definition": "Commutative Property",
+            "example": "The property that states that matrix addition is commutative, i.e., A + B = B + A."
+          },
+          {
+            "definition": "Associative Property",
+            "example": "The property that states that matrix addition and matrix multiplication are associative, i.e., (A + B) + C = A + (B + C) and (AB)C = A(BC)."
+          },
+          {
+            "definition": "Distributive Property",
+            "example": "The property that states that matrix multiplication is distributive over matrix addition, i.e., A(B + C) = AB + AC."
+          }
+        ]
+      },
+      {
+        "title": "Special Matrices",
+        "content": [
+          {
+            "definition": "Identity Matrix",
+            "example": "A square matrix with ones on the main diagonal and zeros elsewhere."
+          },
+          {
+            "definition": "Null Matrix",
+            "example": "A matrix in which all elements are zero."
+          },
+          {
+            "definition": "Transpose of a Matrix",
+            "example": "A new matrix obtained by interchanging the rows and columns of the original matrix."
+          },
+          {
+            "definition": "Inverse of a Matrix",
+            "example": "A matrix that, when multiplied by the original matrix, results in the identity matrix."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Matrices",
+        "content": [
+          {
+            "definition": "Solving Linear Equations",
+            "example": "Using matrices to represent and solve systems of linear equations."
+          },
+          {
+            "definition": "Finding Area of a Triangle",
+            "example": "Using the determinant of a matrix to find the area of a triangle."
+          },
+          {
+            "definition": "Transformation in Coordinate Geometry",
+            "example": "Representing transformations such as translation, rotation, and scaling using matrices."
+          }
+        ]
+      }
+    ]
+    },
+    "ch4":{
+        "chapter": "Determinants",
+    "chapterOverview": "Chapter 4 of Mathematics class 12 introduces the concept of determinants and their properties. It covers the definition and representation of determinants, as well as various methods to evaluate determinants, including the expansion method and the properties of determinants. The chapter also explores the concept of minors, cofactors, and adjoint of a matrix. It delves into the applications of determinants in solving systems of linear equations, finding the area of a triangle, and testing the consistency and independence of vectors.",
+    "topics": [
+      {
+        "title": "Introduction to Determinants",
+        "content": [
+          {
+            "definition": "Determinant",
+            "example": "A scalar value associated with a square matrix that provides information about the matrix's properties and solutions to equations."
+          },
+          {
+            "definition": "Order of a Determinant",
+            "example": "The number of rows (or columns) in a square matrix, denoted as 'n'."
+          },
+          {
+            "definition": "Expansion of Determinants",
+            "example": "The process of evaluating determinants by expanding along a row or column."
+          }
+        ]
+      },
+      {
+        "title": "Properties of Determinants",
+        "content": [
+          {
+            "definition": "Property of Interchange of Rows (or Columns)",
+            "example": "The property that states that interchanging any two rows (or columns) of a determinant changes its sign."
+          },
+          {
+            "definition": "Property of Multiplying a Row (or Column) by a Scalar",
+            "example": "The property that states that multiplying any row (or column) of a determinant by a scalar multiplies the determinant by the same scalar."
+          },
+          {
+            "definition": "Property of Addition of a Scalar Multiple of One Row (or Column) to Another Row (or Column)",
+            "example": "The property that states that adding a scalar multiple of one row (or column) to another row (or column) of a determinant does not change its value."
+          },
+          {
+            "definition": "Property of Zero Determinant",
+            "example": "The property that states that if a determinant has any row (or column) consisting of all zeros, its value is zero."
+          }
+        ]
+      },
+      {
+        "title": "Evaluation of Determinants",
+        "content": [
+          {
+            "definition": "Expansion Method",
+            "example": "The method of evaluating determinants by expanding along a row or column."
+          },
+          {
+            "definition": "Properties of Determinants",
+            "example": "Using the properties of determinants to simplify the evaluation process."
+          },
+          {
+            "definition": "Cofactors and Minors",
+            "example": "The cofactor of an element is the signed determinant of the submatrix obtained by deleting the row and column of the element."
+          },
+          {
+            "definition": "Adjoint of a Matrix",
+            "example": "The matrix obtained by taking the transpose of the matrix of cofactors."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Determinants",
+        "content": [
+          {
+            "definition": "Solving Systems of Linear Equations",
+            "example": "Using determinants to represent and solve systems of linear equations."
+          },
+          {
+            "definition": "Finding Area of a Triangle",
+            "example": "Using determinants to find the area of a triangle formed by the coordinates of its vertices."
+          },
+          {
+            "definition": "Consistency and Independence of Vectors",
+            "example": "Using determinants to test the consistency and independence of a system of vectors."
+          }
+        ]
+      }
+    ]
+    },
+    "ch5":{
+        "chapter": "Continuity and Differentiability",
+    "chapterOverview": "Chapter 5 of Mathematics class 12 introduces the concepts of continuity and differentiability of functions. It covers the definitions and properties of continuous and differentiable functions, along with the rules for differentiation. The chapter also explores the concept of derivatives, including the derivative of composite functions, implicit functions, and inverse trigonometric functions. It delves into the applications of derivatives in solving problems related to rates of change, tangents, and normals to curves, and optimization.",
+    "topics": [
+      {
+        "title": "Continuity",
+        "content": [
+          {
+            "definition": "Continuous Function",
+            "example": "A function that is defined and has no abrupt changes or interruptions in its graph."
+          },
+          {
+            "definition": "Types of Discontinuity",
+            "example": "Various types of discontinuities, such as removable, jump, and essential discontinuities."
+          },
+          {
+            "definition": "Intermediate Value Property",
+            "example": "The property that states that if a function is continuous in a closed interval, it takes all the values between the function values at the endpoints of the interval."
+          }
+        ]
+      },
+      {
+        "title": "Differentiability",
+        "content": [
+          {
+            "definition": "Differentiable Function",
+            "example": "A function that has a derivative at every point in its domain."
+          },
+          {
+            "definition": "Derivative",
+            "example": "The rate of change of a function at a particular point."
+          },
+          {
+            "definition": "Rules of Differentiation",
+            "example": "Various rules for finding the derivatives of functions, including the power rule, product rule, quotient rule, and chain rule."
+          }
+        ]
+      },
+      {
+        "title": "Derivatives of Some Standard Functions",
+        "content": [
+          {
+            "definition": "Derivative of Composite Functions",
+            "example": "The derivative of a function formed by composing two or more functions."
+          },
+          {
+            "definition": "Derivative of Implicit Functions",
+            "example": "The derivative of a function defined implicitly by an equation."
+          },
+          {
+            "definition": "Derivative of Inverse Trigonometric Functions",
+            "example": "The derivative of a function that is the inverse of a trigonometric function."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Derivatives",
+        "content": [
+          {
+            "definition": "Rate of Change",
+            "example": "Using derivatives to find the rate at which a quantity changes."
+          },
+          {
+            "definition": "Tangents and Normals to Curves",
+            "example": "Finding the equations of tangents and normals to curves at a given point."
+          },
+          {
+            "definition": "Optimization Problems",
+            "example": "Using derivatives to solve optimization problems, such as finding maximum or minimum values."
+          }
+        ]
+      }
+    ]
+    },
+    "ch6":{
+        "chapter": "Application of Derivatives",
+    "chapterOverview": "Chapter 6 of Mathematics class 12 explores the applications of derivatives in solving various problems. It covers the concepts of increasing and decreasing functions, maxima and minima of functions, and the first derivative test. The chapter also discusses the concepts of concavity, points of inflection, and the second derivative test. It delves into the applications of derivatives in solving problems related to optimization, finding tangents and normals to curves, and related rates.",
+    "topics": [
+      {
+        "title": "Increasing and Decreasing Functions",
+        "content": [
+          {
+            "definition": "Increasing Function",
+            "example": "A function in which the function values increase as the input values increase."
+          },
+          {
+            "definition": "Decreasing Function",
+            "example": "A function in which the function values decrease as the input values increase."
+          },
+          {
+            "definition": "Test for Increasing and Decreasing Functions",
+            "example": "Using the derivative of a function to determine where the function is increasing or decreasing."
+          }
+        ]
+      },
+      {
+        "title": "Maxima and Minima",
+        "content": [
+          {
+            "definition": "Local Maximum",
+            "example": "A point where the function reaches a higher value than the nearby points."
+          },
+          {
+            "definition": "Local Minimum",
+            "example": "A point where the function reaches a lower value than the nearby points."
+          },
+          {
+            "definition": "Global Maximum",
+            "example": "The highest value of a function over its entire domain."
+          },
+          {
+            "definition": "Global Minimum",
+            "example": "The lowest value of a function over its entire domain."
+          },
+          {
+            "definition": "First Derivative Test",
+            "example": "Using the first derivative of a function to determine the presence of local maxima or minima."
+          }
+        ]
+      },
+      {
+        "title": "Concavity and Points of Inflection",
+        "content": [
+          {
+            "definition": "Concave Up",
+            "example": "A function in which the graph curves upward."
+          },
+          {
+            "definition": "Concave Down",
+            "example": "A function in which the graph curves downward."
+          },
+          {
+            "definition": "Points of Inflection",
+            "example": "Points on the graph of a function where the concavity changes."
+          },
+          {
+            "definition": "Second Derivative Test",
+            "example": "Using the second derivative of a function to determine the concavity and presence of points of inflection."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Derivatives",
+        "content": [
+          {
+            "definition": "Optimization Problems",
+            "example": "Using derivatives to solve optimization problems, such as finding maximum or minimum values."
+          },
+          {
+            "definition": "Tangents and Normals to Curves",
+            "example": "Finding the equations of tangents and normals to curves at a given point."
+          },
+          {
+            "definition": "Related Rates",
+            "example": "Solving problems involving the rates at which quantities change with respect to each other."
+          }
+        ]
+      }
+    ]
+    },
+    "ch7":{
+        "chapter": "Integrals",
+    "chapterOverview": "Chapter 7 of Mathematics class 12 introduces the concept of integrals and their applications. It covers the definition and properties of integrals, along with various methods of finding integrals. The chapter explores the concept of definite and indefinite integrals, the fundamental theorem of calculus, and techniques such as substitution, integration by parts, and partial fractions. It delves into the applications of integrals in finding areas, volumes, and solving problems related to physics and economics.",
+    "topics": [
+      {
+        "title": "Introduction to Integrals",
+        "content": [
+          {
+            "definition": "Integral",
+            "example": "The reverse process of differentiation, used to find the antiderivative of a function."
+          },
+          {
+            "definition": "Definite Integral",
+            "example": "The integral of a function over a specific interval, representing the area under the curve between the interval endpoints."
+          },
+          {
+            "definition": "Indefinite Integral",
+            "example": "The general antiderivative of a function, represented by an arbitrary constant."
+          }
+        ]
+      },
+      {
+        "title": "Methods of Finding Integrals",
+        "content": [
+          {
+            "definition": "Substitution",
+            "example": "A technique used to simplify integrals by substituting variables."
+          },
+          {
+            "definition": "Integration by Parts",
+            "example": "A technique used to evaluate integrals of products of functions."
+          },
+          {
+            "definition": "Partial Fractions",
+            "example": "A method used to decompose a rational function into simpler fractions for integration purposes."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Integrals",
+        "content": [
+          {
+            "definition": "Area Under a Curve",
+            "example": "Using integrals to find the area between a curve and the x-axis or between two curves."
+          },
+          {
+            "definition": "Area Between Curves",
+            "example": "Finding the area enclosed by two curves."
+          },
+          {
+            "definition": "Volumes",
+            "example": "Calculating the volumes of solids using integrals, such as solids of revolution and cross-sectional areas."
+          },
+          {
+            "definition": "Applications in Physics and Economics",
+            "example": "Solving problems related to physics and economics using integrals, such as calculating work, displacement, and total cost."
+          }
+        ]
+      }
+    ]
+    },
+    "ch8":{
+        "chapter": "Application of Integrals",
+    "chapterOverview": "Chapter 8 of Mathematics class 12 explores the various applications of integrals in real-world problems. It covers the concepts of finding the area between curves, calculating the length of curves, and finding the area of a region bounded by curves. The chapter also discusses the applications of integrals in physics, such as calculating the displacement, velocity, and acceleration of an object. It further explores the concept of differential equations and their applications in growth and decay problems.",
+    "topics": [
+      {
+        "title": "Area Between Curves",
+        "content": [
+          {
+            "definition": "Area between Two Curves",
+            "example": "Finding the area of the region bounded by two curves."
+          },
+          {
+            "definition": "Area Enclosed by Curves",
+            "example": "Finding the area of the region enclosed by a curve and the x-axis or between two curves."
+          }
+        ]
+      },
+      {
+        "title": "Length of Curves",
+        "content": [
+          {
+            "definition": "Arc Length",
+            "example": "Calculating the length of a curve between two points."
+          },
+          {
+            "definition": "Parameterization",
+            "example": "Representing a curve using a parameter to calculate its length."
+          }
+        ]
+      },
+      {
+        "title": "Applications in Physics",
+        "content": [
+          {
+            "definition": "Displacement, Velocity, and Acceleration",
+            "example": "Using integrals to calculate the displacement, velocity, and acceleration of an object."
+          },
+          {
+            "definition": "Work",
+            "example": "Finding the work done by a force using integrals."
+          }
+        ]
+      },
+      {
+        "title": "Differential Equations",
+        "content": [
+          {
+            "definition": "Differential Equation",
+            "example": "An equation involving the derivative of a function."
+          },
+          {
+            "definition": "Growth and Decay Problems",
+            "example": "Solving problems related to exponential growth and decay using differential equations."
+          }
+        ]
+      }
+    ]
+    },
+    "ch9":{
+        "chapter": "Differential Equations",
+    "chapterOverview": "Chapter 9 of Mathematics class 12 focuses on the concept of differential equations and their solutions. It covers the types of differential equations, including ordinary and partial differential equations. The chapter explores various methods to solve first-order and second-order linear differential equations, such as the method of separation of variables, homogeneous and non-homogeneous equations, and the method of undetermined coefficients. It also delves into the applications of differential equations in various fields, such as physics, biology, and engineering.",
+    "topics": [
+      {
+        "title": "Introduction to Differential Equations",
+        "content": [
+          {
+            "definition": "Differential Equation",
+            "example": "An equation involving derivatives of an unknown function."
+          },
+          {
+            "definition": "Ordinary Differential Equation",
+            "example": "A differential equation involving only ordinary derivatives of a single variable."
+          },
+          {
+            "definition": "Partial Differential Equation",
+            "example": "A differential equation involving partial derivatives of a function of multiple variables."
+          }
+        ]
+      },
+      {
+        "title": "Methods to Solve Differential Equations",
+        "content": [
+          {
+            "definition": "Separation of Variables",
+            "example": "A method used to solve first-order differential equations by separating variables and integrating."
+          },
+          {
+            "definition": "Homogeneous and Non-homogeneous Equations",
+            "example": "Differentiating between homogeneous and non-homogeneous differential equations and using appropriate methods to solve them."
+          },
+          {
+            "definition": "Method of Undetermined Coefficients",
+            "example": "A technique used to find particular solutions of non-homogeneous differential equations."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Differential Equations",
+        "content": [
+          {
+            "definition": "Physics",
+            "example": "Applications of differential equations in physics, such as modeling the motion of objects and electrical circuits."
+          },
+          {
+            "definition": "Biology",
+            "example": "Using differential equations to model population growth, chemical reactions, and biological systems."
+          },
+          {
+            "definition": "Engineering",
+            "example": "Applications of differential equations in engineering fields, such as fluid dynamics and heat transfer."
+          }
+        ]
+      }
+    ]
+    },
+    "ch10":{
+        "chapter": "Vector Algebra",
+    "chapterOverview": "Chapter 10 of Mathematics class 12 introduces the concept of vector algebra and its applications. It covers the basics of vectors, including their representation, operations, and properties. The chapter explores topics such as scalar and vector products, projection of vectors, and lines and planes in vector form. It also discusses applications of vector algebra in various fields, such as physics, engineering, and computer graphics.",
+    "topics": [
+      {
+        "title": "Basics of Vectors",
+        "content": [
+          {
+            "definition": "Scalars and Vectors",
+            "example": "Differentiating between scalar quantities and vector quantities."
+          },
+          {
+            "definition": "Representation of Vectors",
+            "example": "Representing vectors in terms of magnitude and direction, components, or unit vectors."
+          },
+          {
+            "definition": "Vector Operations",
+            "example": "Performing operations on vectors, such as addition, subtraction, and scalar multiplication."
+          }
+        ]
+      },
+      {
+        "title": "Scalar and Vector Products",
+        "content": [
+          {
+            "definition": "Scalar Product (Dot Product)",
+            "example": "Calculating the scalar product of two vectors and understanding its properties and applications."
+          },
+          {
+            "definition": "Vector Product (Cross Product)",
+            "example": "Finding the vector product of two vectors and understanding its properties and applications."
+          }
+        ]
+      },
+      {
+        "title": "Lines and Planes in Vector Form",
+        "content": [
+          {
+            "definition": "Vector Equation of a Line",
+            "example": "Representing a line in vector form using a position vector and a direction vector."
+          },
+          {
+            "definition": "Vector Equation of a Plane",
+            "example": "Representing a plane in vector form using a position vector and two direction vectors."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Vector Algebra",
+        "content": [
+          {
+            "definition": "Physics",
+            "example": "Applications of vector algebra in physics, such as analyzing forces, motion, and electromagnetic fields."
+          },
+          {
+            "definition": "Engineering",
+            "example": "Using vector algebra in engineering fields, such as analyzing forces and moments in structures."
+          },
+          {
+            "definition": "Computer Graphics",
+            "example": "Applications of vector algebra in computer graphics, such as 3D transformations and rendering."
+          }
+        ]
+      }
+    ]
+    },
+    "ch11":{
+        "chapter": "Three Dimensional Geometry",
+        "chapterOverview": "Chapter 11 of Mathematics class 12 introduces the concept of three-dimensional geometry and its applications. It covers the basics of coordinate systems in three dimensions, distance and section formulas, direction ratios and cosines, and various types of lines and planes in space. The chapter also explores the concept of the shortest distance between two skew lines and the angle between two lines or planes. It discusses applications of three-dimensional geometry in various fields, such as physics, engineering, and computer graphics.",
+        "topics": [
+          {
+            "title": "Coordinate Systems in Three Dimensions",
+            "content": [
+              {
+                "definition": "Cartesian Coordinate System",
+                "example": "Understanding the Cartesian coordinate system in three dimensions and locating points in space."
+              },
+              {
+                "definition": "Distance Formula",
+                "example": "Calculating the distance between two points in three-dimensional space."
+              },
+              {
+                "definition": "Section Formula",
+                "example": "Finding the coordinates of a point that divides a line segment in a given ratio."
+              }
+            ]
+          },
+          {
+            "title": "Direction Ratios and Direction Cosines",
+            "content": [
+              {
+                "definition": "Direction Ratios",
+                "example": "Calculating the direction ratios of a line in three-dimensional space."
+              },
+              {
+                "definition": "Direction Cosines",
+                "example": "Determining the direction cosines of a line in three-dimensional space."
+              }
+            ]
+          },
+          {
+            "title": "Lines and Planes in Space",
+            "content": [
+              {
+                "definition": "Equation of a Line",
+                "example": "Representing a line in three-dimensional space using its direction ratios or vector equation."
+              },
+              {
+                "definition": "Equation of a Plane",
+                "example": "Representing a plane in three-dimensional space using its normal vector or vector equation."
+              }
+            ]
+          },
+          {
+            "title": "Applications of Three-Dimensional Geometry",
+            "content": [
+              {
+                "definition": "Physics",
+                "example": "Applications of three-dimensional geometry in physics, such as analyzing forces, motion, and electromagnetic fields in three dimensions."
+              },
+              {
+                "definition": "Engineering",
+                "example": "Using three-dimensional geometry in engineering fields, such as analyzing structures and designing 3D models."
+              },
+              {
+                "definition": "Computer Graphics",
+                "example": "Applications of three-dimensional geometry in computer graphics, such as rendering 3D objects and simulations."
+              }
+            ]
+          }
+        ]
+    },
+    "ch12":{
+        "chapter": "Linear Programming",
+    "chapterOverview": "Chapter 12 of Mathematics class 12 introduces the concept of linear programming and its applications. It covers the basics of linear inequalities, graphical representation of linear inequalities, feasible region, and corner point method. The chapter explores topics such as graphical solution of linear programming problems, formulation of linear programming problems, and applications of linear programming in various fields, such as optimization in business and industry.",
+    "topics": [
+      {
+        "title": "Linear Inequalities",
+        "content": [
+          {
+            "definition": "Linear Inequality",
+            "example": "Understanding linear inequalities and their graphical representation."
+          },
+          {
+            "definition": "Feasible Region",
+            "example": "Defining the feasible region determined by the intersection of the shaded regions representing linear inequalities."
+          }
+        ]
+      },
+      {
+        "title": "Graphical Solution of Linear Programming Problems",
+        "content": [
+          {
+            "definition": "Objective Function",
+            "example": "Formulating an objective function to maximize or minimize a quantity in a linear programming problem."
+          },
+          {
+            "definition": "Corner Point Method",
+            "example": "Applying the corner point method to find the optimal solution of a linear programming problem by evaluating the objective function at each corner point of the feasible region."
+          }
+        ]
+      },
+      {
+        "title": "Formulation of Linear Programming Problems",
+        "content": [
+          {
+            "definition": "Identifying Constraints",
+            "example": "Recognizing constraints in a real-world problem and formulating them as linear inequalities."
+          },
+          {
+            "definition": "Defining the Objective",
+            "example": "Determining the goal or objective of a real-world problem and formulating it as an objective function."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Linear Programming",
+        "content": [
+          {
+            "definition": "Optimization in Business and Industry",
+            "example": "Applying linear programming techniques to optimize production, resource allocation, transportation, and other business-related problems."
+          },
+          {
+            "definition": "Resource Management",
+            "example": "Using linear programming to manage resources efficiently in various fields, such as agriculture, logistics, and project management."
+          }
+        ]
+      }
+    ]
+    },
+    "ch13":{
+        "chapter": "Probability",
+    "chapterOverview": "Chapter 13 of Mathematics class 12 introduces the concept of probability and its applications. It covers the basics of probability theory, including the definition of probability, types of events, and rules of probability. The chapter explores topics such as conditional probability, multiplication theorem, independent events, and Bayes' theorem. It also discusses applications of probability in various fields, such as statistics, genetics, and gambling.",
+    "topics": [
+      {
+        "title": "Introduction to Probability",
+        "content": [
+          {
+            "definition": "Probability",
+            "example": "Understanding probability as a measure of the likelihood of an event occurring."
+          },
+          {
+            "definition": "Types of Events",
+            "example": "Differentiating between mutually exclusive events, exhaustive events, and complementary events."
+          },
+          {
+            "definition": "Rules of Probability",
+            "example": "Exploring the addition rule, multiplication rule, and complement rule of probability."
+          }
+        ]
+      },
+      {
+        "title": "Conditional Probability",
+        "content": [
+          {
+            "definition": "Conditional Probability",
+            "example": "Calculating the probability of an event occurring given that another event has already occurred."
+          },
+          {
+            "definition": "Multiplication Theorem",
+            "example": "Applying the multiplication theorem to calculate the probability of the intersection of two events."
+          }
+        ]
+      },
+      {
+        "title": "Independent Events",
+        "content": [
+          {
+            "definition": "Independent Events",
+            "example": "Understanding the concept of independent events and calculating the probability of the intersection of independent events."
+          }
+        ]
+      },
+      {
+        "title": "Bayes' Theorem",
+        "content": [
+          {
+            "definition": "Bayes' Theorem",
+            "example": "Applying Bayes' theorem to calculate the probability of an event given the probabilities of related events."
+          }
+        ]
+      },
+      {
+        "title": "Applications of Probability",
+        "content": [
+          {
+            "definition": "Statistics",
+            "example": "Using probability to analyze and interpret statistical data, such as in surveys and experiments."
+          },
+          {
+            "definition": "Genetics",
+            "example": "Applying probability principles to study genetic traits, inheritance patterns, and genetic diseases."
+          },
+          {
+            "definition": "Gambling",
+            "example": "Understanding the role of probability in games of chance, such as card games and casino games."
+          }
+        ]
+      }
+    ]
+    }
+}

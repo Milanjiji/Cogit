@@ -1,0 +1,1127 @@
+{
+    "ch1":{
+        "chapter": "Real Numbers",
+    "chapterOverview": "Chapter 1 of Mathematics class 10 introduces the concept of real numbers and their properties. It covers topics such as rational and irrational numbers, the decimal representation of rational numbers, operations on real numbers, and the Euclidean division algorithm. The chapter focuses on understanding the properties and relationships of real numbers and their applications in solving mathematical problems.",
+    "topics": [
+      {
+        "title": "Real Numbers",
+        "content": [
+          {
+            "definition": "Real Numbers",
+            "example": "Numbers that can be represented on the number line and include rational and irrational numbers"
+          },
+          {
+            "definition": "Rational Numbers",
+            "example": "Numbers that can be expressed as a fraction p/q, where p and q are integers and q is not equal to 0"
+          },
+          {
+            "definition": "Irrational Numbers",
+            "example": "Numbers that cannot be expressed as a fraction and have non-terminating and non-repeating decimal expansions"
+          },
+          {
+            "definition": "Decimal Representation",
+            "example": "Expressing a rational number as a decimal using long division or other techniques"
+          }
+        ]
+      },
+      {
+        "title": "Operations on Real Numbers",
+        "content": [
+          {
+            "definition": "Addition and Subtraction",
+            "example": "Performing addition or subtraction operations on real numbers, observing the closure property"
+          },
+          {
+            "definition": "Multiplication and Division",
+            "example": "Performing multiplication or division operations on real numbers, observing the closure property"
+          },
+          {
+            "definition": "Associative Property",
+            "example": "Changing the grouping of numbers in an addition or multiplication operation does not change the result"
+          },
+          {
+            "definition": "Commutative Property",
+            "example": "Changing the order of numbers in an addition or multiplication operation does not change the result"
+          },
+          {
+            "definition": "Distributive Property",
+            "example": "Expanding expressions involving addition or multiplication using the distributive property"
+          }
+        ]
+      },
+      {
+        "title": "Euclidean Division Algorithm",
+        "content": [
+          {
+            "definition": "Dividend",
+            "example": "The number being divided"
+          },
+          {
+            "definition": "Divisor",
+            "example": "The number dividing the dividend"
+          },
+          {
+            "definition": "Quotient",
+            "example": "The result of the division"
+          },
+          {
+            "definition": "Remainder",
+            "example": "The integer left over after division"
+          },
+          {
+            "definition": "Euclidean Algorithm",
+            "example": "A method to find the HCF (Highest Common Factor) of two numbers using repeated division and remainder"
+          }
+        ]
+      }
+    ]
+    },
+    "ch2":{
+        "chapter": "Polynomials",
+    "chapterOverview": "Chapter 2 of Mathematics class 10 introduces the concept of polynomials and their properties. It covers topics such as degree and coefficients of polynomials, types of polynomials, operations on polynomials, and factorization of polynomials. The chapter focuses on understanding the algebraic expressions and equations involving polynomials and their applications in solving mathematical problems.",
+    "topics": [
+      {
+        "title": "Polynomials",
+        "content": [
+          {
+            "definition": "Polynomial",
+            "example": "An algebraic expression consisting of variables, coefficients, and exponents, connected by addition, subtraction, and multiplication"
+          },
+          {
+            "definition": "Degree of a Polynomial",
+            "example": "The highest power of the variable in a polynomial expression"
+          },
+          {
+            "definition": "Coefficient",
+            "example": "The numerical factor of a term in a polynomial"
+          },
+          {
+            "definition": "Constant Term",
+            "example": "The term in a polynomial that has no variable"
+          },
+          {
+            "definition": "Types of Polynomials",
+            "example": "Monomial (degree 0), Binomial (degree 1), Trinomial (degree 2), and Polynomial (degree greater than 2)"
+          }
+        ]
+      },
+      {
+        "title": "Operations on Polynomials",
+        "content": [
+          {
+            "definition": "Addition and Subtraction",
+            "example": "Performing addition or subtraction operations on polynomials, combining like terms"
+          },
+          {
+            "definition": "Multiplication",
+            "example": "Performing multiplication operations on polynomials using the distributive property"
+          },
+          {
+            "definition": "Division",
+            "example": "Dividing a polynomial by another polynomial, finding quotient and remainder"
+          }
+        ]
+      },
+      {
+        "title": "Factorization of Polynomials",
+        "content": [
+          {
+            "definition": "Factorization",
+            "example": "Expressing a polynomial as a product of its factors"
+          },
+          {
+            "definition": "Common Factors",
+            "example": "Finding the common factors of a polynomial to simplify or factorize it"
+          },
+          {
+            "definition": "Quadratic Polynomials",
+            "example": "Polynomials of degree 2, which can be factorized using methods like splitting the middle term"
+          },
+          {
+            "definition": "Cubic Polynomials",
+            "example": "Polynomials of degree 3, which can be factorized using methods like grouping"
+          },
+          {
+            "definition": "Remainder Theorem",
+            "example": "A theorem that states that if a polynomial f(x) is divided by (x - a), the remainder is equal to f(a)"
+          }
+        ]
+      }
+    ]
+    },
+    "ch3":{
+        "chapter": "Pair of Linear Equations in Two Variables",
+    "chapterOverview": "Chapter 3 of Mathematics class 10 introduces the concept of a pair of linear equations in two variables. It covers topics such as the graphical representation of linear equations, algebraic methods to solve simultaneous equations, consistency and inconsistency of a system of equations, and applications of linear equations in real-life situations. The chapter focuses on understanding the relationship between variables and solving problems using linear equations.",
+    "topics": [
+      {
+        "title": "Linear Equations",
+        "content": [
+          {
+            "definition": "Linear Equation in Two Variables",
+            "example": "An equation of the form ax + by = c, where a, b, and c are constants and x and y are variables"
+          },
+          {
+            "definition": "Solution of a Linear Equation",
+            "example": "A pair of values (x, y) that satisfies the given linear equation"
+          },
+          {
+            "definition": "Graphical Representation",
+            "example": "Plotting the points on the coordinate plane that satisfy the linear equation, and drawing the line connecting them"
+          },
+          {
+            "definition": "Intercepts",
+            "example": "The points where a line intersects the x-axis and y-axis"
+          }
+        ]
+      },
+      {
+        "title": "Methods to Solve Linear Equations",
+        "content": [
+          {
+            "definition": "Substitution Method",
+            "example": "Solving a system of linear equations by substituting one equation into the other"
+          },
+          {
+            "definition": "Elimination Method",
+            "example": "Solving a system of linear equations by eliminating one variable through addition or subtraction"
+          },
+          {
+            "definition": "Cross Multiplication Method",
+            "example": "Solving a system of linear equations involving fractions by multiplying both sides of each equation by the least common multiple of the denominators"
+          }
+        ]
+      },
+      {
+        "title": "Consistency and Inconsistency",
+        "content": [
+          {
+            "definition": "Consistent System",
+            "example": "A system of linear equations that has at least one solution"
+          },
+          {
+            "definition": "Inconsistent System",
+            "example": "A system of linear equations that has no solution"
+          },
+          {
+            "definition": "Dependent System",
+            "example": "A system of linear equations that has infinitely many solutions"
+          },
+          {
+            "definition": "Independent System",
+            "example": "A system of linear equations that has a unique solution"
+          }
+        ]
+      },
+      {
+        "title": "Applications of Linear Equations",
+        "content": [
+          {
+            "definition": "Real-Life Problems",
+            "example": "Using linear equations to solve problems related to distance, time, speed, cost, and other practical situations"
+          },
+          {
+            "definition": "Word Problems",
+            "example": "Translating verbal descriptions into mathematical equations and solving them"
+          }
+        ]
+      }
+    ]
+    },
+    "ch4":{
+        "chapter": "Quadratic Equations",
+    "chapterOverview": "Chapter 4 of Mathematics class 10 introduces the concept of quadratic equations and their properties. It covers topics such as the standard form of a quadratic equation, methods to solve quadratic equations, discriminant, nature of roots, and graphical representation of quadratic equations. The chapter focuses on understanding the quadratic equations, their solutions, and their applications in various mathematical problems.",
+    "topics": [
+      {
+        "title": "Quadratic Equations",
+        "content": [
+          {
+            "definition": "Quadratic Equation",
+            "example": "An equation of the form ax^2 + bx + c = 0, where a, b, and c are constants and x is the variable"
+          },
+          {
+            "definition": "Standard Form",
+            "example": "Writing a quadratic equation in the form ax^2 + bx + c = 0"
+          },
+          {
+            "definition": "Roots of a Quadratic Equation",
+            "example": "The values of x that satisfy the quadratic equation"
+          },
+          {
+            "definition": "Quadratic Formula",
+            "example": "The formula x = (-b ± √(b^2 - 4ac))/(2a) used to find the roots of a quadratic equation"
+          }
+        ]
+      },
+      {
+        "title": "Methods to Solve Quadratic Equations",
+        "content": [
+          {
+            "definition": "Factorization Method",
+            "example": "Solving a quadratic equation by factoring it into linear factors"
+          },
+          {
+            "definition": "Square Root Method",
+            "example": "Solving a quadratic equation by taking square roots of both sides"
+          },
+          {
+            "definition": "Quadratic Formula Method",
+            "example": "Solving a quadratic equation using the quadratic formula"
+          },
+          {
+            "definition": "Completing the Square Method",
+            "example": "Solving a quadratic equation by rewriting it as a perfect square trinomial"
+          }
+        ]
+      },
+      {
+        "title": "Discriminant and Nature of Roots",
+        "content": [
+          {
+            "definition": "Discriminant",
+            "example": "The expression b^2 - 4ac in the quadratic formula, which determines the nature of roots"
+          },
+          {
+            "definition": "Nature of Roots",
+            "example": "Determining whether the roots of a quadratic equation are real and distinct, real and equal, or complex"
+          }
+        ]
+      },
+      {
+        "title": "Graphical Representation of Quadratic Equations",
+        "content": [
+          {
+            "definition": "Parabola",
+            "example": "The U-shaped curve formed by the graph of a quadratic equation"
+          },
+          {
+            "definition": "Vertex",
+            "example": "The highest or lowest point on the parabola, representing the minimum or maximum value of the quadratic equation"
+          },
+          {
+            "definition": "Axis of Symmetry",
+            "example": "The vertical line passing through the vertex, dividing the parabola into two symmetric halves"
+          }
+        ]
+      }
+    ]
+    },
+    "ch5":{
+        "chapter": "Arithmetic Progressions",
+    "chapterOverview": "Chapter 5 of Mathematics class 10 introduces the concept of arithmetic progressions (AP) and their properties. It covers topics such as the definition of arithmetic progression, common difference, nth term of an AP, sum of first n terms of an AP, and applications of arithmetic progressions in real-life scenarios. The chapter focuses on understanding the patterns and relationships in arithmetic progressions and solving problems based on them.",
+    "topics": [
+      {
+        "title": "Arithmetic Progressions",
+        "content": [
+          {
+            "definition": "Arithmetic Progression",
+            "example": "A sequence of numbers in which the difference between any two consecutive terms is constant"
+          },
+          {
+            "definition": "Common Difference",
+            "example": "The constant difference between consecutive terms in an arithmetic progression"
+          },
+          {
+            "definition": "Term of an AP",
+            "example": "The individual numbers in an arithmetic progression"
+          },
+          {
+            "definition": "General Term",
+            "example": "The nth term of an arithmetic progression"
+          }
+        ]
+      },
+      {
+        "title": "Properties of Arithmetic Progressions",
+        "content": [
+          {
+            "definition": "nth Term of an AP",
+            "example": "Finding the value of any term in an arithmetic progression using the formula a + (n-1)d, where a is the first term and d is the common difference"
+          },
+          {
+            "definition": "Sum of first n Terms",
+            "example": "Finding the sum of the first n terms of an arithmetic progression using the formula (n/2)(2a + (n-1)d), where a is the first term, d is the common difference, and n is the number of terms"
+          },
+          {
+            "definition": "Number of Terms",
+            "example": "Finding the number of terms in an arithmetic progression using the formula (last term - first term + common difference)/common difference"
+          }
+        ]
+      },
+      {
+        "title": "Applications of Arithmetic Progressions",
+        "content": [
+          {
+            "definition": "Real-Life Scenarios",
+            "example": "Using arithmetic progressions to solve problems related to arithmetic sequences, financial planning, time management, and other practical situations"
+          },
+          {
+            "definition": "Series and Sequences",
+            "example": "Understanding the relationship between arithmetic progressions and series, and solving problems involving series"
+          }
+        ]
+      }
+    ]
+    },
+    "ch6":{
+        "chapter": "Triangles",
+    "chapterOverview": "Chapter 6 of Mathematics class 10 introduces the concept of triangles and their properties. It covers topics such as the definition of triangles, types of triangles based on sides and angles, congruence of triangles, similarity of triangles, and various properties of triangles. The chapter focuses on understanding the characteristics and relationships of triangles and their applications in solving geometric problems.",
+    "topics": [
+      {
+        "title": "Introduction to Triangles",
+        "content": [
+          {
+            "definition": "Triangle",
+            "example": "A closed figure formed by three line segments that join three non-collinear points"
+          },
+          {
+            "definition": "Types of Triangles",
+            "example": "Classifying triangles based on the lengths of their sides (scalene, isosceles, equilateral) and the measures of their angles (acute, obtuse, right)"
+          },
+          {
+            "definition": "Interior and Exterior Angles",
+            "example": "The angles formed inside and outside a triangle"
+          }
+        ]
+      },
+      {
+        "title": "Congruence of Triangles",
+        "content": [
+          {
+            "definition": "Congruent Triangles",
+            "example": "Triangles that have exactly the same shape and size"
+          },
+          {
+            "definition": "Criteria for Congruence",
+            "example": "Conditions for triangles to be congruent (SSS, SAS, ASA, RHS)"
+          },
+          {
+            "definition": "Corresponding Parts of Congruent Triangles",
+            "example": "The corresponding sides and angles of congruent triangles"
+          }
+        ]
+      },
+      {
+        "title": "Similarity of Triangles",
+        "content": [
+          {
+            "definition": "Similar Triangles",
+            "example": "Triangles that have the same shape but not necessarily the same size"
+          },
+          {
+            "definition": "Criteria for Similarity",
+            "example": "Conditions for triangles to be similar (AAA, AA, SAS)"
+          },
+          {
+            "definition": "Properties of Similar Triangles",
+            "example": "The ratios of corresponding sides and the equality of corresponding angles in similar triangles"
+          }
+        ]
+      },
+      {
+        "title": "Properties and Theorems of Triangles",
+        "content": [
+          {
+            "definition": "Pythagorean Theorem",
+            "example": "In a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides"
+          },
+          {
+            "definition": "Triangle Inequality",
+            "example": "The sum of the lengths of any two sides of a triangle is always greater than the length of the third side"
+          },
+          {
+            "definition": "Midpoint Theorem",
+            "example": "A line segment joining the midpoints of two sides of a triangle is parallel to the third side and half its length"
+          },
+          {
+            "definition": "Basic Proportionality Theorem",
+            "example": "If a line is parallel to one side of a triangle and intersects the other two sides, it divides those sides proportionally"
+          }
+        ]
+      }
+    ]
+    },
+    "ch7":{
+        "chapter": "Coordinate Geometry",
+    "chapterOverview": "Chapter 7 of Mathematics class 10 introduces the concept of coordinate geometry and its applications. It covers topics such as the Cartesian coordinate system, plotting points on a graph, distance formula, section formula, and various properties and applications of lines and shapes in coordinate geometry. The chapter focuses on understanding the relationship between algebra and geometry, and solving problems involving coordinates and geometric shapes.",
+    "topics": [
+      {
+        "title": "Cartesian Coordinate System",
+        "content": [
+          {
+            "definition": "Coordinate Plane",
+            "example": "A two-dimensional plane formed by the intersection of two perpendicular number lines, called the x-axis and y-axis"
+          },
+          {
+            "definition": "Coordinates of a Point",
+            "example": "The pair of numbers that identify the position of a point on the coordinate plane"
+          },
+          {
+            "definition": "Quadrants",
+            "example": "The four regions formed by the axes on the coordinate plane"
+          }
+        ]
+      },
+      {
+        "title": "Plotting Points",
+        "content": [
+          {
+            "definition": "Plotting Points on the Coordinate Plane",
+            "example": "Locating and marking points with given coordinates on the coordinate plane"
+          },
+          {
+            "definition": "Ordered Pair",
+            "example": "A pair of numbers (x, y) that represent the coordinates of a point"
+          }
+        ]
+      },
+      {
+        "title": "Distance and Section Formula",
+        "content": [
+          {
+            "definition": "Distance Formula",
+            "example": "Finding the distance between two points using the formula √((x2 - x1)² + (y2 - y1)²)"
+          },
+          {
+            "definition": "Section Formula",
+            "example": "Finding the coordinates of a point that divides a line segment in a given ratio"
+          }
+        ]
+      },
+      {
+        "title": "Equations of Lines",
+        "content": [
+          {
+            "definition": "Slope",
+            "example": "The measure of the steepness of a line"
+          },
+          {
+            "definition": "Intercepts",
+            "example": "The points where a line intersects the x-axis and y-axis"
+          },
+          {
+            "definition": "Equation of a Line",
+            "example": "The algebraic representation of a line in terms of its slope and intercepts"
+          }
+        ]
+      },
+      {
+        "title": "Geometric Shapes in Coordinate Geometry",
+        "content": [
+          {
+            "definition": "Lines",
+            "example": "Properties and equations of lines in the coordinate plane"
+          },
+          {
+            "definition": "Triangles",
+            "example": "Properties and coordinates of vertices in different types of triangles"
+          },
+          {
+            "definition": "Quadrilaterals",
+            "example": "Properties and coordinates of vertices in different types of quadrilaterals"
+          },
+          {
+            "definition": "Circles",
+            "example": "Properties and equations of circles in the coordinate plane"
+          }
+        ]
+      }
+    ]
+    },
+    "ch8":{
+        "chapter": "Introduction to Trigonometry",
+    "chapterOverview": "Chapter 8 of Mathematics class 10 introduces the fundamental concepts of trigonometry and its applications in solving problems related to triangles. It covers topics such as trigonometric ratios, trigonometric identities, and the application of trigonometry in real-world scenarios. The chapter focuses on understanding the relationships between angles and sides of a triangle and using trigonometry to calculate unknown quantities.",
+    "topics": [
+      {
+        "title": "Trigonometric Ratios",
+        "content": [
+          {
+            "definition": "Sine (sin)",
+            "example": "The ratio of the length of the side opposite the angle to the hypotenuse in a right triangle"
+          },
+          {
+            "definition": "Cosine (cos)",
+            "example": "The ratio of the length of the side adjacent to the angle to the hypotenuse in a right triangle"
+          },
+          {
+            "definition": "Tangent (tan)",
+            "example": "The ratio of the length of the side opposite the angle to the side adjacent to the angle in a right triangle"
+          }
+        ]
+      },
+      {
+        "title": "Trigonometric Identities",
+        "content": [
+          {
+            "definition": "Pythagorean Identities",
+            "example": "The trigonometric identities that involve the squares of sine and cosine"
+          },
+          {
+            "definition": "Reciprocal Identities",
+            "example": "The trigonometric identities that relate the reciprocals of sine, cosine, and tangent"
+          },
+          {
+            "definition": "Quotient Identities",
+            "example": "The trigonometric identities that relate the quotient of sine and cosine to tangent"
+          }
+        ]
+      },
+      {
+        "title": "Trigonometric Ratios of Specific Angles",
+        "content": [
+          {
+            "definition": "Trigonometric Ratios of 0°, 30°, 45°, 60°, and 90°",
+            "example": "The values of sine, cosine, and tangent for these specific angles"
+          },
+          {
+            "definition": "Trigonometric Ratios of 180°, 270°, and 360°",
+            "example": "The values of sine, cosine, and tangent for these angles"
+          }
+        ]
+      },
+      {
+        "title": "Application of Trigonometry",
+        "content": [
+          {
+            "definition": "Height and Distance",
+            "example": "Using trigonometry to calculate the height and distance of objects or structures"
+          },
+          {
+            "definition": "Angles of Elevation and Depression",
+            "example": "Solving problems involving angles of elevation and depression using trigonometry"
+          }
+        ]
+      }
+    ]
+    },
+    "ch9":{
+        "chapter": "Some Applications of Trigonometry",
+    "chapterOverview": "Chapter 9 of Mathematics class 10 explores various practical applications of trigonometry in real-life situations. It covers topics such as heights and distances, angles of elevation and depression, and applications in navigation and surveying. The chapter focuses on using trigonometric concepts and formulas to solve problems and make calculations in different scenarios.",
+    "topics": [
+      {
+        "title": "Heights and Distances",
+        "content": [
+          {
+            "definition": "Angle of Elevation",
+            "example": "The angle formed between the line of sight and the horizontal line when an observer looks upward"
+          },
+          {
+            "definition": "Angle of Depression",
+            "example": "The angle formed between the line of sight and the horizontal line when an observer looks downward"
+          },
+          {
+            "definition": "Applications of Trigonometry in Heights and Distances",
+            "example": "Using trigonometric ratios and concepts to calculate heights and distances of objects or structures"
+          }
+        ]
+      },
+      {
+        "title": "Angles of Elevation and Depression",
+        "content": [
+          {
+            "definition": "Applications of Trigonometry in Angles of Elevation and Depression",
+            "example": "Solving problems involving angles of elevation and depression to calculate heights, distances, or other relevant quantities"
+          }
+        ]
+      },
+      {
+        "title": "Applications in Navigation",
+        "content": [
+          {
+            "definition": "Applications of Trigonometry in Navigation",
+            "example": "Using trigonometric concepts and formulas to determine direction, distance, and position in navigation"
+          }
+        ]
+      },
+      {
+        "title": "Applications in Surveying",
+        "content": [
+          {
+            "definition": "Applications of Trigonometry in Surveying",
+            "example": "Using trigonometry to measure and calculate distances, angles, and elevations in surveying"
+          }
+        ]
+      }
+    ]
+    },
+    "ch10":{
+        "chapter": "Circles",
+    "chapterOverview": "Chapter 10 of Mathematics class 10 explores the properties and characteristics of circles and their related concepts. It covers topics such as the definition of a circle, tangent and secant lines, chords, arcs, and angles in circles. The chapter focuses on understanding the various elements of a circle and their relationships, as well as solving problems involving circles in different scenarios.",
+    "topics": [
+      {
+        "title": "Introduction to Circles",
+        "content": [
+          {
+            "definition": "Circle",
+            "example": "A closed curve consisting of all points in a plane that are equidistant from a fixed point called the center"
+          },
+          {
+            "definition": "Radius",
+            "example": "The distance between the center of a circle and any point on the circle"
+          },
+          {
+            "definition": "Diameter",
+            "example": "The distance across a circle passing through the center, equal to twice the radius"
+          }
+        ]
+      },
+      {
+        "title": "Tangent and Secant Lines",
+        "content": [
+          {
+            "definition": "Tangent Line",
+            "example": "A line that touches a circle at exactly one point, called the point of tangency"
+          },
+          {
+            "definition": "Secant Line",
+            "example": "A line that intersects a circle at two distinct points"
+          }
+        ]
+      },
+      {
+        "title": "Chords and Arcs",
+        "content": [
+          {
+            "definition": "Chord",
+            "example": "A line segment with both endpoints on a circle"
+          },
+          {
+            "definition": "Arc",
+            "example": "A part of the circumference of a circle"
+          },
+          {
+            "definition": "Major Arc",
+            "example": "An arc that is greater than a semicircle"
+          },
+          {
+            "definition": "Minor Arc",
+            "example": "An arc that is less than a semicircle"
+          }
+        ]
+      },
+      {
+        "title": "Angles in Circles",
+        "content": [
+          {
+            "definition": "Central Angle",
+            "example": "An angle whose vertex is the center of the circle"
+          },
+          {
+            "definition": "Inscribed Angle",
+            "example": "An angle whose vertex is on the circle and whose sides are chords of the circle"
+          },
+          {
+            "definition": "Cyclic Quadrilateral",
+            "example": "A quadrilateral whose vertices all lie on a circle"
+          }
+        ]
+      }
+    ]
+    },
+    "ch11":{
+        "chapter": "Constructions",
+    "chapterOverview": "Chapter 11 of Mathematics class 10 focuses on geometric constructions using basic tools such as compass and ruler. It covers topics such as constructing various geometric figures, such as angles, triangles, quadrilaterals, and circles, with specific given conditions. The chapter emphasizes the practical application of construction techniques to solve geometric problems and build accurate geometric shapes.",
+    "topics": [
+      {
+        "title": "Basic Constructions",
+        "content": [
+          {
+            "definition": "Construction",
+            "example": "A method of creating accurate geometric figures using only a compass and a straightedge ruler"
+          },
+          {
+            "definition": "Perpendicular Bisector",
+            "example": "A line that cuts another line segment into two equal parts and is perpendicular to it"
+          },
+          {
+            "definition": "Angle Bisector",
+            "example": "A line that divides an angle into two equal parts"
+          }
+        ]
+      },
+      {
+        "title": "Constructing Triangles",
+        "content": [
+          {
+            "definition": "Constructing a Triangle given its Sides",
+            "example": "Creating a triangle using three given side lengths"
+          },
+          {
+            "definition": "Constructing a Triangle given its Angles",
+            "example": "Creating a triangle using three given angles"
+          },
+          {
+            "definition": "Constructing a Triangle given Side-Angle-Side (SAS) Condition",
+            "example": "Creating a triangle using a known side, an adjacent angle, and another known side"
+          },
+          {
+            "definition": "Constructing a Triangle given Angle-Side-Angle (ASA) Condition",
+            "example": "Creating a triangle using a known angle, a known side, and another known angle"
+          }
+        ]
+      },
+      {
+        "title": "Constructing Quadrilaterals",
+        "content": [
+          {
+            "definition": "Constructing a Square",
+            "example": "Creating a square with equal sides and right angles"
+          },
+          {
+            "definition": "Constructing a Rectangle",
+            "example": "Creating a rectangle with equal opposite sides and right angles"
+          },
+          {
+            "definition": "Constructing a Rhombus",
+            "example": "Creating a rhombus with equal sides but no right angles"
+          }
+        ]
+      },
+      {
+        "title": "Constructing Circles",
+        "content": [
+          {
+            "definition": "Constructing a Circle given its Center and Radius",
+            "example": "Creating a circle with a specific center and radius"
+          },
+          {
+            "definition": "Constructing a Circle Tangent to a Line at a Point",
+            "example": "Creating a circle that touches a given line at a specific point"
+          },
+          {
+            "definition": "Constructing a Circle Tangent to Two Lines",
+            "example": "Creating a circle that touches two given lines"
+          }
+        ]
+      }
+    ]
+    },
+    "ch12":{
+        "chapter": "Areas Related to Circles",
+    "chapterOverview": "Chapter 12 of Mathematics class 10 explores the concept of areas related to circles and their applications. It covers topics such as the area of a circle, the circumference of a circle, and the areas of sectors and segments of a circle. The chapter focuses on understanding the formulas and properties associated with these areas and solving problems involving circle-related measurements.",
+    "topics": [
+      {
+        "title": "Area of a Circle",
+        "content": [
+          {
+            "definition": "Circle",
+            "example": "A closed curve consisting of all points in a plane that are equidistant from a fixed point called the center"
+          },
+          {
+            "definition": "Radius",
+            "example": "The distance between the center of a circle and any point on the circle"
+          },
+          {
+            "definition": "Area of a Circle",
+            "example": "The measure of the region enclosed by the circumference of a circle"
+          }
+        ]
+      },
+      {
+        "title": "Circumference of a Circle",
+        "content": [
+          {
+            "definition": "Circumference",
+            "example": "The distance around the boundary of a circle"
+          },
+          {
+            "definition": "Approximation of π",
+            "example": "The irrational number approximately equal to 3.14159"
+          }
+        ]
+      },
+      {
+        "title": "Areas of Sectors and Segments",
+        "content": [
+          {
+            "definition": "Sector of a Circle",
+            "example": "A region enclosed by two radii of a circle and their intercepted arc"
+          },
+          {
+            "definition": "Segment of a Circle",
+            "example": "A region enclosed by a chord and its corresponding arc"
+          },
+          {
+            "definition": "Major Sector",
+            "example": "A sector that is greater than a semicircle"
+          },
+          {
+            "definition": "Minor Sector",
+            "example": "A sector that is less than a semicircle"
+          }
+        ]
+      }
+    ]
+    },
+    "ch13":{
+      "chapter": "Surface Areas and Volumes",
+    "chapterOverview": "Chapter 13 of Mathematics class 10 focuses on the concepts of surface areas and volumes of various three-dimensional shapes. It covers topics such as finding the surface area and volume of cubes, cuboids, cylinders, cones, and spheres. The chapter emphasizes understanding the formulas and techniques to calculate surface areas and volumes of different shapes and solving related problems.",
+    "topics": [
+      {
+        "title": "Surface Area and Volume",
+        "content": [
+          {
+            "definition": "Surface Area",
+            "example": "The total area of all the faces or surfaces of a three-dimensional shape"
+          },
+          {
+            "definition": "Volume",
+            "example": "The amount of space occupied by a three-dimensional shape"
+          }
+        ]
+      },
+      {
+        "title": "Surface Area and Volume of Cubes and Cuboids",
+        "content": [
+          {
+            "definition": "Cube",
+            "example": "A three-dimensional shape with six equal square faces"
+          },
+          {
+            "definition": "Cuboid",
+            "example": "A three-dimensional shape with six rectangular faces"
+          },
+          {
+            "definition": "Surface Area of a Cube",
+            "example": "The sum of the areas of all six square faces of a cube"
+          },
+          {
+            "definition": "Surface Area of a Cuboid",
+            "example": "The sum of the areas of all six rectangular faces of a cuboid"
+          },
+          {
+            "definition": "Volume of a Cube",
+            "example": "The product of the length of any side of the cube raised to the power of three"
+          },
+          {
+            "definition": "Volume of a Cuboid",
+            "example": "The product of the length, width, and height of the cuboid"
+          }
+        ]
+      },
+      {
+        "title": "Surface Area and Volume of Cylinders",
+        "content": [
+          {
+            "definition": "Cylinder",
+            "example": "A three-dimensional shape with two circular bases and a curved surface"
+          },
+          {
+            "definition": "Surface Area of a Cylinder",
+            "example": "The sum of the areas of its two circular bases and the area of its curved surface"
+          },
+          {
+            "definition": "Volume of a Cylinder",
+            "example": "The product of the area of the base and the height of the cylinder"
+          }
+        ]
+      },
+      {
+        "title": "Surface Area and Volume of Cones",
+        "content": [
+          {
+            "definition": "Cone",
+            "example": "A three-dimensional shape with a circular base and a curved surface that tapers to a point called the apex"
+          },
+          {
+            "definition": "Surface Area of a Cone",
+            "example": "The sum of the area of the base and the area of its curved surface"
+          },
+          {
+            "definition": "Volume of a Cone",
+            "example": "One-third of the product of the area of the base and the height of the cone"
+          }
+        ]
+      },
+      {
+        "title": "Surface Area and Volume of Spheres",
+        "content": [
+          {
+            "definition": "Sphere",
+            "example": "A three-dimensional shape with all points on its surface equidistant from its center"
+          },
+          {
+            "definition": "Surface Area of a Sphere",
+            "example": "Four times the area of a great circle on the sphere"
+          },
+          {
+            "definition": "Volume of a Sphere",
+            "example": "Four-thirds of the product of the value of pi (π) and the cube of the radius of the sphere"
+          }
+        ]
+      }
+    ]
+    },
+    "ch14":{
+      "chapter": "Statistics",
+    "chapterOverview": "Chapter 14 of Mathematics class 10 focuses on the concepts of statistics and data analysis. It covers topics such as collection, presentation, and interpretation of data. The chapter introduces measures of central tendency like mean, median, and mode, as well as measures of dispersion like range and mean deviation. It also discusses the construction and interpretation of bar graphs, histograms, and pie charts to represent data visually.",
+    "topics": [
+      {
+        "title": "Data and Its Collection",
+        "content": [
+          {
+            "definition": "Data",
+            "example": "Facts, figures, or information collected for analysis or reference"
+          },
+          {
+            "definition": "Primary Data",
+            "example": "Data collected firsthand for a specific purpose"
+          },
+          {
+            "definition": "Secondary Data",
+            "example": "Data obtained from existing sources for a different purpose"
+          },
+          {
+            "definition": "Collection of Data",
+            "example": "The process of gathering information through surveys, experiments, or observations"
+          }
+        ]
+      },
+      {
+        "title": "Presentation of Data",
+        "content": [
+          {
+            "definition": "Raw Data",
+            "example": "The original data collected without any organization or manipulation"
+          },
+          {
+            "definition": "Tabulation of Data",
+            "example": "The arrangement of data in rows and columns for easy understanding and analysis"
+          },
+          {
+            "definition": "Graphical Representation",
+            "example": "The visual representation of data using graphs, charts, or diagrams"
+          },
+          {
+            "definition": "Bar Graph",
+            "example": "A graph that uses rectangular bars to represent data"
+          },
+          {
+            "definition": "Histogram",
+            "example": "A graphical representation of a frequency distribution with continuous data"
+          },
+          {
+            "definition": "Pie Chart",
+            "example": "A circular chart divided into sectors to represent data as a percentage of a whole"
+          }
+        ]
+      },
+      {
+        "title": "Measures of Central Tendency",
+        "content": [
+          {
+            "definition": "Mean",
+            "example": "The sum of all values divided by the total number of values"
+          },
+          {
+            "definition": "Median",
+            "example": "The middle value of a data set when arranged in ascending or descending order"
+          },
+          {
+            "definition": "Mode",
+            "example": "The value that occurs most frequently in a data set"
+          }
+        ]
+      },
+      {
+        "title": "Measures of Dispersion",
+        "content": [
+          {
+            "definition": "Range",
+            "example": "The difference between the highest and lowest values in a data set"
+          },
+          {
+            "definition": "Mean Deviation",
+            "example": "The average of the absolute differences between each value and the mean of a data set"
+          }
+        ]
+      }
+    ]
+    },
+    "ch15":{
+      "chapter": "Probability",
+    "chapterOverview": "Chapter 15 of Mathematics class 10 introduces the concept of probability, which is the likelihood or chance of an event occurring. It covers topics such as theoretical probability, experimental probability, and probability of simple events. The chapter also discusses the concepts of complementary events, mutually exclusive events, and independent events. It emphasizes the use of probability to solve real-life problems and make informed decisions.",
+    "topics": [
+      {
+        "title": "Understanding Probability",
+        "content": [
+          {
+            "definition": "Probability",
+            "example": "The measure of the likelihood or chance of an event occurring"
+          },
+          {
+            "definition": "Sample Space",
+            "example": "The set of all possible outcomes of an experiment"
+          },
+          {
+            "definition": "Event",
+            "example": "A subset of the sample space representing a specific outcome or combination of outcomes"
+          }
+        ]
+      },
+      {
+        "title": "Theoretical Probability",
+        "content": [
+          {
+            "definition": "Theoretical Probability",
+            "example": "The probability of an event based on reasoning, calculations, or mathematical analysis"
+          },
+          {
+            "definition": "Favorable Outcomes",
+            "example": "The outcomes that satisfy the conditions of the desired event"
+          },
+          {
+            "definition": "Total Outcomes",
+            "example": "The total number of possible outcomes in the sample space"
+          }
+        ]
+      },
+      {
+        "title": "Experimental Probability",
+        "content": [
+          {
+            "definition": "Experimental Probability",
+            "example": "The probability of an event based on repeated trials or observations"
+          },
+          {
+            "definition": "Frequency",
+            "example": "The number of times an event occurs in a given number of trials"
+          },
+          {
+            "definition": "Relative Frequency",
+            "example": "The ratio of the frequency of an event to the total number of trials"
+          }
+        ]
+      },
+      {
+        "title": "Probability of Simple Events",
+        "content": [
+          {
+            "definition": "Simple Event",
+            "example": "An event that consists of a single outcome"
+          },
+          {
+            "definition": "Probability of a Simple Event",
+            "example": "The ratio of the number of favorable outcomes to the total number of possible outcomes"
+          }
+        ]
+      },
+      {
+        "title": "Complementary Events, Mutually Exclusive Events, and Independent Events",
+        "content": [
+          {
+            "definition": "Complementary Events",
+            "example": "Two events that together cover all possible outcomes and have a total probability of 1"
+          },
+          {
+            "definition": "Mutually Exclusive Events",
+            "example": "Two events that cannot occur simultaneously"
+          },
+          {
+            "definition": "Independent Events",
+            "example": "Two events that do not affect each other's probabilities"
+          }
+        ]
+      }
+    ]
+    }
+}

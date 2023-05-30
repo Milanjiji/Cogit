@@ -29,6 +29,7 @@ import User from "../Screens/User";
 import AboutUs from "./AboutUs";
 import PrivacyPolicy from "./PrivacyAndPolicy";
 import TermsCondition from "./TermsAndCondition";
+import Spalsh from "../Screens/SplashScreen";
 
 
 
@@ -53,9 +54,10 @@ const Screens = () =>{
 
     return(
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="Classification" screenOptions={{headerShown:false,animation:'none'}} >
-          {
-            !initialRoute ?
+        <Stack.Navigator initialRouteName="Splash"  screenOptions={{headerShown:false,animation:'none'}} >
+        <Stack.Screen
+           name="Splash" 
+           component={Spalsh} />
             <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
@@ -64,7 +66,7 @@ const Screens = () =>{
            name="Home" 
            component={Homepage} /> 
 
-          }
+          
           <Stack.Screen
            name="Details" 
            component={Details} />
