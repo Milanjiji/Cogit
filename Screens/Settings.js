@@ -32,7 +32,7 @@ const Setting = ({navigation,route}) =>{
                 <HomeScreenSettings/>
                 <NoteScreenSettings/>
                 <AiSettings/>
-                <AccountSettings/>
+                <AccountSettings navigation={navigation} />
                 <HelpAndSupport/>
                 <AboutTheApp navigation={navigation} />
             </ScrollView>

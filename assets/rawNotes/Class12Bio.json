@@ -1,5 +1,5 @@
-{
-    "ch1":{
+[
+    {
         "chapter": "Sexual Reproduction in Flowering Plants",
     "chapterOverview": "Chapter 1 of Biology class 12 focuses on the study of sexual reproduction in flowering plants. It explores the various aspects of plant reproduction, including flower structure, pollination, fertilization, and seed formation.",
     "topics": [
@@ -56,8 +56,7 @@
         ]
       }
     ]
-    },
-    "ch2":{
+    },{
         "chapter": "Human Reproduction",
     "chapterOverview": "Chapter 2 of Biology class 12 focuses on the study of human reproduction. It explores the reproductive systems in humans, including the male and female reproductive organs, gametogenesis, fertilization, embryonic development, and hormonal regulation.",
     "topics": [
@@ -119,7 +118,7 @@
       }
     ]
     },
-    "ch3":{
+  {
         "chapter": "Reproductive Health",
     "chapterOverview": "Chapter 3 of Biology class 12 focuses on reproductive health and the various aspects related to it. It explores topics such as the importance of reproductive health, methods of contraception, sexually transmitted infections (STIs), and infertility.",
     "topics": [
@@ -190,7 +189,7 @@
       }
     ]
     },
-    "ch4":{
+{
         "chapter": "Principles of Inheritance and Variation",
         "chapterOverview": "Chapter 4 of Biology class 12 focuses on the principles of inheritance and variation in living organisms. It explores the concepts of Mendelian genetics, inheritance patterns, genetic disorders, and the role of variations in evolution.",
         "topics": [
@@ -281,7 +280,7 @@
           }
         ]
     },
-    "ch5":{
+    {
         "chapter": "Molecular Basis of Inheritance",
     "chapterOverview": "Chapter 5 of Biology class 12 focuses on the molecular basis of inheritance. It explores topics such as the structure and replication of DNA, transcription and translation, genetic code, regulation of gene expression, and genetic engineering.",
     "topics": [
@@ -355,7 +354,7 @@
       }
     ]
     },
-    "ch6":{
+    {
         "chapter": "Evolution",
     "chapterOverview": "Chapter 6 of Biology class 12 focuses on the concept of evolution and the mechanisms that drive it. It explores topics such as the origin of life, evidences of evolution, natural selection, speciation, and human evolution.",
     "topics": [
@@ -450,7 +449,7 @@
       }
     ]
     },
-    "ch7":{
+   {
         "chapter": "Human Health and Disease",
         "chapterOverview": "Chapter 7 of Biology class 12 focuses on human health and disease. It explores topics such as common diseases, immunity, infectious diseases, non-communicable diseases, and strategies for disease prevention and control.",
         "topics": [
@@ -542,7 +541,7 @@
           }
         ]
     },
-    "ch8":{
+   {
         "chapter": "Microbes in Human Welfare",
     "chapterOverview": "Chapter 8 of Biology class 12 focuses on the role of microbes in human welfare. It explores the beneficial aspects of microorganisms in various fields, such as agriculture, industry, medicine, and environmental conservation.",
     "topics": [
@@ -629,7 +628,7 @@
       }
     ]
     },
-    "ch9":{
+   {
         "chapter": "Biotechnology: Principles and Processes",
     "chapterOverview": "Chapter 9 of Biology class 12 focuses on biotechnology, its principles, and various processes involved in biotechnological applications. It explores topics such as genetic engineering, DNA cloning, DNA sequencing, and biotechnological tools and techniques.",
     "topics": [
@@ -712,7 +711,7 @@
       }
     ]
     },
-    "ch10":{
+   {
         "chapter": "Biotechnology and Its Applications",
     "chapterOverview": "Chapter 10 of Biology class 12 focuses on the applications of biotechnology in various fields, including agriculture, medicine, environment, and industry. It explores topics such as genetically modified organisms (GMOs), gene therapy, stem cell technology, and bioremediation.",
     "topics": [
@@ -799,7 +798,7 @@
       }
     ]
     },
-    "ch11":{
+   {
         "chapter": "Organisms and Populations",
     "chapterOverview": "Chapter 11 of Biology class 12 focuses on the study of organisms and their interactions within populations and communities. It explores topics such as adaptations, population growth, ecosystem dynamics, and ecological succession.",
     "topics": [
@@ -894,7 +893,7 @@
       }
     ]
     },
-    "ch12":{
+    {
         "chapterOverview": "Chapter 12 of Biology class 12 focuses on the study of ecosystems and their components, including biotic and abiotic factors, energy flow, nutrient cycling, and ecological relationships. It explores topics such as ecological pyramids, ecological succession, and ecosystem services.",
     "topics": [
       {
@@ -996,7 +995,7 @@
       }
     ]
     },
-    "ch13":{
+    {
       "chapter": "Biodiversity and Conservation",
       "chapterOverview": "Chapter 13 of Biology class 12 focuses on the study of biodiversity, its importance, threats, and conservation measures. It explores topics such as species diversity, ecosystem diversity, conservation strategies, and sustainable development.",
       "topics": [
@@ -1086,4 +1085,4 @@
         }
       ]
     }
-}
+  ]

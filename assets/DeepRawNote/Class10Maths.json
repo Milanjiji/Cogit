@@ -1,0 +1,759 @@
+[
+    {
+        "chapter": "Chapter 1: Real Numbers",
+        "subTopics": [
+          {
+            "title": "1.1 Introduction",
+            "explanation": "The introduction to real numbers acquaints us with the vast realm of numbers that includes rational and irrational numbers. Real numbers are represented on the number line, and they consist of integers, fractions, decimals, and square roots of non-perfect square numbers. This introduction sets the stage for exploring the properties and operations of real numbers.",
+            "keyPoints": [
+              "- Real numbers comprise rational and irrational numbers.",
+              "- They can be represented on a number line.",
+              "- Examples include integers, fractions, decimals, and square roots."
+            ],
+            "examples": [
+              "Rational Number: -3/5",
+              "Decimal Number: 2.718 (Approximation of Euler's number)",
+              "Irrational Number: √7"
+            ]
+          },
+          {
+            "title": "1.2 The Fundamental Theorem of Arithmetic",
+            "explanation": "The Fundamental Theorem of Arithmetic is a fundamental concept in number theory. It states that every composite number can be expressed as a unique product of prime numbers. This theorem provides a unique prime factorization for composite numbers, enabling us to study divisors, multiples, and common factors more efficiently.",
+            "keyPoints": [
+              "- Composite numbers can be expressed as a product of prime numbers.",
+              "- Prime factorization is unique for each composite number.",
+              "- Examples include prime factorizations of various composite numbers."
+            ],
+            "examples": [
+              "Prime Factorization of 36: 2 * 2 * 3 * 3",
+              "Prime Factorization of 100: 2 * 2 * 5 * 5",
+              "Prime Factorization of 210: 2 * 3 * 5 * 7"
+            ]
+          },
+          {
+            "title": "1.3 Revisiting Irrational Numbers",
+            "explanation": "This section revisits irrational numbers, which cannot be expressed as a fraction or a ratio of two integers. These numbers have non-terminating and non-repeating decimal expansions, challenging the notion of exact representation. The section explores their properties and significance in mathematics.",
+            "keyPoints": [
+              "- Irrational numbers cannot be expressed as fractions.",
+              "- Their decimal expansions are non-terminating and non-repeating.",
+              "- Examples include decimal expansions of various irrational numbers."
+            ],
+            "examples": [
+              "Decimal Expansion of √3: 1.732050807568877...",
+              "Decimal Expansion of π (pi): 3.141592653589793...",
+              "Decimal Expansion of √5: 2.23606797749979..."
+            ]
+          },
+          {
+            "title": "1.4 Summary",
+            "explanation": "The summary of Chapter 1 provides a brief recap of the key concepts covered. It emphasizes the distinction between rational and irrational numbers, highlights the significance of the Fundamental Theorem of Arithmetic, and acknowledges the challenges posed by irrational numbers in terms of exact representation.",
+            "keyPoints": [
+              "- Real numbers comprise both rational and irrational numbers.",
+              "- The Fundamental Theorem of Arithmetic provides a unique prime factorization for composite numbers.",
+              "- Irrational numbers cannot be expressed as fractions and have non-repeating, non-terminating decimal expansions."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 2: Polynomials",
+        "subTopics": [
+          {
+            "title": "2.1 Introduction",
+            "explanation": "The introduction to polynomials provides an overview of this important mathematical concept. Polynomials are algebraic expressions with one or more terms. They can involve variables raised to different powers and can have coefficients. The degree of a polynomial is the highest power of the variable. This section sets the foundation for exploring the properties and operations of polynomials.",
+            "keyPoints": [
+              "- Polynomials are algebraic expressions with one or more terms.",
+              "- The degree of a polynomial is the highest power of the variable.",
+              "- Examples include linear, quadratic, and cubic polynomials."
+            ],
+            "examples": [
+              "Linear Polynomial: 3x + 2",
+              "Quadratic Polynomial: 2x^2 - 5x + 1",
+              "Cubic Polynomial: x^3 + 4x^2 - x - 3"
+            ]
+          },
+          {
+            "title": "2.2 Geometrical Meaning of the Zeroes of a Polynomial",
+            "explanation": "This section explores the geometrical interpretation of the zeroes of a polynomial. Zeroes of a polynomial are the values of the variable that make the polynomial equal to zero. Geometrically, the zeroes can be interpreted as the x-intercepts or roots of the polynomial's graph. The Fundamental Theorem of Algebra states that every non-constant polynomial has at least one zero.",
+            "keyPoints": [
+              "- Zeroes of a polynomial are the values of the variable that make the polynomial equal to zero.",
+              "- The zeroes of a polynomial can be interpreted as the x-intercepts or roots of the polynomial's graph.",
+              "- The Fundamental Theorem of Algebra states that every non-constant polynomial has at least one zero."
+            ],
+            "examples": [
+              "Zeroes of Polynomial f(x) = 2x^2 - 5x + 3: x = 1, x = 3/2",
+              "Geometrical Interpretation: The polynomial intersects the x-axis at x = 1 and x = 3/2.",
+              "Zeroes of Polynomial g(x) = x^3 - 6x^2 + 11x - 6: x = 1, x = 2, x = 3",
+              "Geometrical Interpretation: The polynomial intersects the x-axis at x = 1, x = 2, and x = 3."
+            ]
+          },
+          {
+            "title": "2.3 Relationship between Zeroes and Coefficients of a Polynomial",
+            "explanation": "This section explores the relationship between the zeroes and coefficients of a polynomial. Vieta's formulas establish the connection between the zeroes and coefficients of a polynomial. These formulas state that the sum of the zeroes is related to the coefficient of the second-to-last term, and the product of the zeroes is related to the constant term.",
+            "keyPoints": [
+              "- Vieta's formulas establish the connection between the zeroes and coefficients of a polynomial.",
+              "- The sum of the zeroes is related to the coefficient of the second-to-last term.",
+              "- The product of the zeroes is related to the constant term."
+            ],
+            "examples": [
+              "Polynomial f(x) = x^2 - 5x + 6 with zeroes x = 2, x = 3",
+              "Relationship: Sum of Zeroes = 2 + 3 = 5, Product of Zeroes = 2 * 3 = 6",
+              "Polynomial g(x) = x^3 - 6x^2 + 11x - 6 with zeroes x = 1, x = 2, x = 3",
+              "Relationship: Sum of Zeroes = 1 + 2 + 3 = 6, Product of Zeroes = 1 * 2 * 3 = 6"
+            ]
+          },
+          {
+            "title": "2.4 Summary",
+            "explanation": "The summary of Chapter 2 provides a concise recap of the key concepts covered. It emphasizes the definition and properties of polynomials, the geometric interpretation of zeroes, and the relationship between zeroes and coefficients using Vieta's formulas.",
+            "keyPoints": [
+              "- Polynomials are algebraic expressions with one or more terms.",
+              "- Zeroes of a polynomial are the values that make the polynomial equal to zero.",
+              "- Vieta's formulas connect the zeroes and coefficients of a polynomial."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 3: Pair of Linear Equations in Two Variables",
+        "subTopics": [
+          {
+            "title": "3.1 Introduction",
+            "explanation": "The introduction to pair of linear equations in two variables introduces the concept of simultaneous equations. A pair of linear equations is a set of two equations involving two variables. This section highlights the importance of studying simultaneous equations and the methods used to solve them.",
+            "keyPoints": [
+              "- Pair of linear equations involve two equations and two variables.",
+              "- Simultaneous equations have multiple solutions.",
+              "- Examples include systems of equations in real-life situations."
+            ],
+            "examples": [
+              "Equation 1: 2x + 3y = 7",
+              "Equation 2: 5x - 2y = 11",
+              "Real-life Example: The cost of apples (x) and bananas (y) in a grocery store."
+            ]
+          },
+          {
+            "title": "3.2 Graphical Method of Solution of a Pair of Linear Equations",
+            "explanation": "This section explores the graphical method of solving a pair of linear equations. Graphing the equations on a coordinate plane helps visualize the solution as the point(s) of intersection between the two lines. The section explains how to plot the lines, determine their intersection point(s), and interpret the solutions.",
+            "keyPoints": [
+              "- The graphical method involves graphing the equations on a coordinate plane.",
+              "- The point(s) of intersection represent the solution(s) to the equations.",
+              "- Solutions can be unique (one intersection point) or infinite (coinciding lines)."
+            ],
+            "examples": [
+              "Equation 1: y = 2x + 3",
+              "Equation 2: y = -x + 5",
+              "Graphical Solution: The lines intersect at the point (1, 4)."
+            ]
+          },
+          {
+            "title": "3.3 Algebraic Methods of Solving a Pair of Linear Equations",
+            "explanation": "This section explores the algebraic methods of solving a pair of linear equations: the substitution method and the elimination method. The substitution method involves substituting one equation into the other to eliminate one variable and solve for the remaining variable. The elimination method involves adding or subtracting the equations to eliminate one variable and solve for the other.",
+            "keyPoints": [
+              "- The substitution method involves substituting one equation into the other.",
+              "- The elimination method involves adding or subtracting the equations.",
+              "- Both methods lead to solving the equations algebraically."
+            ],
+            "examples": [
+              "Equation 1: 3x + 2y = 10",
+              "Equation 2: 2x - y = 1",
+              "Substitution Method: Solve Equation 2 for x, substitute in Equation 1, and solve for y.",
+              "Elimination Method: Multiply Equation 2 by 2, add it to Equation 1, and solve for x."
+            ]
+          },
+          {
+            "title": "3.4 Summary",
+            "explanation": "The summary of Chapter 3 provides a brief recap of the key concepts covered. It emphasizes the definition and importance of pair of linear equations, introduces the graphical method of solution, and explores the algebraic methods of substitution and elimination. Understanding these methods allows for solving systems of equations and finding their solutions.",
+            "keyPoints": [
+              "- Pair of linear equations involve two equations and two variables.",
+              "- Graphical method visualizes the intersection point(s) of the equations.",
+              "- Algebraic methods (substitution and elimination) solve equations algebraically."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 4: Quadratic Equations",
+        "subTopics": [
+          {
+            "title": "4.1 Introduction",
+            "explanation": "The introduction to quadratic equations provides an overview of this important type of equation. Quadratic equations are second-degree equations involving a variable raised to the power of two. This section highlights the significance of quadratic equations in various fields and introduces methods to solve them.",
+            "keyPoints": [
+              "- Quadratic equations are second-degree equations involving a variable squared.",
+              "- They have three forms: standard form, general form, and vertex form.",
+              "- Quadratic equations have applications in physics, engineering, and more."
+            ],
+            "examples": [
+              "Standard Form: ax^2 + bx + c = 0",
+              "General Form: y = ax^2 + bx + c",
+              "Vertex Form: y = a(x - h)^2 + k"
+            ]
+          },
+          {
+            "title": "4.2 Quadratic Equations",
+            "explanation": "This section delves deeper into quadratic equations, their properties, and standard forms. It explains the coefficient terms (a, b, and c) and the discriminant, which determines the nature of the roots. The section also introduces the concept of the quadratic formula as a method to find the solutions of a quadratic equation.",
+            "keyPoints": [
+              "- Quadratic equations have three coefficient terms: a, b, and c.",
+              "- The discriminant (b^2 - 4ac) determines the nature of the roots.",
+              "- The quadratic formula (x = (-b ± √(b^2 - 4ac)) / (2a)) solves quadratic equations."
+            ],
+            "examples": [
+              "Quadratic Equation: 2x^2 + 5x - 3 = 0",
+              "Coefficient Terms: a = 2, b = 5, c = -3",
+              "Discriminant: b^2 - 4ac = 5^2 - 4(2)(-3) = 49",
+              "Quadratic Formula: x = (-5 ± √49) / (2*2) = (-5 ± 7) / 4"
+            ]
+          },
+          {
+            "title": "4.3 Solution of a Quadratic Equation by Factorisation",
+            "explanation": "This section explores the method of solving quadratic equations by factorization. It explains how to factorize quadratic expressions into linear factors and equate them to zero to find the solutions. The section highlights the importance of factoring and provides examples to illustrate the process.",
+            "keyPoints": [
+              "- Solving quadratic equations by factorization involves factoring the expression.",
+              "- Equating the linear factors to zero helps find the solutions.",
+              "- Factoring is useful for quadratic equations with rational roots."
+            ],
+            "examples": [
+              "Quadratic Equation: x^2 + 5x + 6 = 0",
+              "Factored Form: (x + 2)(x + 3) = 0",
+              "Solutions: x = -2, x = -3"
+            ]
+          },
+          {
+            "title": "4.4 Nature of Roots",
+            "explanation": "This section explores the nature of roots of quadratic equations based on the discriminant. It explains how the discriminant determines whether the roots are real and distinct, real and equal, or complex conjugates. The section provides formulas and examples to understand the concept of nature of roots.",
+            "keyPoints": [
+              "- The discriminant (b^2 - 4ac) determines the nature of the roots.",
+              "- If the discriminant > 0, the roots are real and distinct.",
+              "- If the discriminant = 0, the roots are real and equal.",
+              "- If the discriminant < 0, the roots are complex conjugates."
+            ],
+            "examples": [
+              "Quadratic Equation: 3x^2 + 4x + 5 = 0",
+              "Discriminant: b^2 - 4ac = 4^2 - 4(3)(5) = -44",
+              "Nature of Roots: Complex conjugates (no real solutions)"
+            ]
+          },
+          {
+            "title": "4.5 Summary",
+            "explanation": "The summary of Chapter 4 provides a brief recap of the key concepts covered. It emphasizes the definition and properties of quadratic equations, introduces different forms, and explores methods of solving quadratic equations by factorization and using the quadratic formula. Understanding these concepts helps analyze quadratic equations and determine the nature of their roots.",
+            "keyPoints": [
+              "- Quadratic equations are second-degree equations with a squared variable.",
+              "- The discriminant determines the nature of the roots.",
+              "- Factorization and the quadratic formula are methods to solve quadratic equations."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 5: Arithmetic Progressions",
+        "subTopics": [
+          {
+            "title": "5.1 Introduction",
+            "explanation": "The introduction to arithmetic progressions provides an overview of this important concept in mathematics. Arithmetic progressions are sequences in which the difference between consecutive terms remains constant. This section explains the significance of arithmetic progressions, their applications, and the notation used to represent them.",
+            "keyPoints": [
+              "- Arithmetic progressions are sequences with a constant difference between terms.",
+              "- They have applications in various fields, including mathematics and physics.",
+              "- Notation: a, a + d, a + 2d, ..., a + (n - 1)d represents an arithmetic progression."
+            ],
+            "examples": [
+              "Example: 3, 6, 9, 12, 15 is an arithmetic progression with a common difference of 3.",
+              "Notation: a = 3 (first term), d = 3 (common difference), n = 5 (number of terms)"
+            ]
+          },
+          {
+            "title": "5.2 Arithmetic Progressions",
+            "explanation": "This section delves deeper into arithmetic progressions, their properties, and formulas. It explains the concept of the common difference and how to find the nth term of an arithmetic progression. The section also covers the methods to find the sum of the first n terms of an arithmetic progression.",
+            "keyPoints": [
+              "- Common difference (d) represents the constant difference between terms.",
+              "- The nth term (an) of an arithmetic progression can be found using the formula: an = a + (n - 1)d",
+              "- The sum of the first n terms (Sn) can be calculated using the formula: Sn = (n/2)(2a + (n - 1)d)"
+            ],
+            "examples": [
+              "Arithmetic Progression: 2, 5, 8, 11, 14 with a common difference of 3.",
+              "Finding the 6th term: a = 2, d = 3, n = 6. Using the formula, a6 = 2 + (6 - 1) * 3 = 17",
+              "Finding the sum of the first 5 terms: a = 2, d = 3, n = 5. Using the formula, S5 = (5/2)(2 * 2 + (5 - 1) * 3) = 55"
+            ]
+          },
+          {
+            "title": "5.3 nth Term of an AP",
+            "explanation": "This section focuses on finding the nth term of an arithmetic progression. It explains the formula to determine the value of any term in the progression based on the given first term and common difference. The section provides examples to illustrate the calculation of the nth term.",
+            "keyPoints": [
+              "- The nth term (an) of an arithmetic progression is given by the formula: an = a + (n - 1)d",
+              "- 'a' represents the first term, 'd' is the common difference, and 'n' is the term number."
+            ],
+            "examples": [
+              "Arithmetic Progression: 4, 9, 14, 19 with a common difference of 5.",
+              "Finding the 8th term: a = 4, d = 5, n = 8. Using the formula, a8 = 4 + (8 - 1) * 5 = 39"
+            ]
+          },
+          {
+            "title": "5.4 Sum of First n Terms of an AP",
+            "explanation": "This section focuses on finding the sum of the first n terms of an arithmetic progression. It introduces the formula to calculate the sum based on the first term, common difference, and the number of terms. The section provides examples to demonstrate the calculation of the sum.",
+            "keyPoints": [
+              "- The sum of the first n terms (Sn) of an arithmetic progression is given by the formula: Sn = (n/2)(2a + (n - 1)d)",
+              "- 'a' represents the first term, 'd' is the common difference, and 'n' is the number of terms."
+            ],
+            "examples": [
+              "Arithmetic Progression: 3, 6, 9, 12 with a common difference of 3.",
+              "Finding the sum of the first 6 terms: a = 3, d = 3, n = 6. Using the formula, S6 = (6/2)(2 * 3 + (6 - 1) * 3) = 63"
+            ]
+          },
+          {
+            "title": "5.5 Summary",
+            "explanation": "The summary of Chapter 5 provides a brief recap of the key concepts covered. It emphasizes the definition and properties of arithmetic progressions, explains the formulas to find the nth term and the sum of the first n terms. Understanding these concepts helps analyze and solve problems related to arithmetic progressions.",
+            "keyPoints": [
+              "- Arithmetic progressions have a constant difference between terms.",
+              "- The nth term (an) can be found using the formula: an = a + (n - 1)d",
+              "- The sum of the first n terms (Sn) can be calculated using the formula: Sn = (n/2)(2a + (n - 1)d)"
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 6: Triangles",
+        "subTopics": [
+          {
+            "title": "6.1 Introduction",
+            "explanation": "The introduction to triangles provides a brief overview of this fundamental geometric shape. It explains the basic definition of a triangle, its properties, and the classification based on side lengths and angle measures. This section sets the foundation for further exploration of triangles and their properties.",
+            "keyPoints": [
+              "- A triangle is a polygon with three sides and three angles.",
+              "- Triangles can be classified based on side lengths (equilateral, isosceles, or scalene) and angle measures (acute, obtuse, or right).",
+              "- The sum of the interior angles of a triangle is always 180 degrees."
+            ],
+            "examples": [
+              "Example: A triangle with side lengths 5 cm, 5 cm, and 6 cm is an isosceles triangle.",
+              "Example: A triangle with angle measures 30 degrees, 60 degrees, and 90 degrees is a right triangle."
+            ]
+          },
+          {
+            "title": "6.2 Similar Figures",
+            "explanation": "This section explores the concept of similar figures and their properties. It explains the criteria for similarity and the ratios of corresponding sides of similar figures. The section also discusses the scaling factor and how it affects the relationships between the corresponding sides and angles of similar figures.",
+            "keyPoints": [
+              "- Similar figures have the same shape but may differ in size.",
+              "- Two figures are similar if their corresponding angles are congruent and the ratios of their corresponding sides are equal.",
+              "- The scaling factor represents the ratio of corresponding side lengths between similar figures."
+            ],
+            "examples": [
+              "Example: Two triangles with angles measuring 30 degrees, 60 degrees, and 90 degrees are similar.",
+              "Example: Two rectangles with side lengths in the ratio 2:3 are similar."
+            ]
+          },
+          {
+            "title": "6.3 Similarity of Triangles",
+            "explanation": "This section focuses specifically on the similarity of triangles. It explains the conditions for triangles to be similar, including the Angle-Angle (AA) similarity criterion and the Side-Angle-Side (SAS) similarity criterion. The section provides examples to illustrate the application of these criteria in determining the similarity of triangles.",
+            "keyPoints": [
+              "- Triangles are similar if they have two corresponding angles congruent (AA similarity criterion).",
+              "- Triangles are similar if they have two corresponding sides proportional and the included angle congruent (SAS similarity criterion)."
+            ],
+            "examples": [
+              "Example: Two triangles with angle measures 45 degrees, 45 degrees, and 90 degrees are similar (AA criterion).",
+              "Example: Two triangles with side lengths in the ratio 3:4 and the included angle measuring 60 degrees are similar (SAS criterion)."
+            ]
+          },
+          {
+            "title": "6.4 Criteria for Similarity of Triangles",
+            "explanation": "This section further explores the criteria for the similarity of triangles. It introduces the Side-Side-Side (SSS) similarity criterion and discusses the concept of proportional triangles. The section provides examples to demonstrate how these criteria are used to determine the similarity of triangles.",
+            "keyPoints": [
+              "- Triangles are similar if the lengths of their corresponding sides are proportional (SSS similarity criterion).",
+              "- Proportional triangles have corresponding sides in the same ratio.",
+              "- Proportional triangles have corresponding angles congruent."
+            ],
+            "examples": [
+              "Example: Two triangles with side lengths in the ratio 2:3:4 are similar (SSS criterion).",
+              "Example: Two triangles with corresponding angles measuring 30 degrees, 60 degrees, and 90 degrees are proportional."
+            ]
+          },
+          {
+            "title": "6.5 Summary",
+            "explanation": "The summary of Chapter 6 provides a recap of the key concepts covered. It emphasizes the definition and properties of triangles, including their classification based on side lengths and angle measures. The section also highlights the criteria for the similarity of triangles and the importance of corresponding angles and sides in determining similarity.",
+            "keyPoints": [
+              "- A triangle is a polygon with three sides and three angles.",
+              "- Triangles can be classified based on side lengths and angle measures.",
+              "- Similar triangles have congruent corresponding angles and proportional corresponding sides."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 7: Coordinate Geometry",
+        "subTopics": [
+          {
+            "title": "7.1 Introduction",
+            "explanation": "The introduction to coordinate geometry provides an overview of the Cartesian coordinate system. It explains the concept of coordinates, the x-axis, the y-axis, and the quadrant system. This section establishes the foundation for understanding the relationship between algebraic equations and geometric shapes.",
+            "keyPoints": [
+              "- Coordinate geometry uses algebraic techniques to study geometric shapes.",
+              "- The Cartesian coordinate system consists of the x-axis, y-axis, and the origin (0, 0).",
+              "- Points on the coordinate plane are represented as (x, y), where x represents the horizontal distance and y represents the vertical distance."
+            ],
+            "examples": [
+              "Example: The point (2, 3) represents a location 2 units to the right and 3 units up from the origin.",
+              "Example: The point (-4, -1) represents a location 4 units to the left and 1 unit down from the origin."
+            ]
+          },
+          {
+            "title": "7.2 Distance Formula",
+            "explanation": "This section introduces the distance formula in coordinate geometry. It explains how to calculate the distance between two points using their coordinates. The section provides a derivation of the formula and examples to demonstrate its application.",
+            "keyPoints": [
+              "- The distance formula is used to calculate the distance between two points in a coordinate plane.",
+              "- The formula is given by: d = √((x₂ - x₁)² + (y₂ - y₁)²), where (x₁, y₁) and (x₂, y₂) are the coordinates of the two points.",
+              "- The distance between two points is always positive."
+            ],
+            "examples": [
+              "Example: Find the distance between the points (2, 3) and (-1, 5). Using the formula, d = √((-1 - 2)² + (5 - 3)²) = √(9 + 4) = √13"
+            ]
+          },
+          {
+            "title": "7.3 Section Formula",
+            "explanation": "This section explores the section formula in coordinate geometry. It explains how to find the coordinates of a point that divides a line segment in a given ratio. The section provides the formula for the section formula and examples to illustrate its usage.",
+            "keyPoints": [
+              "- The section formula is used to find the coordinates of a point that divides a line segment in a given ratio.",
+              "- The formula is given by: (x, y) = ((m₁x₂ + m₂x₁)/(m₁ + m₂), (m₁y₂ + m₂y₁)/(m₁ + m₂)), where (x₁, y₁) and (x₂, y₂) are the coordinates of the endpoints of the line segment, and m₁ and m₂ are the ratios.",
+              "- The section formula applies to both internal and external division of line segments."
+            ],
+            "examples": [
+              "Example: Find the coordinates of the point dividing the line segment joining (-2, 3) and (4, -5) in the ratio 2:3 internally. Using the formula, (x, y) = ((2*4 + 3*(-2))/(2+3), (2*(-5) + 3*3)/(2+3)) = (2/5, -7/5)"
+            ]
+          },
+          {
+            "title": "7.4 Summary",
+            "explanation": "The summary of Chapter 7 provides a recap of the key concepts covered. It emphasizes the use of coordinates in studying geometric shapes, the derivation and application of the distance formula, and the section formula for dividing line segments. The section highlights the importance of coordinates in analyzing and solving problems in coordinate geometry.",
+            "keyPoints": [
+              "- The Cartesian coordinate system is used in coordinate geometry to represent points on a plane.",
+              "- The distance formula calculates the distance between two points using their coordinates.",
+              "- The section formula finds the coordinates of a point that divides a line segment in a given ratio."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 8: Introduction to Trigonometry",
+        "subTopics": [
+          {
+            "title": "8.1 Introduction",
+            "explanation": "The introduction to trigonometry provides an overview of the basic concepts and principles of trigonometry. It explains the relationships between angles and sides in a right-angled triangle, and introduces the trigonometric functions sine, cosine, and tangent. This section establishes the foundation for understanding trigonometry and its applications.",
+            "keyPoints": [
+              "- Trigonometry deals with the relationships between angles and sides in triangles.",
+              "- In a right-angled triangle, the hypotenuse is the longest side, opposite the right angle.",
+              "- Trigonometric functions include sine (sin), cosine (cos), and tangent (tan)."
+            ],
+            "examples": [
+              "Example: In a right-angled triangle with an angle of 30 degrees, the side opposite the angle is half the length of the hypotenuse.",
+              "Example: Given the length of the adjacent side and the hypotenuse, the cosine function can be used to find the angle."
+            ]
+          },
+          {
+            "title": "8.2 Trigonometric Ratios",
+            "explanation": "This section explores the trigonometric ratios in detail. It explains how to define and calculate the sine, cosine, and tangent ratios for a given angle in a right-angled triangle. The section provides formulas and examples to illustrate the application of trigonometric ratios.",
+            "keyPoints": [
+              "- Trigonometric ratios are defined based on the relationships between sides in a right-angled triangle.",
+              "- The sine ratio (sin) is the ratio of the length of the side opposite the angle to the hypotenuse.",
+              "- The cosine ratio (cos) is the ratio of the length of the adjacent side to the hypotenuse.",
+              "- The tangent ratio (tan) is the ratio of the length of the side opposite the angle to the length of the adjacent side."
+            ],
+            "examples": [
+              "Example: Given a right-angled triangle with an angle of 45 degrees, the sine ratio is equal to 1/sqrt(2), the cosine ratio is equal to 1/sqrt(2), and the tangent ratio is equal to 1.",
+              "Example: In a right-angled triangle with an angle of 60 degrees, the sine ratio is sqrt(3)/2, the cosine ratio is 1/2, and the tangent ratio is sqrt(3)."
+            ]
+          },
+          {
+            "title": "8.3 Trigonometric Ratios of Some Specific Angles",
+            "explanation": "This section focuses on specific angles and their corresponding trigonometric ratios. It provides a table or formula to calculate the sine, cosine, and tangent ratios for common angles, such as 0 degrees, 30 degrees, 45 degrees, 60 degrees, and 90 degrees. The section includes examples to demonstrate the application of trigonometric ratios for these angles.",
+            "keyPoints": [
+              "- Trigonometric ratios for specific angles, such as 0 degrees, 30 degrees, 45 degrees, 60 degrees, and 90 degrees, have specific values.",
+              "- These values can be calculated using the properties of right-angled triangles and the unit circle.",
+              "- Memorizing the trigonometric ratios for common angles can be helpful in solving trigonometry problems efficiently."
+            ],
+            "examples": [
+              "Example: For a 45-degree angle in a right-angled triangle, the sine ratio is equal to cos ratio, which is 1/sqrt(2), and the tangent ratio is equal to 1.",
+              "Example: For a 60-degree angle in a right-angled triangle, the sine ratio is sqrt(3)/2, the cosine ratio is 1/2, and the tangent ratio is sqrt(3)."
+            ]
+          },
+          {
+            "title": "8.4 Trigonometric Identities",
+            "explanation": "This section introduces trigonometric identities, which are equations involving trigonometric functions. It explains the concept of reciprocal identities, quotient identities, and Pythagorean identities. The section provides examples and formulas to illustrate the application of trigonometric identities in solving trigonometry problems.",
+            "keyPoints": [
+              "- Trigonometric identities are equations involving trigonometric functions.",
+              "- Reciprocal identities relate the reciprocals of trigonometric functions.",
+              "- Quotient identities relate the ratios of trigonometric functions.",
+              "- Pythagorean identities are based on the Pythagorean theorem and relate the squares of trigonometric functions."
+            ],
+            "examples": [
+              "Example: The reciprocal identity states that sin(theta) = 1/csc(theta), where csc(theta) is the reciprocal of sine.",
+              "Example: The Pythagorean identity states that sin²(theta) + cos²(theta) = 1."
+            ]
+          },
+          {
+            "title": "8.5 Summary",
+            "explanation": "The summary of Chapter 8 provides a recap of the key concepts covered in the chapter. It emphasizes the understanding of angles and sides in right-angled triangles, the definition and application of trigonometric ratios, the values of trigonometric ratios for specific angles, and the importance of trigonometric identities in solving trigonometry problems.",
+            "keyPoints": [
+              "- Trigonometry involves the relationships between angles and sides in triangles.",
+              "- Trigonometric ratios, such as sine, cosine, and tangent, define the relationships between sides in right-angled triangles.",
+              "- Specific angles have specific trigonometric ratio values.",
+              "- Trigonometric identities are equations involving trigonometric functions and are useful in solving trigonometry problems."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 9: Some Applications of Trigonometry",
+        "subTopics": [
+          {
+            "title": "9.1 Heights and Distances",
+            "explanation": "The subtopic 'Heights and Distances' explores the practical applications of trigonometry in determining heights and distances. It covers topics such as angle of elevation, angle of depression, and solving problems related to heights and distances using trigonometric ratios. This section provides formulas, techniques, and examples to demonstrate the application of trigonometry in real-life scenarios.",
+            "keyPoints": [
+              "- Trigonometry is used to determine heights and distances in real-life situations.",
+              "- The angle of elevation is the angle between the line of sight and the horizontal when looking upwards.",
+              "- The angle of depression is the angle between the line of sight and the horizontal when looking downwards."
+            ],
+            "examples": [
+              "Example: Using the angle of elevation and the distance from the object, trigonometry can be used to determine the height of a building.",
+              "Example: The angle of depression and the distance from the observer can be used to calculate the depth of a valley."
+            ]
+          },
+          {
+            "title": "9.2 Summary",
+            "explanation": "The summary of Chapter 9 provides a brief overview of the key concepts covered in the chapter. It emphasizes the practical applications of trigonometry in determining heights and distances. The section highlights the use of trigonometric ratios, such as sine, cosine, and tangent, in solving problems related to heights and distances in real-life scenarios.",
+            "keyPoints": [
+              "- Trigonometry has practical applications in determining heights and distances.",
+              "- The angle of elevation and angle of depression are important concepts in solving problems related to heights and distances.",
+              "- Trigonometric ratios, such as sine, cosine, and tangent, are used in calculating heights and distances in real-life scenarios."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 10: Circles",
+        "subTopics": [
+          {
+            "title": "10.1 Introduction",
+            "explanation": "The introduction to circles provides an overview of the basic concepts and properties of circles. It explains the definition of a circle, its parts such as center, radius, and diameter, and the relationship between them. This section also introduces important terms like chord, secant, and tangent, and discusses their properties in relation to circles.",
+            "keyPoints": [
+              "- A circle is a closed curve consisting of all points equidistant from a fixed point called the center.",
+              "- The radius is the distance from the center to any point on the circle.",
+              "- The diameter is the longest chord in a circle and passes through the center.",
+              "- A chord is a line segment joining two points on the circumference of a circle.",
+              "- A secant is a line that intersects a circle in two distinct points.",
+              "- A tangent is a line that touches a circle at exactly one point."
+            ],
+            "examples": [
+              "Example: In a circle with a radius of 5 units, the diameter is 10 units.",
+              "Example: A chord that passes through the center of a circle is also a diameter."
+            ]
+          },
+          {
+            "title": "10.2 Tangent to a Circle",
+            "explanation": "This section focuses on the properties of tangents to a circle. It explains the concept of a tangent line, which is a line that touches the circle at exactly one point, and its relationship with the radius at the point of contact. The section provides formulas and techniques to determine the length of a tangent segment and solve problems related to tangents to a circle.",
+            "keyPoints": [
+              "- A tangent is a line that touches a circle at exactly one point.",
+              "- At the point of contact, the tangent line is perpendicular to the radius.",
+              "- The length of a tangent segment from a point outside the circle to the point of contact can be calculated using the Pythagorean theorem."
+            ],
+            "examples": [
+              "Example: Given a circle with a radius of 8 units and a point 10 units away from the center, the length of the tangent segment can be calculated using the Pythagorean theorem.",
+              "Example: The tangent line to a circle is always perpendicular to the radius at the point of contact."
+            ]
+          },
+          {
+            "title": "10.3 Number of Tangents from a Point on a Circle",
+            "explanation": "This section discusses the number of tangents that can be drawn from a point outside a circle. It explains that there can be two tangents from a point outside the circle and one tangent from a point on the circle. The section provides techniques and examples to determine the number of tangents and solve problems related to the number of tangents from a given point.",
+            "keyPoints": [
+              "- Two tangents can be drawn from a point outside the circle.",
+              "- One tangent can be drawn from a point on the circle."
+            ],
+            "examples": [
+              "Example: Given a circle and a point outside the circle, two tangents can be drawn from the point to the circle.",
+              "Example: If a point lies on the circle, only one tangent can be drawn from that point to the circle."
+            ]
+          },
+          {
+            "title": "10.4 Summary",
+            "explanation": "The summary of Chapter 10 provides a recap of the key concepts covered in the chapter. It emphasizes the understanding of circles, their parts, and the properties of tangents. The section highlights the definitions and properties of a circle, the relationship between tangents and the radius, and the number of tangents from a point outside or on the circle.",
+            "keyPoints": [
+              "- A circle is a closed curve with a center, radius, and diameter.",
+              "- A tangent is a line that touches a circle at exactly one point.",
+              "- At the point of contact, the tangent line is perpendicular to the radius.",
+              "- Two tangents can be drawn from a point outside the circle, while one tangent can be drawn from a point on the circle."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 11: Areas Related to Circles",
+        "subTopics": [
+          {
+            "title": "11.1 Areas of Sector and Segment of a Circle",
+            "explanation": "The subtopic 'Areas of Sector and Segment of a Circle' explores the concept of finding the areas of different parts of a circle, such as sectors and segments. It discusses the formulas and methods to calculate the area of a sector and the area of a segment. This section provides examples and techniques to solve problems related to finding the areas of sector and segment of a circle.",
+            "keyPoints": [
+              "- A sector is a region enclosed by two radii and an arc of a circle.",
+              "- The area of a sector can be calculated using the formula: (θ/360) * π * r^2, where θ is the central angle and r is the radius of the circle.",
+              "- A segment is the region enclosed by an arc and a chord of a circle.",
+              "- The area of a segment can be calculated by subtracting the area of the corresponding triangle from the area of the sector."
+            ],
+            "examples": [
+              "Example: Given a circle with a radius of 8 units and a central angle of 60 degrees, the area of the sector can be calculated using the formula.",
+              "Example: To find the area of a segment with a central angle of 120 degrees and a chord length of 10 units, first calculate the area of the corresponding sector and triangle, and then subtract the area of the triangle from the area of the sector."
+            ]
+          },
+          {
+            "title": "11.2 Summary",
+            "explanation": "The summary of Chapter 11 provides a brief overview of the key concepts covered in the chapter. It emphasizes the calculation of areas of sector and segment of a circle. The section highlights the formulas to find the area of a sector and the technique of subtracting the area of the corresponding triangle to calculate the area of a segment.",
+            "keyPoints": [
+              "- The area of a sector can be calculated using the formula: (θ/360) * π * r^2, where θ is the central angle and r is the radius of the circle.",
+              "- The area of a segment can be found by subtracting the area of the corresponding triangle from the area of the sector."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 12: Surface Areas and Volumes",
+        "subTopics": [
+          {
+            "title": "12.1 Introduction",
+            "explanation": "The introduction to 'Surface Areas and Volumes' provides an overview of the chapter and its relevance in real-life applications. It discusses the importance of calculating surface areas and volumes of different geometric solids in various contexts. This section also introduces the basic concepts and formulas used to calculate surface areas and volumes of common solids.",
+            "keyPoints": [
+              "- Surface area refers to the total area of all the faces of a solid object.",
+              "- Volume refers to the amount of space occupied by a three-dimensional object.",
+              "- Calculating surface areas and volumes is essential in various fields such as architecture, construction, and manufacturing.",
+              "- Different solids have specific formulas to calculate their surface areas and volumes."
+            ],
+            "examples": [
+              "Example: The surface area of a cuboid can be calculated by adding the areas of its six faces.",
+              "Example: The volume of a sphere can be calculated using the formula: (4/3) * π * r^3, where r is the radius of the sphere."
+            ]
+          },
+          {
+            "title": "12.2 Surface Area of a Combination of Solids",
+            "explanation": "This section focuses on finding the surface area of combinations of different solids. It explains the process of decomposing complex shapes into simpler shapes and calculating the surface areas of individual components. The section provides formulas and techniques to determine the surface areas of combinations of solids.",
+            "keyPoints": [
+              "- Combining different solids can result in complex shapes with multiple surfaces.",
+              "- To find the surface area of a combination of solids, decompose the shape into simpler components and calculate the surface areas of each component.",
+              "- Add the surface areas of individual components to find the total surface area of the combination."
+            ],
+            "examples": [
+              "Example: Given a combination of a cylinder and a cone, decompose the shape into individual components and calculate their surface areas. Finally, add the surface areas to find the total surface area of the combination.",
+              "Example: To find the surface area of a composite solid formed by combining a cube and a hemisphere, calculate the surface areas of the cube and hemisphere separately, and then add them."
+            ]
+          },
+          {
+            "title": "12.3 Volume of a Combination of Solids",
+            "explanation": "This section discusses finding the volume of combinations of different solids. It explains the process of decomposing complex shapes into simpler shapes and calculating the volumes of individual components. The section provides formulas and techniques to determine the volumes of combinations of solids.",
+            "keyPoints": [
+              "- Decompose a combination of solids into simpler components to calculate the volume.",
+              "- Calculate the volume of each component using the appropriate formulas.",
+              "- Add the volumes of individual components to find the total volume of the combination."
+            ],
+            "examples": [
+              "Example: Given a combination of a cuboid and a cylinder, decompose the shape into individual components and calculate their volumes. Finally, add the volumes to find the total volume of the combination.",
+              "Example: To find the volume of a composite solid formed by combining a cone and a hemisphere, calculate the volumes of the cone and hemisphere separately, and then add them."
+            ]
+          },
+          {
+            "title": "12.4 Summary",
+            "explanation": "The summary of Chapter 12 provides a recap of the key concepts covered in the chapter. It emphasizes the importance of calculating surface areas and volumes in real-life applications. The section highlights the formulas and techniques used to calculate the surface areas and volumes of different solids and their combinations.",
+            "keyPoints": [
+              "- Surface area refers to the total area of all the faces of a solid object.",
+              "- Volume refers to the amount of space occupied by a three-dimensional object.",
+              "- Calculating surface areas and volumes is essential in various fields such as architecture, construction, and manufacturing.",
+              "- Different solids have specific formulas to calculate their surface areas and volumes.",
+              "- Combinations of solids can be decomposed into simpler components to calculate their surface areas and volumes."
+            ],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 13: Statistics",
+        "subTopics": [
+          {
+            "title": "13.1 Introduction",
+            "explanation": "The introduction to 'Statistics' provides an overview of the chapter and its significance in data analysis and interpretation. It introduces the concept of statistics as a branch of mathematics that deals with the collection, organization, analysis, interpretation, and presentation of data. This section also discusses the importance of statistics in various fields and real-life applications.",
+            "keyPoints": [
+              "- Statistics is the study of data collection, analysis, interpretation, and presentation.",
+              "- Data plays a crucial role in decision-making and understanding various phenomena.",
+              "- Statistics helps in summarizing and making sense of large amounts of data.",
+              "- Statistical methods and techniques are used in various fields such as economics, social sciences, and research."
+            ],
+            "examples": []
+          },
+          {
+            "title": "13.2 Mean of Grouped Data",
+            "explanation": "This section focuses on finding the mean of grouped data. It explains the concept of grouped data, where data is organized into intervals or classes. The section provides the formula and method to calculate the mean of grouped data. It also discusses the weighted mean and its application in situations where each interval has a different weight or frequency.",
+            "keyPoints": [
+              "- Grouped data organizes data into intervals or classes.",
+              "- The mean of grouped data is calculated by finding the weighted average of the class marks or midpoints, considering the frequencies of the intervals.",
+              "- Weighted mean is used when intervals have different weights or frequencies."
+            ],
+            "examples": [
+              "Example: Given a frequency distribution table with intervals and their corresponding frequencies, calculate the mean of the grouped data using the formula for weighted mean.",
+              "Example: Calculate the mean of a grouped data set with unequal class widths and frequencies, considering the class marks and frequencies of each interval."
+            ]
+          },
+          {
+            "title": "13.3 Mode of Grouped Data",
+            "explanation": "This section discusses finding the mode of grouped data. It explains the concept of mode as the value that appears most frequently in a data set. The section provides the formula and method to calculate the mode of grouped data. It also discusses situations where the mode may be ambiguous or when there is no clear mode.",
+            "keyPoints": [
+              "- Mode is the value that occurs most frequently in a data set.",
+              "- The mode of grouped data is calculated by identifying the interval with the highest frequency.",
+              "- In some cases, the mode may be ambiguous or when there is no clear mode."
+            ],
+            "examples": [
+              "Example: Given a frequency distribution table with intervals and their corresponding frequencies, determine the mode of the grouped data by identifying the interval with the highest frequency.",
+              "Example: Calculate the mode of a grouped data set with unequal class widths and frequencies, considering the intervals and their frequencies."
+            ]
+          },
+          {
+            "title": "13.4 Median of Grouped Data",
+            "explanation": "This section focuses on finding the median of grouped data. It explains the concept of median as the middle value in a data set when arranged in ascending order. The section provides the formula and method to calculate the median of grouped data. It also discusses situations where the exact median cannot be determined and provides techniques to estimate the median.",
+            "keyPoints": [
+              "- Median is the middle value in a data set when arranged in ascending order.",
+              "- The median of grouped data is calculated by determining the interval containing the median.",
+              "- In some cases, the exact median cannot be determined, and estimation techniques like assumed mean or interpolation are used."
+            ],
+            "examples": [
+              "Example: Given a frequency distribution table with intervals and their corresponding frequencies, find the median of the grouped data by identifying the interval containing the median.",
+              "Example: Calculate the median of a grouped data set with unequal class widths and frequencies, considering the intervals and their frequencies."
+            ]
+          },
+          {
+            "title": "13.5 Summary",
+            "explanation": "The summary section of Chapter 13 provides a brief recap of the key concepts covered in the chapter. It summarizes the introduction to statistics, mean of grouped data, mode of grouped data, and median of grouped data. It emphasizes the importance of these statistical measures in analyzing and interpreting data and making informed decisions based on statistical analysis.",
+            "keyPoints": [],
+            "examples": []
+          }
+        ]
+      },
+      {
+        "chapter": "Chapter 14: Probability",
+        "subTopics": [
+          {
+            "title": "14.1 Probability — A Theoretical Approach",
+            "explanation": "The section 'Probability - A Theoretical Approach' introduces the concept of probability and its theoretical foundations. It discusses the basic definitions and principles of probability, including sample spaces, events, and the classical probability approach. The section also explores the concept of complementary events, addition and multiplication rules of probability, and the concept of conditional probability.",
+            "keyPoints": [
+              "- Probability is the measure of the likelihood of an event occurring.",
+              "- Sample space represents the set of all possible outcomes of an experiment.",
+              "- Events are subsets of the sample space that correspond to specific outcomes or combinations of outcomes.",
+              "- Classical probability applies to situations where all outcomes are equally likely.",
+              "- Complementary events are events that represent the outcomes not occurring.",
+              "- Addition and multiplication rules of probability govern the combination of events and their probabilities.",
+              "- Conditional probability measures the probability of an event occurring given that another event has already occurred."
+            ],
+            "examples": []
+          },
+          {
+            "title": "14.2 Summary",
+            "explanation": "The summary section of Chapter 14 provides a concise overview of the key concepts covered in the chapter. It summarizes the theoretical approach to probability, including sample spaces, events, classical probability, complementary events, addition and multiplication rules of probability, and conditional probability. The summary highlights the significance of probability theory in various fields, such as statistics, decision-making, and risk analysis.",
+            "keyPoints": [],
+            "examples": []
+          }
+        ]
+      }
+]

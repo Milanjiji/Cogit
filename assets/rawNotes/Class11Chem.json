@@ -1,5 +1,5 @@
-{
-    "BasicConceptofChemistry":{
+[
+   {
         "chapter": "Basic Concepts of Chemistry",
         "chapterOverview": "Chapter 1 introduces the fundamental concepts of chemistry, including matter, elements, compounds, and mixtures. It covers topics such as the classification of matter, atomic structure, chemical symbols and formulas, and various concepts related to chemical reactions and equations.",
         "topics": [
@@ -126,7 +126,7 @@
             }
         ]
     },
-    "AtomicStructure":{
+    {
         "chapter": "Atomic Structure",
         "chapterOverview": "Chapter 2 explores the structure of atoms and focuses on subatomic particles, atomic models, and the organization of the periodic table. It covers topics such as the discovery of electrons, protons, and neutrons, Bohr's atomic model, quantum numbers, and the arrangement of elements in the periodic table.",
         "topics": [
@@ -232,7 +232,7 @@
             }
         ]
     },
-    "ClassificationofElementsandPeriodicityinProperties":{
+    {
         "chapter": "Classification of Elements and Periodicity in Properties",
   "chapterOverview": "Chapter 3 explores the classification of elements and the periodic trends in their properties. It covers topics such as the periodic table, periods, groups, and the relationship between atomic structure and periodicity. The chapter also discusses periodic trends in atomic radius, ionization energy, electron affinity, and electronegativity.",
   "topics": [
@@ -317,7 +317,7 @@
     }
   ]
     },
-    "ChemicalbondingandMolecularStructure":{
+    {
         "chapter": "Chemical Bonding and Molecular Structure",
   "chapterOverview": "Chapter 4 explores the concept of chemical bonding and the structure of molecules. It covers topics such as different types of chemical bonds, Lewis structures, VSEPR theory, and the shapes of molecules. The chapter also discusses intermolecular forces and their impact on physical properties.",
   "topics": [
@@ -419,7 +419,7 @@
     }
   ]
     },
-    "StatesofMatter":{
+    {
         "chapter": "States of Matter",
   "chapterOverview": "Chapter 5 focuses on the different states of matter and their properties. It covers topics such as the kinetic molecular theory, intermolecular forces, and the behavior of gases, liquids, and solids. The chapter also discusses phase transitions, vapor pressure, and the relationship between temperature, pressure, and volume.",
   "topics": [
@@ -492,7 +492,7 @@
     }
   ]
     },
-    "Thermodynamics":{
+    {
         "chapter": "Thermodynamics",
   "chapterOverview": "Chapter 6 delves into the study of thermodynamics, which deals with energy changes and the relationships between heat, work, and internal energy. It covers topics such as the first law of thermodynamics, enthalpy, entropy, and Gibbs free energy. The chapter also explores concepts like heat transfer, calorimetry, and various thermodynamic processes.",
   "topics": [
@@ -603,7 +603,7 @@
     }
   ]
     },
-    "Equilibrium":{
+    {
         "chapter": "Equilibrium",
   "chapterOverview": "Chapter 7 explores the concept of equilibrium in chemical reactions. It covers topics such as reversible reactions, dynamic equilibrium, Le Chatelier's principle, and the equilibrium constant. The chapter also discusses factors that affect equilibrium, such as temperature, pressure, and concentration, as well as the applications of equilibrium in industrial processes.",
   "topics": [
@@ -689,7 +689,7 @@
     }
   ]
     },
-    "RedoxReactions":{
+    {
         "chapter": "Redox Reactions",
   "chapterOverview": "Chapter 8 focuses on redox reactions, which involve the transfer of electrons between species. It covers topics such as oxidation and reduction, balancing redox equations, oxidation number, and electrochemical cells. The chapter also explores the applications of redox reactions in various fields, including batteries, corrosion, and electrolysis.",
   "topics": [
@@ -792,7 +792,7 @@
     }
   ]
     },
-    "Hydrogen":{
+    {
         "chapter": "Hydrogen",
   "chapterOverview": "Chapter 9 explores the properties, occurrence, and uses of hydrogen, the lightest and most abundant element in the universe. It covers topics such as isotopes of hydrogen, hydrides, water, and hydrogen as a fuel. The chapter also discusses the various industrial applications of hydrogen and its role in sustainable energy production.",
   "topics": [
@@ -891,7 +891,7 @@
     }
   ]
     },
-    "Thes-blockelements":{
+    {
         "chapter": "The s-block Elements",
   "chapterOverview": "Chapter 10 focuses on the s-block elements, which include the alkali metals and alkaline earth metals. It explores their general characteristics, electronic configurations, occurrence, and trends in physical and chemical properties. The chapter also discusses the importance and applications of these elements in various fields, such as medicine, agriculture, and industry.",
   "topics": [
@@ -998,7 +998,7 @@
     }
   ]
     },
-    "Thep-blockelements":{
+    {
         "chapter": "The p-block Elements",
   "chapterOverview": "Chapter 11 explores the p-block elements, which include elements from Group 13 to Group 18 of the periodic table. It focuses on their electronic configurations, general properties, occurrence, and trends in physical and chemical behavior. The chapter also discusses the diverse applications of p-block elements in various fields, such as electronics, agriculture, and medicine.",
   "topics": [
@@ -1169,7 +1169,7 @@
     }
   ]
     },
-    "OrganicChemistry-SomeBasicPrinciples":{
+    {
         "chapter": "Organic Chemistry - Some Basic Principles",
   "chapterOverview": "Chapter 12 introduces the fundamental principles of organic chemistry. It covers topics such as the classification of organic compounds, nomenclature, isomerism, electronic displacement effects, and reactive intermediates. The chapter provides a foundation for understanding the structure, properties, and reactions of organic compounds.",
   "topics": [
@@ -1293,7 +1293,7 @@
     }
   ]
     },
-    "Hydrocarbons":{
+    {
         "chapter": "Hydrocarbons",
   "chapterOverview": "Chapter 13 focuses on hydrocarbons, which are organic compounds composed of carbon and hydrogen atoms. It covers the classification, nomenclature, and properties of hydrocarbons, as well as their various types, including alkanes, alkenes, alkynes, and aromatic hydrocarbons. The chapter also explores the preparation, reactions, and applications of hydrocarbons.",
   "topics": [
@@ -1404,7 +1404,7 @@
     }
   ]
     },
-    "EnvironmentalChemistry":{
+    {
         "chapter": "Environmental Chemistry",
   "chapterOverview": "Chapter 14 explores the field of environmental chemistry, which focuses on the study of chemical processes and their impact on the environment. It covers topics such as the composition and structure of the atmosphere, air pollution, water pollution, soil pollution, and strategies for environmental management and sustainability. The chapter highlights the role of chemistry in understanding and addressing environmental issues.",
   "topics": [
@@ -1519,4 +1519,4 @@
     }
   ]
     }
-}
+  ]

@@ -1,5 +1,5 @@
-{
-    "ch1":{
+[
+    {
         "chapter": "Real Numbers",
     "chapterOverview": "Chapter 1 of Mathematics class 10 introduces the concept of real numbers and their properties. It covers topics such as rational and irrational numbers, the decimal representation of rational numbers, operations on real numbers, and the Euclidean division algorithm. The chapter focuses on understanding the properties and relationships of real numbers and their applications in solving mathematical problems.",
     "topics": [
@@ -76,7 +76,7 @@
       }
     ]
     },
-    "ch2":{
+    {
         "chapter": "Polynomials",
     "chapterOverview": "Chapter 2 of Mathematics class 10 introduces the concept of polynomials and their properties. It covers topics such as degree and coefficients of polynomials, types of polynomials, operations on polynomials, and factorization of polynomials. The chapter focuses on understanding the algebraic expressions and equations involving polynomials and their applications in solving mathematical problems.",
     "topics": [
@@ -149,7 +149,7 @@
       }
     ]
     },
-    "ch3":{
+    {
         "chapter": "Pair of Linear Equations in Two Variables",
     "chapterOverview": "Chapter 3 of Mathematics class 10 introduces the concept of a pair of linear equations in two variables. It covers topics such as the graphical representation of linear equations, algebraic methods to solve simultaneous equations, consistency and inconsistency of a system of equations, and applications of linear equations in real-life situations. The chapter focuses on understanding the relationship between variables and solving problems using linear equations.",
     "topics": [
@@ -227,7 +227,7 @@
       }
     ]
     },
-    "ch4":{
+    {
         "chapter": "Quadratic Equations",
     "chapterOverview": "Chapter 4 of Mathematics class 10 introduces the concept of quadratic equations and their properties. It covers topics such as the standard form of a quadratic equation, methods to solve quadratic equations, discriminant, nature of roots, and graphical representation of quadratic equations. The chapter focuses on understanding the quadratic equations, their solutions, and their applications in various mathematical problems.",
     "topics": [
@@ -305,7 +305,7 @@
       }
     ]
     },
-    "ch5":{
+    {
         "chapter": "Arithmetic Progressions",
     "chapterOverview": "Chapter 5 of Mathematics class 10 introduces the concept of arithmetic progressions (AP) and their properties. It covers topics such as the definition of arithmetic progression, common difference, nth term of an AP, sum of first n terms of an AP, and applications of arithmetic progressions in real-life scenarios. The chapter focuses on understanding the patterns and relationships in arithmetic progressions and solving problems based on them.",
     "topics": [
@@ -362,7 +362,7 @@
       }
     ]
     },
-    "ch6":{
+    {
         "chapter": "Triangles",
     "chapterOverview": "Chapter 6 of Mathematics class 10 introduces the concept of triangles and their properties. It covers topics such as the definition of triangles, types of triangles based on sides and angles, congruence of triangles, similarity of triangles, and various properties of triangles. The chapter focuses on understanding the characteristics and relationships of triangles and their applications in solving geometric problems.",
     "topics": [
@@ -440,7 +440,7 @@
       }
     ]
     },
-    "ch7":{
+    {
         "chapter": "Coordinate Geometry",
     "chapterOverview": "Chapter 7 of Mathematics class 10 introduces the concept of coordinate geometry and its applications. It covers topics such as the Cartesian coordinate system, plotting points on a graph, distance formula, section formula, and various properties and applications of lines and shapes in coordinate geometry. The chapter focuses on understanding the relationship between algebra and geometry, and solving problems involving coordinates and geometric shapes.",
     "topics": [
@@ -527,7 +527,7 @@
       }
     ]
     },
-    "ch8":{
+    {
         "chapter": "Introduction to Trigonometry",
     "chapterOverview": "Chapter 8 of Mathematics class 10 introduces the fundamental concepts of trigonometry and its applications in solving problems related to triangles. It covers topics such as trigonometric ratios, trigonometric identities, and the application of trigonometry in real-world scenarios. The chapter focuses on understanding the relationships between angles and sides of a triangle and using trigonometry to calculate unknown quantities.",
     "topics": [
@@ -593,7 +593,7 @@
       }
     ]
     },
-    "ch9":{
+    {
         "chapter": "Some Applications of Trigonometry",
     "chapterOverview": "Chapter 9 of Mathematics class 10 explores various practical applications of trigonometry in real-life situations. It covers topics such as heights and distances, angles of elevation and depression, and applications in navigation and surveying. The chapter focuses on using trigonometric concepts and formulas to solve problems and make calculations in different scenarios.",
     "topics": [
@@ -643,7 +643,7 @@
       }
     ]
     },
-    "ch10":{
+    {
         "chapter": "Circles",
     "chapterOverview": "Chapter 10 of Mathematics class 10 explores the properties and characteristics of circles and their related concepts. It covers topics such as the definition of a circle, tangent and secant lines, chords, arcs, and angles in circles. The chapter focuses on understanding the various elements of a circle and their relationships, as well as solving problems involving circles in different scenarios.",
     "topics": [
@@ -717,7 +717,7 @@
       }
     ]
     },
-    "ch11":{
+    {
         "chapter": "Constructions",
     "chapterOverview": "Chapter 11 of Mathematics class 10 focuses on geometric constructions using basic tools such as compass and ruler. It covers topics such as constructing various geometric figures, such as angles, triangles, quadrilaterals, and circles, with specific given conditions. The chapter emphasizes the practical application of construction techniques to solve geometric problems and build accurate geometric shapes.",
     "topics": [
@@ -795,7 +795,7 @@
       }
     ]
     },
-    "ch12":{
+    {
         "chapter": "Areas Related to Circles",
     "chapterOverview": "Chapter 12 of Mathematics class 10 explores the concept of areas related to circles and their applications. It covers topics such as the area of a circle, the circumference of a circle, and the areas of sectors and segments of a circle. The chapter focuses on understanding the formulas and properties associated with these areas and solving problems involving circle-related measurements.",
     "topics": [
@@ -852,7 +852,7 @@
       }
     ]
     },
-    "ch13":{
+    {
       "chapter": "Surface Areas and Volumes",
     "chapterOverview": "Chapter 13 of Mathematics class 10 focuses on the concepts of surface areas and volumes of various three-dimensional shapes. It covers topics such as finding the surface area and volume of cubes, cuboids, cylinders, cones, and spheres. The chapter emphasizes understanding the formulas and techniques to calculate surface areas and volumes of different shapes and solving related problems.",
     "topics": [
@@ -951,7 +951,7 @@
       }
     ]
     },
-    "ch14":{
+    {
       "chapter": "Statistics",
     "chapterOverview": "Chapter 14 of Mathematics class 10 focuses on the concepts of statistics and data analysis. It covers topics such as collection, presentation, and interpretation of data. The chapter introduces measures of central tendency like mean, median, and mode, as well as measures of dispersion like range and mean deviation. It also discusses the construction and interpretation of bar graphs, histograms, and pie charts to represent data visually.",
     "topics": [
@@ -1037,7 +1037,7 @@
       }
     ]
     },
-    "ch15":{
+    {
       "chapter": "Probability",
     "chapterOverview": "Chapter 15 of Mathematics class 10 introduces the concept of probability, which is the likelihood or chance of an event occurring. It covers topics such as theoretical probability, experimental probability, and probability of simple events. The chapter also discusses the concepts of complementary events, mutually exclusive events, and independent events. It emphasizes the use of probability to solve real-life problems and make informed decisions.",
     "topics": [
@@ -1124,4 +1124,4 @@
       }
     ]
     }
-}
+  ]

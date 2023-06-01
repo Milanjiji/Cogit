@@ -1,5 +1,5 @@
-{
-    "PhysicalWorld": {
+[
+  {
         "chapter": "Physical World",
         "chapterOverview": "Chapter 1 of Physics class 11 introduces the concept of the physical world and its fundamental principles. It explores the nature of physics, its scope, and its significance in understanding the physical universe. The chapter also covers the scientific method, measurement, units, and the role of experimentation in physics.",
         "topics": [
@@ -101,7 +101,7 @@
           }
         ]
       },
-      "UnitsAndMeasurement": {
+      {
         "chapter": "Units and Measurement",
         "chapterOverview": "Chapter 2 of Physics class 11 focuses on the concept of units and measurements. It covers the importance of measurement in science, the need for standard units, and different systems of measurement. The chapter also introduces various physical quantities, their units, and the techniques of measurement in physics.",
         "topics": [
@@ -216,7 +216,7 @@
           }
         ]
       },
-      "MotionInAStraightLine": {
+      {
         "chapter": "Motion in a Straight Line",
         "chapterOverview": "Chapter 3 of Physics class 11 deals with the motion of objects in a straight line. It explores the concepts of distance, displacement, speed, velocity, and acceleration. The chapter introduces the equations of motion and covers topics such as uniformly accelerated motion and graphical representation of motion.",
         "topics": [
@@ -290,7 +290,7 @@
           }
         ]
       },
-      "MotionInAPlane": {
+   {
         "chapter": "Motion in a Plane",
         "chapterOverview": "Chapter 4 of Physics class 11 explores the motion of objects in a two-dimensional plane. It covers topics such as vectors, vector addition and subtraction, scalar and vector products, projectile motion, and circular motion. The chapter introduces the concept of components of vectors and the use of vector notation to describe motion in a plane.",
         "topics": [
@@ -359,7 +359,7 @@
           }
         ]
       },
-      "LawsOfMotion": {
+     {
         "chapter": "Laws of Motion",
         "chapterOverview": "Chapter 5 of Physics class 11 introduces the fundamental laws of motion as described by Sir Isaac Newton. It covers Newton's three laws of motion, the concept of inertia, force, momentum, and the application of these laws to different physical scenarios.",
         "topics": [
@@ -437,7 +437,7 @@
           }
         ]
       },
-      "WorkEnergyPower": {
+   {
         "chapter": "Work-Energy-Power",
         "chapterOverview": "Chapter 6 of Physics class 11 explores the concepts of work, energy, and power. It covers topics such as the definition of work, different forms of energy, the principle of conservation of energy, various types of energy transformations, and the calculation of power.",
         "topics": [
@@ -507,7 +507,7 @@
           }
         ]
       },
-      "SystemParticlesRotationalMotion": {
+      {
         "chapter": "System of Particles and Rotational Motion",
         "chapterOverview": "Chapter 7 of Physics class 11 explores the concepts of system of particles and rotational motion. It covers topics such as the center of mass, linear momentum, torque, angular momentum, rotational dynamics, and the motion of rigid bodies.",
         "topics": [
@@ -581,7 +581,7 @@
           }
         ]
       },
-      "Gravitation": {
+{
         "chapter": "Gravitation",
         "chapterOverview": "Chapter 8 of Physics class 11 explores the fundamental concepts of gravitation. It covers topics such as the law of gravitation, Kepler's laws of planetary motion, gravitational potential energy, escape velocity, and the motion of satellites.",
         "topics": [
@@ -651,7 +651,7 @@
           }
         ]
       },
-      "MechanicalPropertiesSolids": {
+ {
         "chapter": "Mechanical Properties of Solids",
         "chapterOverview": "Chapter 9 of Physics class 11 explores the mechanical properties of solids. It covers topics such as stress, strain, elastic behavior, Hooke's law, modulus of elasticity, and various types of deformation and stress-strain relationships.",
         "topics": [
@@ -733,7 +733,7 @@
           }
         ]
       },
-      "Fluids": {
+ {
         "chapter": "Fluids",
         "chapterOverview": "Chapter 10 of Physics class 11 explores the properties and behavior of fluids. It covers topics such as pressure, Pascal's law, Archimedes' principle, buoyancy, surface tension, and viscosity.",
         "topics": [
@@ -807,7 +807,7 @@
           }
         ]
       },
-      "ThermalPropertiesMatter": {
+     {
         "chapter": "Thermal Properties of Matter",
         "chapterOverview": "Chapter 11 of Physics class 11 explores the thermal properties of matter. It covers topics such as temperature, heat, specific heat capacity, calorimetry, thermal expansion, and the laws of thermodynamics.",
         "topics": [
@@ -885,7 +885,7 @@
           }
         ]
       },
-      "Thermodynamics": {
+    {
         "chapter": "Thermodynamics",
         "chapterOverview": "Chapter 12 of Physics class 11 explores the principles and concepts of thermodynamics. It covers topics such as heat engines, laws of thermodynamics, entropy, Carnot cycle, and efficiency.",
         "topics": [
@@ -963,7 +963,7 @@
           }
         ]
       },
-      "KineticTheoryGases": {
+     {
         "chapter": "Kinetic Theory of Gases",
         "chapterOverview": "Chapter 13 of Physics class 11 focuses on the kinetic theory of gases. It covers topics such as the postulates of the kinetic theory, gas laws, mean free path, and kinetic interpretation of temperature.",
         "topics": [
@@ -1045,7 +1045,7 @@
           }
         ]
       },
-      "Oscillations": {
+  {
         "chapter": "Oscillations",
         "chapterOverview": "Chapter 14 of Physics class 11 explores the concept of oscillations. It covers topics such as simple harmonic motion, oscillatory motion of a mass-spring system, pendulum motion, and resonance.",
         "topics": [
@@ -1123,7 +1123,7 @@
           }
         ]
       },
-      "Waves": {
+   {
         "chapter": "Waves",
         "chapterOverview": "Chapter 15 of Physics class 11 explores the nature and properties of waves. It covers topics such as types of waves, wave parameters, wave motion, wave interference, and standing waves.",
         "topics": [
@@ -1221,4 +1221,4 @@
           }
         ]
       }
-}
+    ]

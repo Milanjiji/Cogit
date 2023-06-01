@@ -29,7 +29,7 @@ const Classification = ({navigation,route}) =>{
                     <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Detailed Explanation of Topics</Text>
                     <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Each Topic explained induvidually</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
+                <TouchableOpacity onPress={()=>{navigation.navigate('DeepClassfication',{sub:sub})}} style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Deep learn</Text>
                     <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Chapter explained Deeply</Text>
                 </TouchableOpacity>

@@ -34,6 +34,8 @@ import TermsCondition from "./TermsAndCondition";
 import Spalsh from "../Screens/SplashScreen";
 import Brief from "../Screens/Notes/Briefly";
 import BriefClassification from "../Screens/Notes/BrieflyClassification";
+import DeepClassification from "../Screens/Notes/ChapterDeepClassification";
+import DeepExplanation from "../Screens/Notes/ChapterDeep";
 
 
 
@@ -136,7 +138,15 @@ const Screens = () =>{
            <Stack.Screen
            name="BriefClassfication" 
            component={BriefClassification} />
-    
+           <Stack.Screen
+           name="Brief" 
+           component={Brief} />
+           <Stack.Screen
+           name="DeepClassfication" 
+           component={DeepClassification} />
+          <Stack.Screen
+           name="Deep" 
+           component={DeepExplanation} />
   
         </Stack.Navigator>
       </NavigationContainer>

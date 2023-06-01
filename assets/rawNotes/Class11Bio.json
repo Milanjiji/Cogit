@@ -1,5 +1,5 @@
-{
-    "BiologicalClassification": {
+[
+    {
         "chapter": "Biological Classification",
         "chapterOverview": "Chapter 1 of Biology class 11 introduces the concept of biological classification and taxonomy. It explores the organization and classification of living organisms based on their characteristics, evolutionary relationships, and shared features.",
         "topics": [
@@ -56,7 +56,7 @@
           }
         ]
       },
-      "PlantKingdom": {
+      {
         "chapter": "Plant Kingdom",
         "chapterOverview": "Chapter 2 of Biology class 11 focuses on the study of the plant kingdom. It explores the classification, characteristics, and diversity of plants, including their evolutionary history, life cycles, and adaptations to different environments.",
         "topics": [
@@ -147,7 +147,7 @@
           }
         ]
       },
-      "MorphologyFloweringPlants": {
+      {
         "chapter": "Morphology of Flowering Plants",
         "chapterOverview": "Chapter 3 of Biology class 11 focuses on the study of the morphology (external structure) of flowering plants. It explores the various parts of a plant, their functions, adaptations, and their role in plant growth, reproduction, and survival.",
         "topics": [
@@ -238,7 +238,7 @@
           }
         ]
       },
-      "AnatomyFloweringPlants": {
+      {
         "chapter": "Anatomy of Flowering Plants",
         "chapterOverview": "Chapter 4 of Biology class 11 focuses on the study of the internal structure and anatomy of flowering plants. It explores the different tissues, cells, and organs that make up plants, their functions, and their role in plant growth, development, and physiological processes.",
         "topics": [
@@ -321,7 +321,7 @@
           }
         ]
       },
-      "CellUnitLife": {
+      {
         "chapter": "Cell - The Unit of Life",
         "chapterOverview": "Chapter 5 of Biology class 11 focuses on the study of cells, which are the fundamental units of life. It explores the structure and functions of cells, their organization into tissues and organs, and their significance in understanding life processes.",
         "topics": [
@@ -428,7 +428,7 @@
           }
         ]
       },
-      "CellCycleDivision": {
+      {
         "chapter": "Cell Cycle and Cell Division",
         "chapterOverview": "Chapter 6 of Biology class 11 focuses on the study of the cell cycle, which is the series of events that take place in a cell leading to its division. It explores the different phases of the cell cycle, the process of mitosis and meiosis, and their significance in growth, development, and reproduction.",
         "topics": [
@@ -527,7 +527,7 @@
           }
         ]
       },
-      "TransportPlants": {
+      {
         "chapter": "Transport in Plants",
         "chapterOverview": "Chapter 7 of Biology class 11 focuses on the study of the transport system in plants. It explores the mechanisms by which plants transport water, minerals, and organic substances within their body, including the process of transpiration, absorption, and the role of specialized tissues like xylem and phloem.",
         "topics": [
@@ -622,7 +622,7 @@
           }
         ]
       },
-      "MineralNutrition": {
+      {
         "chapter": "Mineral Nutrition",
         "chapterOverview": "Chapter 8 of Biology class 11 focuses on the study of mineral nutrition in plants. It explores the essential mineral elements required by plants for their growth and development, their functions, and the processes of absorption, transport, and deficiency symptoms.",
         "topics": [
@@ -785,7 +785,7 @@
           }
         ]
       },
-      "PhotosynthesisPlants": {
+      {
         "chapter": "Photosynthesis in Higher Plants",
         "chapterOverview": "Chapter 9 of Biology class 11 focuses on the process of photosynthesis in higher plants. It explores the structure and function of chloroplasts, the light-dependent and light-independent reactions of photosynthesis, factors affecting photosynthesis, and the significance of photosynthesis in the ecosystem.",
         "topics": [
@@ -900,7 +900,7 @@
           }
         ]
       },
-      "RespirationPlants": {
+      {
         "chapter": "Respiration in Plants",
         "chapterOverview": "Chapter 10 of Biology class 11 focuses on the process of respiration in plants. It explores the different pathways of respiration, including aerobic and anaerobic respiration, the role of mitochondria in respiration, and the significance of respiration in plant growth and survival.",
         "topics": [
@@ -994,4 +994,4 @@
           }
         ]
       }
-}
+    ]

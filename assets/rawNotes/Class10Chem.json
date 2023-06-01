@@ -1,5 +1,5 @@
-{
-    "ch1":{
+[
+    {
         "chapter": "Chemical Reactions and Equations",
     "chapterOverview": "Chapter 1 of Chemistry class 10 explores the fundamental concepts of chemical reactions and equations. It introduces the different types of chemical reactions, such as combination reactions, decomposition reactions, displacement reactions, and redox reactions. The chapter also covers the balancing of chemical equations, the concept of oxidation and reduction, and the role of catalysts in chemical reactions.",
     "topics": [
@@ -90,7 +90,7 @@
       }
     ]
     },
-    "ch2":{
+    {
         "chapter": "Acids, Bases, and Salts",
     "chapterOverview": "Chapter 2 of Chemistry class 10 delves into the concepts of acids, bases, and salts. It explores the properties and behavior of acids and bases, their classification, and their role in various chemical reactions. The chapter also covers the pH scale, indicators, and the importance of acids, bases, and salts in everyday life.",
     "topics": [
@@ -185,7 +185,7 @@
       }
     ]
     },
-    "ch3":{
+    {
         "chapter": "Metals and Non-metals",
     "chapterOverview": "Chapter 3 of Chemistry class 10 explores the properties, occurrence, and uses of metals and non-metals. It discusses the physical and chemical properties of metals, including their malleability, ductility, conductivity, and reactivity. The chapter also covers the differences between metals and non-metals, their occurrence in nature, and their significance in various industries.",
     "topics": [
@@ -260,7 +260,7 @@
       }
     ]
     },
-    "ch4":{
+    {
         "chapter": "Carbon and its Compounds",
     "chapterOverview": "Chapter 4 of Chemistry class 10 focuses on the properties, bonding, and reactions of carbon compounds. It explores the unique characteristics of carbon, its ability to form a variety of compounds, and the importance of carbon compounds in our daily lives. The chapter also covers the nomenclature of organic compounds and the concept of functional groups.",
     "topics": [
@@ -368,7 +368,7 @@
       }
     ]
     },
-    "ch5":{
+    {
         "chapter": "Periodic Classification of Elements",
     "chapterOverview": "Chapter 5 of Chemistry class 10 introduces the concept of the periodic table and the organization of elements based on their properties. It explores the historical development of the periodic table, the modern periodic law, and the significance of periodicity in understanding the properties and trends of elements. The chapter also covers the classification of elements into periods and groups, the arrangement of elements based on atomic number, and the periodic trends in atomic size, valency, and metallic and non-metallic character.",
     "topics": [
@@ -462,4 +462,4 @@
       }
     ]
     }
-}
+  ]

@@ -1,5 +1,5 @@
-{
-    "ch1":{
+[
+    {
         "chapter": "Light - Reflection and Refraction",
             "chapterOverview": "Chapter 1 of Physics class 10 introduces the concepts of light, reflection, and refraction. It explores how light behaves when it interacts with different surfaces and media. The chapter covers the laws of reflection and refraction, the formation of images by mirrors and lenses, and various optical phenomena.",
             "topics": [
@@ -95,7 +95,7 @@
             }
             ]
         },
-        "ch2":{
+        {
             "chapter": "Human Eye and Colorful World",
             "chapterOverview": "Chapter 2 of Physics class 10 explores the structure and functioning of the human eye, as well as the phenomenon of vision and the perception of color. It covers topics such as the structure of the eye, the process of vision, defects of vision, corrective measures like lenses and glasses, and the formation of rainbows.",
             "topics": [
@@ -184,7 +184,7 @@
             }
             ]
         },
-        "ch3":{
+        {
             "chapter": "Electricity",
             "chapterOverview": "Chapter 3 of Physics class 10 introduces the fundamental concepts of electricity. It covers topics such as electric current, electric potential and potential difference, electrical resistance, Ohm's law, electrical circuits, and the heating effect of electric current.",
             "topics": [
@@ -283,7 +283,7 @@
             }
             ]
         },
-        "ch4":{
+        {
             "chapter": "Magnetic Effects of Electric Current",
             "chapterOverview": "Chapter 4 of Physics class 10 explores the relationship between electric currents and magnetic fields. It covers topics such as the magnetic field and field lines, the magnetic effect of a current-carrying conductor, the right-hand thumb rule, electromagnets, electric motors, and electromagnetic induction.",
             "topics": [
@@ -357,7 +357,7 @@
             }
             ]
         },
-        "ch5":{
+        {
             "chapter": "Sources of Energy",
             "chapterOverview": "Chapter 5 of Physics class 10 explores different sources of energy and their significance in our daily lives. It covers topics such as conventional sources of energy (like fossil fuels and thermal power plants), non-conventional sources of energy (like solar energy and wind energy), the importance of conservation of energy, and the environmental impact of different sources of energy.",
             "topics": [
@@ -448,4 +448,4 @@
             ]
         }
     
-}
+    ]

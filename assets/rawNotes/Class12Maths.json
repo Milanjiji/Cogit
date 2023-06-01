@@ -1,5 +1,5 @@
-{
-    "ch1":{
+[
+    {
         "chapter": "Relations and Functions",
     "chapterOverview": "Chapter 1 of Mathematics class 12 introduces the concept of relations and functions and their applications in various mathematical scenarios. It explores the fundamental definitions and properties of relations and functions, including domain, range, and mapping. The chapter covers different types of relations such as reflexive, symmetric, and transitive relations, as well as various types of functions like one-to-one, onto, and composite functions. It also delves into the composition of functions, inverse functions, and binary operations.",
     "topics": [
@@ -76,7 +76,7 @@
       }
     ]
     },
-    "ch2":{
+   {
         "chapter": "Inverse Trigonometric Functions",
     "chapterOverview": "Chapter 2 of Mathematics class 12 explores the concept of inverse trigonometric functions and their properties. It focuses on the inverse relations of trigonometric functions such as sine, cosine, tangent, cosecant, secant, and cotangent. The chapter discusses the domains and ranges of inverse trigonometric functions, along with their graphs and principal values. It also covers the evaluation of inverse trigonometric functions, their properties, and applications in solving trigonometric equations.",
     "topics": [
@@ -137,7 +137,7 @@
       }
     ]
     },
-    "ch3":{
+  {
         "chapter": "Matrices",
     "chapterOverview": "Chapter 3 of Mathematics class 12 introduces the concept of matrices and their operations. It covers the definition and representation of matrices, matrix addition, matrix subtraction, scalar multiplication, and matrix multiplication. The chapter also explores the properties of matrices, such as the commutative, associative, and distributive properties. It delves into the concept of identity matrix, transpose of a matrix, and inverse of a matrix. The chapter further discusses the applications of matrices in solving linear equations, finding the area of a triangle, and representing transformations in coordinate geometry.",
     "topics": [
@@ -240,7 +240,7 @@
       }
     ]
     },
-    "ch4":{
+   {
         "chapter": "Determinants",
     "chapterOverview": "Chapter 4 of Mathematics class 12 introduces the concept of determinants and their properties. It covers the definition and representation of determinants, as well as various methods to evaluate determinants, including the expansion method and the properties of determinants. The chapter also explores the concept of minors, cofactors, and adjoint of a matrix. It delves into the applications of determinants in solving systems of linear equations, finding the area of a triangle, and testing the consistency and independence of vectors.",
     "topics": [
@@ -322,7 +322,7 @@
       }
     ]
     },
-    "ch5":{
+{
         "chapter": "Continuity and Differentiability",
     "chapterOverview": "Chapter 5 of Mathematics class 12 introduces the concepts of continuity and differentiability of functions. It covers the definitions and properties of continuous and differentiable functions, along with the rules for differentiation. The chapter also explores the concept of derivatives, including the derivative of composite functions, implicit functions, and inverse trigonometric functions. It delves into the applications of derivatives in solving problems related to rates of change, tangents, and normals to curves, and optimization.",
     "topics": [
@@ -396,7 +396,7 @@
       }
     ]
     },
-    "ch6":{
+   {
         "chapter": "Application of Derivatives",
     "chapterOverview": "Chapter 6 of Mathematics class 12 explores the applications of derivatives in solving various problems. It covers the concepts of increasing and decreasing functions, maxima and minima of functions, and the first derivative test. The chapter also discusses the concepts of concavity, points of inflection, and the second derivative test. It delves into the applications of derivatives in solving problems related to optimization, finding tangents and normals to curves, and related rates.",
     "topics": [
@@ -482,7 +482,7 @@
       }
     ]
     },
-    "ch7":{
+   {
         "chapter": "Integrals",
     "chapterOverview": "Chapter 7 of Mathematics class 12 introduces the concept of integrals and their applications. It covers the definition and properties of integrals, along with various methods of finding integrals. The chapter explores the concept of definite and indefinite integrals, the fundamental theorem of calculus, and techniques such as substitution, integration by parts, and partial fractions. It delves into the applications of integrals in finding areas, volumes, and solving problems related to physics and economics.",
     "topics": [
@@ -543,7 +543,7 @@
       }
     ]
     },
-    "ch8":{
+    {
         "chapter": "Application of Integrals",
     "chapterOverview": "Chapter 8 of Mathematics class 12 explores the various applications of integrals in real-world problems. It covers the concepts of finding the area between curves, calculating the length of curves, and finding the area of a region bounded by curves. The chapter also discusses the applications of integrals in physics, such as calculating the displacement, velocity, and acceleration of an object. It further explores the concept of differential equations and their applications in growth and decay problems.",
     "topics": [
@@ -601,7 +601,7 @@
       }
     ]
     },
-    "ch9":{
+  {
         "chapter": "Differential Equations",
     "chapterOverview": "Chapter 9 of Mathematics class 12 focuses on the concept of differential equations and their solutions. It covers the types of differential equations, including ordinary and partial differential equations. The chapter explores various methods to solve first-order and second-order linear differential equations, such as the method of separation of variables, homogeneous and non-homogeneous equations, and the method of undetermined coefficients. It also delves into the applications of differential equations in various fields, such as physics, biology, and engineering.",
     "topics": [
@@ -658,7 +658,7 @@
       }
     ]
     },
-    "ch10":{
+  {
         "chapter": "Vector Algebra",
     "chapterOverview": "Chapter 10 of Mathematics class 12 introduces the concept of vector algebra and its applications. It covers the basics of vectors, including their representation, operations, and properties. The chapter explores topics such as scalar and vector products, projection of vectors, and lines and planes in vector form. It also discusses applications of vector algebra in various fields, such as physics, engineering, and computer graphics.",
     "topics": [
@@ -724,7 +724,7 @@
       }
     ]
     },
-    "ch11":{
+    {
         "chapter": "Three Dimensional Geometry",
         "chapterOverview": "Chapter 11 of Mathematics class 12 introduces the concept of three-dimensional geometry and its applications. It covers the basics of coordinate systems in three dimensions, distance and section formulas, direction ratios and cosines, and various types of lines and planes in space. The chapter also explores the concept of the shortest distance between two skew lines and the angle between two lines or planes. It discusses applications of three-dimensional geometry in various fields, such as physics, engineering, and computer graphics.",
         "topics": [
@@ -790,7 +790,7 @@
           }
         ]
     },
-    "ch12":{
+  {
         "chapter": "Linear Programming",
     "chapterOverview": "Chapter 12 of Mathematics class 12 introduces the concept of linear programming and its applications. It covers the basics of linear inequalities, graphical representation of linear inequalities, feasible region, and corner point method. The chapter explores topics such as graphical solution of linear programming problems, formulation of linear programming problems, and applications of linear programming in various fields, such as optimization in business and industry.",
     "topics": [
@@ -848,7 +848,7 @@
       }
     ]
     },
-    "ch13":{
+   {
         "chapter": "Probability",
     "chapterOverview": "Chapter 13 of Mathematics class 12 introduces the concept of probability and its applications. It covers the basics of probability theory, including the definition of probability, types of events, and rules of probability. The chapter explores topics such as conditional probability, multiplication theorem, independent events, and Bayes' theorem. It also discusses applications of probability in various fields, such as statistics, genetics, and gambling.",
     "topics": [
@@ -919,4 +919,4 @@
       }
     ]
     }
-}
+  ]

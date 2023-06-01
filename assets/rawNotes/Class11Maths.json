@@ -1,5 +1,5 @@
-{
-    "sets":{
+[
+    {
       "chapter": "Sets",
     "chapterOverview": "Sets are fundamental mathematical objects that represent collections of elements. This chapter introduces the basic concepts and operations related to sets. The chapter covers topics such as types of sets, representation of sets, operations on sets, subsets, and the universal set.",
     "topics": [
@@ -80,7 +80,7 @@
     },
 
 
-    "RelationsandFunctions":{
+    {
       "chapter": "Relations and Functions",
   "chapterOverview": "Chapter 2 introduces the concepts of relations and functions. It covers topics such as types of relations, representation of relations, types of functions, composition of functions, inverse functions, and binary operations.",
   "topics": [
@@ -162,7 +162,7 @@
 }
 
 ,
- "TrignometricFunctions":{
+ {
   "chapter": "Trigonometric Functions",
     "chapterOverview": "Chapter 3 introduces trigonometric functions and their properties. It covers topics such as angles, trigonometric ratios, Pythagorean identities, compound angles, and inverse trigonometric functions.",
   "topics": [
@@ -243,7 +243,7 @@
  },
 
 
- "PrincipleofMathematicalInduction":{
+ {
   "chapter": "Principle of Mathematical Induction",
   "chapterOverview": "Chapter 4 introduces the principle of mathematical induction as a powerful proof technique. It covers topics such as the statement of the principle, the basis step, the inductive step, and applications of mathematical induction.",
   "topics": [
@@ -308,7 +308,7 @@
     }
   ]
  },
- "ComplexNumbersandQuadratic Equations":{
+ {
   "chapter": "Complex Numbers and Quadratic Equations",
   "chapterOverview": "Chapter 5 introduces complex numbers and explores their relationship with quadratic equations. It covers topics such as complex numbers, operations on complex numbers, quadratic equations with complex roots, and graphical representation of complex numbers.",
   "topics": [
@@ -386,7 +386,7 @@
     }
   ]
  },
- "LinearInequalities":{
+{
   "chapter": "Linear Inequalities",
   "chapterOverview": "Chapter 6 focuses on linear inequalities and their graphical representation. It covers topics such as linear inequalities in one variable, linear inequalities in two variables, systems of linear inequalities, and applications of linear inequalities.",
   "topics": [
@@ -468,7 +468,7 @@
     }
   ]
  },
- "PermutationsandCombinations":{
+ {
   "chapter": "Permutations and Combinations",
   "chapterOverview": "Chapter 7 explores the concepts of permutations and combinations and their applications. It covers topics such as factorial notation, permutations of objects, combinations of objects, and the application of permutations and combinations in counting principles and probability.",
   "topics": [
@@ -550,7 +550,7 @@
     }
   ]
  },
- "Binomial Theorem":{
+ {
   "chapter": "Binomial Theorem",
   "chapterOverview": "Chapter 8 introduces the binomial theorem, which is a formula used to expand expressions involving binomials. It covers topics such as binomial coefficients, the statement of the binomial theorem, and the expansion of binomial expressions.",
   "topics": [
@@ -615,7 +615,7 @@
     }
   ]
  },
- "SequenceandSeries":{
+{
   "chapter": "Sequence and Series",
   "chapterOverview": "Chapter 9 focuses on sequences and series, which involve the study of ordered lists of numbers and their sums. It covers topics such as arithmetic progression, geometric progression, sum of terms, and their applications.",
   "topics": [
@@ -681,7 +681,7 @@
     }
   ]
  },
-"StraightLines":{
+{
   "chapter": "Straight Lines",
   "chapterOverview": "Chapter 10 focuses on the study of straight lines in a coordinate plane. It covers topics such as slope-intercept form, point-slope form, angle between two lines, distance between two points, and their applications.",
   "topics": [
@@ -756,7 +756,7 @@
     }
   ]
 },
-"ConicSections":{
+{
   "chapter": "Conic Sections",
   "chapterOverview": "Chapter 11 focuses on conic sections, which are curves obtained by intersecting a cone with a plane. It covers topics such as the circle, ellipse, parabola, hyperbola, their standard equations, properties, and applications.",
   "topics": [
@@ -843,7 +843,8 @@
     }
   ]
 },
-"Introduction to Three Dimensional Geometry":{
+
+{
   "chapter": "Introduction to Three Dimensional Geometry",
   "chapterOverview": "Chapter 12 introduces the concept of three-dimensional geometry and focuses on coordinates, distance, and sections in space. It covers topics such as the Cartesian coordinate system, distance formula, section formula, and various concepts related to lines and planes in three-dimensional space.",
   "topics": [
@@ -946,7 +947,7 @@
     }
   ]
 },
-"LimitsandDerivatives":{
+{
   "chapter": "Limits and Derivatives",
   "chapterOverview": "Chapter 13 focuses on the concepts of limits and derivatives, which are fundamental to the study of calculus. It covers topics such as limit of a function, continuity, derivative of a function, rules of differentiation, and their applications.",
   "topics": [
@@ -1007,7 +1008,7 @@
     }
   ]
 },
-"MathematicalReasoning":{
+{
   "chapter": "Mathematical Reasoning",
   "chapterOverview": "Chapter 14 focuses on mathematical reasoning, which involves logical thinking and analysis in mathematics. It covers topics such as statements, logical connectives, truth tables, mathematical arguments, and proof techniques.",
   "topics": [
@@ -1080,7 +1081,7 @@
     }
   ]
 },
-"Statistics":{
+{
   "chapter": "Statistics",
   "chapterOverview": "Chapter 15 focuses on statistics, which involves the collection, organization, analysis, interpretation, and presentation of data. It covers topics such as measures of central tendency, measures of dispersion, graphical representation of data, and probability.",
   "topics": [
@@ -1175,7 +1176,7 @@
     }
   ]
 },
-"Probability":{
+{
   "chapter": "Probability",
   "chapterOverview": "Chapter 16 focuses on probability, which is the study of uncertainty and the likelihood of events occurring. It covers topics such as basic concepts of probability, conditional probability, independent and dependent events, and probability distributions.",
   "topics": [
@@ -1265,8 +1266,8 @@
     }
   ]
 }
-}
 
+]
 
 
 

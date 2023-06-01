@@ -19,6 +19,7 @@ const AccountSettings = ({navigation}) =>{
     const [errorType,setErrorType] = useState('');
     const [errorWarn,setErrorWarn] = useState(false);
     const [Colors,setColors] = useState([]);
+    const [logOutSec,setLogOutSec] = useState(0);
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
@@ -173,6 +174,12 @@ const AccountSettings = ({navigation}) =>{
         }
     }
     }
+    const logOut = () =>{
+        setLogOutSec(logOutSec+1);
+        if(logOutSec === 1){
+            navigation.navigate('Details');
+        }
+    }
     
     return(
         <View style={{backgroundColor:Colors.primary,padding: 10,margin:3,borderRadius:10,elevation:10}}>
@@ -221,6 +228,12 @@ const AccountSettings = ({navigation}) =>{
                     <TouchableOpacity onPress={ChangePhone} style={[styles.update,{backgroundColor:Colors.secondary}]} >
                         <Text style={{color:phone ? Colors.text : Colors.primary,fontFamily:Colors.Medium,textAlign:'center'}} >Update</Text>
                     </TouchableOpacity>
+                </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={logOut} style={{marginTop:10}} >
+                <View style={{}} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Log Out</Text>
+                    <Text style={{display:logOutSec === 1 ? 'flex' : 'none',color:Colors.text,fontFamily:Colors.Medium,marginTop:10}} >Are you sure want to log out{"\n"}Press again to log out</Text>
                 </View>
             </TouchableOpacity>
         

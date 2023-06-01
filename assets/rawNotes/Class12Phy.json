@@ -1,5 +1,5 @@
-{
-    "ch1":{
+[
+    {
         "chapter": "Electric Charges and Fields",
     "chapterOverview": "Chapter 1 of Physics class 12 introduces the concept of electric charges and electric fields. It covers the basic properties of electric charges, Coulomb's law, electric field intensity, and electric field lines. The chapter explores topics such as Gauss's law, electric flux, and applications of electric fields in capacitors and conductors.",
     "topics": [
@@ -74,7 +74,7 @@
       }
     ]
     },
-    "ch2":{
+   {
         "chapter": "Electrostatic Potential and Capacitance",
     "chapterOverview": "Chapter 2 of Physics class 12 explores the concepts of electrostatic potential and capacitance. It covers topics such as electric potential, potential due to a point charge, potential due to a system of charges, and potential difference. The chapter also discusses capacitance, capacitors, and their applications in various electronic devices.",
     "topics": [
@@ -157,7 +157,7 @@
       }
     ]
     },
-    "ch3":{
+    {
         "chapter": "Current Electricity",
     "chapterOverview": "Chapter 3 of Physics class 12 explores the concepts of current electricity. It covers topics such as electric current, Ohm's law, electrical resistance, and the behavior of resistors in circuits. The chapter also discusses electrical power, electrical energy, and the series and parallel combinations of resistors.",
     "topics": [
@@ -236,7 +236,7 @@
       }
     ]
     },
-    "ch4":{
+   {
         "chapter": "Moving Charges and Magnetism",
     "chapterOverview": "Chapter 4 of Physics class 12 explores the concepts of moving charges and magnetism. It covers topics such as magnetic fields, magnetic force on a moving charge, and magnetic force on a current-carrying conductor. The chapter also discusses the Biot-Savart law, Ampere's law, and the behavior of magnetic materials.",
     "topics": [
@@ -319,7 +319,7 @@
       }
     ]
     },
-    "ch5":{
+    {
         "chapter": "Magnetism and Matter",
     "chapterOverview": "Chapter 5 of Physics class 12 focuses on the relationship between magnetism and matter. It explores the magnetic properties of different materials, such as diamagnetic, paramagnetic, and ferromagnetic substances. The chapter also covers magnetic hysteresis, electromagnetic induction, and applications of magnetic materials.",
     "topics": [
@@ -426,7 +426,7 @@
       }
     ]
     },
-    "ch6":{
+    {
         "chapter": "Electromagnetic Induction",
         "chapterOverview": "Chapter 6 of Physics class 12 focuses on the phenomenon of electromagnetic induction. It explores the generation of induced electromotive force (emf) and current in a conductor when it is exposed to a changing magnetic field. The chapter covers Faraday's and Lenz's laws, mutual induction, self-induction, and various applications of electromagnetic induction.",
         "topics": [
@@ -517,7 +517,7 @@
           }
         ]
     },
-    "ch7":{
+   {
         "chapter": "Alternating Current",
     "chapterOverview": "Chapter 7 of Physics class 12 focuses on the concept of alternating current (AC) and its characteristics. It covers topics such as AC voltage, AC current, frequency, amplitude, phase, reactance, impedance, power in AC circuits, and various AC circuits such as resistive, inductive, and capacitive circuits.",
     "topics": [
@@ -611,7 +611,7 @@
       }
     ]
     },
-    "ch8":{
+    {
         "chapter": "Electromagnetic Waves",
     "chapterOverview": "Chapter 8 of Physics class 12 focuses on the concept of electromagnetic waves and their properties. It covers topics such as the nature of electromagnetic waves, electromagnetic spectrum, properties of electromagnetic waves, production of electromagnetic waves, and applications of electromagnetic waves in various fields.",
     "topics": [
@@ -758,7 +758,7 @@
       }
     ]
     },
-    "ch9":{
+    {
         "chapter": "Ray Optics and Optical Instruments",
     "chapterOverview": "Chapter 9 of Physics class 12 focuses on the principles of ray optics and the functioning of various optical instruments. It covers topics such as reflection, refraction, laws of refraction, total internal reflection, optical instruments like lenses and mirrors, and their applications in real-life scenarios.",
     "topics": [
@@ -864,7 +864,7 @@
       }
     ]
     },
-    "ch10":{
+    {
         "chapter": "Wave Optics",
     "chapterOverview": "Chapter 10 of Physics class 12 focuses on the study of wave optics, which deals with the behavior of light as a wave. It covers topics such as interference, diffraction, polarization, and the wave nature of light. The chapter explores various experiments and phenomena that demonstrate the wave-like properties of light.",
     "topics": [
@@ -954,7 +954,7 @@
       }
     ]
     },
-    "ch11":{
+   {
         "chapter": "Dual Nature of Radiation and Matter",
     "chapterOverview": "Chapter 11 of Physics class 12 explores the dual nature of radiation and matter, which is a fundamental concept in quantum mechanics. It covers topics such as photoelectric effect, de Broglie wavelength, Davisson-Germer experiment, and the wave-particle duality of light and matter.",
     "topics": [
@@ -1019,7 +1019,7 @@
       }
     ]
     },
-    "ch12":{
+    {
         "chapter": "Atoms",
     "chapterOverview": "Chapter 12 of Physics class 12 explores the structure and properties of atoms. It covers topics such as atomic models, atomic spectra, Bohr's model of hydrogen atom, quantum numbers, electron configurations, and the periodic table.",
     "topics": [
@@ -1147,7 +1147,7 @@
       }
     ]
     },
-    "ch13":{
+    {
         "chapter": "Nuclei",
     "chapterOverview": "Chapter 13 of Physics class 12 explores the structure and properties of atomic nuclei. It covers topics such as nuclear properties, radioactive decay, nuclear reactions, nuclear energy, and nuclear fission and fusion.",
     "topics": [
@@ -1266,7 +1266,7 @@
       }
     ]
     },
-    "ch14":{
+   {
         "chapter": "Semiconductor Electronics: Materials, Devices and Simple Circuits",
     "chapterOverview": "Chapter 14 of Physics class 12 focuses on semiconductor materials, electronic devices, and simple circuits. It covers topics such as semiconductor physics, PN junction, diodes, transistors, logic gates, and amplifiers.",
     "topics": [
@@ -1385,4 +1385,4 @@
       }
     ]
     }
-}
+  ]

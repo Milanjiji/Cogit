@@ -1,5 +1,5 @@
-{
-    "ch1":{
+[
+    {
         "chapter": "Solutions",
     "chapterOverview": "Chapter 1 of Chemistry class 12 focuses on the topic of solutions. It covers various aspects related to solutions, including types of solutions, concentration units, colligative properties, and the behavior of ideal and non-ideal solutions.",
     "topics": [
@@ -85,7 +85,7 @@
       }
     ]
     },
-    "ch2":{
+    {
         "chapter": "Electrochemistry",
     "chapterOverview": "Chapter 2 of Chemistry class 12 focuses on the topic of electrochemistry. It covers various aspects related to electrochemical cells, redox reactions, electrolysis, and the quantitative aspects of electrolysis.",
     "topics": [
@@ -146,7 +146,7 @@
       }
     ]
     },
-    "ch3":{
+    {
         "chapter": "Chemical Kinetics",
     "chapterOverview": "Chapter 3 of Chemistry class 12 focuses on the topic of chemical kinetics. It explores the rate of chemical reactions, factors affecting reaction rate, rate laws, and the concept of reaction mechanisms.",
     "topics": [
@@ -246,7 +246,7 @@
       }
     ]
     },
-    "ch4":{
+   {
         "chapter": "The d- and f-Block Elements",
     "chapterOverview": "Chapter 4 of Chemistry class 12 focuses on the topic of the d- and f-block elements. It explores the properties, electronic configurations, and characteristics of transition metals and inner transition metals.",
     "topics": [
@@ -294,7 +294,7 @@
       }
     ]
     },
-    "ch5":{
+    {
         "chapter": "Coordination Compounds",
     "chapterOverview": "Chapter 5 of Chemistry class 12 focuses on the topic of coordination compounds. It explores the nature, properties, and nomenclature of coordination compounds, including their coordination numbers, ligands, and isomerism.",
     "topics": [
@@ -347,7 +347,7 @@
       }
     ]
     },
-    "ch6":{
+ {
         "chapter": "Haloalkanes and Haloarenes",
     "chapterOverview": "Chapter 6 of Chemistry class 12 focuses on the topic of haloalkanes and haloarenes. It explores the properties, nomenclature, and reactions of compounds containing halogen atoms attached to aliphatic and aromatic carbon atoms.",
     "topics": [
@@ -400,7 +400,7 @@
       }
     ]
     },
-    "ch7":{
+    {
         "chapter": "Alcohols, Phenols, and Ethers",
     "chapterOverview": "Chapter 7 of Chemistry class 12 focuses on the topic of alcohols, phenols, and ethers. It explores the properties, nomenclature, and reactions of these organic compounds, including their preparation methods and uses.",
     "topics": [
@@ -466,7 +466,7 @@
       }
     ]
     },
-    "ch8":{
+    {
         "chapter": "Aldehydes, Ketones, and Carboxylic Acids",
     "chapterOverview": "Chapter 8 of Chemistry class 12 focuses on the topic of aldehydes, ketones, and carboxylic acids. It explores the properties, nomenclature, and reactions of these organic compounds, including their preparation methods and uses.",
     "topics": [
@@ -549,7 +549,7 @@
       }
     ]
     },
-    "ch9":{
+   {
         "chapter": "Amines",
     "chapterOverview": "Chapter 9 of Chemistry class 12 focuses on the topic of amines. It explores the properties, nomenclature, and reactions of these organic compounds, including their classification, preparation methods, and uses.",
     "topics": [
@@ -645,7 +645,7 @@
       }
     ]
     },
-    "ch10":{
+    {
         "chapter": "Biomolecules",
     "chapterOverview": "Chapter 10 of Chemistry class 12 focuses on the study of biomolecules, which are essential for the functioning of living organisms. It explores various types of biomolecules, including carbohydrates, proteins, lipids, and nucleic acids, along with their structures, functions, and biological significance.",
     "topics": [
@@ -733,4 +733,4 @@
       }
     ]
     }
-}
+  ]

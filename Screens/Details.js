@@ -70,7 +70,7 @@ const Details = ({navigation,route}) =>{
             await AsyncStorage.setItem('password', Password)
             await AsyncStorage.setItem('school', school);
             await AsyncStorage.setItem('phone', phone);
-            await AsyncStorage.setItem('class', clas);
+            await AsyncStorage.setItem('class', JSON.stringify(clas));
             
             firestore()
                 .collection('Users')
@@ -116,7 +116,7 @@ const Details = ({navigation,route}) =>{
             await AsyncStorage.setItem('password', Password)
             await AsyncStorage.setItem('school', school);
             await AsyncStorage.setItem('phone', phone);
-            await AsyncStorage.setItem('class', clas);
+            await AsyncStorage.setItem('class', JSON.stringify(clas));
         }catch(e){
             console.log('err');
         }
@@ -205,7 +205,8 @@ const Details = ({navigation,route}) =>{
                 setClass(itemValue)}>
 
                 <Picker.Item style={styles.items}  label="10" value="10" />
-                <Picker.Item style={styles.items} label="+1/+2" value="+1" />
+                <Picker.Item style={styles.items} label="+1" value="+1" />
+                <Picker.Item style={styles.items} label="+2" value="+2" />
                 <Picker.Item style={styles.items} label="others" value="others" />
             </Picker>
 

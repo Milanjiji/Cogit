@@ -1,5 +1,5 @@
-{
-    "ch1":{
+[
+    {
         "chapter": "Life Processes",
     "chapterOverview": "Chapter 1 of Biology class 10 explores the various life processes that are essential for the survival and functioning of living organisms. It covers topics such as nutrition, respiration, transportation, excretion, and reproduction. The chapter emphasizes the importance of these processes in maintaining the overall health and well-being of organisms.",
     "topics": [
@@ -81,7 +81,7 @@
       }
     ]
     },
-    "ch2":{
+    {
         "chapter": "Control and Coordination",
     "chapterOverview": "Chapter 2 of Biology class 10 explores the concept of control and coordination in living organisms. It covers topics such as the nervous system, the endocrine system, the coordination between these systems, and the mechanisms by which organisms respond to various stimuli. The chapter emphasizes the importance of maintaining homeostasis and adaptability in organisms.",
     "topics": [
@@ -167,7 +167,7 @@
       }
     ]
     },
-    "ch3":{
+    {
         "chapter": "How do Organisms Reproduce?",
     "chapterOverview": "Chapter 3 of Biology class 10 explores the different modes and mechanisms of reproduction in organisms. It covers topics such as sexual reproduction, asexual reproduction, and the significance of reproduction in maintaining species continuity. The chapter emphasizes the diversity of reproductive strategies and their adaptations to different environmental conditions.",
     "topics": [
@@ -257,7 +257,7 @@
       }
     ]
     },
-    "ch4":{
+    {
         "chapter": "Heredity and Evolution",
     "chapterOverview": "Chapter 4 of Biology class 10 explores the concepts of heredity and evolution. It covers topics such as the principles of inheritance, genetic variations, natural selection, and the mechanisms of evolution. The chapter emphasizes the role of genetic factors and environmental influences in shaping the traits and diversity of living organisms.",
     "topics": [
@@ -351,7 +351,7 @@
       }
     ]
     },
-    "ch5":{
+    {
         "chapter": "Our Environment",
     "chapterOverview": "Chapter 5 of Biology class 10 focuses on understanding the environment and its various components. It covers topics such as ecosystems, food chains and webs, biodiversity, and conservation of natural resources. The chapter emphasizes the interdependence between living organisms and their surroundings, as well as the importance of sustainable practices for environmental preservation.",
     "topics": [
@@ -445,7 +445,7 @@
       }
     ]
     },
-    "ch6":{
+    {
         "chapter": "Sustainable Management of Natural Resources",
     "chapterOverview": "Chapter 6 of Biology class 10 focuses on the sustainable management of natural resources. It covers topics such as the importance of natural resources, their conservation, and the responsible utilization of resources for long-term sustainability. The chapter emphasizes the need for efficient resource management to meet the needs of the present generation while ensuring the availability of resources for future generations.",
     "topics": [
@@ -551,4 +551,4 @@
       }
     ]
     }
-}
+  ]
