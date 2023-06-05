@@ -4,7 +4,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "../../components/Header";
 import HomePageFootor from "../../components/HomePageFootor";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faDotCircle } from "@fortawesome/free-solid-svg-icons";
+import { faCaretSquareRight, faCircleNotch, faDotCircle, faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
 
 const DeepExplanation = ({navigation,route}) =>{
     const [Colors,setColors] = useState([])
@@ -30,13 +30,14 @@ const DeepExplanation = ({navigation,route}) =>{
                         return(
                             <View>
                                 <Text style={{color:Colors.text,marginTop:10,fontFamily:Colors.Bold}} >{item.title}</Text>
-                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10}} >{item.explanation}</Text>
+                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10,marginTop:10,marginBottom:15}} >{item.explanation}</Text>
                                 <View>
                                     <Text style={{color:Colors.text,marginTop:10,fontFamily:Colors.Bold}} >keyPoints:</Text>
                                     {
                                         item.keyPoints.map(item => {
                                             return(
-                                                <View>
+                                                <View key={item}  style={{flexDirection:'row',alignItems:'center',marginTop:5,marginHorizontal:20}} >
+                                                    <FontAwesomeIcon color={Colors.text} icon={faCaretSquareRight} />
                                                     <Text style={{color:Colors.text,marginTop:5,fontFamily:Colors.Medium,marginLeft:10}} >{item}</Text>
                                                 </View>
                                             )
@@ -48,7 +49,7 @@ const DeepExplanation = ({navigation,route}) =>{
                                     {
                                         item.examples.map(item => {
                                             return(
-                                                <View style={{flexDirection:'row',alignItems:'center',marginTop:5}} >
+                                                <View key={item}  style={{flexDirection:'row',alignItems:'center',marginTop:5,marginHorizontal:20}} >
                                                     <FontAwesomeIcon color={Colors.text} icon={faDotCircle} />
                                                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10}} >{item}</Text>
                                                 </View>    

@@ -21,7 +21,7 @@ const FocusMode = ({navigation}) => {
   const [bgm,setBGM] = useState(true);
   const [bgmConfig,setBGMConfig] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-  const [sound,setSound] = useState('10YyAB7jvmbGAOvyhBGo7YKuFLkkjV_sF');
+  const [sounds,setSound] = useState('10YyAB7jvmbGAOvyhBGo7YKuFLkkjV_sF');
   const [Colors,setColors] = useState([]);
     
     useEffect(()=>{
@@ -55,7 +55,18 @@ const FocusMode = ({navigation}) => {
     }else{
       setMode(RINGER_MODE.vibrate);
       setCurrentState(true);
+      const soundss  = sounds;
+      console.log(`https://drive.google.com/uc?id=${soundss}`);
+      const sound = new Sound(`https://drive.google.com/uc?id=${sound}`, '', (error) => {
+        if (error) {
+          console.log('Error loading sound: ', error);
+        } else {
+          sound.play();
+          console.log("playing");
+        }
+  });
     }
+    
   }
   const BGM = () =>{
     if(bgm){
