@@ -3,11 +3,12 @@ import React from "react";
 import { View,Text, StyleSheet, TouchableOpacity } from "react-native";
 import  Colors  from "../colors.json";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import Restart from 'react-native-restart';
+
 
 const AllSet  = ({navigation}) =>{
     const skip = () =>{
-        Restart.restart()
+        navigation.navigate('Home');
+        
     }
     return(
         <View style={styles.body} >
