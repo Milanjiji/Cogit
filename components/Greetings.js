@@ -49,7 +49,7 @@ const Greetings = ({navigation}) =>{
         }
     },[])
     return(
-        <View style={{backgroundColor:Colors.primary,elevation:20,marginBottom:10}} >
+        <View style={{marginBottom:10}} >
             <Header navigation={navigation} title="Cogit" info='' />
             <View style={[styles.body,{}]} >
                 

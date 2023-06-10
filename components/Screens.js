@@ -36,6 +36,8 @@ import Brief from "../Screens/Notes/Briefly";
 import BriefClassification from "../Screens/Notes/BrieflyClassification";
 import DeepClassification from "../Screens/Notes/ChapterDeepClassification";
 import DeepExplanation from "../Screens/Notes/ChapterDeep";
+import Skills from "../Screens/Skills";
+import PostSkill from "../Screens/PostSkills";
 
 
 
@@ -50,7 +52,7 @@ const Screens = () =>{
 
     return(
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="Splash"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
+        <Stack.Navigator initialRouteName="Skills"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
 
         <Stack.Screen
            name="Splash" 
@@ -147,6 +149,12 @@ const Screens = () =>{
           <Stack.Screen
            name="Deep" 
            component={DeepExplanation} />
+           <Stack.Screen
+           name="Skills" 
+           component={Skills} />
+           <Stack.Screen
+           name="PostSkills" 
+           component={PostSkill} />
   
         </Stack.Navigator>
       </NavigationContainer>

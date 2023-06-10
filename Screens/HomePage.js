@@ -16,7 +16,7 @@ import Colors from '../colors.json'
 import Greetings from '../components/Greetings';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Bar_Community from '../components/Bar_Community';
-import { NavigationContainer } from '@react-navigation/native';
+import Skills from '../components/ShowOffBar';
 
 
 
@@ -71,6 +71,7 @@ const Homepage = ({navigation,route}) =>{
                 <Greetings navigation={navigation} />
                         <Events navigation={navigation} />
                         <Bar_Community navigation={navigation} />
+                        <Skills navigation={navigation} />
                     <View style={{display:notes ? 'flex' : 'none'}} >
                         <Notes navigation={navigation} />
                     </View>
