@@ -19,6 +19,7 @@ const Notes = ({navigation}) =>{
     const [Colors,setColors] = useState([]);
     const [bannerPos,setBannerPos] = useState();
     const [notesPos,setNotesPos] = useState();
+    const [goto,setGoTo] = useState('')
 
 
     useEffect(()=>{
@@ -58,6 +59,8 @@ const Notes = ({navigation}) =>{
             setImageLink(selectedPanelFromData[0].ImageBackground);
             setPanelTitle(selectedPanelFromData[0].title)
             setPanelDisc(selectedPanelFromData[0].disc)
+            setGoTo(selectedPanelFromData[0].navigation) 
+            console.log(selectedPanelFromData[0].navigation);
         }
         get();
         
@@ -104,7 +107,7 @@ const Notes = ({navigation}) =>{
                     </View>
                 </View>
 
-                <TouchableOpacity style={{display:bannerPos ? 'none' :'flex'}}  >
+                <TouchableOpacity onPress={()=>{navigation.navigate(goto)}} style={{display:bannerPos ? 'none' :'flex'}}  >
                     <View style={[styles.container,{backgroundColor:Colors.secondary}]}>
                         <ImageBackground
                             source={{ uri: imageLink }}

@@ -47,21 +47,14 @@ const Community = ({navigation}) =>{
         <View style={[styles.App,{backgroundColor:Colors.Background}]} >
             <Header navigation={navigation} info="" title={'Community'} />
             <View style={{flex:1}} >
-                <TouchableOpacity onPress={()=>navigation.navigate('AddArticle')} >
-                    <View style={[styles.header,{backgroundColor:Colors.primary}]} >
-                        <Text style={[styles.header_Text,{color:Colors.text}]} >Try to post one!</Text>
-                        <TouchableOpacity style={styles.header_Btn} >
-                            <FontAwesomeIcon color={Colors.text} size={30} icon={faPlusSquare} />
-                        </TouchableOpacity>
-                    </View>
-                </TouchableOpacity>
+                
                 <FlatList
                 data={data}
                 keyExtractor={(item)=>item.id}
                 renderItem={renderItem}
                 />
             </View>
-            <HomePageFootor navigation={navigation} />
+            <HomePageFootor navigation={navigation} add={true} goto={'AddArticle'}/>
         </View>
     )
 }

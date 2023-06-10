@@ -8,19 +8,25 @@ import Colors from '../colors.json'
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import PreviewArticle from '../components/PreviewArticle';
+import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const PostSkill = ({navigation}) =>{
     const [title,setTitle] = useState('');
-    const [article,setArticle] = useState('');
-    const [extra,setExtra] = useState('');
-    const [overView,setOverView] = useState('');
+    const [disc,setDisc] = useState('');
+    const [link,setLink] = useState('');
+    const [face,setFace] = useState('');
+    const [insta,setInsta] = useState('');
+    const [tweet,setTweet] = useState('');
+    const [yt,setYt] = useState('');
+
+
     const [Colors,setColors] = useState([]);
+
     const [totalArticles,setTotalArticles] = useState();
-    const [btnText,setBtnText] = useState('Preview');
     const [warn,setWarn] = useState(false)
-    const [addPreviewToggler,setAddPreviewToggler] = useState(true);
     const [msgSuccess,setMsgSuccess] = useState(false);
     const [loading,setLoading] = useState(false);
+    const [name,setName] = useState('')
     useEffect(()=>{
         setMsgSuccess(false);
         const getColors = async()=>{
@@ -30,53 +36,67 @@ const PostSkill = ({navigation}) =>{
         }
         getColors();
         const lastId = async() =>{
-            const users = await firestore().collection('Community').get()
+            const users = await firestore().collection('Skills').get()
             setTotalArticles(users.size);
             console.log('totaol event => ',users.size);
         }
         lastId();
+        const getName = async() =>{
+            const name = await AsyncStorage.getItem('userName');
+            setName(name);
+            console.log(name);
+        }   
+        getName();
     },[])
 
     const Submit = async() =>{
         
             if(
-                btnText === 'Preview' && title && article
+                title && disc 
             ){
-                setAddPreviewToggler(false);
-                setBtnText('Post');
-                setWarn(false);
-                console.log(title,article);
-            
-            }else if(btnText === 'Post' && title && article){
-                setLoading(true);
-                try{
-                    firestore()
-                        .collection('Community')
-                        .add({
-                               Title:title,
-                               content:article,
-                               overView:overView,
-                               extra:extra,
-                               id:totalArticles+1
-                        })
-                        .then(() => {
-                        console.log('Message sent successfully');
-                        setMsgSuccess(true);
-                        setAddPreviewToggler(true);
-                        setBtnText('Preview');
-                        setTitle('');
-                        setArticle('');
-                        setOverView('');
-                        setExtra('');
-                        setLoading(false);
-                        })
-                        .catch((error) => {
-                        console.log('Error sending message:', error);
-                        });
-                        
-                        
-                }catch(e){
-                    console.log("error while adding data: ",e);
+                if(insta || face || tweet || yt){
+                    setLoading(true);
+                    setWarn(false);
+                    console.log(title,disc);
+                    try{
+                        firestore()
+                            .collection('Skills')
+                            .add({
+                                title:title,
+                                more:disc,                               
+                                id:totalArticles+1,
+                                insta:insta,
+                                face:face,
+                                tweet:tweet,
+                                yt:yt,
+                                seeMore:link,
+                                userName:name,
+                                like:0,
+                                comment:0
+                            })
+                            .then(() => {
+                            console.log('Message sent successfully');
+                            setMsgSuccess(true);
+                            setTitle('');
+                            setDisc('');
+                            setLink('');
+                            setFace('');
+                            setInsta('');
+                            setTweet('');
+                            setYt('');
+                            setLoading(false);
+                            navigation.navigate('Skills')
+                            })
+                            .catch((error) => {
+                            console.log('Error sending message:', error);
+                            });
+                            
+                            
+                    }catch(e){
+                        console.log("error while adding data: ",e);
+                    }
+                }else{
+                    setWarn(true);
                 }
             } else{
                 setWarn(true);
@@ -91,41 +111,59 @@ const PostSkill = ({navigation}) =>{
         <View style={{flex: 1,backgroundColor:Colors.Background}} >
             <Header navigation={navigation} info="ellipsis" title={'Post'} />
             <View style={{flex:1}} >
-                <ScrollView showsVerticalScrollIndicator={false} style={{display:addPreviewToggler ? 'flex' :'none'}} >
+
+                <ScrollView showsVerticalScrollIndicator={false} >
                     <View style={{marginHorizontal:20,marginTop:10}} >
                         <Text style={[styles.label,{color:Colors.text}]} >Title*:</Text>
-                        <TextInput placeholder='Heading' value={title} onChangeText={setTitle} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text,}]}  />
+                        <TextInput placeholder='What you can do' value={title} onChangeText={setTitle} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text,}]}  />
                     </View>
+
                     <View style={{marginHorizontal:20}} >
                         <Text style={[styles.label,{color:Colors.text}]} >Discription*:</Text>
-                        <TextInput placeholder='overView' value={overView} onChangeText={setOverView} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                        <TextInput placeholder='More about your skill' value={disc} onChangeText={setDisc} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
                     </View>
+
                     <View style={{marginHorizontal:20}} >
-                        <Text style={[styles.label,{color:Colors.text}]} >Article*:</Text>
-                        <TextInput placeholder='Content' multiline={true} value={article} onChangeText={setArticle} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                        <Text style={[styles.label,{color:Colors.text}]} >External Links:</Text>
+                        <TextInput placeholder='eg: www.youtube.com' multiline={true} value={link} onChangeText={setLink} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
                     </View>
+
+                    <Text style={{color:Colors.text,textAlign:'center',fontFamily:Colors.Medium}} >Must include any medium to see your skill</Text>
+
                     <View style={{marginHorizontal:20}} >
-                        <Text style={[styles.label,{color:Colors.text}]} >Extra(optional):</Text>
-                        <TextInput placeholder='ex: www.youtube.com' value={extra} onChangeText={setExtra} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                        <FontAwesomeIcon style={{marginLeft:10,marginBottom:5}} icon={faInstagram} color={Colors.text} />
+                        <TextInput placeholder='ex: @userName (optional)' value={insta} onChangeText={setInsta} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                    </View>
+
+                    <View style={{marginHorizontal:20}} >
+                        <FontAwesomeIcon style={{marginLeft:10,marginBottom:5}} icon={faFacebook} color={Colors.text} />
+                        <TextInput placeholder='ex: /userName (optional)' value={face} onChangeText={setFace} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                    </View>
+
+                    <View style={{marginHorizontal:20}} >
+                        <FontAwesomeIcon style={{marginLeft:10,marginBottom:5}} icon={faTwitter} color={Colors.text} />
+                        <TextInput placeholder='ex: userName (optional)' value={tweet} onChangeText={setTweet} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                    </View>
+
+                    <View style={{marginHorizontal:20}} >
+                        <FontAwesomeIcon style={{marginLeft:10,marginBottom:5}} icon={faYoutube} color={Colors.text} />
+                        <TextInput placeholder='ex: channel name (optional)' value={yt} onChangeText={setYt} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
                     </View>
                    
                 </ScrollView>
-                <ScrollView showsVerticalScrollIndicator={false} style={{display : !addPreviewToggler ? 'flex': 'none',flex: 1,}} >
-                    <PreviewArticle title={title} overView={overView} content={article} extra={extra}/>
-                    <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center',display:loading ? 'flex' : 'none'}} >Posting Article</Text>
-                </ScrollView>
+                
 
                 <Text style={{fontFamily:Colors.Medium,color:'red',textAlign:'center',display:warn ? 'flex' : 'none'}} >buddy, fill up the fields</Text>
 
-                <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center',display:msgSuccess ? 'flex' : 'none'}} >Article posted successfully</Text>
+                <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center',display:msgSuccess ? 'flex' : 'none'}} >Posted successfully</Text>
 
                 <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center',display:loading ? 'flex' : 'none'}} >posting...</Text>
 
                 <TouchableOpacity onPress={Submit} style={[styles.postBtn,{backgroundColor:Colors.secondary}]} >
-                    <Text style={[styles.postBtnText,{color:Colors.text}]} >{btnText}</Text>
+                    <Text style={[styles.postBtnText,{color:Colors.text}]} >Post</Text>
                 </TouchableOpacity>  
             </View>
-            <HomePageFootor navigation={navigation} />
+            <HomePageFootor navigation={navigation}  />
         </View>
     )
 }

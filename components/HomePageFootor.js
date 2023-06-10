@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import {
     SafeAreaView,
     ScrollView,
@@ -11,8 +11,9 @@ import {
   } from 'react-native';
   
   import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-  import {  faBook, faGear, faHome, faMessage } from '@fortawesome/free-solid-svg-icons';
+  import {  faAdd, faBook, faGear, faHome, faMessage } from '@fortawesome/free-solid-svg-icons';
 import { faFileText, faUser } from '@fortawesome/free-solid-svg-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
   const primary = "#04103a"
@@ -22,7 +23,21 @@ const black = "black"
 const white = "white"
 const ExtraBold = 'Montserrat-ExtraBold';
 
-const HomePageFootor = ({navigation,route,...props}) =>{
+const HomePageFootor = (props) =>{
+   
+    const navigation = props.navigation
+    const [Colors,setColors] = useState([]);
+
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+        }
+        getColors();
+        
+    },[])
+
     return(
         <View style={styles.background}   >
             <TouchableOpacity onPress={()=>{navigation.navigate('Home')}} style={styles.iconContainer} >
@@ -34,7 +49,14 @@ const HomePageFootor = ({navigation,route,...props}) =>{
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=>{navigation.navigate('Ai')}} style={styles.iconContainer} >
-                <Text style={{color:black,fontSize:23,fontFamily:ExtraBold}} >AI</Text>
+                {
+                    !props.add ?  
+                    <Text style={{color:black,fontSize:23,fontFamily:ExtraBold}} >AI</Text>:
+                    <TouchableOpacity onPress={()=>{navigation.navigate(props.goto)}} style={{borderBottomColor:black,borderBottomWidth:5,flex: 1,justifyContent:'center',marginBottom:2}} >
+                        <FontAwesomeIcon style={styles.icon} size={27} icon={faAdd} />
+                    </TouchableOpacity>
+                    
+                }
             </TouchableOpacity>
 
             <TouchableOpacity onPress={()=>{navigation.navigate('Forum')}} style={styles.iconContainer} >
@@ -60,7 +82,12 @@ const styles = StyleSheet.create({
         elevation:10
     },
     icon:{
-        fontSize:30
+        fontSize:30,
+        alignSelf:'center'
+    },
+    iconContainer:{
+        width:40,
+           
     }
 
 })

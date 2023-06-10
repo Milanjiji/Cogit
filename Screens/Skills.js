@@ -1,20 +1,25 @@
-import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
+import { faComment, faHeart as faHeartFree, faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React,{useEffect,useState} from 'react'
 import {FlatList, StyleSheet, Text,TouchableOpacity,View} from 'react-native'
 import Header from '../components/Header';
 import HomePageFootor from '../components/HomePageFootor';
 import Colors from '../colors.json'
-import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faCopy, faPlus, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import {  faCopy, faPlus, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import Clipboard from '@react-native-clipboard/clipboard';
+import firestore from '@react-native-firebase/firestore';
+
+
+
+const search = firestore().collection('Skills');
 
 const Skills = ({navigation}) =>{
     const [data,setData] = useState([])
     const [Colors,setColors] = useState([]);
-
+    const [likeLimit,setLikeLimit] = useState(false);
+    const [liked,setLiked] = useState([]) 
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
@@ -23,25 +28,58 @@ const Skills = ({navigation}) =>{
         }
         getColors();
         
+        
     },[])
-
+    console.log(liked);
     useEffect(() => {
         const get = async () =>{
             const CommunityData = await firestore().collection('Skills').get();
-            const data = CommunityData.docs.map(doc => doc.data())
+            const data = CommunityData.docs.map(doc => ({
+                i:doc.id,
+                ...doc.data()
+              }));
+              
             setData(data);
         }
         get();
         
       }, []);
 
-      const goToView = (title,overView,content,id)=>{
-        navigation.navigate('ViewArticle',{title,overView,content,id})
-      }
+      
       const Copy = (text) =>{
         Clipboard.setString(text);
       }
+      
+      const liketext = async(id,totalLikes) =>{
+        
+            try {
+            
+                const documentRef = search.doc(id);
+            
+                await documentRef.update({
+                  likes: totalLikes+1,
+                });
+            
+                console.log('Document field updated successfully');
+              } catch (error) {
+                console.error('Error updating document field:', error);
+              }
+              setLiked([...liked,{id:id}])
+              
+        }
+        
+        const filter = (id) =>{
+            const fil = liked.filter((item) => item.id === id);
+            if(fil){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+      
       const renderItem = ({item}) =>{
+
         return(
             <View style={{backgroundColor:Colors.primary,margin:10,borderRadius:10,elevation:10,padding: 8,}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20,marginVertical:3}} >{item.title}</Text>
@@ -88,6 +126,15 @@ const Skills = ({navigation}) =>{
                             </TouchableOpacity>     
                              : ''                        
                     }
+                <View style={{flexDirection:'row',marginVertical:5 }} >
+                    <TouchableOpacity onPress={()=> liketext(item.i,item.likes)} >
+                        <FontAwesomeIcon icon={faHeartFree}  size={22} color={Colors.text} />
+                    </TouchableOpacity>
+                    <TouchableOpacity>
+                        <FontAwesomeIcon icon={faComment} size={22} style={{marginLeft:30}}  color={Colors.text} />
+                    </TouchableOpacity>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:30}} >{filter(item.i) ? item.likes+1 : item.likes} Likes</Text>
+                </View>    
                 
             </View>
         )
@@ -96,21 +143,14 @@ const Skills = ({navigation}) =>{
         <View style={[styles.App,{backgroundColor:Colors.Background}]} >
             <Header navigation={navigation} info="" title={'Skills'} />
             <View style={{flex:1}} >
-                <TouchableOpacity onPress={()=>navigation.navigate('PostSkills')} >
-                    <View style={[styles.header,{backgroundColor:Colors.primary}]} >
-                        <Text style={[styles.header_Text,{color:Colors.text}]} >Show others what you can do</Text>
-                        <TouchableOpacity style={styles.header_Btn} >
-                            <FontAwesomeIcon color={Colors.text} size={20} icon={faPlus} />
-                        </TouchableOpacity>
-                    </View>
-                </TouchableOpacity>
+                
                 <FlatList
                 data={data}
                 keyExtractor={(item)=>item.id}
                 renderItem={renderItem}
                 />
             </View>
-            <HomePageFootor navigation={navigation} />
+            <HomePageFootor navigation={navigation} add={true} goto={'PostSkills'} />
         </View>
     )
 }
