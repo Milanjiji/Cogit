@@ -7,7 +7,7 @@ import HomePageFootor from '../components/HomePageFootor';
 import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import {  faCopy, faPlus, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import {  faCopy, faPlus, faPlusCircle, faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
 import Clipboard from '@react-native-clipboard/clipboard';
 import firestore from '@react-native-firebase/firestore';
 
@@ -18,8 +18,8 @@ const search = firestore().collection('Skills');
 const Skills = ({navigation}) =>{
     const [data,setData] = useState([])
     const [Colors,setColors] = useState([]);
-    const [likeLimit,setLikeLimit] = useState(false);
-    const [liked,setLiked] = useState([]) 
+    const [likedData,setLikedData] = useState([""]);
+    const [openedComments,setOpenedComments] = useState([""])
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
@@ -30,7 +30,6 @@ const Skills = ({navigation}) =>{
         
         
     },[])
-    console.log(liked);
     useEffect(() => {
         const get = async () =>{
             const CommunityData = await firestore().collection('Skills').get();
@@ -38,20 +37,28 @@ const Skills = ({navigation}) =>{
                 i:doc.id,
                 ...doc.data()
               }));
-              
             setData(data);
         }
         get();
-        
+        const getLikedData = async () =>{
+            const data = await AsyncStorage.getItem('likedContents');
+            const value = JSON.parse(data);
+            setLikedData(value)
+            console.log(value);
+        }
+        getLikedData();
       }, []);
 
       
       const Copy = (text) =>{
         Clipboard.setString(text);
       }
-      
+
+
       const liketext = async(id,totalLikes) =>{
         
+        const idExists = likedData.some(item => item.id === id);
+        if(!idExists){
             try {
             
                 const documentRef = search.doc(id);
@@ -59,25 +66,38 @@ const Skills = ({navigation}) =>{
                 await documentRef.update({
                   likes: totalLikes+1,
                 });
-            
+
+                const updatedData = data.map(item => {
+                    if (item.i === id) {
+                      return { ...item, likes: totalLikes+1 };
+                    }
+                    return item;
+                  });
+                  setData(updatedData);
+                  setLikedData([...likedData,{id:id}])
+
+                  const StringifiedData = JSON.stringify([...likedData,{id:id}])
+                  AsyncStorage.setItem('likedContents',StringifiedData);
                 console.log('Document field updated successfully');
               } catch (error) {
                 console.error('Error updating document field:', error);
               }
-              setLiked([...liked,{id:id}])
+              
+        }else{
+            console.log('its alreaddy liked');
+        }
+            
+              
               
         }
         
-        const filter = (id) =>{
-            const fil = liked.filter((item) => item.id === id);
-            if(fil){
-                return true;
-            }else{
-                return false;
-            }
-        }
         
-      
+      const CheackIfLiked = (id) =>{
+        const idExists = likedData.some(item => item.id === id);
+        return idExists;
+      }
+
+            
       const renderItem = ({item}) =>{
 
         return(
@@ -128,13 +148,13 @@ const Skills = ({navigation}) =>{
                     }
                 <View style={{flexDirection:'row',marginVertical:5 }} >
                     <TouchableOpacity onPress={()=> liketext(item.i,item.likes)} >
-                        <FontAwesomeIcon icon={faHeartFree}  size={22} color={Colors.text} />
+                        <FontAwesomeIcon icon={CheackIfLiked(item.i) ? faHeartSolid : faHeartFree }  size={22} color={Colors.text} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                        <FontAwesomeIcon icon={faComment} size={22} style={{marginLeft:30}}  color={Colors.text} />
-                    </TouchableOpacity>
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:30}} >{filter(item.i) ? item.likes+1 : item.likes} Likes</Text>
-                </View>    
+                    
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:30}} >{item.likes} Likes</Text>
+                    
+                </View>   
+               
                 
             </View>
         )

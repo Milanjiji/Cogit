@@ -71,7 +71,7 @@ const PostSkill = ({navigation}) =>{
                                 yt:yt,
                                 seeMore:link,
                                 userName:name,
-                                like:0,
+                                likes:0,
                                 comment:0
                             })
                             .then(() => {

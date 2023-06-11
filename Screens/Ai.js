@@ -42,7 +42,6 @@ const Ai = ({navigation,route,...props}) =>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
-            console.log("Colors => ",colors);
         }
         getColors();
         const getAi = async() =>{
@@ -62,7 +61,7 @@ const Ai = ({navigation,route,...props}) =>{
       console.log(ai);
       const response = await axios({
         method: 'post',
-        url: `https://api.openai.com/v1/engines/${ai}/completions`,
+        url: `https://api.openai.com/v1/engines/davinci-codex/completions`,
         // text-davince-003
         headers: {
           'Content-Type': 'application/json',
