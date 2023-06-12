@@ -85,7 +85,7 @@ const PostSkill = ({navigation}) =>{
                             setTweet('');
                             setYt('');
                             setLoading(false);
-                            navigation.navigate('Skills')
+                            navigation.navigate('Skills',{reload : true})
                             })
                             .catch((error) => {
                             console.log('Error sending message:', error);

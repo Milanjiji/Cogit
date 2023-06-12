@@ -38,6 +38,7 @@ import DeepClassification from "../Screens/Notes/ChapterDeepClassification";
 import DeepExplanation from "../Screens/Notes/ChapterDeep";
 import Skills from "../Screens/Skills";
 import PostSkill from "../Screens/PostSkills";
+import ReCycle from "../Screens/ReCycle";
 
 
 
@@ -52,7 +53,7 @@ const Screens = () =>{
 
     return(
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="Skills"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
+        <Stack.Navigator initialRouteName="Home"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
 
         <Stack.Screen
            name="Splash" 
@@ -155,6 +156,9 @@ const Screens = () =>{
            <Stack.Screen
            name="PostSkills" 
            component={PostSkill} />
+           <Stack.Screen
+           name="ReCycle" 
+           component={ReCycle} />
   
         </Stack.Navigator>
       </NavigationContainer>

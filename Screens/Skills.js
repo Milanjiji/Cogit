@@ -15,11 +15,14 @@ import firestore from '@react-native-firebase/firestore';
 
 const search = firestore().collection('Skills');
 
-const Skills = ({navigation}) =>{
+const Skills = ({navigation,route}) =>{
     const [data,setData] = useState([])
     const [Colors,setColors] = useState([]);
     const [likedData,setLikedData] = useState([""]);
     const [openedComments,setOpenedComments] = useState([""])
+
+    const reload = route.params?.reload;
+
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');

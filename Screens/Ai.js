@@ -14,7 +14,8 @@ import { faPaperPlane } from '@fortawesome/free-regular-svg-icons';
 import HomePageFootor from '../components/HomePageFootor';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const OPENAI_API_KEY = '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';
+// const OPENAI_API_KEY = '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';
+const OPENAI_API_KEY = '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';
 
 const primary = "#12156c"
 const secondry = "#0e1158"
@@ -47,7 +48,7 @@ const Ai = ({navigation,route,...props}) =>{
         const getAi = async() =>{
           const data = await AsyncStorage.getItem('Ai');
           const ai = JSON.parse(data);
-          console.log(ai);
+          
           if(!ai){
             setAi('text-davinci-003');
           }else{
@@ -58,10 +59,10 @@ const Ai = ({navigation,route,...props}) =>{
     },[])
 
     async function sendToOpenAI(input) {
-      console.log(ai);
+      
       const response = await axios({
         method: 'post',
-        url: `https://api.openai.com/v1/engines/davinci-codex/completions`,
+        url: `https://api.openai.com/v1/engines/text-davinci-002/completions`,
         // text-davince-003
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +70,7 @@ const Ai = ({navigation,route,...props}) =>{
         },
         data: {
           prompt: input,
-          temperature : 0.5,
+          temperature : 0.7,
           max_tokens: 2048,
           n: 1,
           stop: ['\n']
@@ -89,7 +90,8 @@ const Ai = ({navigation,route,...props}) =>{
       let output = '';
         while (!output) {
           output = await sendToOpenAI(prompt);
-          doneTyping(true)
+          doneTyping(true);
+          console.log('retrying');
         }
         doneTyping(false)
       setChatHistory([...chatHistory, { author: 'user', message: inputValue }, { author: 'bot', message: output }]);

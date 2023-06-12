@@ -7,7 +7,7 @@ import HomePageFootor from "../components/HomePageFootor";
 import firestore from '@react-native-firebase/firestore';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Bar_Community from "../components/Bar_Community";
+import HomePageBar from "../components/HomePageBar";
 
 
 
@@ -128,7 +128,7 @@ const Notes = ({navigation}) =>{
             
 
 
-            <Bar_Community navigation={navigation} />
+                <HomePageBar navigation={navigation} title={'Community'}  navigate={'Community'}  disc={'This is where students share their \nNotes and other News'} />
 
 
                <View style={{display: !notesPos ? 'flex' :'none'}} >

@@ -8,9 +8,8 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 
 
-const Skills = ({navigation}) =>{
+const HomePageBar = ({navigation,...props}) =>{
     const [Colors,setColors] = useState([]);
-
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -30,10 +29,10 @@ const Skills = ({navigation}) =>{
       
     return(
         <View style={[styles.App,{backgroundColor:Colors.Background}]} >
-            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary}]} onPress={()=>goTo('Skills')}>
+            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary}]} onPress={()=>goTo(props.navigate)}>
                     <View>
-                        <Text style={[styles.community_Text,{color:Colors.text}]} >Skills</Text>
-                        <Text style={[styles.community_Disc,{color:Colors.text}]} >This is where students show what they can {"\n"}do other than studies</Text>
+                        <Text style={[styles.community_Text,{color:Colors.text}]} >{props.title}</Text>
+                        <Text style={[styles.community_Disc,{color:Colors.text}]} >{props.disc}</Text>
                     </View>
                     <FontAwesomeIcon style={{}} color={Colors.text}  icon={faArrowRightFromBracket} />
             </TouchableOpacity>
@@ -67,4 +66,4 @@ const styles = StyleSheet.create({
         fontFamily:Colors.Regular,
       },
 })
-export default Skills;
+export default HomePageBar;
