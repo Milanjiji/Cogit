@@ -128,7 +128,7 @@ const Notes = ({navigation}) =>{
             
 
 
-                <HomePageBar navigation={navigation} title={'Community'}  navigate={'Community'}  disc={'This is where students share their \nNotes and other News'} />
+                <HomePageBar height={true} navigation={navigation} title={'Community'}  navigate={'Community'}  disc={'This is where students share their \nNotes and other News'} />
 
 
                <View style={{display: !notesPos ? 'flex' :'none'}} >

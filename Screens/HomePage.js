@@ -15,7 +15,7 @@ import Colors from '../colors.json'
 import Greetings from '../components/Greetings';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomePageBar from '../components/HomePageBar';
-
+import { AppOpenAd, InterstitialAd, RewardedAd, BannerAd, TestIds } from 'react-native-google-mobile-ads';
 
 
 const Homepage = ({navigation,route}) =>{
@@ -67,10 +67,17 @@ const Homepage = ({navigation,route}) =>{
             <View  style={[styles.background,{backgroundColor:Colors.Background}]} >
                 <ScrollView showsVerticalScrollIndicator={false} >
                 <Greetings navigation={navigation} />
-                        <HomePageBar navigation={navigation} title={'Events'}  navigate={'Events'}  disc={'Cheak what is going happen,\nLet them know whats going to happen'} />
-                        <HomePageBar navigation={navigation} title={'Community'}  navigate={'Community'}  disc={'This is where students share their \nNotes and other News'} />
-                        <HomePageBar navigation={navigation} title={'Skills'}  navigate={'Skills'}  disc={'This is where students show what they can \ndo other than studies'} />
-                        <HomePageBar navigation={navigation} title={'Re:Cycle'}  navigate={'ReCycle'}  disc={'Group of students who like some recycling'} />
+
+                <BannerAd unitId={TestIds.BANNER} />
+                
+                <View style={{flexDirection:'row'}} >
+                    <HomePageBar navigation={navigation} title={'Events'}  navigate={'Events'}  disc={'Cheak what is going happen,\nLet them know whats going to happen'} />
+                    <HomePageBar navigation={navigation} title={'Community'}  navigate={'Community'}  disc={'This is where students share their \nNotes and other News like tips'} />
+                </View>
+                <View style={{flexDirection:'row'}} >
+                    <HomePageBar navigation={navigation} title={'Skills'}  navigate={'Skills'}  disc={'This is where students show what they can \ndo other than studies'} />
+                    <HomePageBar navigation={navigation} title={'Re:Cycle'}  navigate={'ReCycle'}  disc={'Group of students who like some recycling'} />
+                </View>        
                     <View style={{display:notes ? 'flex' : 'none'}} >
                         <Notes navigation={navigation} />
                     </View>

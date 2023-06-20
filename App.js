@@ -3,8 +3,9 @@ import { View, Text, TextInput, Button,DrawerLayoutAndroid } from 'react-native'
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from './colors.json'
-
+import mobileAds from 'react-native-google-mobile-ads';
 import Screens from './components/Screens';
+import SoundContextProvider from './components/SoundContext';
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
       }else{
 
       }
+
     }
     getItem();
     const setSettings = async () =>{
@@ -44,17 +46,18 @@ const App = () => {
     }
     setSettings();
     // clear();
-    
+    mobileAds()
+    .initialize()
+    .then(adapterStatuses => {
+      console.log("admob Initialization Complete , adapter Status: ", adapterStatuses);
+    });
   },[])
   
-  // return (
-    
-  //     <Screens />
-  //     // <View>
-
-  //     // </View>
-  // );
-  return  <Screens /> ;
+  return  (
+    <SoundContextProvider>
+        <Screens />
+    </SoundContextProvider>
+  ) ;
 }
 // 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
 

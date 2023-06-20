@@ -28,13 +28,12 @@ const HomePageBar = ({navigation,...props}) =>{
 
       
     return(
-        <View style={[styles.App,{backgroundColor:Colors.Background}]} >
-            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary}]} onPress={()=>goTo(props.navigate)}>
-                    <View>
+        <View style={[styles.App,{backgroundColor:Colors.Background,marginHorizontal:props.height ? 8 : 0}]} >
+            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary,height:props.height ? 100 : 120}]} onPress={()=>goTo(props.navigate)}>
+                   
                         <Text style={[styles.community_Text,{color:Colors.text}]} >{props.title}</Text>
                         <Text style={[styles.community_Disc,{color:Colors.text}]} >{props.disc}</Text>
-                    </View>
-                    <FontAwesomeIcon style={{}} color={Colors.text}  icon={faArrowRightFromBracket} />
+                    
             </TouchableOpacity>
             
         </View>
@@ -43,18 +42,16 @@ const HomePageBar = ({navigation,...props}) =>{
 const styles = StyleSheet.create({
     App:{
         flex:1,
-        backgroundColor:Colors.Background
+        backgroundColor:Colors.Background,
     },
       community:{
         margin:5,
-        padding:8,
+        padding:12,
         backgroundColor:Colors.primary,
         borderRadius:10,
         elevation:10,
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'space-between',
-        paddingRight:20
+        paddingRight:20,
+        
       },
       community_Text:{
         color:Colors.white,

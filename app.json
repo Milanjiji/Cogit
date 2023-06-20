@@ -1,4 +1,8 @@
 {
   "name": "cogitone",
-  "displayName": "Cogit"
+  "displayName": "Cogit",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-3471464164746532~4749767092",
+    "ios_app_id": "cca-app-pub-3471464164746532~4749767092"
+  }
 }
