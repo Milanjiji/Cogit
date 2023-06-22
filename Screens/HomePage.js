@@ -15,8 +15,10 @@ import Colors from '../colors.json'
 import Greetings from '../components/Greetings';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomePageBar from '../components/HomePageBar';
-import { AppOpenAd, InterstitialAd, RewardedAd, BannerAd, TestIds } from 'react-native-google-mobile-ads';
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 
+
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
 
 const Homepage = ({navigation,route}) =>{
     const width = Dimensions.get('window').width;
@@ -68,8 +70,14 @@ const Homepage = ({navigation,route}) =>{
                 <ScrollView showsVerticalScrollIndicator={false} >
                 <Greetings navigation={navigation} />
 
-                <BannerAd unitId={TestIds.BANNER} />
                 
+                <BannerAd
+                    unitId={adUnitId}
+                    size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+                    requestOptions={{
+                        requestNonPersonalizedAdsOnly: true,
+                    }}
+                    />
                 <View style={{flexDirection:'row'}} >
                     <HomePageBar navigation={navigation} title={'Events'}  navigate={'Events'}  disc={'Cheak what is going happen,\nLet them know whats going to happen'} />
                     <HomePageBar navigation={navigation} title={'Community'}  navigate={'Community'}  disc={'This is where students share their \nNotes and other News like tips'} />
