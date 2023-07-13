@@ -16,7 +16,7 @@ const AboutUs = ({navigation}) =>{
         getColors();
 
     },[])
-
+    //hello
     const Person = ({name,letterSpacing,position,contact}) =>{
         return(
             <View style={{width:'90%',backgroundColor:Colors.primary,alignSelf:'center',borderRadius:10,justifyContent:'space-around',alignItems:'center',paddingVertical:30,marginTop:10}} >
