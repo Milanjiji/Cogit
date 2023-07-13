@@ -1,93 +1,107 @@
-import React ,{useRef,useEffect} from 'react';
-import { View, StyleSheet,Animated } from 'react-native';
-import Colors from '../colors.json'
+import React, { useEffect, useRef, useState } from 'react';
+import { Animated, Easing, StyleSheet, View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const LoadingAnimation = (props) => {
-  const circleSize = useRef(new Animated.Value(10)).current;
-  const circleSize2 = useRef(new Animated.Value(20)).current;
-  console.log(props.display);
-
-  const startAnimation = () => {
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(circleSize, {
-          toValue: 20,
-          duration: 1000,
-          useNativeDriver: false,
-        }),
-        Animated.timing(circleSize, {
-          toValue: 10,
-          duration: 1000,
-          useNativeDriver: false,
-        }),
-      ]),
-    ).start();
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(circleSize2, {
-          toValue: 10,
-          duration: 1000,
-          useNativeDriver: false,
-        }),
-        Animated.timing(circleSize2, {
-          toValue: 20,
-          duration: 1000,
-          useNativeDriver: false,
-        }),
-      ]),
-    ).start();
-  };
+const LoadingAnimation = ({children}) => {
+  const sizeAnimation = useRef(new Animated.Value(150)).current;
+  const glowAnimation = useRef(new Animated.Value(0)).current;
+  const [Colors,setColors] = useState([])
 
   useEffect(() => {
     startAnimation();
   }, []);
-  return (
-    <View style={{flexDirection:'row',display : props.display == true ? 'flex' : 'none'}}>
-      <View style={styles.circleContainer} >
-      <Animated.View
-        style={{
-          width: circleSize,
-          height: circleSize,
-          borderRadius: 10,
-          backgroundColor: Colors.white,
-          
-        }}
-      />
-      </View>
-      <View style={styles.circleContainer} >
-      <Animated.View
-        style={{
-          width: circleSize2,
-          height: circleSize2,
-          borderRadius: 10,
-          backgroundColor: Colors.white,
-          
-        }}
-      />
-      </View>
-      <View style={styles.circleContainer} >
-      <Animated.View
-        style={{
-          width: circleSize,
-          height: circleSize,
-          elevation:10,
-          borderRadius: 10,
-          backgroundColor: Colors.white,
-          
-        }}
-      />
-      </View>
-    </View>
-  );
-};
-const styles = StyleSheet.create({
-  circleContainer:{
-    width:20,
-    height:20,
-    margin:10,
-    alignItems:'center',
-    justifyContent:'space-around'
+  useEffect(()=>{
+    const getColors = async()=>{
+        const data = await AsyncStorage.getItem('Colors');
+        const colors = JSON.parse(data);
+        setColors(colors);
+        
+        
+    }
+    getColors();
+  },[])
+
+
+  startAnimation =() => {
+
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(sizeAnimation, {
+          toValue: 200,
+          duration: 1500,
+          easing: Easing.linear,
+          useNativeDriver: false,
+        }),
+        Animated.timing(sizeAnimation, {
+          toValue: 150,
+          duration: 1500,
+          easing: Easing.linear,
+          useNativeDriver: false,
+        }),
+        Animated.timing(sizeAnimation, {
+          toValue: 200,
+          duration: 1500,
+          easing: Easing.linear,
+          useNativeDriver: false,
+        }),
+        Animated.timing(sizeAnimation, {
+          toValue: 150,
+          duration: 1500,
+          easing: Easing.linear,
+          useNativeDriver: false,
+        }),
+      ]),
+      { iterations: -1 }
+    ).start();
+
+  Animated.timing(glowAnimation, {
+    toValue: 1,
+    duration: 800,
+    easing: Easing.linear,
+    useNativeDriver: false,
+  }).start();
+
   }
-})
+
+
+    const animatedStyle = {
+      width: sizeAnimation,
+      height: sizeAnimation,
+      borderRadius: sizeAnimation.interpolate({
+        inputRange: [0, 200],
+        outputRange: [30, 100],
+      }),
+      shadowColor: Colors.primary,
+      shadowOffset: {
+        width: 150,
+        height: 150,
+      },
+      shadowOpacity: glowAnimation,
+      shadowRadius: 150,
+      elevation:50
+    };
+
+    return (
+      <View style={styles.container}>
+        <Animated.View style={[styles.circle, animatedStyle]} >
+          {children}
+        </Animated.View>
+      </View>
+    );
+  }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  circle: {
+    borderRadius:50,
+    justifyContent:'center',
+    alignItems:'center'
+  },
+});
 
 export default LoadingAnimation;

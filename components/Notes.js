@@ -26,8 +26,8 @@ const Notes = ({navigation,route,...props}) =>{
         navigation.navigate(place,{sub:sub});
     }
     return(
-            <View>
-                    <View style={styles.grid} >
+            <View style={{marginVertical:10,marginHorizontal:10}} >
+                    {/* <View style={styles.grid} >
                         <TouchableOpacity onPress={()=>goTo('Classification','math')} style={[styles.btn,{backgroundColor:Colors.primary}]} >
                             <ImageBackground style={{width:150,height:100}} borderRadius={10} resizeMode='cover'  source={{uri : 'https://drive.google.com/uc?id=1tHfRi8UikHq30wR5Nq1m4IZjCjH0PU9z'}} >
                                     <Text style={[styles.btnText,{color:Colors.text}]} >Maths</Text>
@@ -53,7 +53,20 @@ const Notes = ({navigation,route,...props}) =>{
                                     <Text style={[styles.btnText,{color:Colors.text}]} >Biology</Text>
                             </ImageBackground>
                         </TouchableOpacity>
-                    </View>
+                    </View> */}
+                    <Text style={[styles.basic,{borderLeftWidth:1,borderLeftColor:Colors.text,borderTopColor:Colors.text,borderTopWidth:1}]} >Subject Notes</Text>
+                    <TouchableOpacity onPress={()=>goTo('Classification','math')} >
+                        <Text style={[styles.basic,{textAlign:'right',borderBottomColor:Colors.white,borderRightColor:Colors.text,borderBottomWidth:1,borderRightWidth:1}]} >Maths</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>goTo('Classification','chem')} >
+                        <Text style={[styles.basic,{textAlign:'right',borderBottomColor:Colors.white,borderRightColor:Colors.text,borderBottomWidth:1,borderRightWidth:1}]} >Chemistry</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>goTo('Classification','phy')} >
+                        <Text style={[styles.basic,{textAlign:'right',borderBottomColor:Colors.white,borderRightColor:Colors.text,borderBottomWidth:1,borderRightWidth:1}]} >Physics</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>goTo('Classification','bio')} >
+                        <Text style={[styles.basic,{textAlign:'right',borderBottomColor:Colors.white,borderRightColor:Colors.text,borderBottomWidth:1,borderRightWidth:1}]} >Biology</Text>
+                    </TouchableOpacity>
                 </View>
           
     );
@@ -93,6 +106,12 @@ const styles = StyleSheet.create({
         overflow:'hidden',
         padding:10
       },
+      basic:{
+        color:Colors.text,
+        fontFamily:Colors.Medium,
+        padding: 14,
+        marginHorizontal:10
+      }
     
 })
 export default Notes;

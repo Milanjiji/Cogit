@@ -1,11 +1,14 @@
 import { faSun } from '@fortawesome/free-regular-svg-icons'
-import { faCloud, faCloudMoon, faCloudSun } from '@fortawesome/free-solid-svg-icons'
+import { faCloud, faCloudMoon, faCloudSun, faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import React,{useEffect,useState,useRef} from 'react'
-import {View,Text, StyleSheet,Image,Dimensions} from 'react-native'
+import {View,Text, StyleSheet,Image,Dimensions, ImageBackground,TouchableOpacity} from 'react-native'
 import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Header from './Header'
+import ted  from  '../assets/images/ted.png'
+import Quotes from '../assets/others/quotes.json'
+const date = new Date();
 
 const Greetings = ({navigation}) =>{
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleString('en-US', { hour: 'numeric', hour12: false }));
@@ -13,6 +16,8 @@ const Greetings = ({navigation}) =>{
     const [name,setName] = useState('');
     const [Colors,setColors] = useState([]);
     const width = Dimensions.get('window').width;
+    const [focusedTime,setFocusedTime] = useState(0);
+    const [quote,setQuote] = useState('');
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -21,7 +26,55 @@ const Greetings = ({navigation}) =>{
             setColors(colors);
         }
         getColors();
+
+        const selectQuote = () => {
+            const random = Math.floor(Math.random() * 74);
+            console.log(random,Quotes[random]);
+            setQuote(Quotes[random]);
+        }
+        selectQuote();
+
+        
+        getFocucsedTime();
+
+        const clearFocusedTime = async() => {
+            const day = JSON.parse(await AsyncStorage.getItem('FocusedDate'));
+            console.log(date.getDate());
+            if(day !== null){
+              console.log("date is not null");
+              if (day !== date.getDate()) {
+                await AsyncStorage.setItem('FocusedTime',JSON.stringify(0));
+                console.log("reseted");
+              }else{
+                const time = JSON.parse(await AsyncStorage.getItem('FocusedTime'));
+                setFocusedTime(time);
+                console.log("same day");
+              }
+  
+            }else{
+              await AsyncStorage.setItem('FocusedDate',JSON.stringify(date.getDate()));
+              
+            }
+          }
+          clearFocusedTime()
     },[])
+
+    const getFocucsedTime = async() =>{
+        const time = JSON.parse(await AsyncStorage.getItem('FocusedTime'));
+        console.log("time is : ",time);
+        if(time !== null){
+            setFocusedTime(time);
+            console.log(time);
+        }else{
+            await AsyncStorage.setItem('FocusedTime',JSON.stringify(0))
+            setFocusedTime(0);
+        }
+        
+    }
+
+    if(focusedTime === 0 ){
+        getFocucsedTime();
+    }
 
     useEffect(()=>{
         const getName = async() =>{
@@ -50,29 +103,46 @@ const Greetings = ({navigation}) =>{
     },[])
     return(
         <View style={{marginBottom:10}} >
-            <Header navigation={navigation} title="Cogit" info='' />
+            <Header navigation={navigation} title="Cogit" info='home' />
             <View style={[styles.body,{}]} >
-                
-                <View>
                     <Text style={[styles.title,{color:Colors.text}]} > Hello {name}</Text>
                     <Text style={[styles.time,{color:Colors.text}]} >{message}</Text>
-                </View>
-                <View>
-                    <FontAwesomeIcon style={{marginRight:15}} size={80} color={Colors.text} 
-                    icon={message == 'Good Morning' ? faCloudSun : message == 'Good AfterNoon' ? faSun : message == 'Good Evening' ? faCloudSun : message == 'Good Night' ? faCloud : ''} />
-                </View>
             </View>
-            <View style={{flexDirection:'row',alignItems:'center'}} >
-                <Image
-                    source={{
-                    uri: 'https://drive.google.com/uc?export=view&id=1eoBJLNZApvSjOWutgFliH3xJYNlNhQbO',
-                    }}
-                    style={{height:width/1.5,width:(width/2),marginLeft:20,}}
-                />
-                <Text style={{color:Colors.text,width:(width/3)+35,textAlign:'right',marginRight:20,fontFamily:Colors.Medium}} >
-                Feel free to explore the app while I embark on an interplanetary journey to explore the wonders of Jupiter and Help others by sharing what you know
+
+            <TouchableOpacity style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center'}} >
+                <Text style={{width:'40%',color:Colors.text,fontFamily:Colors.Medium}} >Discover fascinating subjects and broaden your horizons with TED-Ed classes.{"\n"}
+                <Text style={{fontSize:24}} >Watch{"\n"} 
+                <Text style={{color:"red",fontFamily:Colors.Bold}} >TED </Text>
+                <Text style={{fontFamily:Colors.Bold}} >ED</Text>
                 </Text>
+                </Text>
+                <View style={{width:'40%'}}  >
+                    <View style={{backgroundColor:Colors.secondary,elevation:10,borderRadius:10,width:130,height:150,transform: [{ perspective: 1000 }, { rotateY: '-40deg'}, { rotateX: '10deg'}],}} >
+                        <View style={{backgroundColor:Colors.white,width:100,height:100,borderRadius:10,elevation:10,marginTop:-30,marginRight:-20,alignSelf:'flex-end'}} >
+                            <ImageBackground imageStyle={{borderRadius:10}}  source={ted} style={{width:150,height:180,marginLeft:-80,marginTop:50,elevation:10}}  >
+                                <View style={{flex: 1,}} >
+                                    <View style={{flex: 1}} >
+
+                                    </View>
+                                        <View style={{backgroundColor:'yellow',width:100,height:20,flexDirection:'row',borderRadius:2,margin:3,justifyContent:'space-around'}} >
+                                            <FontAwesomeIcon icon={faStar} color='black' />
+                                            <Text style={{color:Colors.black,fontFamily:Colors.Bold}} >Featured</Text>
+                                        </View>
+                                  
+                                </View>
+                            </ImageBackground>
+                        </View>
+                    </View>
+                </View>
+            </TouchableOpacity>
+
+            <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',margin:5,marginHorizontal:10,backgroundColor:'#ffffff25',borderRadius:10,marginTop:100}} >
+                
+                    <Text style={{color:Colors.white,fontFamily:Colors.Medium,padding: 10,}} >{quote}</Text>
+              
+                
             </View>
+            
             
         </View>
     )
@@ -82,20 +152,18 @@ const styles = StyleSheet.create({
         borderRadius:10,
         margin:5,
         padding:8,
-        flexDirection:'row',
         justifyContent:'space-between',
-        alignItems:'center',
     },
     title:{
         color:Colors.white,
-        fontFamily:Colors.ExtraBoldItalic,
-        fontSize:28
+        fontFamily:Colors.Bold,
+        fontSize:22
     },
     time:{
         color:Colors.white,
         fontFamily:Colors.Bold,
         paddingLeft:8,
-        fontSize:20
+        fontSize:16
     }
 })
 export default Greetings;

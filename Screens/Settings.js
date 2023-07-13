@@ -11,6 +11,7 @@ import AiSettings from "../components/AiSettings";
 import AccountSettings from "../components/AccountSettings";
 import AboutTheApp from "../components/AboutTheApp";
 import HelpAndSupport from "../components/HelpAndSupportSettings";
+import UserDetails from "../components/UserDetails";
 
 const Setting = ({navigation,route}) =>{
 
@@ -25,9 +26,10 @@ const Setting = ({navigation,route}) =>{
     },[])
 
     return(
-        <View style={{flex:1,backgroundColor:Colors.Background}} >
+        <View style={{flex:1,backgroundColor:Colors.Background,paddingHorizontal:10}} >
             <Header navigation={navigation} title="Settings" info=""  />
             <ScrollView style={{flex:1}} >
+                <UserDetails/>
                 <GeneralSetting/>
                 <HomeScreenSettings/>
                 <NoteScreenSettings/>
@@ -35,6 +37,7 @@ const Setting = ({navigation,route}) =>{
                 <AccountSettings navigation={navigation} />
                 <HelpAndSupport/>
                 <AboutTheApp navigation={navigation} />
+                <View style={{height:50}} ></View>
             </ScrollView>
             <HomePageFootor navigation={navigation} />
         </View>

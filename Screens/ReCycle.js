@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from "react";
-import { Text, View,StyleSheet, TouchableOpacity, ScrollView,Linking} from "react-native";
+import { Text, View,StyleSheet, TouchableOpacity, ScrollView,Linking,TextInput} from "react-native";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Colors from '../colors.json'
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -21,6 +21,20 @@ const ReCycle = ({navigation,...props}) =>{
     const [lead,setLead] = useState();
     const [supported,setSupported] = useState(false);
     const [Join,setJoin] = useState(false);
+    const [lastId,setLastId] = useState();
+    const [message,setMessage] = useState('');
+    const [warn,setWarn] = useState(false);
+    const [status,setStatus] = useState('');
+    const [email,setEmail] = useState('');
+
+    useEffect(()=>{
+        const getEvents = async () =>{
+            const users = await firestore().collection('RecycleContribution').get()
+            setLastId(users.size);
+        }
+        getEvents();
+    
+      },[])
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -38,10 +52,11 @@ const ReCycle = ({navigation,...props}) =>{
             setClass(Clas);
             const School = await AsyncStorage.getItem('school');
             setSchool(School);
+            const Email = await AsyncStorage.getItem('email');
+            setEmail(Email);
 
             const support = await AsyncStorage.getItem('ReCycleSupported');
             const RecycleSupport = JSON.parse(support);
-            console.log(RecycleSupport);
             if(RecycleSupport){
                 setSupported(true);
                 // AsyncStorage.setItem('ReCycleSupported',JSON.stringify(false))
@@ -54,15 +69,10 @@ const ReCycle = ({navigation,...props}) =>{
 
             const joined = await AsyncStorage.getItem('joinedRecycle');
             const RecycleJoin = JSON.parse(joined);
-            console.log(RecycleJoin);
             if(RecycleJoin){
                 setJoin(true);
-                // AsyncStorage.setItem('joinedRecycle',JSON.stringify(false))
-
             }else{
-                AsyncStorage.setItem('joinedRecycle',JSON.stringify(false))
                 setJoin(false);
-
             }
 
 
@@ -126,36 +136,35 @@ const join = async() =>{
     }
 }
 
-const open = () =>{
-    Linking.canOpenURL('tel:7736744769')
-    .then((supported) => {
-      if (supported) {
-        return Linking.openURL('tel:7736744769');
-      } else {
-        throw new Error('Dialer is not supported on this device.');
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
-const openWhatsApp = () => {
-    const whatsappUrl = `whatsapp://send?phone=7736744769`;
-  
-    Linking.canOpenURL(whatsappUrl)
-      .then((supported) => {
-        if (supported) {
-          return Linking.openURL(whatsappUrl);
-        } else {
-          throw new Error('WhatsApp is not installed on this device.');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        // Handle error here
-      });
-  };
-      
+const handleSend = () => {
+
+    if(message){
+        setWarn(false);
+        setStatus('Sending...')
+        console.log(message,name);
+        firestore()
+          .collection('RecycleContribution')
+          .add({ 
+            id:lastId+1,
+            name:name,
+            message:message,
+            phone:Phone,
+            email:email,
+            school:school
+           })
+          .then(() => {
+            console.log('Message sent successfully');
+            setMessage(''); 
+            setStatus('Thank you for your interest, we will contact back as soon as possible.')
+          })
+          .catch((error) => {
+            console.log('Error sending message:', error);
+          });
+    }else{
+        setWarn(true)
+    } }
+    
+    
     return(
         <View style={[styles.App,{backgroundColor:Colors.Background}]} >
             <Header navigation={navigation}  title="Re:Cycle" info="" />
@@ -167,7 +176,7 @@ const openWhatsApp = () => {
                 As a group of students, we are running a campaign to address the issue of <Text style={{fontSize:30}} >plastic waste</Text>. So we use plastic straws whenever we buy any drink and also we take plastic knives whenever we buy a cake to celebrate any occasion. The problem is that after using it, we throw it anywhere, which causes soil and water <Text style={{fontSize:30}} >pollution</Text> because plastic is a non-biodegradable waste). So let’s start an awareness campaign to make all people not use plastic straws and instead buy paper straws and refuse knives whenever someone buys cakes. Tho I won’t be surprised if no one responds. However, if you read to the end, pressing that white like button would be really supportive.
                 </Text>
 
-                <TouchableOpacity onPress={support} style={{display:supported ? 'none' : 'flex',marginLeft:30,backgroundColor:Colors.primary,width:100,alignItems:'center',padding: 10,borderRadius:10,elevation:10}} >
+                <TouchableOpacity onPress={support} style={{display:supported ? 'none' : 'flex',backgroundColor:Colors.primary,alignItems:'center',padding: 10,borderRadius:50,elevation:10,marginVertical:10}} >
                     <FontAwesomeIcon icon={faHeart} color="white" />
                 </TouchableOpacity>
 
@@ -179,7 +188,7 @@ const openWhatsApp = () => {
 
                 <Text style={{display:Join ? 'flex' : 'none',color:Colors.text,fontFamily:Colors.Bold,textAlign:'center',marginTop:10}} >Thanks You will be informed.</Text>
 
-                <TouchableOpacity onPress={join} style={{display:Join ? 'none' : 'flex',backgroundColor:Colors.primary,margin:3,borderRadius:10,padding: 10,textAlign:'center',alignItems:'center',elevation:10}} >
+                <TouchableOpacity onPress={join} style={{display:Join ? 'none' : 'flex',backgroundColor:Colors.primary,margin:3,borderRadius:50,padding: 10,textAlign:'center',alignItems:'center',elevation:10,marginVertical:10}} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Join Us</Text>
                 </TouchableOpacity>
 
@@ -189,18 +198,23 @@ const openWhatsApp = () => {
                 <Text style={{color:Colors.text,fontFamily:Colors.Bold,marginTop:10,marginLeft:20}} >Ardra Babu</Text>
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:20,marginTop:10}} >+2 Student in Kanichukulangara HSS</Text>
                 
-                <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',marginVertical:20}} >
-                    <TouchableOpacity onPress={open} style={{width:100,backgroundColor:Colors.primary,margin:3,borderRadius:10,padding: 10,textAlign:'center',alignItems:'center',elevation:10}} >
-                        <FontAwesomeIcon icon={faPhone} color="white" />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={openWhatsApp} style={{width:100,backgroundColor:Colors.primary,margin:3,borderRadius:10,padding: 10,textAlign:'center',alignItems:'center',elevation:10}} >
-                        <FontAwesomeIcon icon={faWhatsapp} color="white" />
-                    </TouchableOpacity>
-                </View>
+                <TextInput 
+                    value={message}
+                    onChangeText={setMessage}
+                    placeholder="Send a simple message will contact you back."
+                    style={{color:Colors.text,backgroundColor:Colors.primary,borderRadius:10,marginVertical:10,padding: 10}}
+                    numberOfLines={undefined}
+                    multiline={true} />
+                <Text style={{ display: warn ? 'flex' :'none', color:Colors.text,fontFamily:Colors.Medium,marginLeft:20,marginTop:10}} >Cannot send message without content</Text>
+                <Text style={{ display: status ? 'flex' : 'none', color:Colors.text,fontFamily:Colors.Medium,marginLeft:20,marginTop:10}} >{status}</Text>
                 
-
+                <TouchableOpacity onPress={handleSend} style={{backgroundColor:Colors.primary,margin:3,borderRadius:50,padding: 10,textAlign:'center',alignItems:'center',elevation:10,marginVertical:10}} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Send</Text>
+                </TouchableOpacity>   
+                
+            <View style={{height:50}} ></View>
             </ScrollView>
-            <HomePageFootor navigation={navigation}  />
+            <HomePageFootor  navigation={navigation}  />
         </View>
     )
 }

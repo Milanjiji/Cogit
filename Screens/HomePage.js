@@ -3,7 +3,10 @@ import {
     ScrollView,
     StyleSheet,
     View,
-    Dimensions
+    Dimensions,
+    Text,
+    Image,
+    ImageBackground
   } from 'react-native';
 import Header from '../components/Header';
 import Notes from '../components/Notes';
@@ -16,9 +19,14 @@ import Greetings from '../components/Greetings';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomePageBar from '../components/HomePageBar';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+import focus from '../assets/images/focus.png'
+import recycle from '../assets/images/recycle.png'
+import community from '../assets/images/community.png'
+import Background from '../assets/images/Background.png'
+import NextUpdate from '../components/NextUpdate';
 
-
-const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+// ted ed classes
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191748';
 
 const Homepage = ({navigation,route}) =>{
     const width = Dimensions.get('window').width;
@@ -67,44 +75,55 @@ const Homepage = ({navigation,route}) =>{
     },[])
     return(
             <View  style={[styles.background,{backgroundColor:Colors.Background}]} >
-                <ScrollView showsVerticalScrollIndicator={false} >
+                    
+
+                <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:Colors.Background,paddingBottom:150}}  >
                 <Greetings navigation={navigation} />
 
+                <View style={{flexDirection:'row',paddingHorizontal:10}} >
+                    <HomePageBar src={focus} height={120} navigation={navigation} title={'Focus'}  navigate={'Focus'}  disc={'Neuro science mixed music,helps students to get more focus'} />
+                    <HomePageBar src={recycle} height={120} navigation={navigation} title={'Re:Cycle'}  navigate={'ReCycle'}  disc={'Group of students who like some recycling,just join them do some good.'} />
+                </View>  
                 
-                <BannerAd
-                    unitId={adUnitId}
-                    size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-                    requestOptions={{
-                        requestNonPersonalizedAdsOnly: true,
-                    }}
-                    />
-                <View style={{flexDirection:'row'}} >
-                    <HomePageBar navigation={navigation} title={'Events'}  navigate={'Events'}  disc={'Cheak what is going happen,\nLet them know whats going to happen'} />
-                    <HomePageBar navigation={navigation} title={'Community'}  navigate={'Community'}  disc={'This is where students share their \nNotes and other News like tips'} />
+                <View style={{flexDirection:'row',paddingHorizontal:10}} >
+                    <HomePageBar height={120} navigation={navigation} title={'Skills'}  navigate={'Skills'}  disc={'This is where students show what they can do other than studies'} />
+                    <HomePageBar height={120} navigation={navigation} title={'Notes'}  navigate={'NoteCreator_Classification'}  disc={'Make your own Notes, these will not go missing.'} />
                 </View>
-                <View style={{flexDirection:'row'}} >
-                    <HomePageBar navigation={navigation} title={'Skills'}  navigate={'Skills'}  disc={'This is where students show what they can \ndo other than studies'} />
-                    <HomePageBar navigation={navigation} title={'Re:Cycle'}  navigate={'ReCycle'}  disc={'Group of students who like some recycling'} />
-                </View>        
+                    
+
+                
+
                     <View style={{display:notes ? 'flex' : 'none'}} >
                         <Notes navigation={navigation} />
                     </View>
                     <View style={{display: !prevSectionDisplay ? 'flex':'none'}} >
                         <PrevSection navigation={navigation} />
                     </View>
-                    <View style={{flexDirection:'row',width:width,padding:10}} >
+
+
+                    {/* <View style={{flexDirection:'row',width:width,padding:10}} >
                         <View style={{display :Achivemenet ?'none' :'flex'}} >
                             <Achievement />
                         </View>
-                        <Utilities status={Achivemenet} navigation={navigation} />
-                    </View>
+                    </View> */}
+
+                    
                     <View style={{display:notes ? 'none' : 'flex'}} >
                         <Notes navigation={navigation} />
                     </View>
-                    
-                </ScrollView>
+                    <View style={{flexDirection:'row',paddingHorizontal:10}} >
+                        <HomePageBar height={120} navigation={navigation} title={'Community'}  navigate={'Community'}  disc={'This is where students share their Notes and other News like tips'} />
+                    </View>
+                    <NextUpdate navigation={navigation} />
                 
-                <HomePageFootor navigation={navigation} />
+                        
+                   
+                   <View style={{height:50}} ></View>
+                   <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginVertical:10}} ><Text style={{fontSize:20}} >©</Text> at South</Text>
+                </ScrollView>
+                <HomePageFootor  navigation={navigation} />  
+                
+                
             </View>
     );
 }

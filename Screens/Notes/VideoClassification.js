@@ -4,22 +4,22 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "../../components/Header";
 import HomePageFootor from "../../components/HomePageFootor";
 
-import Class10Math from './../../assets/rawNotes/Class10Maths.json'
-import Class10Bio from './../../assets/rawNotes/Class10Bio.json'
-import Class10Phy from './../../assets/rawNotes/Class10Phy.json'
-import Class10MChem from './../../assets/rawNotes/Class10Chem.json'
+import Class10Math from './../../assets/VideoClass/Class10Maths.json'
+// import Class10Bio from './../../assets/rawNotes/Class10Bio.json'
+// import Class10Phy from './../../assets/rawNotes/Class10Phy.json'
+// import Class10MChem from './../../assets/rawNotes/Class10Chem.json'
 
-import Class11Math from './../../assets/rawNotes/Class11Maths.json'
-import Class11Bio from './../../assets/rawNotes/Class11Bio.json'
-import Class11Phy from './../../assets/rawNotes/Class11Phy.json'
-import Class11MChem from './../../assets/rawNotes/Class11Chem.json'
+// import Class11Math from './../../assets/rawNotes/Class11Maths.json'
+// import Class11Bio from './../../assets/rawNotes/Class11Bio.json'
+// import Class11Phy from './../../assets/rawNotes/Class11Phy.json'
+// import Class11MChem from './../../assets/rawNotes/Class11Chem.json'
 
-import Class12Math from './../../assets/rawNotes/Class12Maths.json'
-import Class12Bio from './../../assets/rawNotes/Class12Bio.json'
-import Class12Phy from './../../assets/rawNotes/Class12Phy.json'
-import Class12MChem from './../../assets/rawNotes/Class12Chem.json'
+// import Class12Math from './../../assets/rawNotes/Class12Maths.json'
+// import Class12Bio from './../../assets/rawNotes/Class12Bio.json'
+// import Class12Phy from './../../assets/rawNotes/Class12Phy.json'
+// import Class12MChem from './../../assets/rawNotes/Class12Chem.json'
 
-const BriefClassification = ({route,navigation}) =>{
+const VideoClassification = ({route,navigation}) =>{
     const [Colors,setColors] = useState([]);
     const [note,setNote] = useState([]);
     const [clas,setClass] = useState([]);
@@ -49,41 +49,42 @@ const BriefClassification = ({route,navigation}) =>{
                 if(sub === 'math'){
                     setNote(Class10Math);
                 }else if(sub === 'phy'){
-                    setNote(Class10Phy);
+                    // setNote(Class10Phy);
                 }else if(sub === 'chem'){
-                    setNote(Class10MChem);
+                    // setNote(Class10MChem);
                 }else if(sub === 'bio'){
-                    setNote(Class10Bio);
-                }else{
-                    console.log('got some problem over the note selections');
-                }
-            }else if(value === '+1') {
-                console.log("its +1 boys");
-                if(sub === 'math'){
-                    setNote(Class11Math);
-                }else if(sub === 'phy'){
-                    setNote(Class11Phy);
-                }else if(sub === 'chem'){
-                    setNote(Class11MChem);
-                }else if(sub === 'bio'){
-                    setNote(Class11Bio);
-                }else{
-                    console.log('got some problem over the note selections');
-                }
-            }else if(value === '+2') {
-                console.log("its +2 boys");
-                if(sub === 'math'){
-                    setNote(Class12Math);
-                }else if(sub === 'phy'){
-                    setNote(Class12Phy);
-                }else if(sub === 'chem'){
-                    setNote(Class12MChem);
-                }else if(sub === 'bio'){
-                    setNote(Class12Bio);
+                    // setNote(Class10Bio);
                 }else{
                     console.log('got some problem over the note selections');
                 }
             }
+            // else if(value === '+1') {
+            //     console.log("its +1 boys");
+            //     if(sub === 'math'){
+            //         setNote(Class11Math);
+            //     }else if(sub === 'phy'){
+            //         setNote(Class11Phy);
+            //     }else if(sub === 'chem'){
+            //         setNote(Class11MChem);
+            //     }else if(sub === 'bio'){
+            //         setNote(Class11Bio);
+            //     }else{
+            //         console.log('got some problem over the note selections');
+            //     }
+            // }else if(value === '+2') {
+            //     console.log("its +2 boys");
+            //     if(sub === 'math'){
+            //         setNote(Class12Math);
+            //     }else if(sub === 'phy'){
+            //         setNote(Class12Phy);
+            //     }else if(sub === 'chem'){
+            //         setNote(Class12MChem);
+            //     }else if(sub === 'bio'){
+            //         setNote(Class12Bio);
+            //     }else{
+            //         console.log('got some problem over the note selections');
+            //     }
+            // }
         }
         setNotes();
         
@@ -102,15 +103,14 @@ const BriefClassification = ({route,navigation}) =>{
                             onPress={() => {
                                 const matchedArray = note.find(element => element.chapter === item.chapter);
                                 console.log(matchedArray);
-                                navigation.navigate('Brief',{note:matchedArray})
+                                navigation.navigate('VideoClass',{note:matchedArray,sub:sub})
                               }}
-                                key={item.chapter}  style={[styles.btn,{flex:1,justifyContent:'center',borderBottomColor:Colors.text,borderBottomWidth:1,borderLeftColor:Colors.text,borderLeftWidth:1}]} >
+                                key={item.chapter}  style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
                                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >{item.chapter}</Text>
                             </TouchableOpacity>
                         );
                     })
                 }
-                <View style={{height:50}} ></View>
             </ScrollView>
             <HomePageFootor navigation={navigation} />
         </View>
@@ -119,10 +119,11 @@ const BriefClassification = ({route,navigation}) =>{
 const styles = StyleSheet.create({
     btn:{
         margin:3,
+        borderRadius:10,
+        elevation:10,
         marginTop:3,
         padding: 10,
-        marginHorizontal:10
     }
 })
 
-export default BriefClassification;
+export default VideoClassification;

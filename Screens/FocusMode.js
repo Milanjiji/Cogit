@@ -5,131 +5,140 @@ import Header from '../components/Header';
 import HomePageFootor from '../components/HomePageFootor';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SoundContext } from '../components/SoundContext';
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import Animated, {
+  useSharedValue,
+  withTiming,
+  Easing,
+  useAnimatedStyle,
+} from 'react-native-reanimated';
 
 
 const FocusMode = ({navigation}) => {
-  const [currentState,setCurrentState] = useState(false);
-  const [bgm,setBGM] = useState(true);
-  const [bgmConfig,setBGMConfig] = useState(false);
-  const [sounds,setSound] = useState('10YyAB7jvmbGAOvyhBGo7YKuFLkkjV_sF');
+  const [bgm,setBGM] = useState(false);
   const [Colors,setColors] = useState([]);
+  const [btnColors,setBtnColors] = useState(["white","","#12156c"]);
+  const [min,setMin] = useState(0);
+  const [sec,setSec] = useState(0);
+  const [running, setRunning] = useState(false);
+  const [note,setNote] = useState('Grab a pair of headphones and dive into deep focus\n if music do not started wait(uses internet)')
+  const height = useSharedValue(250);
+  const width = useSharedValue(250);
+  const marginTop = useSharedValue(0);
+  const [others,setOther] = useState(true);
+  const padding = useSharedValue(20)
+
+
+    useEffect(() => {
+      let intervalId;
+      if (running) {
+        intervalId = setInterval(() => {
+          setSec(prevTime => prevTime + 1);
+          
+        }, 1000);
+      }
+      return () => clearInterval(intervalId);
+    }, [running]);
+
+    
+
+    if(sec == 60){
+      setSec(0);
+      setMin(min+1)
+    }
+    if(running){
+      padding.value = withTiming(padding.value === 20 ? 40 : 20, {
+        duration: 1800,
+        easing: Easing.linear,
+      });
+    }
     
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
+            
+            if(colors.Background === "#2b1499"){
+              setBtnColors(["#12156c50","#12156c30","#12156c40","#12156c10"])
+            }
         }
         getColors();
     },[])
   
-  useEffect(()=>{
-    setCurrentState(false);
-   
-  },[])
-  
-  
   const sound = useContext(SoundContext);
 
   const playMusic = () => {
-    // sound.play((success) => {
-    //   if (success) {
-    //     console.log('The sound is playing');
-    //   } else {
-    //     console.log('Failed to play the sound');
-    //   }
-    // });
-    const soundUrl = 'https://drive.google.com/uc?id=1Ku2G8uVCyN1g_-MhFRlqW3LMnRpQIQsQ'; // Change the URL here
-    sound.release(); // Release the current sound instance
-    sound.init(soundUrl, '', (error) => {
-      if (error) {
-        console.log('Error loading sound: ', error);
-      } else {
-        sound.play((success) => {
-          if (success) {
-            console.log('The sound is playing');
-          } else {
-            console.log('Failed to play the sound');
-          }
+    
+    setBGM(!bgm);
+    if(bgm){
+        sound.stop(() => {
+          console.log('The sound has stopped');
         });
+      setRunning(false);
+      setOther(true)
+    }else{ 
+    sound.play((success) => {
+      if (success) {
+        console.log('The sound is playing');
+        
+      } else {
+        console.log('Failed to play the sound');
+        setNote('Failed to play the sound, may be the problem of network.')
       }
     });
+      setNote('')
+        setOther(false)
+        setRunning(true)
+    
+    
+  } 
   };
-  const stopMusic = () => {
-    if (sound) {
-      sound.stop(() => {
-        console.log('The sound has stopped');
-      });
+  
+
+  const paddingAnimatedStyle = useAnimatedStyle(()=>{
+    return {
+      padding: padding.value
     }
-  };
- 
+  })
   
-  // const BGMconfig = () =>{
-  //   setBGMConfig(true);
-  // }
-//   const BGMSelector = (type) =>{
-//     setBGMConfig(false);
-//     if(type === 1){
-//       setSound('10YyAB7jvmbGAOvyhBGo7YKuFLkkjV_sF');
-//       console.log(`https://drive.google.com/uc?id=10YyAB7jvmbGAOvyhBGo7YKuFLkkjV_sF`);
-//     }else if(type === 2){
-//       setSound('1Ku2G8uVCyN1g_-MhFRlqW3LMnRpQIQsQ');
-//       console.log(`https://drive.google.com/uc?id=1Ku2G8uVCyN1g_-MhFRlqW3LMnRpQIQsQ`);
-//     }
-//   }
-// ;
-  
-
-
-
   return (
-    <View style={[styles.background,{backgroundColor:Colors.Background}]} >
-      {currentState ? '' : <Header navigation={navigation} title='Foucs Mode' info='ellipsis'  /> }
-      
+    <View
+      style={styles.background} >
+        <View style={{display:others ? 'flex' :'none'}} >
+          <Header navigation={navigation} title='Foucs Mode' info=''  /> 
+        </View>
       
       <View style={styles.App} >
-        
-        <TouchableOpacity onPress={playMusic} style={[styles.btn_Container,{backgroundColor:Colors.primary}]} >
-          <Text style={[styles.btn,{color:Colors.text}]} >{currentState ? 'Disable' :'Enable'}</Text>
-        </TouchableOpacity>
-
-        <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >
-          Use headphones for better experience
-        </Text>
-        
-          {/* {currentState ? '' : 
-          <TouchableOpacity onPress={stopMusic} style={styles.btn_Container_Option} >
-            <Text style={[styles.btn,{color:bgm ? Colors.text : 'red'}]} >BGM</Text>
-          </TouchableOpacity>
-          }           */}
+        <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginHorizontal:10}} >{note}</Text>
+          <View style={{padding: 20,borderRadius:210,borderWidth:10,borderColor:btnColors[1],backgroundColor:btnColors[1]}} >
+            <Animated.View style={[paddingAnimatedStyle,{padding: 20,borderRadius:180,borderWidth:10,borderColor:btnColors[0],backgroundColor:btnColors[0]}]} >
+              <View 
+                style={[styles.btn_Container,{backgroundColor:Colors.primary,height: 250,width:250}]} >
+                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:55}} >{min < 10 ? `0${min}` : min}:{sec < 10 ? `0${sec}` : sec}</Text>
+              </View >
+           </Animated.View>
+          </View>
           
+            {/* <SVGatorComponent style={{displ}} /> */}
+          
+          
+          
+      
+              <TouchableOpacity onPress={playMusic} style={[{backgroundColor:Colors.primary,padding: 20,borderRadius:40,elevation:10,borderColor:Colors.text}]} >
+                <FontAwesomeIcon size={30} color={Colors.text} icon={!bgm ? faPlay : faPause} />
+              </TouchableOpacity>  
+      
+        
       </View>
-      {currentState ? '' : <HomePageFootor navigation={navigation} /> }
+      { others ? 
+        <HomePageFootor marginTop={true} navigation={navigation} />:
+        '' 
+      }
+       
 
-      {/* <Modal 
-      visible={bgmConfig}
-      transparent={true}
-      animationType='fade'>
-        <View style={styles.ModalBackground} >
-         <View style={styles.Modal_Container} >
-            <Text style={styles.BGMType} >BGM Type</Text>
-            <TouchableOpacity onPress={()=>BGMSelector(1)} style={styles.soundType_Options} >
-              <Text style={styles.soundType_Options_Text} >Lofi HipHop</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={()=>BGMSelector(2)} style={styles.soundType_Options} >
-              <Text style={styles.soundType_Options_Text} >Sound of Fire Burning</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={()=>BGMSelector(1)} style={styles.soundType_Options} >
-              <Text style={styles.soundType_Options_Text} >Sound of Water Fall</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={()=>BGMSelector(1)} style={styles.soundType_Options} >
-              <Text style={styles.soundType_Options_Text} >Sound of Forest</Text>
-            </TouchableOpacity>
-         </View>
-        </View>
-      </Modal> */}
+      
     </View>
   );
 };
@@ -141,7 +150,7 @@ const styles = StyleSheet.create({
   },
   App:{
     flex:1,
-    justifyContent:'space-evenly',
+    justifyContent:'space-around',
     alignItems:'center'
   },
   btn:{
@@ -153,8 +162,6 @@ const styles = StyleSheet.create({
   },
   btn_Container:{
     backgroundColor:Colors.primary,
-    width:200,
-    height:200,
     borderRadius:200,
     justifyContent:'space-around',
     alignItems:'center',

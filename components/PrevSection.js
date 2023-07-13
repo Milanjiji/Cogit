@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {View,Text,StyleSheet, TouchableOpacity} from 'react-native'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faBookOpen, faMessage, faNoteSticky, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight, faBookOpen, faMessage, faNoteSticky, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Colors from '../colors.json'
 
@@ -23,37 +23,27 @@ const PrevSection = ({navigation}) =>{
 
     return(
         <View style={styles.body} >
-           <TouchableOpacity onPress={()=>jump('Notes')} style={[styles.btn_container,{backgroundColor:Colors.primary}]} >
-                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faBookOpen} color={Colors.text} />
-           </TouchableOpacity>
-           
-           <TouchableOpacity onPress={()=>jump('NoteCreator_Classification')} style={[styles.btn_container,{backgroundColor:Colors.primary}]} >
-                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faNoteSticky} color={Colors.text} />
-           </TouchableOpacity>
-
-           <TouchableOpacity onPress={()=>jump('Missions')}style={[styles.btn_container,{backgroundColor:Colors.primary}]} >
-                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faTrophy} color={Colors.text} />
-           </TouchableOpacity>
-
-           <TouchableOpacity onPress={()=>jump('Forum')} style={[styles.btn_container,{backgroundColor:Colors.primary}]} >
-                <FontAwesomeIcon size={30} sytle={styles.btn_Icon} icon={faMessage} color={Colors.text} />
+           <TouchableOpacity onPress={()=>jump('Notes')} style={[styles.btn_container]} >
+                <Text style={{color:Colors.white,fontFamily:Colors.Medium}} >Last Session</Text>
+                <FontAwesomeIcon color={Colors.text} icon={faAngleRight} />
            </TouchableOpacity>
         </View>
     );
 }
 const styles = StyleSheet.create({
     body:{
-        flexDirection:'row',
-        justifyContent:'space-around',
-        alignItems:'center',
         marginVertical:5,
-        marginTop:5
+        marginTop:5,
+        marginHorizontal:15
     },
     btn_container:{
-        backgroundColor:Colors.primary,
         padding:14,
-        borderRadius:10,
-        elevation:10
+        marginHorizontal:9,
+        borderBottomColor:Colors.white,
+        borderBottomWidth:1,
+        justifyContent:'space-between',
+        flexDirection:'row',
+        alignItems:'center'
     }
 })
 

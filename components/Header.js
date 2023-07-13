@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import {
     StyleSheet,
     Text,
@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowAltCircleDown, faEllipsisV, faGear, faGears, faInfo, faInfoCircle, faNavicon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { faMoon } from '@fortawesome/free-solid-svg-icons';
 const primary = "#04103a"
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const black = "black"
@@ -21,8 +22,20 @@ const ExtraBold = 'Montserrat-ExtraBold';
 const ExtraBoldItalic = 'Montserrat-ExtraBoldItalic';
 const Medium = 'Montserrat-Medium';
 const MediumItalic = 'Montserrat-MediumItalic';
+
+
 const Header = ({navigation,route,...props}) =>{
 
+    const [Colors,setColors] = useState([]);
+
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+        }
+        getColors();
+    },[])
     const Setting  = () =>{
         if(props.pageSettings){
             navigation.navigate('Settings')         
@@ -33,9 +46,9 @@ const Header = ({navigation,route,...props}) =>{
 }
     
     return(
-        <View style={[styles.background,{backgroundColor:'white'}]} >
+        <View style={[styles.background]} >
             <TouchableOpacity onPress={Setting} >
-                <FontAwesomeIcon style={styles.iLeft} icon={faGear} />
+                <FontAwesomeIcon color='white' style={styles.iLeft} icon={faGear} />
             </TouchableOpacity>
             <Text style={[styles.title,{
                 letterSpacing: props.letterpacing == 'y' ? 4 : 0
@@ -43,7 +56,7 @@ const Header = ({navigation,route,...props}) =>{
             <View>
                 {props.info == "info" ?
                 <TouchableOpacity onPress={props.pageSettings} >
-                    <FontAwesomeIcon style={styles.iRight} icon={faInfoCircle} />
+                    <FontAwesomeIcon color='white' style={styles.iRight} icon={faInfoCircle} />
                 </TouchableOpacity> : props.info == "#" ? 
 
                 <TouchableOpacity onPress={props.pageSettings} >
@@ -59,7 +72,11 @@ const Header = ({navigation,route,...props}) =>{
                 </TouchableOpacity>:  props.info == '' ?
 
                 <TouchableOpacity onPress={props.pageSettings} >
-                    <FontAwesomeIcon color='white' style={styles.iRight} icon={faMoon} />
+                    <FontAwesomeIcon color={Colors.Background} style={styles.iRight} icon={faMoon} />
+                </TouchableOpacity>:  props.info == 'home' ?
+
+                <TouchableOpacity onPress={props.pageSettings} >
+                    <FontAwesomeIcon color={Colors.Background} style={styles.iRight} icon={faMoon} />
                 </TouchableOpacity>: ''}
             </View>
 
@@ -68,7 +85,6 @@ const Header = ({navigation,route,...props}) =>{
 }
 const styles = StyleSheet.create({
     background:{
-        elevation:10,
         height:50,
         flexDirection:'row',
         justifyContent:'space-between',
@@ -76,7 +92,7 @@ const styles = StyleSheet.create({
         borderRadius:10
     },
     title:{
-        color:primary,
+        color:white,
         fontSize:25,
         fontFamily:Bold,
         paddingVertical:7,

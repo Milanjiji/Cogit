@@ -6,6 +6,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 
+// go through instagram and get the music for focus mode
 
 
 const HomePageBar = ({navigation,...props}) =>{
@@ -28,8 +29,8 @@ const HomePageBar = ({navigation,...props}) =>{
 
       
     return(
-        <View style={[styles.App,{backgroundColor:Colors.Background,marginHorizontal:props.height ? 8 : 0}]} >
-            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary,height:props.height ? 100 : 120}]} onPress={()=>goTo(props.navigate)}>
+        <View style={[styles.App,{backgroundColor:Colors.Background,marginHorizontal:props.margin ? 8 : 0}]} >
+            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary}]} onPress={()=>goTo(props.navigate)}>
                    
                         <Text style={[styles.community_Text,{color:Colors.text}]} >{props.title}</Text>
                         <Text style={[styles.community_Disc,{color:Colors.text}]} >{props.disc}</Text>
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
       community_Text:{
         color:Colors.white,
         fontFamily:Colors.Bold,
-        fontSize:24
+        fontSize:22
       },
       community_Disc:{
         color:Colors.white,

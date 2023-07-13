@@ -17,14 +17,12 @@ const App = () => {
       const data = JSON.stringify(Colors);
       await AsyncStorage.setItem('Colors',data)
     }
+    setColors();
     const getItem = async() =>{
       const color = await AsyncStorage.getItem('Colors');
       if(!color){
         setColors();
-      }else{
-
       }
-
     }
     getItem();
     const setSettings = async () =>{
@@ -49,7 +47,8 @@ const App = () => {
     mobileAds()
     .initialize()
     .then(adapterStatuses => {
-      console.log("admob Initialization Complete , adapter Status: ", adapterStatuses);
+      // console.log("admob Initialization Complete , adapter Status: ", adapterStatuses);
+      // "react-native-svg": "^13.8.0"
     });
   },[])
   

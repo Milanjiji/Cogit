@@ -10,7 +10,6 @@ import { enableScreens } from 'react-native-screens';
 import Homepage from '../Screens/HomePage'
 import Model from "../Screens/Notes/Model";
 import Classification from "../Screens/Notes/Classification";
-import Ai from "../Screens/Ai";
 import Forum from "../Screens/Forum";
 import GetStarted from "../Screens/GetStarted";
 import Details from "../Screens/Details";
@@ -27,8 +26,7 @@ import Setting from "../Screens/Settings";
 import Events from "../Screens/Events";
 import AddEvents from "../Screens/AddEvent";
 import AddArticle from "../Screens/AddArticle";
-import User from "../Screens/User";
-import AboutUs from "./AboutUs";
+import AboutUs from "../Screens/AboutUs";
 import PrivacyPolicy from "./PrivacyAndPolicy";
 import TermsCondition from "./TermsAndCondition";
 import Spalsh from "../Screens/SplashScreen";
@@ -39,6 +37,10 @@ import DeepExplanation from "../Screens/Notes/ChapterDeep";
 import Skills from "../Screens/Skills";
 import PostSkill from "../Screens/PostSkills";
 import ReCycle from "../Screens/ReCycle";
+import Tasks from "../Screens/Tasks";
+import VideoClass from "../Screens/Notes/VideoClass";
+import VideoClassification from "../Screens/Notes/VideoClassification";
+import SendMessage from "../Screens/Message";
 
 
 
@@ -84,9 +86,7 @@ const Screens = () =>{
           <Stack.Screen
            name="MathsClassification" 
            component={Classification} />
-          <Stack.Screen
-           name="Ai" 
-           component={Ai} />
+          
           <Stack.Screen
            name="Forum" 
            component={Forum} />
@@ -123,9 +123,7 @@ const Screens = () =>{
            <Stack.Screen
            name="AddArticle" 
            component={AddArticle} /> 
-           <Stack.Screen
-           name="User" 
-           component={User} /> 
+           
            <Stack.Screen
            name="AboutUs" 
            component={AboutUs} />
@@ -159,6 +157,19 @@ const Screens = () =>{
            <Stack.Screen
            name="ReCycle" 
            component={ReCycle} />
+           <Stack.Screen
+           name="Tasks" 
+           component={Tasks} />
+           <Stack.Screen
+           name="VideoClassification" 
+           component={VideoClassification} />
+            <Stack.Screen
+           name="VideoClass" 
+           component={VideoClass} />
+           <Stack.Screen
+           name="SendMessage" 
+           component={SendMessage} />
+           
   
         </Stack.Navigator>
       </NavigationContainer>

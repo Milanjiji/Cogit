@@ -8,8 +8,10 @@ import firestore from '@react-native-firebase/firestore';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import HomePageBar from "../components/HomePageBar";
+import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 
 
+const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191748';
 
 
 const Notes = ({navigation}) =>{
@@ -127,10 +129,11 @@ const Notes = ({navigation}) =>{
                 </TouchableOpacity>
             
 
-
-                <HomePageBar height={true} navigation={navigation} title={'Community'}  navigate={'Community'}  disc={'This is where students share their \nNotes and other News'} />
-
-
+                <View style={{marginHorizontal:10}} >
+                    <HomePageBar community={true} height={90} navigation={navigation} title={'Community'}  navigate={'Community'}  disc={'This is where students share their \nNotes and other News'} />
+                </View>
+                
+                    
                <View style={{display: !notesPos ? 'flex' :'none'}} >
                     <View style={styles.grid} >
                         <TouchableOpacity onPress={()=>goTo('Classification','math')} style={[styles.btn,{backgroundColor:Colors.primary}]} >

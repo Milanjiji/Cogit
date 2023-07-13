@@ -26,13 +26,11 @@ const NoteCreator = ({navigation,route}) =>{
         getNote();
 
     },[])
-    const setData = async () =>{
-        await AsyncStorage.setItem(id,note);
-    }
+    
 
-    const SaveNote = (text) =>{
+    const SaveNote = async(text) =>{
         setNote(text);
-        setData();
+        await AsyncStorage.setItem(id,note);
     }
     const focusToTextInput = () =>{
         textInput.current.focus();
