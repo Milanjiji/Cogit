@@ -1,42 +1,36 @@
-import React,{useEffect,useState} from "react";
-import { View,Text,Image } from "react-native";
+import React, { useEffect } from "react";
+import {ImageBackground, View } from "react-native";
+import logo from '../android/app/src/main/res/drawable/launch_screen.png'
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import SplashScreen from "react-native-splash-screen";
 
-import logo from '../assets/images/logo.png'
-
-const Spalsh  = ({navigation}) =>{
-    const [Colors,setColors] = useState([]);
+const LoadScreen = ({navigation}) =>{
     useEffect(()=>{
-        const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
-            const colors = JSON.parse(data);
-            setColors(colors);
+        const getAccInfo = async() =>{
+            const name = JSON.parse(await AsyncStorage.getItem('userName'));
+            console.log("on Splash screen");
+            console.log(name);
+            if(name){
+                navigation.navigate('Home');
+                SplashScreen.hide();
+                console.log("Home");
+            }else{
+                navigation.navigate('getStarted');
+                SplashScreen.hide();
+                console.log("getStarted");
+            }
+                
         }
-        getColors();
-        
+        getAccInfo();
     },[])
-    useEffect(() => {
-        const fetchData = async () => {
-
-          await new Promise(resolve => setTimeout(resolve, 500));
-
-          const data = await AsyncStorage.getItem('userName');
-
-
-          if (data) {
-            navigation.navigate('Home');
-          } else {
-            navigation.navigate('getStarted');
-          }
-        }
-        fetchData()
-      }, []);
+    
+    
     return(
-        <View style={{flex:1,justifyContent:'space-around',alignItems:'center',backgroundColor:Colors.Background}} >
-            <Image source={logo} style={{width:100,height:100}} />
+        <View style={{flex: 1,}} >
+            <ImageBackground style={{width:'100%',height:'100%'}} source={logo} >
 
+            </ImageBackground>
         </View>
-    );
+    )
 }
-
-export default Spalsh
+export default LoadScreen;

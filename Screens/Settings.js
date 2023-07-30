@@ -28,7 +28,7 @@ const Setting = ({navigation,route}) =>{
     return(
         <View style={{flex:1,backgroundColor:Colors.Background,paddingHorizontal:10}} >
             <Header navigation={navigation} title="Settings" info=""  />
-            <ScrollView style={{flex:1}} >
+            <ScrollView showsVerticalScrollIndicator={false} style={{flex:1}} >
                 <UserDetails/>
                 <GeneralSetting/>
                 <HomeScreenSettings/>

@@ -125,7 +125,7 @@ const AddArticle = ({navigation}) =>{
                     <Text style={[styles.postBtnText,{color:Colors.text}]} >{btnText}</Text>
                 </TouchableOpacity>  
             </View>
-            <HomePageFootor navigation={navigation} />
+            
         </View>
     )
 }

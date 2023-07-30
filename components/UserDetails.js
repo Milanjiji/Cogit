@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
   background:{
     flex:1,
     padding: 10,
+    marginHorizontal:5
   },
 });
 

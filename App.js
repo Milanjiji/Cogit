@@ -1,6 +1,4 @@
 import React, { useState,useEffect } from 'react';
-import { View, Text, TextInput, Button,DrawerLayoutAndroid } from 'react-native';
-import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from './colors.json'
 import mobileAds from 'react-native-google-mobile-ads';
@@ -10,12 +8,15 @@ import SoundContextProvider from './components/SoundContext';
 const App = () => {
 
   useEffect(()=>{
-    const clear =  async() =>{
-      await AsyncStorage.clear();
-    }
+
+    
+    // const clear = async () =>{
+    //   await AsyncStorage.clear()
+    // }
+    // clear();
     const setColors = async () =>{
       const data = JSON.stringify(Colors);
-      await AsyncStorage.setItem('Colors',data)
+      await AsyncStorage.setItem('Colors',data);
     }
     setColors();
     const getItem = async() =>{

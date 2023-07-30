@@ -15,7 +15,6 @@ const Greetings = ({navigation}) =>{
     const [message,setMessage] = useState();
     const [name,setName] = useState('');
     const [Colors,setColors] = useState([]);
-    const width = Dimensions.get('window').width;
     const [focusedTime,setFocusedTime] = useState(0);
     const [quote,setQuote] = useState('');
 
@@ -27,6 +26,13 @@ const Greetings = ({navigation}) =>{
         }
         getColors();
 
+        const getFocusModeStatus = async() =>{
+            const data = await AsyncStorage.getItem('FocusModeRunning');
+            const value = JSON.parse(data);
+            console.log(value);
+        }
+        getFocusModeStatus()
+
         const selectQuote = () => {
             const random = Math.floor(Math.random() * 74);
             console.log(random,Quotes[random]);
@@ -35,51 +41,16 @@ const Greetings = ({navigation}) =>{
         selectQuote();
 
         
-        getFocucsedTime();
 
-        const clearFocusedTime = async() => {
-            const day = JSON.parse(await AsyncStorage.getItem('FocusedDate'));
-            console.log(date.getDate());
-            if(day !== null){
-              console.log("date is not null");
-              if (day !== date.getDate()) {
-                await AsyncStorage.setItem('FocusedTime',JSON.stringify(0));
-                console.log("reseted");
-              }else{
-                const time = JSON.parse(await AsyncStorage.getItem('FocusedTime'));
-                setFocusedTime(time);
-                console.log("same day");
-              }
-  
-            }else{
-              await AsyncStorage.setItem('FocusedDate',JSON.stringify(date.getDate()));
-              
-            }
-          }
-          clearFocusedTime()
+        
     },[])
 
-    const getFocucsedTime = async() =>{
-        const time = JSON.parse(await AsyncStorage.getItem('FocusedTime'));
-        console.log("time is : ",time);
-        if(time !== null){
-            setFocusedTime(time);
-            console.log(time);
-        }else{
-            await AsyncStorage.setItem('FocusedTime',JSON.stringify(0))
-            setFocusedTime(0);
-        }
-        
-    }
-
-    if(focusedTime === 0 ){
-        getFocucsedTime();
-    }
+    
 
     useEffect(()=>{
         const getName = async() =>{
             try{
-                const Name = await AsyncStorage.getItem('userName');
+                const Name = JSON.parse(await AsyncStorage.getItem('userName'));
                 setName(Name);
             }catch(e){
                 console.log(e);
@@ -109,7 +80,7 @@ const Greetings = ({navigation}) =>{
                     <Text style={[styles.time,{color:Colors.text}]} >{message}</Text>
             </View>
 
-            <TouchableOpacity style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center'}} >
+            <TouchableOpacity onPress={()=>navigation.navigate('TedEd')} style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center'}} >
                 <Text style={{width:'40%',color:Colors.text,fontFamily:Colors.Medium}} >Discover fascinating subjects and broaden your horizons with TED-Ed classes.{"\n"}
                 <Text style={{fontSize:24}} >Watch{"\n"} 
                 <Text style={{color:"red",fontFamily:Colors.Bold}} >TED </Text>
@@ -137,10 +108,7 @@ const Greetings = ({navigation}) =>{
             </TouchableOpacity>
 
             <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',margin:5,marginHorizontal:10,backgroundColor:'#ffffff25',borderRadius:10,marginTop:100}} >
-                
-                    <Text style={{color:Colors.white,fontFamily:Colors.Medium,padding: 10,}} >{quote}</Text>
-              
-                
+                    <Text style={{color:Colors.white,fontFamily:Colors.Medium,padding: 10,}} >{quote}</Text>  
             </View>
             
             

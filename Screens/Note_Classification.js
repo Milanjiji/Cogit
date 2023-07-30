@@ -78,10 +78,10 @@ const Note_Classification = ({navigation}) =>{
     } 
     return (
       <SafeAreaView style={[styles.body,{backgroundColor:Colors.Background}]} >
-        <Header title={"Notes"} info={"ellipsis"} />
+        <Header title={"Notes"} info='' />
         {emptyList ? 
-        <View style={styles.emptyList} >
-        <Text style={styles.emptyListText} >No Notes to display{"\n"} Create one from the button below</Text>
+        <View style={[styles.emptyList,{backgroundColor:Colors.hashWhite}]} >
+        <Text style={[styles.emptyListText,{color:Colors.text}]} >No Notes to display{"\n"} Create one from the button below</Text>
         <TouchableOpacity style={{margin:10}} onPress={()=>{
                     setDisplayAddButton(displayAddButton ? false : true);
                     setEmptyList(false);
@@ -96,13 +96,14 @@ const Note_Classification = ({navigation}) =>{
 
         <View >
             <View style={[styles.btn_container,{
-                display : displayAddButton ? 'flex' : 'none'
+                display : displayAddButton ? 'flex' : 'none',
+                backgroundColor:Colors.hashWhite
             }]} >
-                <TextInput ref={FocusTextInput} placeholderTextColor={Colors.white} value={title} onChangeText={setTitle} style={styles.input}  placeholder='Title eg : Physics Notes'/>
+                <TextInput ref={FocusTextInput} value={title} onChangeText={setTitle} style={styles.input}  placeholder='Title eg : Physics Notes'/>
                 {errorDisplay ? <Text style={styles.warn} >Enter the title !</Text> : ''}
                 
                 <TouchableOpacity onPress={titleAdder} >
-                    <Text style={[styles.btn,{width:width-40}]} >Create Note</Text>
+                    <Text style={[styles.btn,{width:width-60}]} >Create Note</Text>
                 </TouchableOpacity>
             </View>
 
@@ -124,10 +125,9 @@ const Note_Classification = ({navigation}) =>{
                     setEmptyList(false);
                     FocusTextInput.current.focus()
                 }} style={{alignItems:'center'}} >
-                    <FontAwesomeIcon style={{elevation:10}} size={50} color={Colors.white} icon={displayAddButton ? faMinusCircle : faPlusCircle} />
+                    <FontAwesomeIcon style={{elevation:10}} size={50} color={Colors.hashWhite} icon={displayAddButton ? faMinusCircle : faPlusCircle} />
                 </TouchableOpacity>
             </View>
-        <HomePageFootor navigation={navigation} />
       </SafeAreaView>
     )
 }
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
         backgroundColor:Colors.Background
     },
     btn_container:{
-        margin:10,
+        margin:20,
         borderRadius:10,
         padding:10,
         alignItems:'center',
@@ -169,9 +169,9 @@ const styles = StyleSheet.create({
         marginBottom:6
     },
     addBtnContainer:{
-        position:'absolute',
-        bottom:70,
-        right:10
+        position:'relative',
+        alignSelf:'flex-end',
+        margin:20
     },
     data:{
         marginTop:25,
@@ -193,7 +193,6 @@ const styles = StyleSheet.create({
         justifyContent:'space-around'
     },
     emptyList:{
-        backgroundColor:Colors.white,
         margin:20,
         borderRadius:10
     },

@@ -54,7 +54,7 @@ const Community = ({navigation}) =>{
                 renderItem={renderItem}
                 />
             </View>
-            <HomePageFootor navigation={navigation} add={true} goto={'AddArticle'}/>
+            
         </View>
     )
 }

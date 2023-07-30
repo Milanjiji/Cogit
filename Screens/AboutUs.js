@@ -47,7 +47,7 @@ const AboutUs = ({navigation}) =>{
                     <Person name={'Isha Navas'} letterSpacing={4} position={'Writer'} />
                 </View>
             </View>
-            <HomePageFootor navigation={navigation} />
+            
         </View>
     );
 }

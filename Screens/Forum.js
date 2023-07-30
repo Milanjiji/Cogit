@@ -124,7 +124,6 @@ const Forum = ({navigation}) =>{
                     <FontAwesomeIcon size={25} color={message ? Colors.text : Colors.secondary} icon={faPaperPlane} />
                 </TouchableOpacity>
             </View>
-            <HomePageFootor marginTop={true} navigation={navigation} />
         </View>
     );
 }

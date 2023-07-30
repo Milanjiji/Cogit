@@ -54,19 +54,22 @@ const Notes = ({navigation,route,...props}) =>{
                             </ImageBackground>
                         </TouchableOpacity>
                     </View> */}
-                    <Text style={[styles.basic,{borderLeftWidth:1,borderLeftColor:Colors.text,borderTopColor:Colors.text,borderTopWidth:1}]} >Subject Notes</Text>
-                    <TouchableOpacity onPress={()=>goTo('Classification','math')} >
-                        <Text style={[styles.basic,{textAlign:'right',borderBottomColor:Colors.white,borderRightColor:Colors.text,borderBottomWidth:1,borderRightWidth:1}]} >Maths</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>goTo('Classification','chem')} >
-                        <Text style={[styles.basic,{textAlign:'right',borderBottomColor:Colors.white,borderRightColor:Colors.text,borderBottomWidth:1,borderRightWidth:1}]} >Chemistry</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>goTo('Classification','phy')} >
-                        <Text style={[styles.basic,{textAlign:'right',borderBottomColor:Colors.white,borderRightColor:Colors.text,borderBottomWidth:1,borderRightWidth:1}]} >Physics</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>goTo('Classification','bio')} >
-                        <Text style={[styles.basic,{textAlign:'right',borderBottomColor:Colors.white,borderRightColor:Colors.text,borderBottomWidth:1,borderRightWidth:1}]} >Biology</Text>
-                    </TouchableOpacity>
+                    <View style={{flexDirection:'row',flex: 1,justifyContent:'space-around',marginVertical:10}} >
+                        <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','math')} >
+                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center'}]} >Maths</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','chem')} >
+                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center'}]} >Chemistry</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{flexDirection:'row',flex: 1,justifyContent:'space-around'}} >
+                        <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','phy')} >
+                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center'}]} >Physics</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','bio')} >
+                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center'}]} >Biology</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
           
     );
@@ -110,7 +113,7 @@ const styles = StyleSheet.create({
         color:Colors.text,
         fontFamily:Colors.Medium,
         padding: 14,
-        marginHorizontal:10
+        marginHorizontal:10,
       }
     
 })

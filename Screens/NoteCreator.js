@@ -4,13 +4,16 @@ import Colors from '../colors.json';
 import Header from "../components/Header";
 import HomePageFootor from "../components/HomePageFootor";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faSun } from "@fortawesome/free-solid-svg-icons";
 
 const NoteCreator = ({navigation,route}) =>{
     const [note,setNote] = useState('');
     const textInput = useRef(null)
     const height  = Dimensions.get('window').height
     const {id,title} = route.params;
-    const [theme,setTheme] = useState(true)
+    const [theme,setTheme] = useState(false);
+    const [Colors,setColors] = useState([])
 
 
     useEffect(()=>{
@@ -26,6 +29,14 @@ const NoteCreator = ({navigation,route}) =>{
         getNote();
 
     },[])
+    useEffect(()=>{
+        const getColors = async()=>{
+            const data = await AsyncStorage.getItem('Colors');
+            const colors = JSON.parse(data);
+            setColors(colors);
+        }
+        getColors();
+    },[])
     
 
     const SaveNote = async(text) =>{
@@ -35,20 +46,20 @@ const NoteCreator = ({navigation,route}) =>{
     const focusToTextInput = () =>{
         textInput.current.focus();
     }
-    const test =() =>{
-
+    const ToggleTheme = () => {
+        setTheme(!theme)
     }
         return(
-        <View style={[styles.body,{backgroundColor:theme ? Colors.NoteBackground : Colors.Background}]} >
-            <Header title={title} pageSettings={test} info={theme ? 'darkMode' : 'lightMode'} />
-            <ScrollView style={styles.area} >
+        <View style={[styles.body,{backgroundColor:'transparent'}]} >
+            <Header title={title} info={""} />
+            <ScrollView style={styles.area} showsVerticalScrollIndicator={false} >
                 <TouchableOpacity activeOpacity={1} style={{height:height-100}} onPress={focusToTextInput} >
 
                 
                 <TextInput
                     ref={textInput}
                     placeholder="Type your notes here" 
-                    style={styles.noteInput}
+                    style={[styles.noteInput,{color:Colors.text}]}
                     multiline={true}
                     numberOfLines={undefined}
                     onChangeText={SaveNote}
@@ -56,9 +67,12 @@ const NoteCreator = ({navigation,route}) =>{
                     placeholderTextColor={Colors.secondary}
                      />
                     </TouchableOpacity>
+               
             </ScrollView>
+            <TouchableOpacity onPress={ToggleTheme} style={{alignSelf:'flex-end',marginBottom:10,marginRight:10}} >
+                    <FontAwesomeIcon color={Colors.text} icon={faSun} />
+            </TouchableOpacity>
             
-            <HomePageFootor navigation={navigation} />
         </View>
     )
 }

@@ -109,45 +109,45 @@ const PostSkill = ({navigation}) =>{
     
     return(
         <View style={{flex: 1,backgroundColor:Colors.Background}} >
-            <Header navigation={navigation} info="ellipsis" title={'Post'} />
+            <Header navigation={navigation} info="" title={'Post'} />
             <View style={{flex:1}} >
 
                 <ScrollView showsVerticalScrollIndicator={false} >
                     <View style={{marginHorizontal:20,marginTop:10}} >
                         <Text style={[styles.label,{color:Colors.text}]} >Title*:</Text>
-                        <TextInput placeholder='What you can do' value={title} onChangeText={setTitle} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text,}]}  />
+                        <TextInput placeholderTextColor={Colors.hashWhite} placeholder='What you can do'  value={title} onChangeText={setTitle} style={[styles.input,{borderBottomColor:Colors.text,borderBottomWidth:0.5,color:Colors.text,}]}  />
                     </View>
 
                     <View style={{marginHorizontal:20}} >
                         <Text style={[styles.label,{color:Colors.text}]} >Discription*:</Text>
-                        <TextInput placeholder='More about your skill' value={disc} onChangeText={setDisc} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                        <TextInput placeholderTextColor={Colors.hashWhite} placeholder='More about your skill' value={disc} onChangeText={setDisc} style={[styles.input,{borderBottomColor:Colors.text,borderBottomWidth:0.5,color:Colors.text}]}  />
                     </View>
 
                     <View style={{marginHorizontal:20}} >
                         <Text style={[styles.label,{color:Colors.text}]} >External Links:</Text>
-                        <TextInput placeholder='eg: www.youtube.com' multiline={true} value={link} onChangeText={setLink} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                        <TextInput placeholderTextColor={Colors.hashWhite} placeholder='eg: www.youtube.com' multiline={true} value={link} onChangeText={setLink} style={[styles.input,{borderBottomColor:Colors.text,borderBottomWidth:0.5,color:Colors.text}]}  />
                     </View>
 
                     <Text style={{color:Colors.text,textAlign:'center',fontFamily:Colors.Medium}} >Must include any medium to see your skill</Text>
 
                     <View style={{marginHorizontal:20}} >
                         <FontAwesomeIcon style={{marginLeft:10,marginBottom:5}} icon={faInstagram} color={Colors.text} />
-                        <TextInput placeholder='ex: @userName (optional)' value={insta} onChangeText={setInsta} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                        <TextInput placeholderTextColor={Colors.hashWhite} placeholder='ex: @userName (optional)' value={insta} onChangeText={setInsta} style={[styles.input,{borderBottomColor:Colors.text,borderBottomWidth:0.5,color:Colors.text}]}  />
                     </View>
 
                     <View style={{marginHorizontal:20}} >
                         <FontAwesomeIcon style={{marginLeft:10,marginBottom:5}} icon={faFacebook} color={Colors.text} />
-                        <TextInput placeholder='ex: /userName (optional)' value={face} onChangeText={setFace} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                        <TextInput placeholderTextColor={Colors.hashWhite} placeholder='ex: /userName (optional)' value={face} onChangeText={setFace} style={[styles.input,{borderBottomColor:Colors.text,borderBottomWidth:0.5,color:Colors.text}]}  />
                     </View>
 
                     <View style={{marginHorizontal:20}} >
                         <FontAwesomeIcon style={{marginLeft:10,marginBottom:5}} icon={faTwitter} color={Colors.text} />
-                        <TextInput placeholder='ex: userName (optional)' value={tweet} onChangeText={setTweet} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                        <TextInput placeholderTextColor={Colors.hashWhite} placeholder='ex: userName (optional)' value={tweet} onChangeText={setTweet} style={[styles.input,{borderBottomColor:Colors.text,borderBottomWidth:0.5,color:Colors.text}]}  />
                     </View>
 
                     <View style={{marginHorizontal:20}} >
                         <FontAwesomeIcon style={{marginLeft:10,marginBottom:5}} icon={faYoutube} color={Colors.text} />
-                        <TextInput placeholder='ex: channel name (optional)' value={yt} onChangeText={setYt} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
+                        <TextInput placeholderTextColor={Colors.hashWhite} placeholder='ex: channel name (optional)' value={yt} onChangeText={setYt} style={[styles.input,{borderBottomColor:Colors.text,borderBottomWidth:0.5,color:Colors.text}]}  />
                     </View>
                    
                 </ScrollView>
@@ -163,7 +163,6 @@ const PostSkill = ({navigation}) =>{
                     <Text style={[styles.postBtnText,{color:Colors.text}]} >Post</Text>
                 </TouchableOpacity>  
             </View>
-            <HomePageFootor navigation={navigation}  />
         </View>
     )
 }
@@ -175,14 +174,13 @@ const styles = StyleSheet.create({
         marginBottom:3
     },
     input:{
-        borderRadius:10,
-        elevation:10,
         padding: 10,
-        marginBottom:10
+        marginBottom:15,
+        marginTop:-10
     },
     postBtn:{
         alignItems:'center',
-        borderRadius:10,
+        borderRadius:50,
         elevation:10,
         marginTop:10,
         marginHorizontal:20,

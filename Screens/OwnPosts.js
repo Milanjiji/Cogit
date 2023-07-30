@@ -14,14 +14,12 @@ import firestore from '@react-native-firebase/firestore';
 
 const search = firestore().collection('Skills');
 
-const Skills = ({navigation,route}) =>{
+const OwnPosts = ({navigation,route}) =>{
     const [data,setData] = useState([])
     const [Colors,setColors] = useState([]);
     const [likedData,setLikedData] = useState([{id:20}]);
     const [loading,setLoading] = useState(false);
     
-
-    const reload = route.params?.reload;
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -43,6 +41,10 @@ const Skills = ({navigation,route}) =>{
                 i:doc.id,
                 ...doc.data()
               }));
+            const name = await AsyncStorage.getItem('userName')
+            console.log(name);
+            const own = data.filter(item => name === item.userName)
+            console.log(own);
             setData(data);
             setLoading(false);
             console.log('false');
@@ -114,9 +116,44 @@ const Skills = ({navigation,route}) =>{
         
       }
 
-            
+      
       const renderItem = ({item}) =>{
-
+        let warning = false;
+        const deletePost = async() =>{
+            warning = !warning;
+            if(warning){
+                console.log("hello Deleting");
+                const idExists = likedData.some(item => item.id === id);
+                if(!idExists){
+                    try {
+                    
+                        const documentRef = search.doc(id);
+                    
+                        await documentRef.update({
+                        likes: totalLikes+1,
+                        });
+        
+                        const updatedData = data.map(item => {
+                            if (item.i === id) {
+                            return { ...item, likes: totalLikes+1 };
+                            }
+                            return item;
+                        });
+                        setData(updatedData);
+                        setLikedData([...likedData,{id:id}])
+        
+                        const StringifiedData = JSON.stringify([...likedData,{id:id}])
+                        AsyncStorage.setItem('likedContents',StringifiedData);
+                        console.log('Document field updated successfully');
+                    } catch (error) {
+                        console.error('Error updating document field:', error);
+                    }
+                    
+                }else{
+                    console.log('its alreaddy liked');
+                }
+            }
+        }
         return(
             <View  style={{backgroundColor:Colors.primary,marginHorizontal:3,marginVertical:3,borderRadius:10,elevation:10,padding: 8,}} >
                 
@@ -171,8 +208,13 @@ const Skills = ({navigation,route}) =>{
                     
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:30}} >{item.likes} Likes</Text>
                     
-                </View>   
-               
+                </View>  
+                <Text></Text>
+                <TouchableOpacity  style={{borderRadius:10,padding: 10,backgroundColor:Colors.hashWhite}} >
+                    
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >Delete Post</Text>
+                </TouchableOpacity> 
+                
                 
             </View>
         )
@@ -182,9 +224,7 @@ const Skills = ({navigation,route}) =>{
     return(
         <ScrollView showsVerticalScrollIndicator={false} style={[styles.App,{backgroundColor:Colors.Background}]} >
             <Header navigation={navigation} info="post" title={'Skills'}   />
-            <TouchableOpacity onPress={()=>navigation.navigate('OwnPosts')} style={{borderRadius:10,padding: 10,backgroundColor:Colors.hashWhite}} >
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >Posts</Text>
-            </TouchableOpacity>
+        
             <View style={{flex:1}} >
                 <Text style={{ display:loading ? 'flex' : 'none' , color:Colors.text,textAlign:'center',fontFamily:Colors.Medium}} >Loading...</Text>
                 <FlatList
@@ -201,37 +241,6 @@ const styles = StyleSheet.create({
         flex:1,
         backgroundColor:Colors.Background
     },
-    header:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-        padding:8,
-        margin:8,
-        backgroundColor:Colors.primary,
-        elevation:10,
-        borderRadius:10,
-        alignItems:'center',
-        marginVertical:5
-    },
-    header_Text:{
-        fontFamily:Colors.Regular,
-        fontSize:18,
-        color:Colors.white
-    },
-    container:{
-        margin:10,
-        padding:8,
-        backgroundColor:Colors.primary,
-        borderRadius:10,
-        elevation:10
-    },
-    Title:{
-        color:Colors.white,
-        fontSize:24,
-        fontFamily:Colors.Bold
-    },
-    overView:{
-        color:Colors.white,
-
-    },
+   
 })
-export default Skills;
+export default OwnPosts;

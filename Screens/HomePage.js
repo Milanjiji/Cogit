@@ -24,6 +24,7 @@ import recycle from '../assets/images/recycle.png'
 import community from '../assets/images/community.png'
 import Background from '../assets/images/Background.png'
 import NextUpdate from '../components/NextUpdate';
+import LearnC from './LearnC';
 
 // ted ed classes
 const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191748';
@@ -34,6 +35,7 @@ const Homepage = ({navigation,route}) =>{
     const [Achivemenet,setAchivement] = useState();
     const [notes,setNotes] = useState();
     const [Colors,setColors] = useState([]);
+    const [cStage,setCStage] = useState(false);
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
@@ -72,6 +74,13 @@ const Homepage = ({navigation,route}) =>{
             }
         }
         getThirdSettings();
+        const getStage = async() =>{
+            const stage = JSON.parse(await AsyncStorage.getItem('LevelC'));
+            if(stage !== null){
+                setCStage(true);
+            }
+        }
+        getStage();
     },[])
     return(
             <View  style={[styles.background,{backgroundColor:Colors.Background}]} >
@@ -80,6 +89,9 @@ const Homepage = ({navigation,route}) =>{
                 <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:Colors.Background,paddingBottom:150}}  >
                 <Greetings navigation={navigation} />
 
+                <View style={{marginHorizontal:10}} >
+                    <HomePageBar src={focus} height={120} navigation={navigation} title={'Learn C++ without pc'}  navigate={cStage ? "ClassificationC" : 'UserC'}  disc={'Embark on an empowering coding journey with our free, on-the-go app featuring an integrated C++ code editor, available in Malayalam, allowing you to learn and practice C++ anytime, anywhere!'} />
+                </View>
                 <View style={{flexDirection:'row',paddingHorizontal:10}} >
                     <HomePageBar src={focus} height={120} navigation={navigation} title={'Focus'}  navigate={'Focus'}  disc={'Neuro science mixed music,helps students to get more focus'} />
                     <HomePageBar src={recycle} height={120} navigation={navigation} title={'Re:Cycle'}  navigate={'ReCycle'}  disc={'Group of students who like some recycling,just join them do some good.'} />
@@ -96,9 +108,7 @@ const Homepage = ({navigation,route}) =>{
                     <View style={{display:notes ? 'flex' : 'none'}} >
                         <Notes navigation={navigation} />
                     </View>
-                    <View style={{display: !prevSectionDisplay ? 'flex':'none'}} >
-                        <PrevSection navigation={navigation} />
-                    </View>
+                    
 
 
                     {/* <View style={{flexDirection:'row',width:width,padding:10}} >
@@ -117,9 +127,9 @@ const Homepage = ({navigation,route}) =>{
                     <NextUpdate navigation={navigation} />
                 
                         
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginVertical:10}} > Copyright © 2023 Cogit</Text>
                    
                    <View style={{height:50}} ></View>
-                   <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginVertical:10}} ><Text style={{fontSize:20}} >©</Text> at South</Text>
                 </ScrollView>
                 <HomePageFootor  navigation={navigation} />  
                 

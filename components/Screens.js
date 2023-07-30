@@ -4,7 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TransitionPresets } from '@react-navigation/stack';
 import { enableScreens } from 'react-native-screens';
-
+import SplashScreen from "react-native-splash-screen";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 import Homepage from '../Screens/HomePage'
@@ -23,13 +24,10 @@ import Missions from "../Screens/Missions";
 import LoadingAnimation from "./LoadingAnimation";
 import AllSet from "../Screens/AllSet";
 import Setting from "../Screens/Settings";
-import Events from "../Screens/Events";
-import AddEvents from "../Screens/AddEvent";
 import AddArticle from "../Screens/AddArticle";
 import AboutUs from "../Screens/AboutUs";
 import PrivacyPolicy from "./PrivacyAndPolicy";
 import TermsCondition from "./TermsAndCondition";
-import Spalsh from "../Screens/SplashScreen";
 import Brief from "../Screens/Notes/Briefly";
 import BriefClassification from "../Screens/Notes/BrieflyClassification";
 import DeepClassification from "../Screens/Notes/ChapterDeepClassification";
@@ -37,10 +35,21 @@ import DeepExplanation from "../Screens/Notes/ChapterDeep";
 import Skills from "../Screens/Skills";
 import PostSkill from "../Screens/PostSkills";
 import ReCycle from "../Screens/ReCycle";
-import Tasks from "../Screens/Tasks";
 import VideoClass from "../Screens/Notes/VideoClass";
 import VideoClassification from "../Screens/Notes/VideoClassification";
 import SendMessage from "../Screens/Message";
+import LoadScreen from "../Screens/SplashScreen";
+import TedEd from "../Screens/TedEd";
+import OwnPosts from "../Screens/OwnPosts";
+import LearnC from "../Screens/LearnC";
+import UsersKnownC from "../Screens/UserC++Known";
+import CClass from "../Screens/LearnC/ChapterClassification";
+import HelloWorld from "../Screens/LearnC/HelloWorld";
+import CodeEditor from "../Screens/SampleCodeEditor";
+import Basics from "../Screens/LearnC/C++Basics";
+import Variales from "../Screens/LearnC/Variables";
+import UserInput from "../Screens/LearnC/UserInput";
+import Operators from "../Screens/LearnC/Operators";
 
 
 
@@ -51,26 +60,20 @@ const Stack = createNativeStackNavigator();
 
 enableScreens();
 const Screens = () =>{
-  
-
     return(
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
-
+        <Stack.Navigator initialRouteName="Splash"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
         <Stack.Screen
-           name="Splash" 
-           component={Spalsh} 
-           />
-
-            <Stack.Screen
+            name="Splash" 
+            component={LoadScreen} /> 
+        
+        <Stack.Screen
+            name="Home" 
+            component={Homepage} /> 
+        <Stack.Screen
            name="getStarted" 
            component={GetStarted} />
-           
-           <Stack.Screen
-           name="Home" 
-           component={Homepage} /> 
-
-          
+            
           <Stack.Screen
            name="Details" 
            component={Details} />
@@ -114,12 +117,7 @@ const Screens = () =>{
            <Stack.Screen
            name="Settings" 
            component={Setting} /> 
-           <Stack.Screen
-           name="Events" 
-           component={Events} /> 
-           <Stack.Screen
-           name="AddEvent" 
-           component={AddEvents} /> 
+           
            <Stack.Screen
            name="AddArticle" 
            component={AddArticle} /> 
@@ -157,9 +155,7 @@ const Screens = () =>{
            <Stack.Screen
            name="ReCycle" 
            component={ReCycle} />
-           <Stack.Screen
-           name="Tasks" 
-           component={Tasks} />
+           
            <Stack.Screen
            name="VideoClassification" 
            component={VideoClassification} />
@@ -169,7 +165,40 @@ const Screens = () =>{
            <Stack.Screen
            name="SendMessage" 
            component={SendMessage} />
-           
+           <Stack.Screen
+           name="TedEd" 
+           component={TedEd} />
+           <Stack.Screen
+           name="OwnPosts" 
+           component={OwnPosts} />
+           <Stack.Screen
+           name="LearnC" 
+           component={LearnC} />
+           <Stack.Screen
+           name="UserC" 
+           component={UsersKnownC} />
+
+           <Stack.Screen
+           name="ClassificationC" 
+           component={CClass} />
+           <Stack.Screen
+           name="Basics" 
+           component={Basics} />
+           <Stack.Screen
+           name="HelloWorld" 
+           component={HelloWorld} />
+           <Stack.Screen
+           name="SampleCodeEditor" 
+           component={CodeEditor} />
+           <Stack.Screen
+           name="Variables" 
+           component={Variales} />
+           <Stack.Screen
+           name="UserInput" 
+           component={UserInput} />
+           <Stack.Screen
+           name="Operators" 
+           component={Operators} />
   
         </Stack.Navigator>
       </NavigationContainer>

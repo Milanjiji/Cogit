@@ -32,7 +32,7 @@ const ArticleView = ({route,navigation}) =>{
                <Text style={[styles.content,{color:Colors.text}]} >{data.content}</Text>
                
             </ScrollView>
-            <HomePageFootor navigation={navigation} />
+            
         </View>
     )
 }

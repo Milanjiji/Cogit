@@ -32,7 +32,14 @@ const Header = ({navigation,route,...props}) =>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
-            setColors(colors);
+            if(!colors){
+                const data = await AsyncStorage.getItem('Colors');
+                const colors = JSON.parse(data);
+                setColors(colors);
+            }else{
+                setColors(colors);
+            }
+            
         }
         getColors();
     },[])
@@ -44,6 +51,9 @@ const Header = ({navigation,route,...props}) =>{
         
     }
 }
+const post = () =>{
+    navigation.navigate('PostSkills')
+  }
     
     return(
         <View style={[styles.background]} >
@@ -77,7 +87,11 @@ const Header = ({navigation,route,...props}) =>{
 
                 <TouchableOpacity onPress={props.pageSettings} >
                     <FontAwesomeIcon color={Colors.Background} style={styles.iRight} icon={faMoon} />
-                </TouchableOpacity>: ''}
+                </TouchableOpacity>:props.info == 'post' ?
+
+                <TouchableOpacity  onPress={post} >
+                    <Text style={{marginRight:10,marginTop:17,color:Colors.text,fontFamily:Colors.Bold}} >Post</Text>
+                </TouchableOpacity>:  ''}
             </View>
 
         </View>

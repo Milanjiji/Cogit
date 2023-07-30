@@ -170,10 +170,10 @@ const handleSend = () => {
             <Header navigation={navigation}  title="Re:Cycle" info="" />
 
             <ScrollView showsVerticalScrollIndicator={false} style={{paddingHorizontal:8}} >
-                <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:50,letterSpacing:6,paddingLeft:10}} >Hey {"\n"}there!,</Text>
+                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:50,letterSpacing:3,paddingLeft:10}} >Hey!,</Text>
 
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'right'}} > 
-                As a group of students, we are running a campaign to address the issue of <Text style={{fontSize:30}} >plastic waste</Text>. So we use plastic straws whenever we buy any drink and also we take plastic knives whenever we buy a cake to celebrate any occasion. The problem is that after using it, we throw it anywhere, which causes soil and water <Text style={{fontSize:30}} >pollution</Text> because plastic is a non-biodegradable waste). So let’s start an awareness campaign to make all people not use plastic straws and instead buy paper straws and refuse knives whenever someone buys cakes. Tho I won’t be surprised if no one responds. However, if you read to the end, pressing that white like button would be really supportive.
+                As a group of students, we are running a campaign to address the issue of plastic waste. So we use plastic straws whenever we buy any drink and also we take plastic knives whenever we buy a cake to celebrate any occasion. The problem is that after using it, we throw it anywhere, which causes soil and water pollution because plastic is a non-biodegradable waste). So let’s start an awareness campaign to make all people not use plastic straws and instead buy paper straws and refuse knives whenever someone buys cakes. Tho I won’t be surprised if no one responds. However, if you read to the end, pressing that white like button would be really supportive.
                 </Text>
 
                 <TouchableOpacity onPress={support} style={{display:supported ? 'none' : 'flex',backgroundColor:Colors.primary,alignItems:'center',padding: 10,borderRadius:50,elevation:10,marginVertical:10}} >
@@ -182,9 +182,8 @@ const handleSend = () => {
 
                 <Text style={{display:supported ? 'flex' : 'none',color:Colors.text,fontFamily:Colors.Bold,textAlign:'right',marginVertical : supported ? 6 : 0}} >Thanks</Text>
 
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >If you are interested in participation</Text>
 
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginTop:10}} >Its simple no need to fill any form or register just click the button and you will be informed if we are going to do anything.</Text>
+                <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginTop:10}} >If you are interested in participation,Its simple no need to fill any form or register just click the button and you will be informed if we are going to do anything.</Text>
 
                 <Text style={{display:Join ? 'flex' : 'none',color:Colors.text,fontFamily:Colors.Bold,textAlign:'center',marginTop:10}} >Thanks You will be informed.</Text>
 
@@ -202,13 +201,13 @@ const handleSend = () => {
                     value={message}
                     onChangeText={setMessage}
                     placeholder="Send a simple message will contact you back."
-                    style={{color:Colors.text,backgroundColor:Colors.primary,borderRadius:10,marginVertical:10,padding: 10}}
+                    style={{color:Colors.text,backgroundColor:Colors.primary,borderRadius:10,marginVertical:5,padding: 10}}
                     numberOfLines={undefined}
                     multiline={true} />
                 <Text style={{ display: warn ? 'flex' :'none', color:Colors.text,fontFamily:Colors.Medium,marginLeft:20,marginTop:10}} >Cannot send message without content</Text>
                 <Text style={{ display: status ? 'flex' : 'none', color:Colors.text,fontFamily:Colors.Medium,marginLeft:20,marginTop:10}} >{status}</Text>
                 
-                <TouchableOpacity onPress={handleSend} style={{backgroundColor:Colors.primary,margin:3,borderRadius:50,padding: 10,textAlign:'center',alignItems:'center',elevation:10,marginVertical:10}} >
+                <TouchableOpacity onPress={handleSend} style={{backgroundColor:Colors.primary,margin:3,borderRadius:50,padding: 10,textAlign:'center',alignItems:'center',elevation:10,marginBottom:5}} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Send</Text>
                 </TouchableOpacity>   
                 
