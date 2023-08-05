@@ -69,7 +69,7 @@ const HomeScreenSettings = ({navigation}) =>{
     }
     
     return(
-        <View style={{backgroundColor:Colors.primary,padding: 10,margin:3,borderRadius:10,elevation:10}}>
+        <View style={{padding: 10,margin:3,borderRadius:10}}>
             <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Home</Text>
             <TouchableOpacity onPress={IconHide} style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:10}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Hide small icons from home screen</Text>

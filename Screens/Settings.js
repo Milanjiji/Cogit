@@ -7,11 +7,11 @@ import HomePageFootor from "../components/HomePageFootor";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import HomeScreenSettings from "../components/HomePageSettings";
 import NoteScreenSettings from "../components/NotesSettings";
-import AiSettings from "../components/AiSettings";
 import AccountSettings from "../components/AccountSettings";
 import AboutTheApp from "../components/AboutTheApp";
 import HelpAndSupport from "../components/HelpAndSupportSettings";
 import UserDetails from "../components/UserDetails";
+import SideBar from "../components/SideBar";
 
 const Setting = ({navigation,route}) =>{
 
@@ -26,20 +26,16 @@ const Setting = ({navigation,route}) =>{
     },[])
 
     return(
-        <View style={{flex:1,backgroundColor:Colors.Background,paddingHorizontal:10}} >
-            <Header navigation={navigation} title="Settings" info=""  />
-            <ScrollView showsVerticalScrollIndicator={false} style={{flex:1}} >
+        <View style={{flex:1,backgroundColor:Colors.Background,flexDirection:'row',alignItems:'center'}} >
+            <SideBar navigation={navigation} page={"Settings"} />
+            <ScrollView showsVerticalScrollIndicator={false} style={{flex:1,marginLeft:10}} >
+                <Text style={{color:`${Colors.text}50`,fontFamily:Colors.Bold,textAlign:'center',padding: 20,fontSize:40}} >Settings</Text>
                 <UserDetails/>
                 <GeneralSetting/>
-                <HomeScreenSettings/>
-                <NoteScreenSettings/>
-                <AiSettings/>
                 <AccountSettings navigation={navigation} />
                 <HelpAndSupport/>
                 <AboutTheApp navigation={navigation} />
-                <View style={{height:50}} ></View>
             </ScrollView>
-            <HomePageFootor navigation={navigation} />
         </View>
     );
 }

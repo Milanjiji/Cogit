@@ -46,7 +46,8 @@ const DeepExplanation = ({navigation,route}) =>{
                                 </View>
                                 <View>
                                     <Text style={{color:Colors.text,marginTop:10,fontFamily:Colors.Bold}} >Examples: </Text>
-                                    {
+                                    {   
+                                        
                                         item.examples.map(item => {
                                             return(
                                                 <View key={item}  style={{flexDirection:'row',alignItems:'center',marginTop:5,marginHorizontal:20}} >
@@ -61,6 +62,7 @@ const DeepExplanation = ({navigation,route}) =>{
                         )
                     })
                 }
+                <View style={{height:50}} ></View>
             </ScrollView>
             <HomePageFootor navigation={navigation} />
         </View>

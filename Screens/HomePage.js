@@ -8,23 +8,13 @@ import {
     Image,
     ImageBackground
   } from 'react-native';
-import Header from '../components/Header';
 import Notes from '../components/Notes';
-import HomePageFootor from '../components/HomePageFootor';
-import Utilities from '../components/Utilities';
-import Achievement from '../components/Achivements';
-import PrevSection from '../components/PrevSection';
-import Colors from '../colors.json'
 import Greetings from '../components/Greetings';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomePageBar from '../components/HomePageBar';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
-import focus from '../assets/images/focus.png'
-import recycle from '../assets/images/recycle.png'
-import community from '../assets/images/community.png'
-import Background from '../assets/images/Background.png'
+import SideBar from '../components/SideBar';
 import NextUpdate from '../components/NextUpdate';
-import LearnC from './LearnC';
 
 // ted ed classes
 const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191748';
@@ -83,23 +73,27 @@ const Homepage = ({navigation,route}) =>{
         getStage();
     },[])
     return(
-            <View  style={[styles.background,{backgroundColor:Colors.Background}]} >
-                    
+            <View  style={[styles.background,{backgroundColor:Colors.Background,flexDirection:'row'}]} >
 
-                <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:Colors.Background,paddingBottom:150}}  >
+                <SideBar navigation={navigation} page="Cogit" />
+
+                <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:Colors.Background,paddingBottom:150,flex: 1,}}  >
                 <Greetings navigation={navigation} />
 
                 <View style={{marginHorizontal:10}} >
-                    <HomePageBar src={focus} height={120} navigation={navigation} title={'Learn C++ without pc'}  navigate={cStage ? "ClassificationC" : 'UserC'}  disc={'Embark on an empowering coding journey with our free, on-the-go app featuring an integrated C++ code editor, available in Malayalam, allowing you to learn and practice C++ anytime, anywhere!'} />
+                    <HomePageBar  height={120} navigation={navigation} title={'Learn C++ without pc'}  navigate={cStage ? "ClassificationC" : 'UserC'}  disc={'Embark on an empowering coding journey with our free, on-the-go app featuring an integrated C++ code editor, available in Malayalam, allowing you to learn and practice C++ anytime, anywhere!'} />
                 </View>
                 <View style={{flexDirection:'row',paddingHorizontal:10}} >
-                    <HomePageBar src={focus} height={120} navigation={navigation} title={'Focus'}  navigate={'Focus'}  disc={'Neuro science mixed music,helps students to get more focus'} />
-                    <HomePageBar src={recycle} height={120} navigation={navigation} title={'Re:Cycle'}  navigate={'ReCycle'}  disc={'Group of students who like some recycling,just join them do some good.'} />
+                    <HomePageBar  height={120} navigation={navigation} title={'Focus'}  navigate={'Focus'}  disc={'Neuro science mixed music,helps students to get more focus'} />
+                    <HomePageBar  height={120} navigation={navigation} title={'Re:Cycle'}  navigate={'ReCycle'}  disc={'Group of students who like some recycling,just join them do some good.'} />
                 </View>  
                 
                 <View style={{flexDirection:'row',paddingHorizontal:10}} >
                     <HomePageBar height={120} navigation={navigation} title={'Skills'}  navigate={'Skills'}  disc={'This is where students show what they can do other than studies'} />
                     <HomePageBar height={120} navigation={navigation} title={'Notes'}  navigate={'NoteCreator_Classification'}  disc={'Make your own Notes, these will not go missing.'} />
+                </View>
+                <View style={{marginHorizontal:10}} >
+                    <HomePageBar  height={120} navigation={navigation} title={'Learn'}  navigate={'Notes'}  disc={'Lets learn something'} />
                 </View>
                     
 
@@ -129,9 +123,8 @@ const Homepage = ({navigation,route}) =>{
                         
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginVertical:10}} > Copyright © 2023 Cogit</Text>
                    
-                   <View style={{height:50}} ></View>
+                   
                 </ScrollView>
-                <HomePageFootor  navigation={navigation} />  
                 
                 
             </View>
@@ -140,7 +133,6 @@ const Homepage = ({navigation,route}) =>{
 const styles = StyleSheet.create({
     background:{
         flex:1,
-        
     },
 })
 export default Homepage;

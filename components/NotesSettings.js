@@ -54,7 +54,7 @@ const NoteScreenSettings = ({navigation}) =>{
     }
     
     return(
-        <View style={{backgroundColor:Colors.primary,padding: 10,margin:3,borderRadius:10,elevation:10}}>
+        <View style={{padding: 10,margin:3,borderRadius:10}}>
             <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Notes</Text>
             <TouchableOpacity onPress={ChangeBanner} style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginTop:10}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Place banner to the last place</Text>

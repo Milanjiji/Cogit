@@ -30,7 +30,7 @@ const GeneralSetting = () =>{
             colors.Background = "#2b1499";
             colors.primary = "#12156c";
             colors.secondary = "#0e1158";
-            colors.text = "white";
+            colors.text = "#ffffff";
             AsyncStorage.setItem('Colors',JSON.stringify(colors));
             setBorder(1);
             setReload(true);
@@ -38,7 +38,7 @@ const GeneralSetting = () =>{
             colors.Background = "#1a1a1a";
             colors.primary = "#808080";
             colors.secondary = "#d7b3ff";
-            colors.text = "white";
+            colors.text = "#ffffff";
             AsyncStorage.setItem('Colors',JSON.stringify(colors))
             setReload(true);
             setBorder(2);
@@ -46,7 +46,7 @@ const GeneralSetting = () =>{
             colors.Background = "#ffffff";
             colors.primary = "#bfbfbf";
             colors.secondary = "#595959";
-            colors.text = "black";
+            colors.text = "#000000";
             AsyncStorage.setItem('Colors',JSON.stringify(colors))
             setReload(true);
             setBorder(3);
@@ -59,7 +59,7 @@ const GeneralSetting = () =>{
     }
 
     return(
-        <View style={[styles.body,{backgroundColor:Colors.primary}]} >
+        <View style={[styles.body,{}]} >
             <Text style={[styles.title,{color:Colors.text}]} >General</Text>
 
             <View style={styles.themeContainer} >
@@ -97,7 +97,6 @@ const GeneralSetting = () =>{
 const styles = StyleSheet.create({
     body:{
         borderRadius:10,
-        elevation:10,
         margin:5,
         padding:10
     },

@@ -182,7 +182,7 @@ const AccountSettings = ({navigation}) =>{
     }
     
     return(
-        <View style={{backgroundColor:Colors.primary,padding: 10,margin:3,borderRadius:10,elevation:10}}>
+        <View style={{padding: 10,margin:3,borderRadius:10}}>
 
             <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Account</Text>
 

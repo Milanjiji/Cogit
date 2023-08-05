@@ -18,10 +18,7 @@ const PostSkill = ({navigation}) =>{
     const [insta,setInsta] = useState('');
     const [tweet,setTweet] = useState('');
     const [yt,setYt] = useState('');
-
-
     const [Colors,setColors] = useState([]);
-
     const [totalArticles,setTotalArticles] = useState();
     const [warn,setWarn] = useState(false)
     const [msgSuccess,setMsgSuccess] = useState(false);

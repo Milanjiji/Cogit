@@ -2,21 +2,19 @@ import React ,{useState,useEffect,useRef} from "react";
 import { View, Text, TextInput, TouchableOpacity,StyleSheet, FlatList,Dimensions } from "react-native";
 import firestore from '@react-native-firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faMessage, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import colors  from '../colors.json'
-import Header from "../components/Header";
-import HomePageFootor from "../components/HomePageFootor";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import SideBar from "../components/SideBar";
 
 
 const Forum = ({navigation}) =>{
     const [message,setMessage] = useState('');
-    const [data,setData] = useState([{message:''}]);
-    const [idCounter, setIdCounter] = useState(0);
+    const [data,setData] = useState([{message:'Loading...'}]);
     const [name,setName] = useState('')
     const [display,setDisplay] = useState(true);
-    const [warn,setWarn] = useState(true);
     const [Colors,setColors] = useState([]);
+    const [lastId,setLastId] = useState(0);
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
@@ -24,6 +22,12 @@ const Forum = ({navigation}) =>{
             setColors(colors);
         }
         getColors();
+        const getLastId = async() =>{
+            const chatdata = await firestore().collection('ChatData').get()
+            setLastId(chatdata.size);
+            console.log('totaol event => ',chatdata.size);
+        };
+        getLastId();
     },[])
 
     const height = Dimensions.get('window').height;
@@ -36,8 +40,26 @@ const Forum = ({navigation}) =>{
         }
         const unsubscribe = firestore()
             .collection('ChatData')
-            .orderBy('id', 'asc')
+            .orderBy('id', 'desc')
+            .limit(200)
             .onSnapshot((querySnapshot) => {
+                const changes = querySnapshot.docChanges();
+                const newItems = [];
+          
+                // changes.forEach((change) => {
+                //     if (change.type === 'added') {
+                //       newItems.push(change.doc.data());
+                //     } else if (change.type === 'modified') {
+                //       // Handle modifications if needed
+                //     } else if (change.type === 'removed') {
+                //       // Handle deletions if needed
+                //     }
+                //   });
+            
+                //   if (newItems.length > 0) {
+                //     setData((prevData) => [...prevData, ...newItems.reverse()]);
+                //     setIdCounter(newItems[newItems.length - 1].id);
+                //   }
                 const items = [];
                 let counter = 0;
                 querySnapshot.forEach((documentSnapshot) => {
@@ -45,21 +67,20 @@ const Forum = ({navigation}) =>{
                 counter = documentSnapshot.data().id
                 
                 });
-                setIdCounter(counter)
-                setData(items);
+                const sortedData = items.sort((a, b) => b.id - a.id);
+                setData(sortedData);
+                console.log(items.reverse());
             });
             fetchUserReply();
             return () => unsubscribe();
       }, []);
-
+      
       const handleSend = () => {
         if(message){
-            setWarn(false);
-            var newId = idCounter + 1;
         
             firestore()
               .collection('ChatData')
-              .add({ id: newId, message,name:name })
+              .add({ id: lastId+1, message,name:name })
               .then(() => {
                 console.log('Message sent successfully');
                 setMessage(''); 
@@ -85,17 +106,29 @@ const Forum = ({navigation}) =>{
             </View>
         );
       }
+      
       const handleContentSizeChange = () => {
         flatListRef.current.scrollToEnd({ animated: true });
       };
       const handleUserReply = async () =>{
         setDisplay(false);
       }
+
+      //renderItem = {
+        // <Component
+        //      return(
+        //      <View></View>
+        // )
+        // 
+    //   }
     
 
     return(
-        <View style={[styles.background,{backgroundColor:Colors.Background}]}  >
-            <Header navigation={navigation} title="cogit" info="ellipsis" />
+        <View style={[styles.background,{backgroundColor:Colors.Background,flexDirection:'row'}]}  >
+
+            <SideBar navigation={navigation} page={"Forum"} />
+
+            <View style={{flex: 1,}} >
            <View style={{height:height,justifyContent:'space-around', display:display === true ? 'flex' : "none",elevation:10 }} >
                 <View style={[styles.warning,{backgroundColor:Colors.primary}]} >
                     <Text style={[styles.warningText,{color:Colors.text}]} >
@@ -109,6 +142,7 @@ const Forum = ({navigation}) =>{
            </View>
             
             <FlatList
+            
                 ref={flatListRef}
                 data={data}
                 renderItem={renderItem}
@@ -123,6 +157,7 @@ const Forum = ({navigation}) =>{
                 <TouchableOpacity onPress={handleSend} style={styles.Send} >
                     <FontAwesomeIcon size={25} color={message ? Colors.text : Colors.secondary} icon={faPaperPlane} />
                 </TouchableOpacity>
+            </View>
             </View>
         </View>
     );
