@@ -81,7 +81,7 @@ const Homepage = ({navigation,route}) =>{
                 <Greetings navigation={navigation} />
 
                 <View style={{marginHorizontal:10}} >
-                    <HomePageBar  height={120} navigation={navigation} title={'Learn C++ without pc'}  navigate={cStage ? "ClassificationC" : 'UserC'}  disc={'Embark on an empowering coding journey with our free, on-the-go app featuring an integrated C++ code editor, available in Malayalam, allowing you to learn and practice C++ anytime, anywhere!'} />
+                    <HomePageBar  height={120} navigation={navigation} title={'Learn C++ without pc'}  navigate={"ClassificationC"}  disc={'Embark on an empowering coding journey with our free, on-the-go app featuring an integrated C++ code editor, available in Malayalam, allowing you to learn and practice C++ anytime, anywhere!'} />
                 </View>
                 <View style={{flexDirection:'row',paddingHorizontal:10}} >
                     <HomePageBar  height={120} navigation={navigation} title={'Focus'}  navigate={'Focus'}  disc={'Neuro science mixed music,helps students to get more focus'} />

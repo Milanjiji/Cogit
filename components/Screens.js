@@ -42,7 +42,6 @@ import LoadScreen from "../Screens/SplashScreen";
 import TedEd from "../Screens/TedEd";
 import OwnPosts from "../Screens/OwnPosts";
 import LearnC from "../Screens/LearnC";
-import UsersKnownC from "../Screens/UserC++Known";
 import CClass from "../Screens/LearnC/ChapterClassification";
 import HelloWorld from "../Screens/LearnC/HelloWorld";
 import Basics from "../Screens/LearnC/C++Basics";
@@ -58,6 +57,11 @@ import Conditions from "../Screens/LearnC/Condition";
 import Switch from "../Screens/LearnC/Switch";
 import WhileLoop from "../Screens/LearnC/WhileLoop";
 import ForLoop from "../Screens/LearnC/ForLoop";
+import Array from "../Screens/LearnC/Array";
+import Struct from "../Screens/LearnC/Structures";
+import Pointers from "../Screens/LearnC/Pointers";
+import Function from "../Screens/LearnC/Functions";
+import Classes from "../Screens/LearnC/Class";
 
 
 
@@ -182,9 +186,6 @@ const Screens = () =>{
            <Stack.Screen
            name="LearnC" 
            component={LearnC} />
-           <Stack.Screen
-           name="UserC" 
-           component={UsersKnownC} />
 
            <Stack.Screen
            name="ClassificationC" 
@@ -233,6 +234,21 @@ const Screens = () =>{
            <Stack.Screen
            name="ForLoop" 
            component={ForLoop} />
+           <Stack.Screen
+           name="Array" 
+           component={Array} />
+           <Stack.Screen
+           name="Struct" 
+           component={Struct} />
+           <Stack.Screen
+           name="Pointer" 
+           component={Pointers} />
+           <Stack.Screen
+           name="Function" 
+           component={Function} />
+           <Stack.Screen
+           name="Class" 
+           component={Classes} />
   
         </Stack.Navigator>
       </NavigationContainer>

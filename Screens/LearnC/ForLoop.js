@@ -90,7 +90,7 @@ const ForLoop = ({navigation}) => {
 
             </View>
 
-            <TouchableOpacity onPress={()=>navigation.navigate('HelloWorld')} style={{backgroundColor:Colors.hashWhite,borderRadius:10,padding: 10,marginBottom:20}} >
+            <TouchableOpacity onPress={()=>navigation.navigate('Array')} style={{backgroundColor:Colors.hashWhite,borderRadius:10,padding: 10,marginBottom:20}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >go to next session</Text>
             </TouchableOpacity>
            
