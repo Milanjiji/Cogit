@@ -106,9 +106,7 @@ const FocusMode = ({navigation}) => {
   return (
     <View
       style={styles.background} >
-        <View style={{display:others ? 'flex' :'none'}} >
-          <Header navigation={navigation} title='Foucs Mode' info=''  /> 
-        </View>
+        
       
       <View style={styles.App} >
         <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginHorizontal:10}} >{note}</Text>
@@ -121,7 +119,6 @@ const FocusMode = ({navigation}) => {
            </Animated.View>
           </View>
           
-            {/* <SVGatorComponent style={{displ}} /> */}
           
           
           

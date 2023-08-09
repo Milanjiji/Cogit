@@ -30,7 +30,7 @@ const AllSet  = ({navigation}) =>{
             <Text style={styles.AllSet} > You are all set!</Text>
             <View style={{flex:1 ,paddingHorizontal:10 }} >
             <Text style={{color:Colors.white,fontFamily:Colors.Medium}} >Thank you for installing Cogit. It would be really helpful if you shared a review or share this app to someone.</Text>
-            <View style={{backgroundColor:Colors.hashWhite,borderRadius:10,padding: 10,}} >
+            <View style={{backgroundColor:Colors.hashWhite,borderRadius:10,padding: 10,alignSelf:'center'}} >
                 <Text style={{color:Colors.white,fontFamily:Colors.Medium}} >
                     <Text style={{fontSize:16,}} >Special Limited Time Offer!{"\n"}{"\n"}</Text>
                     Dear User,{"\n"}{"\n"}
@@ -38,7 +38,7 @@ const AllSet  = ({navigation}) =>{
                     Don't miss out - upgrade your experience today!
                 </Text>
                 
-                    <View style={{marginTop:20}} >
+                    <View style={{}} >
                         <View style={{backgroundColor:Colors.secondary,borderRadius:10,borderColor:Colors.hashWhite,borderWidth:1,alignSelf:'flex-start'}} >
                             <Text style={{color:Colors.white,padding: 10,fontFamily:'monospace'}} >#include {"<iostream>"} {"\n"} using namespace std; {"\n"}{"\n"} int main() {"{... "} </Text>
                         </View>

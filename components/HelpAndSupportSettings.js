@@ -43,7 +43,7 @@ const HelpAndSupport = ({navigation}) =>{
     }
 
     return(
-        <View style={{backgroundColor:Colors.primary,padding: 10,margin:3,borderRadius:10,elevation:10}}>
+        <View style={{padding: 10,margin:3,borderRadius:10}}>
 
             <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20}} >Help and Support</Text>
             <TouchableOpacity onPress={()=>{setHelpUpdate(!updateHelp)}} style={{marginTop:10}} >

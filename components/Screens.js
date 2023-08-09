@@ -42,14 +42,26 @@ import LoadScreen from "../Screens/SplashScreen";
 import TedEd from "../Screens/TedEd";
 import OwnPosts from "../Screens/OwnPosts";
 import LearnC from "../Screens/LearnC";
-import UsersKnownC from "../Screens/UserC++Known";
 import CClass from "../Screens/LearnC/ChapterClassification";
 import HelloWorld from "../Screens/LearnC/HelloWorld";
-import CodeEditor from "../Screens/SampleCodeEditor";
 import Basics from "../Screens/LearnC/C++Basics";
 import Variales from "../Screens/LearnC/Variables";
 import UserInput from "../Screens/LearnC/UserInput";
 import Operators from "../Screens/LearnC/Operators";
+import Code from "../Screens/Code";
+import Instruction from "../Screens/LearnC/Instruction";
+import Strings from "../Screens/LearnC/Strings";
+import Math from "../Screens/LearnC/Math";
+import Booleans from "../Screens/LearnC/Booleans";
+import Conditions from "../Screens/LearnC/Condition";
+import Switch from "../Screens/LearnC/Switch";
+import WhileLoop from "../Screens/LearnC/WhileLoop";
+import ForLoop from "../Screens/LearnC/ForLoop";
+import Array from "../Screens/LearnC/Array";
+import Struct from "../Screens/LearnC/Structures";
+import Pointers from "../Screens/LearnC/Pointers";
+import Function from "../Screens/LearnC/Functions";
+import Classes from "../Screens/LearnC/Class";
 
 
 
@@ -174,22 +186,18 @@ const Screens = () =>{
            <Stack.Screen
            name="LearnC" 
            component={LearnC} />
-           <Stack.Screen
-           name="UserC" 
-           component={UsersKnownC} />
 
            <Stack.Screen
            name="ClassificationC" 
            component={CClass} />
-           <Stack.Screen
-           name="Basics" 
-           component={Basics} />
+           
            <Stack.Screen
            name="HelloWorld" 
            component={HelloWorld} />
            <Stack.Screen
-           name="SampleCodeEditor" 
-           component={CodeEditor} />
+           name="Basics" 
+           component={Basics} />
+           
            <Stack.Screen
            name="Variables" 
            component={Variales} />
@@ -199,6 +207,48 @@ const Screens = () =>{
            <Stack.Screen
            name="Operators" 
            component={Operators} />
+           <Stack.Screen
+           name="Code" 
+           component={Code} />
+           <Stack.Screen
+           name="Instruction" 
+           component={Instruction} />
+           <Stack.Screen
+           name="Strings" 
+           component={Strings} />
+           <Stack.Screen
+           name="Math" 
+           component={Math} />
+           <Stack.Screen
+           name="Booleans" 
+           component={Booleans} />
+           <Stack.Screen
+           name="Conditions" 
+           component={Conditions} />
+           <Stack.Screen
+           name="Switch" 
+           component={Switch} />
+           <Stack.Screen
+           name="WhileLoop" 
+           component={WhileLoop} />
+           <Stack.Screen
+           name="ForLoop" 
+           component={ForLoop} />
+           <Stack.Screen
+           name="Array" 
+           component={Array} />
+           <Stack.Screen
+           name="Struct" 
+           component={Struct} />
+           <Stack.Screen
+           name="Pointer" 
+           component={Pointers} />
+           <Stack.Screen
+           name="Function" 
+           component={Function} />
+           <Stack.Screen
+           name="Class" 
+           component={Classes} />
   
         </Stack.Navigator>
       </NavigationContainer>

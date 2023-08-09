@@ -28,10 +28,6 @@ const BriefClassification = ({route,navigation}) =>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
-            console.log(colors);
-            // const clas = await AsyncStorage.getItem('class');
-            // const value = JSON.parse(clas);
-            // console.log(value);
             setColors(colors);
 
             
@@ -42,12 +38,14 @@ const BriefClassification = ({route,navigation}) =>{
         const setNotes = async() =>{
             const clas = await AsyncStorage.getItem('class');
             const value = JSON.parse(clas);
-            console.log(value);
+            console.log(value,sub);
 
-            if(value === 10) {
+
+            if(value == 10) {
                 console.log("class 10");
                 if(sub === 'math'){
                     setNote(Class10Math);
+                    console.log(Class10Math);
                 }else if(sub === 'phy'){
                     setNote(Class10Phy);
                 }else if(sub === 'chem'){
@@ -57,7 +55,7 @@ const BriefClassification = ({route,navigation}) =>{
                 }else{
                     console.log('got some problem over the note selections');
                 }
-            }else if(value === '+1') {
+            }else if(value == '+1') {
                 console.log("its +1 boys");
                 if(sub === 'math'){
                     setNote(Class11Math);
@@ -70,7 +68,7 @@ const BriefClassification = ({route,navigation}) =>{
                 }else{
                     console.log('got some problem over the note selections');
                 }
-            }else if(value === '+2') {
+            }else if(value == '+2') {
                 console.log("its +2 boys");
                 if(sub === 'math'){
                     setNote(Class12Math);

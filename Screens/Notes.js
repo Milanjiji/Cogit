@@ -9,6 +9,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import HomePageBar from "../components/HomePageBar";
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
+import SideBar from "../components/SideBar";
 
 
 const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191748';
@@ -75,9 +76,9 @@ const Notes = ({navigation}) =>{
 
       
     return(
-        <View style={[styles.App,{backgroundColor:Colors.Background}]} >
-            <Header title="Notes" info='' navigation={navigation}  />
-            <ScrollView showsVerticalScrollIndicator={false} >
+        <View style={[styles.App,{backgroundColor:Colors.Background,flexDirection:'row',alignItems:'center'}]} >
+            <SideBar page="Notes" navigation={navigation} />
+            <ScrollView showsVerticalScrollIndicator={false} style={{marginTop:20}} >
 
             <View style={{display: notesPos ? 'flex' :'none'}} >
                     <View style={styles.grid} >
@@ -185,7 +186,6 @@ const Notes = ({navigation}) =>{
                     </View>
                 </TouchableOpacity>
             </ScrollView>
-            <HomePageFootor navigation={navigation} />
         </View>
     )
 }

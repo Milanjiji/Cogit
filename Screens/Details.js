@@ -15,7 +15,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import firestore from '@react-native-firebase/firestore';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
 import SplashScreen from 'react-native-splash-screen';
 
 
@@ -32,14 +31,15 @@ const Details = ({navigation,route}) =>{
     const [userName,setUserName] = useState('');
     const [Password,setPassword] = useState('');
     const [email,setEmail] = useState('');
-    const [school,setSchool] = useState('')
     const [phone,setPhone] = useState()
     const [clas, setClass] = useState('10');
     const [modelVisible,setModalVisible] = useState(false)
     const [detailWarn,setDetailWarn] = useState(false);
     const [LoginType,setLoginType] = useState(true);
     const [loginWarn,setLoginWarn] = useState(true);
-    const [errorType,setErrorType] = useState('')
+    const [errorType,setErrorType] = useState('');
+    const [loading,setLoading] = useState(false);
+    const [emailExists,setEmailExists] = useState(false);
 
     const search = firestore().collection('Users');
     
@@ -48,49 +48,54 @@ const Details = ({navigation,route}) =>{
 
     
    useEffect(()=>{
-    SplashScreen.hide()
+    SplashScreen.hide();
+    setLoading(false);
    },[])
+
+   
     const Submit = async () =>{
+        
         if(
-            userName && Password && email && school && phone && clas 
-        ){
-            console.log(userName,Password,email,school,clas,phone);
-        try{
-            await AsyncStorage.setItem('userName',JSON.stringify(userName));
-            await AsyncStorage.setItem('email', JSON.stringify(email))
-            await AsyncStorage.setItem('password', JSON.stringify(Password))
-            await AsyncStorage.setItem('school', JSON.stringify(school));
-            await AsyncStorage.setItem('phone', JSON.stringify(phone));
-            await AsyncStorage.setItem('class', JSON.stringify(clas));
+            userName &&  phone && clas 
+        ){  
             
-            firestore()
-                .collection('Users')
-                .add({
-                    name:userName,
-                    email:email,
-                    passcode:Password,
-                    school:school,
-                    phone:phone,
-                    class:clas})
-                .then(() => {
-                console.log('Message sent successfully');
-                })
-                .catch((error) => {
-                console.log('Error sending message:', error);
-                });
-                console.log("items saved successfully");
-                setModalVisible(true)
-        }catch(e){
-            console.log("error while adding data: ",e);
-        }
-        setDetailWarn(false);
-        }else{
+                        setLoading(true);
+                        console.log(userName,clas,phone);
+                    try{
+                        await AsyncStorage.setItem('userName',JSON.stringify(userName));
+                        await AsyncStorage.setItem('phone', JSON.stringify(phone));
+                        await AsyncStorage.setItem('class', JSON.stringify(clas));
+                        
+                        firestore()
+                            .collection('Users')
+                            .add({
+                                name:userName,
+                                phone:phone,
+                                class:clas})
+                            .then(() => {
+                            console.log('Message sent successfully');
+                            })
+                            .catch((error) => {
+                            console.log('Error sending message:', error);
+                            });
+                            console.log("items saved successfully");
+                            setModalVisible(true)
+                            setLoading(false)
+                    }catch(e){
+                        console.log("error while adding data: ",e);
+                        setLoading(false);
+                    }
+                    setDetailWarn(false);
+                    setLoading(false);
+                    
+            
+            
+            }else{
             setDetailWarn(true);
             console.log(userName);
-            console.log(Password);
             console.log(clas);
-            console.log(school);
             console.log(phone);
+            setLoading(false);
         }
         
         
@@ -100,12 +105,9 @@ const Details = ({navigation,route}) =>{
     }
     // login
 
-    const uploadData = async(userName,email,Password,school,phone,clas) =>{
+    const uploadData = async(userName,phone,clas) =>{
         try{
             await AsyncStorage.setItem('userName',JSON.stringify(userName));
-            await AsyncStorage.setItem('email', JSON.stringify(email))
-            await AsyncStorage.setItem('password', JSON.stringify(Password))
-            await AsyncStorage.setItem('school', JSON.stringify(school));
             await AsyncStorage.setItem('phone', JSON.stringify(phone));
             await AsyncStorage.setItem('class', JSON.stringify(clas));
         }catch(e){
@@ -114,9 +116,10 @@ const Details = ({navigation,route}) =>{
     }
     const Login = () =>{
         console.log('login');
-        if(email && Password){
+        setLoading(true);
+        if(userName && phone){
             
-            search.where('email', '==', email)
+            search.where('phone', '==', phone)
             .get()
             .then(querySnapshot => {
                 if(querySnapshot.empty){
@@ -125,13 +128,15 @@ const Details = ({navigation,route}) =>{
                 }else{
                     querySnapshot.forEach(doc => {
                         
-                        if(doc.data().passcode === Password){
-                            uploadData(doc.data().name,doc.data().email,doc.data().passcode,doc.data().school,doc.data().phone,doc.data().class)
+                        if(doc.data().name === userName){
+                            uploadData(doc.data().name,doc.data().phone,doc.data().class)
                             setLoginWarn(false);
+                            setLoading(false)
                             navigation.navigate('Allset')
                         }else{
                             setErrorType('Wrong Credinals')
                             setLoginWarn(true);
+                            setLoading(false);
                         }
                         
                         });
@@ -181,10 +186,8 @@ const Details = ({navigation,route}) =>{
         <Text style={styles.reg} >Let's get you signed up first</Text>
         <Text style={styles.inputLabe} >User Name</Text>
         <TextInput style={styles.input} placeholder='userName'  onChangeText={setUserName}  />
-        <Text style={styles.inputLabe} >Email</Text>
-        <TextInput style={styles.input} onChangeText={setEmail} autoCapitalize={'none'} keyboardType={'email-address'} placeholder='Email' />
-        <Text style={styles.inputLabe} >Password</Text>
-        <TextInput style={styles.input} onChangeText={setPassword} keyboardType={'visible-password'} placeholder='Password'/>
+        <Text style={styles.inputLabe} >Contact</Text>
+        <TextInput style={styles.input} keyboardType={'phone-pad'} onChangeText={setPhone} placeholder='+91 : '/> 
         
         <Text style={styles.inputLabe} >Class</Text>
         <View style={{borderRadius:5,overflow: 'hidden',borderWidth:2,borderColor:primary,marginHorizontal:30}} >
@@ -201,19 +204,17 @@ const Details = ({navigation,route}) =>{
                 <Picker.Item style={styles.items} label="others" value="others" />
             </Picker>
         </View>
-
-        <Text style={styles.inputLabe} >School</Text>
-        <TextInput style={styles.input} onChangeText={setSchool} placeholder='School'/>  
-        <Text style={styles.inputLabe} >Contact</Text>
-        <TextInput style={styles.input} keyboardType={'phone-pad'} onChangeText={setPhone} placeholder='+91 : '/>    
+ 
         
         <Text style={[styles.fullDetailsWarning,{display : detailWarn ? "flex" : "none"}]} >Enter full details</Text>
-
+        <Text style={[styles.fullDetailsWarning,{display : loading ? "flex" : "none",color:white}]} >creating account</Text>
+        
         <TouchableOpacity onPress={Submit} >
-            <Text style={styles.btn} >Register</Text>
+            <Text style={[styles.btn,{backgroundColor:!loading ? '#12156c' : '#12156c50',color:!loading ? '#ffffff' : '#ffffff50'}]} >Register</Text>
         </TouchableOpacity>
+
         <TouchableOpacity onPress={loginTypeToggler} >
-            <Text style={{color:Colors.white,textAlign:'center',marginBottom:20}} >Already have an account? Login</Text>
+            <Text style={{color:white,textAlign:'center',marginBottom:20}} >Already have an account? Login</Text>
         </TouchableOpacity>
     </View>
 
@@ -221,18 +222,18 @@ const Details = ({navigation,route}) =>{
         <Text style={styles.reg} >Login</Text>
 
         
-        <Text style={styles.inputLabe} >Email</Text>
-        <TextInput style={[styles.input]} onChangeText={setEmail} keyboardType={'email-address'}  placeholder='     Email' />
-        <Text style={styles.inputLabe} >Password</Text>
-        <TextInput style={styles.input} onChangeText={setPassword} keyboardType={'visible-password'} placeholder='     Password'/>
+        <Text style={styles.inputLabe} >user Name</Text>
+        <TextInput style={[styles.input]} onChangeText={setUserName} placeholder='     user Name' />
+        <Text style={styles.inputLabe} >Phone</Text>
+        <TextInput style={styles.input} onChangeText={setPhone} keyboardType={'phone-pad'} placeholder='     phone'/>
         
         <Text style={{color:'red',textAlign:'center',display:loginWarn ? 'flex' :'none'}} >{errorType}</Text>
         
         <TouchableOpacity style={{}} onPress={Login} >
-            <Text style={styles.btn} >Login</Text>
+            <Text style={[styles.btn,{backgroundColor:!loading ? '#12156c' : '#12156c50',color:!loading ? '#ffffff' : '#ffffff50'}]} >Login</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={loginTypeToggler} >
-            <Text style={{color:Colors.white,textAlign:'center'}} >Create new account</Text>
+            <Text style={{color:white,textAlign:'center'}} >Create new account</Text>
         </TouchableOpacity>
     </View>
         

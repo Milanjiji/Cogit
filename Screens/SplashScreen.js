@@ -11,10 +11,12 @@ const LoadScreen = ({navigation}) =>{
             console.log("on Splash screen");
             console.log(name);
             if(name){
+                
                 navigation.navigate('Home');
                 SplashScreen.hide();
                 console.log("Home");
             }else{
+                
                 navigation.navigate('getStarted');
                 SplashScreen.hide();
                 console.log("getStarted");

@@ -74,8 +74,8 @@ const Greetings = ({navigation}) =>{
     },[])
     return(
         <View style={{marginBottom:10}} >
-            <Header navigation={navigation} title="Cogit" info='home' />
-            <View style={[styles.body,{}]} >
+            {/* <Header navigation={navigation} title="Cogit" info='home' /> */}
+            <View style={[styles.body,{marginTop:20}]} >
                     <Text style={[styles.title,{color:Colors.text}]} > Hello {name}</Text>
                     <Text style={[styles.time,{color:Colors.text}]} >{message}</Text>
             </View>
@@ -107,7 +107,7 @@ const Greetings = ({navigation}) =>{
                 </View>
             </TouchableOpacity>
 
-            <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',margin:5,marginHorizontal:10,backgroundColor:'#ffffff25',borderRadius:10,marginTop:100}} >
+            <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',marginHorizontal:15,backgroundColor:'#ffffff25',borderRadius:10,marginTop:100}} >
                     <Text style={{color:Colors.white,fontFamily:Colors.Medium,padding: 10,}} >{quote}</Text>  
             </View>
             

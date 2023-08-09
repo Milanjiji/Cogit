@@ -57,8 +57,8 @@ const post = () =>{
     
     return(
         <View style={[styles.background]} >
-            <TouchableOpacity onPress={Setting} >
-                <FontAwesomeIcon color='white' style={styles.iLeft} icon={faGear} />
+            <TouchableOpacity onPress={props.sideBar ? '' : Setting} >
+                <FontAwesomeIcon color={props.sideBar ? Colors.Background : Colors.text} style={styles.iLeft} icon={faGear} />
             </TouchableOpacity>
             <Text style={[styles.title,{
                 letterSpacing: props.letterpacing == 'y' ? 4 : 0
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
         fontSize:25,
         fontFamily:Bold,
         paddingVertical:7,
-        
+        textAlign:'center'
     },
     nav:{
         fontSize:20,

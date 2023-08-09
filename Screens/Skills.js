@@ -68,7 +68,6 @@ const Skills = ({navigation,route}) =>{
 
 
       const liketext = async(id,totalLikes) =>{
-        console.log("hello");
             const idExists = likedData.some(item => item.id === id);
             if(!idExists){
                 try {

@@ -55,16 +55,33 @@ const CClass = ({navigation}) => {
           <Header navigation={navigation} title='C++' info=''  />    
           
         <ScrollView showsVerticalScrollIndicator={false} >
-          <Button to="LearnC" text={"Intro"} no={"00"} />
-          <Button to="Basics" text={"Basics (Symbols and Operators)"} no={"01"} />
-          <Button to="HelloWorld" text={"Hello World"} no={"02"} />
-          <Button to="Variables" text={"Data Types"} no={'03'} />
-          <Button to="UserInput" text={"UserInput"} no={'04'} />
-          <Button to="Operators" text={"Operators"} no={'05'} />
-        </ScrollView>
-        <TouchableOpacity onPress={changeLanuage}  style={{backgroundColor:Colors.primary,borderRadius:10,padding: 10,elevation:10,marginBottom:10,marginHorizontal:20}} >
+
+          <Button to="Instruction" text={"Instruction"} no={"01"} />
+          <Button to="LearnC" text={"Intro"} no={"02"} />
+          <Button to="HelloWorld" text={"Hello World"} no={"03"} />
+          <Button to="Basics" text={"Basics (Symbols and Operators)"} no={"04"} />
+          
+          <Button to="Variables" text={"Data Types"} no={'05'} />
+          <Button to="UserInput" text={"UserInput"} no={'06'} />
+          <Button to="Operators" text={"Operators"} no={'07'} />
+          <Button to="Strings" text={"Strings"} no={'08'} />
+          <Button to="Math" text={"Math"} no={'09'} />
+          <Button to="Booleans" text={"Booleans"} no={'10'} />
+          <Button to="Conditions" text={"Conditions"} no={'11'} />
+          <Button to="Switch" text={"Switch"} no={'12'} />
+          <Button to="WhileLoop" text={"While Loop"} no={'13'} />
+          <Button to="ForLoop" text={"For Loop"} no={'14'} />
+          <Button to="Array" text={"Array"} no={'15'} />
+          <Button to="Struct" text={"Structures"} no={'16'} />
+          <Button to="Pointer" text={"Pointers"} no={'17'} />
+          <Button to="Function" text={"Functions"} no={'18'} />
+          <Button to="Class" text={"Classes"} no={'19'} />
+
+          <TouchableOpacity onPress={changeLanuage}  style={{backgroundColor:Colors.primary,borderRadius:10,padding: 10,elevation:10,marginBottom:10,marginHorizontal:20}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >Switch Lang, Current : {lang ? 'Ma' : 'En'} </Text>
-        </TouchableOpacity>
+          </TouchableOpacity>
+        </ScrollView>
+        
 
     </View>
   );
