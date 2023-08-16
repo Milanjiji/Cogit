@@ -34,7 +34,7 @@ const Classification = ({navigation,route}) =>{
 
             <View style={{flex: 1,paddingHorizontal:10}} >
                 <Header navigation={navigation}  title={title} info="" sideBar={true} />
-                <TouchableOpacity style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10}} >
+                <TouchableOpacity onPress={()=>{navigation.navigate('VeryShortNoteClassification',{sub:sub})}} style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10}} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:24}} >Very short note</Text>
                     <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Complete chapter notes in single page (only essentials)</Text>
                 </TouchableOpacity>
@@ -68,6 +68,15 @@ const Classification = ({navigation,route}) =>{
                         <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Advanced Mock tests</Text>
                     </TouchableOpacity>
                 </View>
+
+                {
+                  sub == 'math' ?  
+                  <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:20}} >Complete Equations</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Complete Equations with uses and definition</Text>
+                  </TouchableOpacity> : ''     
+                }
+                
 
                 
 

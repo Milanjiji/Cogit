@@ -1,0 +1,164 @@
+[
+    {
+        "Chapter": "Life Processes (Class 10 CBSE Biology)",
+        "Topics": [
+          {
+            "Topic": "Nutrition",
+            "Definition": "Process of obtaining and utilizing nutrients for energy and growth."
+          },
+          {
+            "Topic": "Respiration",
+            "Definition": "Process of exchange of gases to release energy from nutrients."
+          },
+          {
+            "Topic": "Transportation",
+            "Definition": "Movement of substances (nutrients, gases, waste) within organisms."
+          },
+          {
+            "Topic": "Excretion",
+            "Definition": "Elimination of waste products from the body."
+          },
+          {
+            "Topic": "Control and Coordination",
+            "Definition": "Regulation of bodily functions and responses to stimuli."
+          },
+          {
+            "Topic": "Reproduction",
+            "Definition": "Process of producing offspring for continuation of species."
+          }
+        ]
+      },
+      {
+        "Chapter": "Control and Coordination (Class 10 CBSE Biology)",
+        "Topics": [
+          {
+            "Topic": "Nervous System",
+            "Definition": "Network of specialized cells that transmit signals for coordination."
+          },
+          {
+            "Topic": "Reflex Actions",
+            "Definition": "Quick and involuntary responses to stimuli for protection."
+          },
+          {
+            "Topic": "Hormones",
+            "Definition": "Chemical messengers that regulate various bodily functions."
+          },
+          {
+            "Topic": "Endocrine System",
+            "Definition": "System of glands that secrete hormones for control and coordination."
+          },
+          {
+            "Topic": "Plant Hormones",
+            "Definition": "Chemical signals that regulate plant growth and development."
+          },
+          {
+            "Topic": "Co-ordination in Plants",
+            "Definition": "Control and coordination mechanisms in plants."
+          }
+        ]
+      },
+      {
+        "Chapter": "How do Organisms Reproduce? (Class 10 CBSE Biology)",
+        "Topics": [
+          {
+            "Topic": "Asexual Reproduction",
+            "Definition": "Reproduction without involvement of gametes; offspring are genetically identical to parents."
+          },
+          {
+            "Topic": "Sexual Reproduction",
+            "Definition": "Reproduction involving fusion of gametes; offspring inherit traits from both parents."
+          },
+          {
+            "Topic": "Modes of Asexual Reproduction",
+            "Definition": "Binary fission, budding, spore formation, vegetative propagation."
+          },
+          {
+            "Topic": "Human Reproductive System",
+            "Definition": "Male and female reproductive systems and their functions."
+          },
+          {
+            "Topic": "Menstrual Cycle",
+            "Definition": "Monthly changes in female reproductive system."
+          }
+        ]
+      },
+      {
+        "Chapter": "Heredity and Evolution (Class 10 CBSE Biology)",
+        "Topics": [
+          {
+            "Topic": "Heredity",
+            "Definition": "Passing of traits from parents to offspring."
+          },
+          {
+            "Topic": "Inherited Traits",
+            "Definition": "Traits acquired from parents through genetic material."
+          },
+          {
+            "Topic": "Acquired Traits",
+            "Definition": "Traits acquired during an organism's lifetime."
+          },
+          {
+            "Topic": "Evolution",
+            "Definition": "Gradual change in species over time through natural selection."
+          },
+          {
+            "Topic": "Evidence of Evolution",
+            "Definition": "Fossils, homologous structures, embryology, bio-geographical evidence."
+          },
+          {
+            "Topic": "Theories of Evolution",
+            "Definition": "Darwin's theory of natural selection; modern synthesis."
+          }
+        ]
+      },
+      {
+        "Chapter": "Our Environment (Class 10 CBSE Biology)",
+        "Topics": [
+          {
+            "Topic": "Ecosystem",
+            "Definition": "A community of living organisms and their interactions with the environment."
+          },
+          {
+            "Topic": "Components of Ecosystem",
+            "Definition": "Biotic (living) and abiotic (non-living) factors."
+          },
+          {
+            "Topic": "Food Chains and Food Webs",
+            "Definition": "Models to represent energy flow and interactions in ecosystems."
+          },
+          {
+            "Topic": "Ecological Pyramids",
+            "Definition": "Representations of energy, biomass, and numbers in an ecosystem."
+          },
+          {
+            "Topic": "Ecological Balance",
+            "Definition": "Maintaining a balance in nature for sustainability."
+          }
+        ]
+      },
+      {
+        "Chapter": "Sustainable Management of Natural Resources (Class 10 CBSE Biology)",
+        "Topics": [
+          {
+            "Topic": "Natural Resources",
+            "Definition": "Resources obtained from the environment for human use."
+          },
+          {
+            "Topic": "Types of Resources",
+            "Definition": "Renewable (e.g., solar, wind) and non-renewable (e.g., fossil fuels) resources."
+          },
+          {
+            "Topic": "Conservation of Resources",
+            "Definition": "Efficient and sustainable use of resources to ensure their availability for future generations."
+          },
+          {
+            "Topic": "Biodiversity",
+            "Definition": "Variety of life forms and their interactions in an ecosystem."
+          },
+          {
+            "Topic": "Methods of Conservation",
+            "Definition": "Afforestation, reforestation, wildlife protection, water and energy conservation."
+          }
+        ]
+      }                                    
+]

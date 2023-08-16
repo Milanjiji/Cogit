@@ -1,11 +1,9 @@
-import { faSun } from '@fortawesome/free-regular-svg-icons'
-import { faCloud, faCloudMoon, faCloudSun, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import React,{useEffect,useState,useRef} from 'react'
-import {View,Text, StyleSheet,Image,Dimensions, ImageBackground,TouchableOpacity} from 'react-native'
+import {View,Text, StyleSheet,ImageBackground,TouchableOpacity} from 'react-native'
 import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import Header from './Header'
 import ted  from  '../assets/images/ted.png'
 import Quotes from '../assets/others/quotes.json'
 const date = new Date();
@@ -15,7 +13,6 @@ const Greetings = ({navigation}) =>{
     const [message,setMessage] = useState();
     const [name,setName] = useState('');
     const [Colors,setColors] = useState([]);
-    const [focusedTime,setFocusedTime] = useState(0);
     const [quote,setQuote] = useState('');
 
     useEffect(()=>{
@@ -107,8 +104,8 @@ const Greetings = ({navigation}) =>{
                 </View>
             </TouchableOpacity>
 
-            <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',marginHorizontal:15,backgroundColor:'#ffffff25',borderRadius:10,marginTop:100}} >
-                    <Text style={{color:Colors.white,fontFamily:Colors.Medium,padding: 10,}} >{quote}</Text>  
+            <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',marginHorizontal:15,backgroundColor:Colors.hashWhite,borderRadius:10,marginTop:100}} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,padding: 10,}} >{quote}</Text>  
             </View>
             
             

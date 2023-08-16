@@ -1,0 +1,288 @@
+[
+    {
+        "Chapter": "Real Numbers",
+        "Topics": [
+          {
+            "Topic": "Real numbers",
+            "Definition": "Include rational (p/q) and irrational (non-repeating, non-terminating decimals) numbers."
+          },
+          {
+            "Topic": "Euclid's Division Lemma",
+            "Definition": "For positive integers 'a' and 'b', a = bq + r, where 'q' and 'r' are unique and 0 <= r < b."
+          },
+          {
+            "Topic": "Fundamental Theorem of Arithmetic",
+            "Definition": "Every integer > 1 is prime or a unique product of prime numbers."
+          },
+          {
+            "Topic": "Rational Numbers",
+            "Definition": "Can be written as p/q, where 'p' and 'q' are integers and q ≠ 0."
+          },
+          {
+            "Topic": "Irrational Numbers",
+            "Definition": "Cannot be fractions, have non-repeating, non-terminating decimals."
+          },
+          {
+            "Topic": "Decimal Representation",
+            "Definition": "Terminating/repeating decimals can be rational (e.g., 0.75); convert recurring decimals to fractions."
+          },
+          {
+            "Topic": "Operations",
+            "Definition": "Real numbers obey properties: a + b = b + a, a * b = b * a, (a + b) + c = a + (b + c), (a * b) * c = a * (b * c), etc."
+          },
+          {
+            "Topic": "Laws of Exponents",
+            "Definition": "Rules for integral exponents, e.g., a^0 = 1, a^-n = 1/a^n, a^(m+n) = a^m * a^n."
+          },
+          {
+            "Topic": "Rationalization",
+            "Definition": "Eliminating radicals from denominator using multiplication techniques (1/(√a + √b)) * (√a - √b)/(√a - √b)."
+          }
+        ]
+      },
+      {
+        "Chapter": "Polynomials",
+        "Topics": [
+          {
+            "Topic": "Polynomials",
+            "Definition": "Algebraic expressions with variables raised to non-negative integer powers."
+          },
+          {
+            "Topic": "Degree of a Polynomial",
+            "Definition": "The highest power of the variable in the polynomial."
+          },
+          {
+            "Topic": "Constant, Linear, Quadratic Polynomials",
+            "Definition": "Based on their degrees and number of terms."
+          },
+          {
+            "Topic": "Addition and Subtraction of Polynomials",
+            "Definition": "Combine like terms (same powers of variables)."
+          },
+          {
+            "Topic": "Multiplication of Polynomials",
+            "Definition": "Use distributive property; multiply each term of one polynomial with each term of the other."
+          },
+          {
+            "Topic": "Factorization of Polynomials",
+            "Definition": "Expressing a polynomial as a product of its factors."
+          }
+        ]
+      },
+      {
+        "Chapter": "Pair of Linear Equations in One Variable",
+        "Topics": [
+          {
+            "Topic": "Pair of Linear Equations",
+            "Definition": "Two equations with two variables that can be solved together."
+          },
+          {
+            "Topic": "Solution of a Pair of Linear Equations",
+            "Definition": "Values of variables that satisfy both equations."
+          },
+          {
+            "Topic": "Graphical Method",
+            "Definition": "Representing equations graphically to find the solution (point of intersection)."
+          },
+          {
+            "Topic": "Algebraic Methods",
+            "Definition": "Substitution or elimination methods to solve equations algebraically."
+          }
+        ]
+      },
+      {
+        "Chapter": "Quadratic Equations",
+        "Topics": [
+          {
+            "Topic": "Quadratic Equations",
+            "Definition": "Equations of the form ax² + bx + c = 0 where 'a' is not zero."
+          },
+          {
+            "Topic": "Solution of Quadratic Equations",
+            "Definition": "Using factorization, completing the square, or quadratic formula."
+          },
+          {
+            "Topic": "Nature of Roots",
+            "Definition": "Based on the discriminant: real and equal, real and distinct, or imaginary."
+          }
+        ]
+      },
+      {
+        "Chapter": "Arithmetic Progression",
+        "Topics": [
+          {
+            "Topic": "Arithmetic Progression (AP)",
+            "Definition": "Sequence of numbers with a common difference between consecutive terms."
+          },
+          {
+            "Topic": "nth Term of an AP",
+            "Definition": "General term formula: (a_n = a + (n-1)d), where 'a' is first term, 'd' is common difference."
+          },
+          {
+            "Topic": "Sum of First 'n' Terms of an AP",
+            "Definition": "Sum formula: (Sn = n/2[2a+(n-1)d])."
+          }
+        ]
+      },
+      {
+        "Chapter": "Triangles",
+        "Topics": [
+          {
+            "Topic": "Triangles",
+            "Definition": "Geometric figure with three sides and three angles."
+          },
+          {
+            "Topic": "Types of Triangles",
+            "Definition": "Based on sides (equilateral, isosceles, scalene) and angles (acute, obtuse, right)."
+          },
+          {
+            "Topic": "Congruence of Triangles",
+            "Definition": "Two triangles are congruent if their corresponding sides and angles are equal."
+          },
+          {
+            "Topic": "Similarity of Triangles",
+            "Definition": "Two triangles are similar if their corresponding angles are equal and sides are in proportion."
+          },
+          {
+            "Topic": "Pythagoras Theorem",
+            "Definition": "In a right triangle, the square of the hypotenuse is equal to the sum of the squares of the other two sides."
+          }
+        ]
+      },
+      {
+        "Chapter": "Coordinate Geometry",
+        "Topics": [
+          {
+            "Topic": "Cartesian Coordinates",
+            "Definition": "Locating points on a plane using x and y coordinates."
+          },
+          {
+            "Topic": "Distance Formula",
+            "Definition": "Distance between two points ((x_1, y_1)) and ((x_2, y_2)) is (sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2})."
+          },
+          {
+            "Topic": "Section Formula",
+            "Definition": "Coordinates of a point dividing a line segment in a given ratio."
+          }
+        ]
+      },
+      {
+        "Chapter": "Introduction to Trigonometry",
+        "Topics": [
+          {
+            "Topic": "Trigonometric Ratios",
+            "Definition": "Ratios of sides of a right triangle with respect to its acute angles."
+          },
+          {
+            "Topic": "Sine, Cosine, Tangent",
+            "Definition": "Trigonometric ratios defined for acute angles."
+          },
+          {
+            "Topic": "Trigonometric Identities",
+            "Definition": "Equations involving trigonometric ratios."
+          }
+        ]
+      },
+      {
+        "Chapter": "Some Applications of Trigonometry",
+        "Topics": [
+          {
+            "Topic": "Heights and Distances",
+            "Definition": "Solving problems involving heights and distances using trigonometric concepts."
+          }
+        ]
+      },
+      {
+        "Chapter": "Circles",
+        "Topics": [
+          {
+            "Topic": "Circles",
+            "Definition": "Set of all points in a plane equidistant from a fixed point (center)."
+          },
+          {
+            "Topic": "Tangents to a Circle",
+            "Definition": "A line touching the circle at exactly one point."
+          },
+          {
+            "Topic": "Secants and Chords",
+            "Definition": "A line intersecting the circle at two or more points; a line segment connecting two points on a circle."
+          }
+        ]
+      },
+      {
+        "Chapter": "Constructions",
+        "Topics": [
+          {
+            "Topic": "Constructions",
+            "Definition": "Creating geometric figures using a straightedge and compass."
+          },
+          {
+            "Topic": "Division of a Line Segment",
+            "Definition": "Dividing a line segment into a desired number of equal or proportional parts."
+          },
+          {
+            "Topic": "Construction of Tangents to a Circle",
+            "Definition": "Constructing tangents to a circle from an external point."
+          }
+        ]
+      },
+      {
+        "Chapter": "Areas Related to Circles",
+        "Topics": [
+          {
+            "Topic": "Perimeter and Area of Circle",
+            "Definition": "Calculating perimeter and area of a circle."
+          },
+          {
+            "Topic": "Area of Sector and Segment",
+            "Definition": "Calculating area of sector and segment of a circle."
+          },
+          {
+            "Topic": "Areas of Combination of Figures",
+            "Definition": "Calculating areas of figures formed by combining circles, triangles, etc."
+          }
+        ]
+      },
+      {
+        "Chapter": "Surface Area and Volumes",
+        "Topics": [
+          {
+            "Topic": "Surface Area and Volume",
+            "Definition": "Calculating surface area and volume of basic 3D shapes."
+          },
+          {
+            "Topic": "Conversion of Solid from One Shape to Another",
+            "Definition": "Calculating volume after converting solid from one shape to another."
+          }
+        ]
+      },
+      {
+        "Chapter": "Statistics",
+        "Topics": [
+          {
+            "Topic": "Statistics",
+            "Definition": "Collection, presentation, analysis, and interpretation of data."
+          },
+          {
+            "Topic": "Mean, Median, Mode",
+            "Definition": "Measures of central tendency."
+          }
+        ]
+      },
+      {
+        "Chapter": "Probability",
+        "Topics": [
+          {
+            "Topic": "Probability",
+            "Definition": "Likelihood of an event occurring."
+          },
+          {
+            "Topic": "Simple Events, Sample Space",
+            "Definition": "Defining simple events and sample space for probability calculations."
+          }
+        ]
+      }
+                                                
+            
+                              
+]

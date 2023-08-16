@@ -31,6 +31,7 @@ const Homepage = ({navigation,route}) =>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
+            console.log(colors);
         }
         getColors();
         const getSettings = async() =>{

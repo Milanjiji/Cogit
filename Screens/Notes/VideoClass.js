@@ -113,7 +113,6 @@ const VideoClass = ({route,navigation}) =>{
                 </View>
 
             </ScrollView>
-            <HomePageFootor navigation={navigation} />
         </View>
     )
 }

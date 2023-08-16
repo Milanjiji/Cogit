@@ -1,0 +1,175 @@
+[
+    {
+        "Chapter": "Light - Reflection and Refraction (Class 10 CBSE Physics)",
+        "Topics": [
+          {
+            "Topic": "Reflection of Light",
+            "Definition": "The bouncing back of light rays from a surface."
+          },
+          {
+            "Topic": "Laws of Reflection",
+            "Definition": "Angle of incidence is equal to the angle of reflection."
+          },
+          {
+            "Topic": "Regular and Diffuse Reflection",
+            "Definition": "Regular reflection occurs on smooth surfaces, diffuse reflection occurs on rough surfaces."
+          },
+          {
+            "Topic": "Formation of Images by Plane Mirrors",
+            "Definition": "Virtual images formed behind a plane mirror; size and distance relationships."
+          },
+          {
+            "Topic": "Refraction of Light",
+            "Definition": "Bending of light rays as they pass from one medium to another."
+          },
+          {
+            "Topic": "Laws of Refraction",
+            "Definition": "Snell's law: n1 * sin(θ1) = n2 * sin(θ2), where n1 and n2 are refractive indices."
+          },
+          {
+            "Topic": "Refraction through a Rectangular Glass Slab",
+            "Definition": "Deviation and lateral displacement; emergence of light."
+          },
+          {
+            "Topic": "Refraction through Prism",
+            "Definition": "Dispersion of white light into its component colors; spectrum formation."
+          },
+          {
+            "Topic": "Dispersion of Light",
+            "Definition": "Different colors of light bend by different amounts due to their different speeds in a medium."
+          },
+          {
+            "Topic": "Atmospheric Refraction",
+            "Definition": "Bending of light rays in the Earth's atmosphere; apparent sunrise and sunset."
+          },
+          {
+            "Topic": "Scattering of Light",
+            "Definition": "Rayleigh scattering: shorter wavelengths scatter more, causing blue skies and red sunsets."
+          },
+          {
+            "Topic": "Mirages",
+            "Definition": "Optical illusion due to atmospheric refraction; hot and cold layers of air."
+          }
+        ]
+      },
+      {
+        "Chapter": "The Human Eye and Colourful World (Class 10 CBSE Physics)",
+        "Topics": [
+          {
+            "Topic": "Human Eye",
+            "Definition": "Optical instrument that enables us to see the objects around us."
+          },
+          {
+            "Topic": "Power of Accommodation",
+            "Definition": "Ability of the eye lens to adjust its focal length for different distances."
+          },
+          {
+            "Topic": "Defects of Vision",
+            "Definition": "Myopia (nearsightedness) and Hypermetropia (farsightedness); causes and corrections."
+          },
+          {
+            "Topic": "Rainbow Formation",
+            "Definition": "Dispersion and reflection of sunlight in water droplets, creating a spectrum of colors."
+          }
+        ]
+      },
+      {
+        "Chapter": "Electricity (Class 10 CBSE Physics)",
+        "Topics": [
+          {
+            "Topic": "Electric Current",
+            "Definition": "Flow of electric charge in a conductor."
+          },
+          {
+            "Topic": "Electric Circuit",
+            "Definition": "Path along which electric current flows."
+          },
+          {
+            "Topic": "Electric Potential and Potential Difference",
+            "Definition": "Electric potential is the electric potential energy per unit charge; potential difference is the work done to move a unit positive charge between two points."
+          },
+          {
+            "Topic": "Ohm's Law",
+            "Definition": "Current is directly proportional to voltage (V = IR) with constant resistance."
+          },
+          {
+            "Topic": "Resistance and Resistivity",
+            "Definition": "Resistance opposes the flow of electric current; resistivity depends on the material."
+          },
+          {
+            "Topic": "Combination of Resistors",
+            "Definition": "Series and parallel combinations of resistors; equivalent resistance."
+          },
+          {
+            "Topic": "Heating Effect of Electric Current",
+            "Definition": "Current passing through a conductor produces heat; applications in appliances."
+          }
+        ]
+      },
+      {
+        "Chapter": "Magnetic Effect of Electric Current (Class 10 CBSE Physics)",
+        "Topics": [
+          {
+            "Topic": "Magnetic Field",
+            "Definition": "Region around a magnet where its influence can be detected."
+          },
+          {
+            "Topic": "Magnetic Field due to a Current",
+            "Definition": "Magnetic field lines around a current-carrying conductor; right-hand thumb rule."
+          },
+          {
+            "Topic": "Magnetic Field due to a Current in a Straight Conductor",
+            "Definition": "Magnetic field strength, direction, and field lines."
+          },
+          {
+            "Topic": "Force on a Current-Carrying Conductor in a Magnetic Field",
+            "Definition": "Fleming's left-hand rule; force experienced by a conductor carrying current in a magnetic field."
+          },
+          {
+            "Topic": "Electric Motor",
+            "Definition": "Device that converts electrical energy into mechanical energy."
+          },
+          {
+            "Topic": "Electromagnetic Induction",
+            "Definition": "Generating induced electromotive force (emf) by changing magnetic field."
+          },
+          {
+            "Topic": "Electric Generator",
+            "Definition": "Device that converts mechanical energy into electrical energy."
+          }
+        ]
+      },
+      {
+        "Chapter": "Sources of Energy (Class 10 CBSE Physics)",
+        "Topics": [
+          {
+            "Topic": "Conventional Sources of Energy",
+            "Definition": "Fossil fuels (coal, petroleum, natural gas) and thermal power plants."
+          },
+          {
+            "Topic": "Non-Conventional Sources of Energy",
+            "Definition": "Solar energy, wind energy, hydroelectric power, geothermal energy."
+          },
+          {
+            "Topic": "Solar Energy",
+            "Definition": "Conversion of sunlight into electricity using photovoltaic cells."
+          },
+          {
+            "Topic": "Wind Energy",
+            "Definition": "Conversion of wind's kinetic energy into electricity using wind turbines."
+          },
+          {
+            "Topic": "Biogas",
+            "Definition": "Methane gas produced from organic waste through anaerobic digestion."
+          },
+          {
+            "Topic": "Nuclear Energy",
+            "Definition": "Generation of electricity through controlled nuclear fission reactions."
+          },
+          {
+            "Topic": "Environmental Consequences",
+            "Definition": "Advantages and disadvantages of conventional and non-conventional energy sources."
+          }
+        ]
+      }                              
+]

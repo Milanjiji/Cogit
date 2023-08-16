@@ -62,6 +62,8 @@ import Struct from "../Screens/LearnC/Structures";
 import Pointers from "../Screens/LearnC/Pointers";
 import Function from "../Screens/LearnC/Functions";
 import Classes from "../Screens/LearnC/Class";
+import VeryShortClassification from "../Screens/Notes/VeryShortClassification";
+import VeryShort from "../Screens/Notes/VeryShort";
 
 
 
@@ -249,6 +251,12 @@ const Screens = () =>{
            <Stack.Screen
            name="Class" 
            component={Classes} />
+           <Stack.Screen
+           name="VeryShortNoteClassification" 
+           component={VeryShortClassification} />
+           <Stack.Screen
+           name="VeryShort" 
+           component={VeryShort} />
   
         </Stack.Navigator>
       </NavigationContainer>

@@ -1,34 +1,52 @@
 import React, {useEffect, useState,useContext} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet, Modal,} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet,TouchableWithoutFeedback} from 'react-native';
 import Colors from '../colors.json'
-import Header from '../components/Header';
-import HomePageFootor from '../components/HomePageFootor';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { SoundContext } from '../components/SoundContext';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faPause, faPlay, faRefresh } from '@fortawesome/free-solid-svg-icons';
 import Animated, {
   useSharedValue,
   withTiming,
   Easing,
   useAnimatedStyle,
+  interpolate,
 } from 'react-native-reanimated';
+
+import SideBar from '../components/SideBar';
 
 
 const FocusMode = ({navigation}) => {
-  const [bgm,setBGM] = useState(false);
   const [Colors,setColors] = useState([]);
   const [btnColors,setBtnColors] = useState(["white","","#12156c"]);
   const [min,setMin] = useState(0);
   const [sec,setSec] = useState(0);
   const [running, setRunning] = useState(false);
-  const [note,setNote] = useState('Grab a pair of headphones and dive into deep focus\n if music do not started wait(uses internet)')
-  const height = useSharedValue(250);
-  const width = useSharedValue(250);
-  const marginTop = useSharedValue(0);
-  const [others,setOther] = useState(true);
-  const padding = useSharedValue(20)
+  const padding = useSharedValue(20);
+  const rotation = useSharedValue(0);
+  const [audioPaused, setAudioPaused] = useState(false); 
+  const [start,setStart] = useState(true);
+  const [rotateDeg,setRotateDeg] = useState(720);
+  const [refresh,setRefresh] = useState(false);
+  
+  const rotateStyle = useAnimatedStyle(() => {
+    const rotate = interpolate(rotation.value, [0, 720], [0, 2 * Math.PI]);
+    return {
+      transform: [{ rotate: `${rotate}rad` }],
+    };
+  });
 
+  const RotoateAnimation = () =>{
+    setRefresh(true)
+    setRotateDeg(rotateDeg + 720)
+    rotation.value = withTiming(rotateDeg, {
+      duration: 1000,
+      easing: Easing.linear,
+    });
+    setTimeout(() => {
+      setRefresh(false);
+    }, 1000);
+  }
 
     useEffect(() => {
       let intervalId;
@@ -40,8 +58,6 @@ const FocusMode = ({navigation}) => {
       }
       return () => clearInterval(intervalId);
     }, [running]);
-
-    
 
     if(sec == 60){
       setSec(0);
@@ -62,40 +78,43 @@ const FocusMode = ({navigation}) => {
             
             if(colors.Background === "#2b1499"){
               setBtnColors(["#12156c50","#12156c30","#12156c40","#12156c10"])
+            }else if(colors.Background === "#1a1a1a"){
+              setBtnColors(["#ffffff50","#ffffff30","#1a1a1a40","#1a1a1a10"])
             }
         }
         getColors();
+        
     },[])
   
   const sound = useContext(SoundContext);
 
   const playMusic = () => {
-    
-    setBGM(!bgm);
-    if(bgm){
-        sound.stop(() => {
-          console.log('The sound has stopped');
-        });
-      setRunning(false);
-      setOther(true)
-    }else{ 
-    sound.play((success) => {
-      if (success) {
-        console.log('The sound is playing');
-        
-      } else {
-        console.log('Failed to play the sound');
-        setNote('Failed to play the sound, may be the problem of network.')
+    console.log("playing mustc");
+    if(start){
+      console.log("playing from tp");
+      sound.play();
+      setRunning(true);
+      setStart(false);
+      setAudioPaused(false);
+    }else{
+        if (audioPaused) {
+          sound.play();
+          setRunning(true);
+          setAudioPaused(false); 
+          console.log("after paused forst play");
+        } else {
+          sound.pause();
+          setRunning(false);
+          setAudioPaused(true); 
+          console.log("paused");
+        }
       }
-    });
-      setNote('')
-        setOther(false)
-        setRunning(true)
     
-    
-  } 
   };
   
+  const Refresh = () =>{
+      RotoateAnimation();
+  }
 
   const paddingAnimatedStyle = useAnimatedStyle(()=>{
     return {
@@ -105,11 +124,13 @@ const FocusMode = ({navigation}) => {
   
   return (
     <View
-      style={styles.background} >
-        
+      style={[styles.background,{backgroundColor:Colors.Background,flexDirection:'row'}]} >
+     {
+      !running ? 
+      <SideBar page="Focus" navigation={navigation} />  : ''
+     }
       
       <View style={styles.App} >
-        <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginHorizontal:10}} >{note}</Text>
           <View style={{padding: 20,borderRadius:210,borderWidth:10,borderColor:btnColors[1],backgroundColor:btnColors[1]}} >
             <Animated.View style={[paddingAnimatedStyle,{padding: 20,borderRadius:180,borderWidth:10,borderColor:btnColors[0],backgroundColor:btnColors[0]}]} >
               <View 
@@ -118,21 +139,25 @@ const FocusMode = ({navigation}) => {
               </View >
            </Animated.View>
           </View>
-          
-          
-          
-          
-      
-              <TouchableOpacity onPress={playMusic} style={[{backgroundColor:Colors.primary,padding: 20,borderRadius:40,elevation:10,borderColor:Colors.text}]} >
-                <FontAwesomeIcon size={30} color={Colors.text} icon={!bgm ? faPlay : faPause} />
+          <View style={{flexDirection:'row',justifyContent: 'center',alignItems:'center'}} >
+              <TouchableOpacity style={{justifyContent: 'center',alignItems:'center',width:'33%'}} >
+                <FontAwesomeIcon icon={faDownload} color={`${Colors.text}50`} />
+                <Text>Downloading</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={playMusic} style={[{padding: 20,borderRadius:40,borderColor:Colors.text,width:'33%',alignItems:'center',justifyContent:'center'}]} >
+                <FontAwesomeIcon size={30} color={Colors.text} icon={!running ? faPlay : faPause} />
               </TouchableOpacity>  
-      
+
+              <TouchableWithoutFeedback onPress={Refresh}  >
+                <Animated.View style={[styles.iconContainer, rotateStyle,{width:'33%',justifyContent: 'center',alignItems:'center'}]}>
+                  <FontAwesomeIcon icon={faRefresh} color={refresh ? `${Colors.text}` : `${Colors.text}50`}   />
+                </Animated.View>
+              </TouchableWithoutFeedback>
+          </View>
         
       </View>
-      { others ? 
-        <HomePageFootor marginTop={true} navigation={navigation} />:
-        '' 
-      }
+      
        
 
       
@@ -202,6 +227,10 @@ const styles = StyleSheet.create({
     textAlign:'center',
     padding:10,
     color:Colors.white
+  },
+  iconContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

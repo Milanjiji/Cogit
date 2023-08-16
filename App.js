@@ -9,16 +9,11 @@ const App = () => {
 
   useEffect(()=>{
 
-    
-    // const clear = async () =>{
-    //   await AsyncStorage.clear()
-    // }
-    // clear();
+ 
     const setColors = async () =>{
       const data = JSON.stringify(Colors);
       await AsyncStorage.setItem('Colors',data);
     }
-    setColors();
     const getItem = async() =>{
       const color = await AsyncStorage.getItem('Colors');
       if(!color){

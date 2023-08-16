@@ -4,7 +4,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "../../components/Header";
 import HomePageFootor from "../../components/HomePageFootor";
 
-import Class10Math from './../../assets/VideoClass/Class10Maths.json'
+import Class10Maths from '../../assets/VeryshortNote/Class10CbseMaths.json'
+import Class10Phy from '../../assets/VeryshortNote/Class10CbsePhy.json'
+import Class10Chem from '../../assets/VeryshortNote/Class10CbseChem.json'
+import Class10Bio from '../../assets/VeryshortNote/Class10CbseBio.json'
+
+
+// import Class10Math from './../../assets/rawNotes/Class10Maths.json'
 // import Class10Bio from './../../assets/rawNotes/Class10Bio.json'
 // import Class10Phy from './../../assets/rawNotes/Class10Phy.json'
 // import Class10MChem from './../../assets/rawNotes/Class10Chem.json'
@@ -19,7 +25,7 @@ import Class10Math from './../../assets/VideoClass/Class10Maths.json'
 // import Class12Phy from './../../assets/rawNotes/Class12Phy.json'
 // import Class12MChem from './../../assets/rawNotes/Class12Chem.json'
 
-const VideoClassification = ({route,navigation}) =>{
+const VeryShortClassification = ({route,navigation}) =>{
     const [Colors,setColors] = useState([]);
     const [note,setNote] = useState([]);
     const [clas,setClass] = useState([]);
@@ -28,37 +34,32 @@ const VideoClassification = ({route,navigation}) =>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
-            console.log(colors);
-            // const clas = await AsyncStorage.getItem('class');
-            // const value = JSON.parse(clas);
-            // console.log(value);
             setColors(colors);
-
-            
-
         }
         getColors();
+        // setNote(Class10Maths);
 
         const setNotes = async() =>{
             const clas = await AsyncStorage.getItem('class');
             const value = JSON.parse(clas);
-            console.log(value);
+            console.log(value,sub);
 
-            if(value === 10) {
+
+            if(value == 10) {
                 console.log("class 10");
                 if(sub === 'math'){
-                    setNote(Class10Math);
+                    setNote(Class10Maths);
+                    console.log(Class10Maths);
                 }else if(sub === 'phy'){
-                    // setNote(Class10Phy);
+                    setNote(Class10Phy);
                 }else if(sub === 'chem'){
-                    // setNote(Class10MChem);
+                    setNote(Class10Chem);
                 }else if(sub === 'bio'){
-                    // setNote(Class10Bio);
+                    setNote(Class10Bio);
                 }else{
                     console.log('got some problem over the note selections');
                 }
-            }
-            // else if(value === '+1') {
+            // }else if(value == '+1') {
             //     console.log("its +1 boys");
             //     if(sub === 'math'){
             //         setNote(Class11Math);
@@ -71,7 +72,7 @@ const VideoClassification = ({route,navigation}) =>{
             //     }else{
             //         console.log('got some problem over the note selections');
             //     }
-            // }else if(value === '+2') {
+            // }else if(value == '+2') {
             //     console.log("its +2 boys");
             //     if(sub === 'math'){
             //         setNote(Class12Math);
@@ -84,7 +85,7 @@ const VideoClassification = ({route,navigation}) =>{
             //     }else{
             //         console.log('got some problem over the note selections');
             //     }
-            // }
+            }
         }
         setNotes();
         
@@ -93,7 +94,7 @@ const VideoClassification = ({route,navigation}) =>{
     
     return(
         <View style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around'}} >
-            <Header navigation={navigation}  title="Maths" info=""/>
+            <Header navigation={navigation}  title="Short Note" info=""/>
             <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1,marginTop:10}} >
                
                 {
@@ -101,12 +102,12 @@ const VideoClassification = ({route,navigation}) =>{
                         return(
                             <TouchableOpacity
                             onPress={() => {
-                                const matchedArray = note.find(element => element.chapter === item.chapter);
+                                const matchedArray = note.find(element => element.Chapter === item.Chapter);
                                 console.log(matchedArray);
-                                navigation.navigate('VideoClass',{note:matchedArray,sub:sub})
+                                navigation.navigate('VeryShort',{note:matchedArray})
                               }}
-                                key={item.chapter}  style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
-                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >{item.chapter}</Text>
+                                key={item.Chapter}  style={[styles.btn,{flex:1,justifyContent:'center'}]} >
+                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >{item.Chapter}</Text>
                             </TouchableOpacity>
                         );
                     })
@@ -118,11 +119,10 @@ const VideoClassification = ({route,navigation}) =>{
 const styles = StyleSheet.create({
     btn:{
         margin:3,
-        borderRadius:10,
-        elevation:10,
         marginTop:3,
         padding: 10,
+        marginHorizontal:10
     }
 })
 
-export default VideoClassification;
+export default VeryShortClassification;

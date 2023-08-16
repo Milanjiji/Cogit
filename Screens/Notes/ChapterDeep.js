@@ -62,9 +62,7 @@ const DeepExplanation = ({navigation,route}) =>{
                         )
                     })
                 }
-                <View style={{height:50}} ></View>
             </ScrollView>
-            <HomePageFootor navigation={navigation} />
         </View>
     )
 }

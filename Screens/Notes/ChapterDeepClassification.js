@@ -111,7 +111,6 @@ const DeepClassification = ({route,navigation}) =>{
                     })
                 }
             </ScrollView>
-            <HomePageFootor navigation={navigation} />
         </View>
     )
 }

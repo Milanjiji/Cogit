@@ -57,11 +57,12 @@ const styles = StyleSheet.create({
       community_Text:{
         color:Colors.white,
         fontFamily:Colors.Bold,
-        fontSize:22
+        fontSize:16
       },
       community_Disc:{
         color:Colors.white,
         fontFamily:Colors.Regular,
+        fontSize:12
       },
 })
 export default HomePageBar;

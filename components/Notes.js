@@ -56,18 +56,18 @@ const Notes = ({navigation,route,...props}) =>{
                     </View> */}
                     <View style={{flexDirection:'row',flex: 1,justifyContent:'space-around',marginVertical:10}} >
                         <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','math')} >
-                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center'}]} >Maths</Text>
+                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center',color:Colors.text}]} >Maths</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','chem')} >
-                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center'}]} >Chemistry</Text>
+                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center',color:Colors.text}]} >Chemistry</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{flexDirection:'row',flex: 1,justifyContent:'space-around'}} >
                         <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','phy')} >
-                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center'}]} >Physics</Text>
+                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center',color:Colors.text}]} >Physics</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','bio')} >
-                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center'}]} >Biology</Text>
+                            <Text style={[styles.basic,{backgroundColor:Colors.hashWhite,borderRadius:10,textAlign:'center',color:Colors.text}]} >Biology</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

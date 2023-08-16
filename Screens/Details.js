@@ -53,6 +53,8 @@ const Details = ({navigation,route}) =>{
    },[])
 
    
+
+   
     const Submit = async () =>{
         
         if(
@@ -115,7 +117,6 @@ const Details = ({navigation,route}) =>{
         }
     }
     const Login = () =>{
-        console.log('login');
         setLoading(true);
         if(userName && phone){
             

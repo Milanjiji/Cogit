@@ -87,7 +87,7 @@ const Note_Classification = ({navigation}) =>{
                     setEmptyList(false);
                     FocusTextInput.current.focus();
                 }} >
-                <Text style={[styles.btn,{width:width-60}]} >Create Note</Text>
+                <Text style={[styles.btn,{width:width-60,backgroundColor:Colors.Background}]} >Create Note</Text>
         </TouchableOpacity>
         </View>
         

@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import Colors from '../colors.json'
+import {View, Text, StyleSheet} from 'react-native';
 
-import HomePageFootor from '../components/HomePageFootor';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faAngleRight, faCircleDot, faDotCircle, faEnvelope, faPhone, faSchool } from '@fortawesome/free-solid-svg-icons';
+import { faPhone} from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 
 
@@ -32,10 +31,6 @@ const UserDetails = ({navigation}) => {
             setPhone(Phone);
             const Clas = await AsyncStorage.getItem('class');
             setClass(Clas);
-            const School = await AsyncStorage.getItem('school');
-            setSchool(School);
-            const Email = await AsyncStorage.getItem('email');
-            setEmail(Email);
         }
         getDetails();
     },[])
@@ -52,12 +47,8 @@ const UserDetails = ({navigation}) => {
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10}} >{phone}</Text>
             </View>
             <View style={{flexDirection:'row',alignItems:'center'}} >
-                <FontAwesomeIcon size={14}  icon={faSchool} color={Colors.text}  />
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10}} >{school}</Text>
-            </View>
-            <View style={{flexDirection:'row',alignItems:'center'}} >
-                <FontAwesomeIcon size={14}  icon={faEnvelope} color={Colors.text}  />
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10}} >{email}</Text>
+                <FontAwesomeIcon size={14}  icon={faUser} color={Colors.text}  />
+                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10}} >{clas}</Text>
             </View>
         </View>
         

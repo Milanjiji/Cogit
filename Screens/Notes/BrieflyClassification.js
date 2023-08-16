@@ -110,7 +110,6 @@ const BriefClassification = ({route,navigation}) =>{
                 }
                 <View style={{height:50}} ></View>
             </ScrollView>
-            <HomePageFootor navigation={navigation} />
         </View>
     )
 }

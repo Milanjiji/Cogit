@@ -36,7 +36,7 @@ const GeneralSetting = () =>{
             setReload(true);
         }else if(theme === 'dark'){
             colors.Background = "#1a1a1a";
-            colors.primary = "#808080";
+            colors.primary = "#1a1a1a";
             colors.secondary = "#d7b3ff";
             colors.text = "#ffffff";
             AsyncStorage.setItem('Colors',JSON.stringify(colors))
@@ -47,11 +47,12 @@ const GeneralSetting = () =>{
             colors.primary = "#bfbfbf";
             colors.secondary = "#595959";
             colors.text = "#000000";
+            colors.hashWhite = "#00000020"
             AsyncStorage.setItem('Colors',JSON.stringify(colors))
             setReload(true);
             setBorder(3);
         }else{
-
+        console.log("No color");
         }
         
         
