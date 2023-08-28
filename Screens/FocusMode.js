@@ -2,9 +2,8 @@ import React, {useEffect, useState,useContext} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet,TouchableWithoutFeedback} from 'react-native';
 import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { SoundContext } from '../components/SoundContext';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faDownload, faPause, faPlay, faRefresh } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faDownload, faPause, faPlay, faRefresh, faSquare } from '@fortawesome/free-solid-svg-icons';
 import Animated, {
   useSharedValue,
   withTiming,
@@ -12,7 +11,7 @@ import Animated, {
   useAnimatedStyle,
   interpolate,
 } from 'react-native-reanimated';
-
+import TrackPlayer,{useTrackPlayerEvents} from 'react-native-track-player';
 import SideBar from '../components/SideBar';
 
 
@@ -24,17 +23,97 @@ const FocusMode = ({navigation}) => {
   const [running, setRunning] = useState(false);
   const padding = useSharedValue(20);
   const rotation = useSharedValue(0);
-  const [audioPaused, setAudioPaused] = useState(false); 
-  const [start,setStart] = useState(true);
   const [rotateDeg,setRotateDeg] = useState(720);
   const [refresh,setRefresh] = useState(false);
+  const [playing,setPlaying] = useState(false);
+  const [currentTrack,setCurrentTrack] = useState('')
+
+  const [songs,setSongs] = useState([
+    {id:1,song:'1akxUUlBRo1gLJScImdgKUef2KnccZkeX'},
+    {id:2,song:'1Xo4I6t2jTFVR6oqU4rcEjZypIAUTDQ86'},
+    {id:3,song:'1hqk2jnDw-sQ2SMFljhw_XynQ5v8MQGVl'},
+    {id:4,song:'1ldB7IV8HrTk09hTOxaiKWGXeJcp9K17p'}
+  ])
+
+  useTrackPlayerEvents(['playback-state'],async (states)=>{
+    console.log(states.state,"te playbackstate");
+    const queue = await TrackPlayer.getCurrentTrack();
+    
+    console.log(queue);
+    if(states.state == "playing"){
+      setRunning(true);
+    }else if(states.state == "paused"){
+      setRunning(false);
+    }
+  })
+
+  const UpdateTrackInfo = async () =>{
+    const trackNo = await TrackPlayer.getCurrentTrack();
+    const allTracks = await TrackPlayer.getQueue();
+    setCurrentTrack(allTracks[trackNo]);
+    console.log(allTracks[trackNo]);
+  }
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      UpdateTrackInfo();
+    }, 1000); 
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
   
+
   const rotateStyle = useAnimatedStyle(() => {
     const rotate = interpolate(rotation.value, [0, 720], [0, 2 * Math.PI]);
     return {
       transform: [{ rotate: `${rotate}rad` }],
     };
   });
+  useEffect(()=>{
+    const addTrack = async () =>{
+      const tracks = [
+        {
+            url: "https://drive.google.com/uc?id=1akxUUlBRo1gLJScImdgKUef2KnccZkeX", // Load media from the app bundle
+            title: 'title 0',
+            artist: 'artist 0',
+        },
+        {
+            url: "https://drive.google.com/uc?id=1Xo4I6t2jTFVR6oqU4rcEjZypIAUTDQ86", // Load media from the app bundle
+            title: 'title 1',
+            artist: 'artis 1',
+        },
+        {
+            url: "https://drive.google.com/uc?id=1hqk2jnDw-sQ2SMFljhw_XynQ5v8MQGVl", // Load media from the app bundle
+            title: 'title 0',
+            artist: 'artist 0',
+        },
+        {
+            url: "https://drive.google.com/uc?id=1ldB7IV8HrTk09hTOxaiKWGXeJcp9K17p", // Load media from the app bundle
+            title: 'title 1',
+            artist: 'artis 1',
+        }
+      ]
+      const queue = await TrackPlayer.getQueue();
+      if(queue.length == 0){
+      await TrackPlayer.add(tracks);
+      }else{
+        console.log("somthing in the quese");
+      }
+
+  }
+  addTrack();
+  // async function checkQueueForTracks() {
+  //     const queue = await TrackPlayer.getQueue();
+    
+  //     if (queue.length > 0) {
+  //       console.log('Tracks are in the queue:', queue);
+  //     } else {
+  //       console.log('No tracks in the queue.');
+  //     }
+  //   }
+  //   checkQueueForTracks()
+  },[])
 
   const RotoateAnimation = () =>{
     setRefresh(true)
@@ -83,35 +162,11 @@ const FocusMode = ({navigation}) => {
             }
         }
         getColors();
+  
+
         
     },[])
-  
-  const sound = useContext(SoundContext);
 
-  const playMusic = () => {
-    console.log("playing mustc");
-    if(start){
-      console.log("playing from tp");
-      sound.play();
-      setRunning(true);
-      setStart(false);
-      setAudioPaused(false);
-    }else{
-        if (audioPaused) {
-          sound.play();
-          setRunning(true);
-          setAudioPaused(false); 
-          console.log("after paused forst play");
-        } else {
-          sound.pause();
-          setRunning(false);
-          setAudioPaused(true); 
-          console.log("paused");
-        }
-      }
-    
-  };
-  
   const Refresh = () =>{
       RotoateAnimation();
   }
@@ -121,6 +176,24 @@ const FocusMode = ({navigation}) => {
       padding: padding.value
     }
   })
+
+  const play = async () =>{
+    if(!playing){
+      try {
+        await TrackPlayer.play();
+        setPlaying(true);
+      } catch (error) {
+        console.log("Error playing track:", error);
+      }
+    }else{
+      try {
+        await TrackPlayer.pause();
+        setPlaying(false);
+      } catch (error) {
+        console.log("Error playing track:", error);
+      }
+    }
+  }
   
   return (
     <View
@@ -139,19 +212,18 @@ const FocusMode = ({navigation}) => {
               </View >
            </Animated.View>
           </View>
-          <View style={{flexDirection:'row',justifyContent: 'center',alignItems:'center'}} >
+          <View style={{flexDirection:'row',justifyContent: 'center',alignItems:'center',backgroundColor:Colors.hashWhite,borderRadius:10,marginHorizontal:10}} >
               <TouchableOpacity style={{justifyContent: 'center',alignItems:'center',width:'33%'}} >
-                <FontAwesomeIcon icon={faDownload} color={`${Colors.text}50`} />
-                <Text>Downloading</Text>
+                <FontAwesomeIcon icon={faAngleLeft} color={Colors.text} />
               </TouchableOpacity>
 
-              <TouchableOpacity onPress={playMusic} style={[{padding: 20,borderRadius:40,borderColor:Colors.text,width:'33%',alignItems:'center',justifyContent:'center'}]} >
+              <TouchableOpacity onPress={play} style={[{padding: 20,borderRadius:40,borderColor:Colors.text,width:'33%',alignItems:'center',justifyContent:'center'}]} >
                 <FontAwesomeIcon size={30} color={Colors.text} icon={!running ? faPlay : faPause} />
               </TouchableOpacity>  
 
               <TouchableWithoutFeedback onPress={Refresh}  >
                 <Animated.View style={[styles.iconContainer, rotateStyle,{width:'33%',justifyContent: 'center',alignItems:'center'}]}>
-                  <FontAwesomeIcon icon={faRefresh} color={refresh ? `${Colors.text}` : `${Colors.text}50`}   />
+                  <FontAwesomeIcon icon={faAngleRight} color={Colors.text}   />
                 </Animated.View>
               </TouchableWithoutFeedback>
           </View>

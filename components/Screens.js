@@ -64,6 +64,7 @@ import Function from "../Screens/LearnC/Functions";
 import Classes from "../Screens/LearnC/Class";
 import VeryShortClassification from "../Screens/Notes/VeryShortClassification";
 import VeryShort from "../Screens/Notes/VeryShort";
+import TrackPlayerDemo from "../Screens/TrackPlayerDemo";
 
 
 
@@ -257,6 +258,9 @@ const Screens = () =>{
            <Stack.Screen
            name="VeryShort" 
            component={VeryShort} />
+           <Stack.Screen
+           name="TrackPlayer" 
+           component={TrackPlayerDemo} />
   
         </Stack.Navigator>
       </NavigationContainer>

@@ -22,7 +22,7 @@ const NextUpdate = ({navigation}) => {
   
   return (
     <View
-      style={[styles.background,{borderRadius:10,backgroundColor:Colors.hashWhite}]} >
+      style={[styles.background,{borderRadius:10,backgroundColor:Colors.hashWhite,marginHorizontal:15}]} >
         <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >The next update include</Text>
         <View style={{marginHorizontal:10,marginVertical:10}} >
             <View style={{flexDirection:'row'}}  >

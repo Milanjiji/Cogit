@@ -9,6 +9,14 @@ import Class10Phy from '../../assets/VeryshortNote/Class10CbsePhy.json'
 import Class10Chem from '../../assets/VeryshortNote/Class10CbseChem.json'
 import Class10Bio from '../../assets/VeryshortNote/Class10CbseBio.json'
 
+import Class11Phy from '../../assets/VeryshortNote/Class11Phy.json'
+import Class11Chem from '../../assets/VeryshortNote/Class11Chem.json'
+import Class11Bio from '../../assets/VeryshortNote/Class11Bio.json'
+import Class11Maths from '../../assets/VeryshortNote/Class11Maths.json'
+
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+
 
 // import Class10Math from './../../assets/rawNotes/Class10Maths.json'
 // import Class10Bio from './../../assets/rawNotes/Class10Bio.json'
@@ -56,22 +64,20 @@ const VeryShortClassification = ({route,navigation}) =>{
                     setNote(Class10Chem);
                 }else if(sub === 'bio'){
                     setNote(Class10Bio);
+                }
+            }else if(value == '+1') {
+                console.log("its +1 boys");
+                if(sub === 'math'){
+                    setNote(Class11Maths);
+                }else if(sub === 'phy'){
+                    setNote(Class11Phy);
+                }else if(sub === 'chem'){
+                    setNote(Class11Chem);
+                }else if(sub === 'bio'){
+                    setNote(Class11Bio);
                 }else{
                     console.log('got some problem over the note selections');
                 }
-            // }else if(value == '+1') {
-            //     console.log("its +1 boys");
-            //     if(sub === 'math'){
-            //         setNote(Class11Math);
-            //     }else if(sub === 'phy'){
-            //         setNote(Class11Phy);
-            //     }else if(sub === 'chem'){
-            //         setNote(Class11MChem);
-            //     }else if(sub === 'bio'){
-            //         setNote(Class11Bio);
-            //     }else{
-            //         console.log('got some problem over the note selections');
-            //     }
             // }else if(value == '+2') {
             //     console.log("its +2 boys");
             //     if(sub === 'math'){
@@ -106,8 +112,9 @@ const VeryShortClassification = ({route,navigation}) =>{
                                 console.log(matchedArray);
                                 navigation.navigate('VeryShort',{note:matchedArray})
                               }}
-                                key={item.Chapter}  style={[styles.btn,{flex:1,justifyContent:'center'}]} >
+                                key={item.Chapter}  style={[styles.btn,{flex:1,justifyContent:'space-between',flexDirection:'row',alignItems:'center'}]} >
                                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >{item.Chapter}</Text>
+                                <FontAwesomeIcon color={Colors.text}  icon={faAngleRight} />
                             </TouchableOpacity>
                         );
                     })

@@ -1,0 +1,616 @@
+[
+  {
+    "Chapter": "Basic Concepts of Chemistry (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Chemistry",
+        "Definition": "Importance of chemistry, matter, its classification, properties."
+      },
+      {
+        "Topic": "Laws of Chemical Combination",
+        "Definition": "Law of conservation of mass, law of definite proportions, law of multiple proportions."
+      },
+      {
+        "Topic": "Atomic Mass",
+        "Definition": "Atomic mass unit (amu), molecular mass, molar mass."
+      },
+      {
+        "Topic": "Mole Concept and Molar Masses",
+        "Definition": "Mole concept, Avogadro's number, relationship between mole and mass."
+      },
+      {
+        "Topic": "Percentage Composition",
+        "Definition": "Percentage composition of elements in a compound."
+      },
+      {
+        "Topic": "Stoichiometry",
+        "Definition": "Stoichiometric calculations, law of conservation of mass in chemical reactions."
+      },
+      {
+        "Topic": "Redox Reactions",
+        "Definition": "Oxidation and reduction, redox reactions, balancing redox reactions."
+      },
+      {
+        "Topic": "Concentration of Solution",
+        "Definition": "Molarity, mole fraction, percentage, molality, normality."
+      },
+      {
+        "Topic": "Types of Reactions",
+        "Definition": "Combination, decomposition, displacement, double displacement reactions."
+      },
+      {
+        "Topic": "Atomic and Molecular Masses",
+        "Definition": "Atomic and molecular masses, determination using Avogadro's number."
+      }
+    ]
+  },
+  {
+    "Chapter": "Structure of Atom (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Structure of Atom",
+        "Definition": "Atomic models over time, limitations of Rutherford's atomic model."
+      },
+      {
+        "Topic": "Atomic Number",
+        "Definition": "Atomic number, isotopes, isobars, discovery of isotopes."
+      },
+      {
+        "Topic": "Bohr's Model and Its Limitations",
+        "Definition": "Bohr's model of hydrogen atom, limitations, energy levels, spectral lines."
+      },
+      {
+        "Topic": "Quantum Mechanical Model",
+        "Definition": "Wave nature of matter, de Broglie's hypothesis, Heisenberg's uncertainty principle."
+      },
+      {
+        "Topic": "Quantum Mechanical Model of Atom",
+        "Definition": "Quantum mechanical model of atom, orbitals, quantum numbers."
+      },
+      {
+        "Topic": "Aufbau Principle and Pauli Exclusion Principle",
+        "Definition": "Aufbau principle, Pauli exclusion principle, Hund's rule."
+      },
+      {
+        "Topic": "Electron Configurations",
+        "Definition": "Electron configurations, stability of half-filled and completely filled orbitals."
+      },
+      {
+        "Topic": "Quantum Numbers",
+        "Definition": "Principal quantum number, azimuthal quantum number, magnetic quantum number."
+      },
+      {
+        "Topic": "Electronic Configuration of Elements",
+        "Definition": "Electronic configuration of elements up to atomic number 18."
+      },
+      {
+        "Topic": "Dual Behaviour of Matter",
+        "Definition": "Dual behaviour of electrons, de Broglie wavelength, wave-particle duality."
+      }
+    ]
+  },
+  {
+    "Chapter": "Classification of Elements & Periodicity in Properties (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Periodic Table",
+        "Definition": "Modern periodic law, classification of elements, long form of periodic table."
+      },
+      {
+        "Topic": "Position of Elements in Modern Periodic Table",
+        "Definition": "Position of elements, periodic trends, electronic configuration."
+      },
+      {
+        "Topic": "Trends in Physical Properties",
+        "Definition": "Trends in atomic radius, ionic radius, ionization energy, electron gain enthalpy."
+      },
+      {
+        "Topic": "Trends in Chemical Properties",
+        "Definition": "Trends in valence, oxidation states, reactivity of metals and non-metals."
+      },
+      {
+        "Topic": "Periodic Properties and Electronic Configuration",
+        "Definition": "Periodic properties and electronic configuration, variation across periods and groups."
+      },
+      {
+        "Topic": "Classification of Elements",
+        "Definition": "Classification based on electronic configuration, s, p, d, f block elements."
+      },
+      {
+        "Topic": "Electronic Configuration and Types of Elements",
+        "Definition": "Electronic configuration of elements, representative, transition, inner transition elements."
+      },
+      {
+        "Topic": "S-block and P-block Elements",
+        "Definition": "S-block and p-block elements, general properties, trends."
+      },
+      {
+        "Topic": "Trends in Atomic Radii and Ionic Radii",
+        "Definition": "Trends in atomic radii and ionic radii, factors affecting atomic size."
+      },
+      {
+        "Topic": "Trends in Ionization Enthalpy and Electron Gain Enthalpy",
+        "Definition": "Trends in ionization enthalpy and electron gain enthalpy."
+      }
+    ]
+  },
+  {
+    "Chapter": "Chemical Bonding and Molecular Structure (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Chemical Bonding",
+        "Definition": "Octet rule, Lewis structure, ionic and covalent bonds, lone pairs."
+      },
+      {
+        "Topic": "Ionic Bond",
+        "Definition": "Ionic bonds, characteristics of ionic compounds, lattice energy."
+      },
+      {
+        "Topic": "Covalent Bond",
+        "Definition": "Covalent bonds, bond parameters, Lewis structure, formal charge."
+      },
+      {
+        "Topic": "Valence Shell Electron Pair Repulsion (VSEPR) Theory",
+        "Definition": "VSEPR theory, shape of molecules, hybridization, shapes of molecules."
+      },
+      {
+        "Topic": "Hybridization",
+        "Definition": "Hybridization of atomic orbitals, types of hybridization."
+      },
+      {
+        "Topic": "Molecular Orbital Theory",
+        "Definition": "Molecular orbital theory, bonding and antibonding molecular orbitals."
+      },
+      {
+        "Topic": "Bonding in Some Homonuclear Diatomic Molecules",
+        "Definition": "Bonding in hydrogen, nitrogen, oxygen, and fluorine molecules."
+      },
+      {
+        "Topic": "Hydrogen Bonding",
+        "Definition": "Hydrogen bonding, types of hydrogen bonding, applications."
+      },
+      {
+        "Topic": "Resonance",
+        "Definition": "Resonance, types of resonance, resonance structures."
+      },
+      {
+        "Topic": "Dipole Moment",
+        "Definition": "Dipole moment, polar molecules, factors affecting dipole moment."
+      }
+    ]
+  },
+  {
+    "Chapter": "States of Matter: Gases and Liquids (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to States of Matter",
+        "Definition": "States of matter, intermolecular forces, thermal energy."
+      },
+      {
+        "Topic": "Gaseous State",
+        "Definition": "Gaseous state, gas laws, ideal gas equation, real gases."
+      },
+      {
+        "Topic": "Kinetic Molecular Theory of Gases",
+        "Definition": "Kinetic molecular theory of gases, postulates, root mean square speed."
+      },
+      {
+        "Topic": "Behaviour of Real Gases",
+        "Definition": "Behaviour of real gases, deviation from ideal behavior, van der Waals equation."
+      },
+      {
+        "Topic": "Liquid State",
+        "Definition": "Liquid state, properties of liquids, vapor pressure, surface tension."
+      },
+      {
+        "Topic": "Vapour Pressure of Liquid",
+        "Definition": "Vapour pressure of liquid, factors affecting vapor pressure."
+      },
+      {
+        "Topic": "Viscosity",
+        "Definition": "Viscosity, viscosity of liquids, factors affecting viscosity."
+      },
+      {
+        "Topic": "Surface Tension",
+        "Definition": "Surface tension, surface energy, molecular explanation."
+      },
+      {
+        "Topic": "Effect of Temperature on Surface Tension and Viscosity",
+        "Definition": "Effect of temperature on surface tension and viscosity."
+      },
+      {
+        "Topic": "Capillarity",
+        "Definition": "Capillarity, capillary rise, capillary action."
+      }
+    ]
+  },
+  {
+    "Chapter": "Thermodynamics (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Thermodynamics",
+        "Definition": "Thermodynamic terms, concept of system and surroundings."
+      },
+      {
+        "Topic": "Internal Energy and Enthalpy",
+        "Definition": "Internal energy, enthalpy, state functions, enthalpy change."
+      },
+      {
+        "Topic": "First Law of Thermodynamics",
+        "Definition": "First law of thermodynamics, work, heat, internal energy change."
+      },
+      {
+        "Topic": "Enthalpy Change",
+        "Definition": "Enthalpy change in various processes, calorimetry, heat capacity."
+      },
+      {
+        "Topic": "Hess's Law of Constant Heat Summation",
+        "Definition": "Hess's law, calculation of enthalpy change using Hess's law."
+      },
+      {
+        "Topic": "Enthalpies for Different Types of Reactions",
+        "Definition": "Enthalpy change in different reactions, standard enthalpy of reactions."
+      },
+      {
+        "Topic": "Second Law of Thermodynamics",
+        "Definition": "Second law of thermodynamics, Carnot's engine, Kelvin-Planck statement."
+      },
+      {
+        "Topic": "Entropy",
+        "Definition": "Entropy, increase of entropy, entropy change in various processes."
+      },
+      {
+        "Topic": "Gibbs Energy Change",
+        "Definition": "Gibbs energy change, spontaneity of processes, Gibbs-Helmholtz equation."
+      },
+      {
+        "Topic": "Criteria for Equilibrium",
+        "Definition": "Criteria for equilibrium, free energy change, equilibrium constant."
+      }
+    ]
+  },
+  {
+    "Chapter": "Equilibrium (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Equilibrium",
+        "Definition": "Dynamic nature of equilibrium, reversible reactions, static and dynamic equilibrium."
+      },
+      {
+        "Topic": "Equilibrium in Physical Processes",
+        "Definition": "Equilibrium in physical processes, solid-liquid, liquid-gas, dissolution of gases in liquids."
+      },
+      {
+        "Topic": "Equilibrium in Chemical Processes",
+        "Definition": "Equilibrium in chemical processes, law of mass action, equilibrium constant."
+      },
+      {
+        "Topic": "Homogeneous and Heterogeneous Equilibrium",
+        "Definition": "Homogeneous and heterogeneous equilibrium, relationship between Kc and Kp."
+      },
+      {
+        "Topic": "Application of Equilibrium Constants",
+        "Definition": "Application of equilibrium constants, predicting the direction of reaction."
+      },
+      {
+        "Topic": "Factors Affecting Equilibrium",
+        "Definition": "Factors affecting equilibrium, Le Chatelier's principle, effect of concentration, temperature."
+      },
+      {
+        "Topic": "Ionic Equilibrium",
+        "Definition": "Ionic equilibrium, strong and weak electrolytes, ionic product of water."
+      },
+      {
+        "Topic": "Solubility and Solubility Product",
+        "Definition": "Solubility, solubility product constant, common ion effect, factors affecting solubility."
+      },
+      {
+        "Topic": "Buffer Solutions",
+        "Definition": "Buffer solutions, Henderson-Hasselbalch equation, buffer capacity."
+      },
+      {
+        "Topic": "Hydrolysis of Salts and pH of Buffer Solutions",
+        "Definition": "Hydrolysis of salts, pH of buffer solutions, acid-base indicators."
+      }
+    ]
+  },
+  {
+    "Chapter": "Redox Reactions (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Redox Reactions",
+        "Definition": "Redox reactions, oxidation, reduction, electron transfer."
+      },
+      {
+        "Topic": "Types of Redox Reactions",
+        "Definition": "Combination, decomposition, displacement, disproportionation reactions."
+      },
+      {
+        "Topic": "Oxidation Number",
+        "Definition": "Oxidation number, rules for assigning oxidation number, oxidation state."
+      },
+      {
+        "Topic": "Balancing of Redox Reactions",
+        "Definition": "Balancing redox reactions by oxidation number method, half-reaction method."
+      },
+      {
+        "Topic": "Ionic Electron Method",
+        "Definition": "Ionic electron method, half-reaction method, balancing in acidic and basic solutions."
+      },
+      {
+        "Topic": "Applications of Redox Reactions",
+        "Definition": "Applications in real-world, corrosion, corrosion prevention, electrochemical cells."
+      },
+      {
+        "Topic": "Balancing Redox Reactions in Terms of Loss and Gain of Electrons",
+        "Definition": "Balancing redox reactions using loss and gain of electrons, oxidation number method."
+      }
+    ]
+  },
+  {
+    "Chapter": "Hydrogen (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Hydrogen",
+        "Definition": "Importance of hydrogen, occurrence, isotopes, dihydrogen molecule."
+      },
+      {
+        "Topic": "Position of Hydrogen in the Periodic Table",
+        "Definition": "Position of hydrogen, similarity to alkali metals and halogens."
+      },
+      {
+        "Topic": "Hydrides",
+        "Definition": "Hydrides, classification, ionic, covalent, interstitial hydrides."
+      },
+      {
+        "Topic": "Preparation of Dihydrogen",
+        "Definition": "Preparation of dihydrogen, laboratory methods, electrolysis of water."
+      },
+      {
+        "Topic": "Properties of Dihydrogen",
+        "Definition": "Physical and chemical properties of dihydrogen, reactivity."
+      },
+      {
+        "Topic": "Uses of Dihydrogen",
+        "Definition": "Uses of dihydrogen, fuel, reducing agent, ammonia synthesis."
+      },
+      {
+        "Topic": "Hydrogen Peroxide",
+        "Definition": "Hydrogen peroxide, properties, preparation, uses."
+      },
+      {
+        "Topic": "Heavy Water",
+        "Definition": "Heavy water, preparation, properties, uses."
+      },
+      {
+        "Topic": "Hydrogen as Fuel",
+        "Definition": "Hydrogen as a fuel, advantages, challenges, fuel cells."
+      }
+    ]
+  },
+  {
+    "Chapter": "s-Block Elements (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to s-Block Elements",
+        "Definition": "Introduction to alkali and alkaline earth metals, general properties."
+      },
+      {
+        "Topic": "Group 1 Elements: Alkali Metals",
+        "Definition": "Group 1 elements, alkali metals, general characteristics, electronic configuration."
+      },
+      {
+        "Topic": "Reactivity of Alkali Metals",
+        "Definition": "Reactivity of alkali metals, compounds, reaction with water, oxygen."
+      },
+      {
+        "Topic": "Anomalous Properties of Lithium",
+        "Definition": "Anomalous properties of lithium, diagonal relationship, lithium compounds."
+      },
+      {
+        "Topic": "Group 2 Elements: Alkaline Earth Metals",
+        "Definition": "Group 2 elements, alkaline earth metals, general characteristics."
+      },
+      {
+        "Topic": "Reactivity of Alkaline Earth Metals",
+        "Definition": "Reactivity of alkaline earth metals, compounds, hydration enthalpy."
+      },
+      {
+        "Topic": "Comparison of Alkali and Alkaline Earth Metals",
+        "Definition": "Comparison of alkali and alkaline earth metals, reactivity, compounds."
+      },
+      {
+        "Topic": "Anomalous Behaviour of Beryllium",
+        "Definition": "Anomalous behaviour of beryllium, diagonal relationship, beryllium compounds."
+      },
+      {
+        "Topic": "Preparation and Properties of Some Compounds",
+        "Definition": "Preparation and properties of sodium carbonate, sodium hydroxide, calcium oxide."
+      },
+      {
+        "Topic": "Biological Importance of Sodium and Potassium",
+        "Definition": "Biological importance of sodium and potassium, ion channels."
+      }
+    ]
+  },
+  {
+    "Chapter": "Some p-Block Elements (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to p-Block Elements",
+        "Definition": "Introduction to p-block elements, general properties, classification."
+      },
+      {
+        "Topic": "Group 13 Elements: The Boron Family",
+        "Definition": "Group 13 elements, boron family, general characteristics, electronic configuration."
+      },
+      {
+        "Topic": "Boron",
+        "Definition": "Boron, occurrence, isolation, physical and chemical properties."
+      },
+      {
+        "Topic": "Aluminium",
+        "Definition": "Aluminium, occurrence, isolation, physical and chemical properties."
+      },
+      {
+        "Topic": "Gallium, Indium, Thallium",
+        "Definition": "Gallium, indium, thallium, occurrence, properties, uses."
+      },
+      {
+        "Topic": "Group 14 Elements: The Carbon Family",
+        "Definition": "Group 14 elements, carbon family, general characteristics, electronic configuration."
+      },
+      {
+        "Topic": "Carbon",
+        "Definition": "Carbon, occurrence, allotropes, physical and chemical properties."
+      },
+      {
+        "Topic": "Silicon",
+        "Definition": "Silicon, occurrence, physical and chemical properties."
+      },
+      {
+        "Topic": "Tin and Lead",
+        "Definition": "Tin and lead, occurrence, physical and chemical properties, uses."
+      },
+      {
+        "Topic": "Biological Role of Carbon, Silicon, Tin, and Lead",
+        "Definition": "Biological role of carbon, silicon, tin, and lead."
+      }
+    ]
+  },
+  {
+    "Chapter": "Organic Chemistry: Basic Principles & Techniques (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Organic Chemistry",
+        "Definition": "Introduction to organic compounds, vital force theory, modern definition."
+      },
+      {
+        "Topic": "Classification of Organic Compounds",
+        "Definition": "Classification based on functional groups, hydrocarbons, heteroatom-containing compounds."
+      },
+      {
+        "Topic": "Representation of Organic Compounds",
+        "Definition": "Representation of organic compounds, structural formulae, skeletal formulae."
+      },
+      {
+        "Topic": "Nomenclature of Organic Compounds",
+        "Definition": "Nomenclature rules, IUPAC naming, substitutive, functional class, and positional nomenclature."
+      },
+      {
+        "Topic": "Isomerism",
+        "Definition": "Structural and stereoisomerism, geometric, optical, and structural isomerism."
+      },
+      {
+        "Topic": "Purification and Qualitative Analysis",
+        "Definition": "Purification methods, qualitative analysis, tests for functional groups."
+      },
+      {
+        "Topic": "Quantitative Analysis",
+        "Definition": "Quantitative analysis, estimation of carbon, hydrogen, nitrogen, halogens."
+      },
+      {
+        "Topic": "Detection of Nitrogen, Sulphur, Phosphorus, and Halogens",
+        "Definition": "Detection of nitrogen, sulphur, phosphorus, and halogens in organic compounds."
+      },
+      {
+        "Topic": "Detection of Elements in Organic Compounds",
+        "Definition": "Detection of elements in organic compounds, specific tests."
+      },
+      {
+        "Topic": "Quantitative Analysis of Carbon and Hydrogen",
+        "Definition": "Quantitative analysis of carbon and hydrogen, elemental analysis."
+      }
+    ]
+  },
+  {
+    "Chapter": "Hydrocarbons (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Hydrocarbons",
+        "Definition": "Introduction to hydrocarbons, classification, aliphatic, aromatic hydrocarbons."
+      },
+      {
+        "Topic": "Alkanes",
+        "Definition": "Alkanes, general formula, nomenclature, isomerism, physical properties."
+      },
+      {
+        "Topic": "Preparation of Alkanes",
+        "Definition": "Preparation of alkanes, Wurtz reaction, decarboxylation, reduction of alkyl halides."
+      },
+      {
+        "Topic": "Properties of Alkanes",
+        "Definition": "Properties of alkanes, combustion, substitution reactions, free radical mechanism."
+      },
+      {
+        "Topic": "Alkenes",
+        "Definition": "Alkenes, general formula, nomenclature, geometrical isomerism, E-Z notation."
+      },
+      {
+        "Topic": "Preparation of Alkenes",
+        "Definition": "Preparation of alkenes, dehydration of alcohols, dehydrohalogenation of alkyl halides."
+      },
+      {
+        "Topic": "Properties of Alkenes",
+        "Definition": "Properties of alkenes, addition reactions, electrophilic addition, polymerization."
+      },
+      {
+        "Topic": "Alkynes",
+        "Definition": "Alkynes, general formula, nomenclature, preparation, physical properties."
+      },
+      {
+        "Topic": "Properties of Alkynes",
+        "Definition": "Properties of alkynes, acidic character, addition reactions, reduction."
+      },
+      {
+        "Topic": "Aromatic Hydrocarbons",
+        "Definition": "Aromatic hydrocarbons, structure of benzene, resonance, aromaticity."
+      }
+    ]
+  },
+  {
+    "Chapter": "Environmental Chemistry (Class 11 NCERT Chemistry)",
+    "Topics": [
+      {
+        "Topic": "Introduction to Environmental Chemistry",
+        "Definition": "Introduction to environmental chemistry, environmental pollution, pollutants."
+      },
+      {
+        "Topic": "Atmospheric Pollution",
+        "Definition": "Atmospheric pollution, sources, effects, greenhouse effect, global warming."
+      },
+      {
+        "Topic": "Stratospheric Ozone Depletion",
+        "Definition": "Stratospheric ozone depletion, ozone layer, causes, effects, ozone hole."
+      },
+      {
+        "Topic": "Water Pollution",
+        "Definition": "Water pollution, sources, effects, pollutants, biological oxygen demand."
+      },
+      {
+        "Topic": "Soil Pollution",
+        "Definition": "Soil pollution, sources, effects, pollutants, pesticides, bioaccumulation."
+      },
+      {
+        "Topic": "Industrial Waste",
+        "Definition": "Industrial waste, types, solid, liquid, gaseous waste, hazardous waste."
+      },
+      {
+        "Topic": "Strategies to Control Environmental Pollution",
+        "Definition": "Strategies to control environmental pollution, waste management, pollution control laws."
+      },
+      {
+        "Topic": "Green Chemistry",
+        "Definition": "Green chemistry, principles, sustainable development, environment-friendly practices."
+      },
+      {
+        "Topic": "Role of an Individual in Prevention of Pollution",
+        "Definition": "Role of an individual in pollution prevention, awareness, responsible practices."
+      },
+      {
+        "Topic": "Summary",
+        "Definition": "Summary of environmental issues, global efforts for environmental protection."
+      }
+    ]
+  }                       
+]

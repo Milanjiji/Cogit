@@ -18,6 +18,8 @@ import Class12Math from './../../assets/rawNotes/Class12Maths.json'
 import Class12Bio from './../../assets/rawNotes/Class12Bio.json'
 import Class12Phy from './../../assets/rawNotes/Class12Phy.json'
 import Class12MChem from './../../assets/rawNotes/Class12Chem.json'
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const BriefClassification = ({route,navigation}) =>{
     const [Colors,setColors] = useState([]);
@@ -102,8 +104,9 @@ const BriefClassification = ({route,navigation}) =>{
                                 console.log(matchedArray);
                                 navigation.navigate('Brief',{note:matchedArray})
                               }}
-                                key={item.chapter}  style={[styles.btn,{flex:1,justifyContent:'center',borderBottomColor:Colors.text,borderBottomWidth:1,borderLeftColor:Colors.text,borderLeftWidth:1}]} >
+                                key={item.chapter}  style={[styles.btn,{flex:1,justifyContent:'space-between',flexDirection:'row'}]} >
                                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >{item.chapter}</Text>
+                                <FontAwesomeIcon color={Colors.text} icon={faAngleRight} />
                             </TouchableOpacity>
                         );
                     })

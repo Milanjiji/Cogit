@@ -2,12 +2,14 @@ import React,{useState,useEffect} from "react";
 import { View,Text, TouchableOpacity, StyleSheet,FlatList, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from "../../components/Header";
-import HomePageFootor from "../../components/HomePageFootor";
 
 import Class10Math from './../../assets/DeepRawNote/Class10Maths.json'
 import Class10Bio from './../../assets/DeepRawNote/Class10Bio.json'
 import Class10Phy from './../../assets/DeepRawNote/Class10Phy.json'
 import Class10MChem from './../../assets/DeepRawNote/Class10Chem.json'
+
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 // import Class11Math from './../../assets/DeepRawNote/Class11Maths.json'
 // import Class11Bio from './../../assets/DeepRawNote/Class11Bio.json'
@@ -43,20 +45,20 @@ const DeepClassification = ({route,navigation}) =>{
             console.log(value);
             setNote(Class10Math);
 
-        //     // if(value === 10) {
-        //     //     console.log("class 10");
-        //     //     if(sub === 'math'){
-        //     //         setNote(Class10Math);
+            if(value === 10) {
+                console.log("class 10");
+                if(sub === 'math'){
+                    setNote(Class10Math);
                         
-        //     //     }else if(sub === 'phy'){
-        //     //         setNote(Class10Phy);
-        //     //     }else if(sub === 'chem'){
-        //     //         setNote(Class10MChem);
-        //     //     }else if(sub === 'bio'){
-        //     //         setNote(Class10Bio);
-        //     //     }else{
-        //     //         console.log('got some problem over the note selections');
-        //     //     }
+                }else if(sub === 'phy'){
+                    setNote(Class10Phy);
+                }else if(sub === 'chem'){
+                    setNote(Class10MChem);
+                }else if(sub === 'bio'){
+                    setNote(Class10Bio);
+                }else{
+                    console.log('got some problem over the note selections');
+                }
         //     // }else if(value === '+1') {
         //     //     console.log("its +1 boys");
         //     //     if(sub === 'math'){
@@ -85,14 +87,16 @@ const DeepClassification = ({route,navigation}) =>{
         //     //     }
         //     // }
         }
+    }
         setNotes();
         console.log(sub);
+
     },[])
     
     
     return(
         <View style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around'}} >
-            <Header navigation={navigation}  title="Maths" info=""/>
+            <Header navigation={navigation}  title="Explanations" info=""/>
             <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1,marginTop:10}} >
                
                 {
@@ -104,8 +108,9 @@ const DeepClassification = ({route,navigation}) =>{
                                 console.log(matchedArray);
                                 navigation.navigate('Deep',{note:matchedArray})
                               }}
-                                key={item.chapter}  style={[styles.btn,{backgroundColor:Colors.primary,flex:1,justifyContent:'center'}]} >
+                                key={item.chapter}  style={[styles.btn,{flex:1,justifyContent:'space-between',flexDirection:'row'}]} >
                                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >{item.chapter}</Text>
+                                <FontAwesomeIcon color={Colors.text}  icon={faAngleRight} />
                             </TouchableOpacity>
                         );
                     })
@@ -118,7 +123,6 @@ const styles = StyleSheet.create({
     btn:{
         margin:3,
         borderRadius:10,
-        elevation:10,
         marginTop:3,
         padding: 10,
     }

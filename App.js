@@ -1,15 +1,13 @@
-import React, { useState,useEffect } from 'react';
+import React, { useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from './colors.json'
-import mobileAds from 'react-native-google-mobile-ads';
 import Screens from './components/Screens';
-import SoundContextProvider from './components/SoundContext';
+import TrackPlayer,{Capability} from 'react-native-track-player';
 
 const App = () => {
 
   useEffect(()=>{
 
- 
     const setColors = async () =>{
       const data = JSON.stringify(Colors);
       await AsyncStorage.setItem('Colors',data);
@@ -40,19 +38,20 @@ const App = () => {
     }
     setSettings();
     // clear();
-    mobileAds()
-    .initialize()
-    .then(adapterStatuses => {
-      // console.log("admob Initialization Complete , adapter Status: ", adapterStatuses);
-      // "react-native-svg": "^13.8.0"
-    });
+    // mobileAds()
+    // .initialize()
+    // .then(adapterStatuses => {
+    //   // console.log("admob Initialization Complete , adapter Status: ", adapterStatuses);
+    //   // "react-native-svg": "^13.8.0"
+    // });
   },[])
+  useEffect(() => {
+    return () => {
+      TrackPlayer.reset();
+    };
+  }, []);
   
-  return  (
-    <SoundContextProvider>
-        <Screens />
-    </SoundContextProvider>
-  ) ;
+  return  <Screens /> ;
 }
 // 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
 

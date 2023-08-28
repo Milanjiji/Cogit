@@ -69,7 +69,6 @@ const Forum = ({navigation}) =>{
                 });
                 const sortedData = items.sort((a, b) => b.id - a.id);
                 setData(sortedData);
-                console.log(items.reverse());
             });
             fetchUserReply();
             return () => unsubscribe();
