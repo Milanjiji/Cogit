@@ -7,11 +7,17 @@ import TrackPlayer,{Capability} from 'react-native-track-player';
 const App = () => {
 
   useEffect(()=>{
+    
 
     const setColors = async () =>{
       const data = JSON.stringify(Colors);
       await AsyncStorage.setItem('Colors',data);
     }
+    const setInitialFocusTime = async ()=>{
+      await AsyncStorage.setItem('Focus',JSON.stringify({isFoucs:false,min:0,sec:0}))
+      console.log("setting Initial Foucs Time");
+    }
+    setInitialFocusTime();
     const getItem = async() =>{
       const color = await AsyncStorage.getItem('Colors');
       if(!color){

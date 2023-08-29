@@ -6,13 +6,52 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const SideBar  =  ({navigation,page}) =>{
     const [Colors,setColors] = useState([]);
+    const [min,setMin] = useState(0);
+    const [sec,setSec] = useState(0);
+    const [running, setRunning] = useState(false);
+
+    useEffect(() => {
+        let intervalId;
+        if (running) {
+          intervalId = setInterval(() => {
+            setSec(prevTime => prevTime + 1);
+            
+          }, 1000);
+        }
+        return () => clearInterval(intervalId);
+      }, [running]);
+  
+      if(sec == 60){
+        setSec(0);
+        setMin(min+1)
+      }
+      const updateFocusModeInfo = async () =>{
+        try {
+            await AsyncStorage.setItem('isFocus',{state:running,min:min,sec:sec})
+        } catch (error) {
+            console.log(error);
+        }
+      }
+      useEffect(() => {
+        const intervalId = setInterval(() => {
+        //   UpdateTrackInfo();
+        }, 1000); 
+        return () => {
+          clearInterval(intervalId);
+        };
+      }, []);
+      console.log(min,sec);
 
     useEffect(()=>{
+        
+        
+        //   getFocusTime();
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }
+    
         getColors();
     },[])
     return(

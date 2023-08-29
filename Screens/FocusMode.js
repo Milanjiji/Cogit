@@ -13,6 +13,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import TrackPlayer,{useTrackPlayerEvents} from 'react-native-track-player';
 import SideBar from '../components/SideBar';
+import { async } from '@firebase/util';
 
 
 const FocusMode = ({navigation}) => {
@@ -23,17 +24,43 @@ const FocusMode = ({navigation}) => {
   const [running, setRunning] = useState(false);
   const padding = useSharedValue(20);
   const rotation = useSharedValue(0);
-  const [rotateDeg,setRotateDeg] = useState(720);
-  const [refresh,setRefresh] = useState(false);
   const [playing,setPlaying] = useState(false);
-  const [currentTrack,setCurrentTrack] = useState('')
+  const [startUpdation,setStartUpdation] = useState(false);
+  useEffect(()=>{
+    const getColors = async()=>{
+        const data = await AsyncStorage.getItem('Colors');
+        const colors = JSON.parse(data);
+        setColors(colors);
+        
+        if(colors.Background === "#2b1499"){
+          setBtnColors(["#12156c50","#12156c30","#12156c40","#12156c10"])
+        }else if(colors.Background === "#1a1a1a"){
+          setBtnColors(["#ffffff50","#ffffff30","#1a1a1a40","#1a1a1a10"])
+        }
+    }
+    getColors();
+    const getLastTime = async () =>{
+      const lastTime = JSON.parse(await AsyncStorage.getItem('Focus'))
+      console.log("last time",lastTime);
+      setRunning(lastTime.isFoucs);
+      setMin(lastTime.min);
+      setSec(lastTime.sec);
+      if(lastTime){
+        setStartUpdation(true);
+      }
+    } 
+    getLastTime();
+  },[])
 
-  const [songs,setSongs] = useState([
-    {id:1,song:'1akxUUlBRo1gLJScImdgKUef2KnccZkeX'},
-    {id:2,song:'1Xo4I6t2jTFVR6oqU4rcEjZypIAUTDQ86'},
-    {id:3,song:'1hqk2jnDw-sQ2SMFljhw_XynQ5v8MQGVl'},
-    {id:4,song:'1ldB7IV8HrTk09hTOxaiKWGXeJcp9K17p'}
-  ])
+  const UpdateFocusTime = async ()=>{
+    await AsyncStorage.setItem('Focus',JSON.stringify({isFoucs:running,min:min,sec:sec}))
+    console.log("Updating every : ",min,sec);
+  }
+  if(setStartUpdation){
+    setTimeout(UpdateFocusTime,1000)
+  }
+
+
 
   useTrackPlayerEvents(['playback-state'],async (states)=>{
     console.log(states.state,"te playbackstate");
@@ -47,20 +74,17 @@ const FocusMode = ({navigation}) => {
     }
   })
 
-  const UpdateTrackInfo = async () =>{
-    const trackNo = await TrackPlayer.getCurrentTrack();
-    const allTracks = await TrackPlayer.getQueue();
-    setCurrentTrack(allTracks[trackNo]);
-    console.log(allTracks[trackNo]);
-  }
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      UpdateTrackInfo();
-    }, 1000); 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+    let intervalId;
+    if (running) {
+      intervalId = setInterval(() => {
+        setSec(prevTime => prevTime + 1);
+      }, 1000);
+    }
+    return () => clearInterval(intervalId);
+  }, [running]);
+
+  
 
   
 
@@ -103,40 +127,27 @@ const FocusMode = ({navigation}) => {
 
   }
   addTrack();
-  // async function checkQueueForTracks() {
-  //     const queue = await TrackPlayer.getQueue();
-    
-  //     if (queue.length > 0) {
-  //       console.log('Tracks are in the queue:', queue);
-  //     } else {
-  //       console.log('No tracks in the queue.');
-  //     }
-  //   }
-  //   checkQueueForTracks()
+//   const getFocusTime = async () =>{
+//     const isFocus = JSON.parse(await AsyncStorage.getItem('isFocus'))
+//     console.log("trying to get the focus time",isFocus);
+//     if(isFocus.state){
+//       console.log("there is is focus,the time is runnning",isFocus);
+//       setRunning(isFocus.state)
+//       setMin(isFocus.min)
+//       setSec(isFocus.sec)
+//     }else if(!isFocus.state){
+//       console.log("the focus mode is not runnng",isFocus);
+//       setRunning(isFocus.state)
+//       setMin(isFocus.min)
+//       setSec(isFocus.sec)
+//     }
+// }
+// getFocusTime();
   },[])
 
-  const RotoateAnimation = () =>{
-    setRefresh(true)
-    setRotateDeg(rotateDeg + 720)
-    rotation.value = withTiming(rotateDeg, {
-      duration: 1000,
-      easing: Easing.linear,
-    });
-    setTimeout(() => {
-      setRefresh(false);
-    }, 1000);
-  }
+  
 
-    useEffect(() => {
-      let intervalId;
-      if (running) {
-        intervalId = setInterval(() => {
-          setSec(prevTime => prevTime + 1);
-          
-        }, 1000);
-      }
-      return () => clearInterval(intervalId);
-    }, [running]);
+   
 
     if(sec == 60){
       setSec(0);
@@ -149,27 +160,9 @@ const FocusMode = ({navigation}) => {
       });
     }
     
-    useEffect(()=>{
-        const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
-            const colors = JSON.parse(data);
-            setColors(colors);
-            
-            if(colors.Background === "#2b1499"){
-              setBtnColors(["#12156c50","#12156c30","#12156c40","#12156c10"])
-            }else if(colors.Background === "#1a1a1a"){
-              setBtnColors(["#ffffff50","#ffffff30","#1a1a1a40","#1a1a1a10"])
-            }
-        }
-        getColors();
+   
+
   
-
-        
-    },[])
-
-  const Refresh = () =>{
-      RotoateAnimation();
-  }
 
   const paddingAnimatedStyle = useAnimatedStyle(()=>{
     return {
@@ -178,7 +171,7 @@ const FocusMode = ({navigation}) => {
   })
 
   const play = async () =>{
-    if(!playing){
+    if(!running){
       try {
         await TrackPlayer.play();
         setPlaying(true);
@@ -221,7 +214,7 @@ const FocusMode = ({navigation}) => {
                 <FontAwesomeIcon size={30} color={Colors.text} icon={!running ? faPlay : faPause} />
               </TouchableOpacity>  
 
-              <TouchableWithoutFeedback onPress={Refresh}  >
+              <TouchableWithoutFeedback  >
                 <Animated.View style={[styles.iconContainer, rotateStyle,{width:'33%',justifyContent: 'center',alignItems:'center'}]}>
                   <FontAwesomeIcon icon={faAngleRight} color={Colors.text}   />
                 </Animated.View>
