@@ -24,7 +24,6 @@ const FocusMode = ({navigation}) => {
   const [running, setRunning] = useState(false);
   const padding = useSharedValue(20);
   const rotation = useSharedValue(0);
-  const [playing,setPlaying] = useState(false);
   const [startUpdation,setStartUpdation] = useState(false);
   useEffect(()=>{
     const getColors = async()=>{
@@ -56,7 +55,7 @@ const FocusMode = ({navigation}) => {
     await AsyncStorage.setItem('Focus',JSON.stringify({isFoucs:running,min:min,sec:sec}))
     console.log("Updating every : ",min,sec);
   }
-  if(setStartUpdation){
+  if(startUpdation){
     setTimeout(UpdateFocusTime,1000)
   }
 
@@ -174,14 +173,12 @@ const FocusMode = ({navigation}) => {
     if(!running){
       try {
         await TrackPlayer.play();
-        setPlaying(true);
       } catch (error) {
         console.log("Error playing track:", error);
       }
     }else{
       try {
         await TrackPlayer.pause();
-        setPlaying(false);
       } catch (error) {
         console.log("Error playing track:", error);
       }

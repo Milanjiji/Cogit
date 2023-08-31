@@ -16,7 +16,7 @@ const App = () => {
     const setInitialFocusTime = async ()=>{
       await AsyncStorage.setItem('Focus',JSON.stringify({isFoucs:false,min:0,sec:0}))
       console.log("setting Initial Foucs Time");
-    }
+    } 
     setInitialFocusTime();
     const getItem = async() =>{
       const color = await AsyncStorage.getItem('Colors');
