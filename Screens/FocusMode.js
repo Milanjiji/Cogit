@@ -1,4 +1,4 @@
-import React, {useEffect, useState,useContext} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet,TouchableWithoutFeedback} from 'react-native';
 import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -13,7 +13,6 @@ import Animated, {
 } from 'react-native-reanimated';
 import TrackPlayer,{useTrackPlayerEvents} from 'react-native-track-player';
 import SideBar from '../components/SideBar';
-import { async } from '@firebase/util';
 
 
 const FocusMode = ({navigation}) => {

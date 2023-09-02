@@ -16,6 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import firestore from '@react-native-firebase/firestore';
 import SplashScreen from 'react-native-splash-screen';
+import AnimatedTextInput from 'react-native-animated-placeholder-textinput';
+import CutomTextInput from '../components/CutomTextInput';
 
 
 const primary = "#12156c"
@@ -29,8 +31,6 @@ const Medium = 'Montserrat-Medium';
   
 const Details = ({navigation,route}) =>{
     const [userName,setUserName] = useState('');
-    const [Password,setPassword] = useState('');
-    const [email,setEmail] = useState('');
     const [phone,setPhone] = useState()
     const [clas, setClass] = useState('10');
     const [modelVisible,setModalVisible] = useState(false)
@@ -39,7 +39,8 @@ const Details = ({navigation,route}) =>{
     const [loginWarn,setLoginWarn] = useState(true);
     const [errorType,setErrorType] = useState('');
     const [loading,setLoading] = useState(false);
-    const [emailExists,setEmailExists] = useState(false);
+
+    const [textStor,setTextStor] = useState('')
 
     const search = firestore().collection('Users');
     
@@ -154,7 +155,8 @@ const Details = ({navigation,route}) =>{
 
     }
 
-   
+    console.log(textStor);
+
 
     return(
        <ScrollView style={styles.background} >
@@ -185,26 +187,31 @@ const Details = ({navigation,route}) =>{
     <View style={{display: LoginType ? 'flex' :'none'}} >
         
         <Text style={styles.reg} >Let's get you signed up first</Text>
-        <Text style={styles.inputLabe} >User Name</Text>
-        <TextInput style={styles.input} placeholder='userName'  onChangeText={setUserName}  />
-        <Text style={styles.inputLabe} >Contact</Text>
-        <TextInput style={styles.input} keyboardType={'phone-pad'} onChangeText={setPhone} placeholder='+91 : '/> 
+            <CutomTextInput onTextChange={setTextStor} />
+            {/* <Text style={[styles.inputLabe,{marginBottom:-35}]} >User Name</Text> */}
+            {/* <AnimatedTextInput textInputProps={{
+                keyboardType: 'email-address',
+            }} label={"hello world"} style={styles.input} value={userName}  onChangeText={setUserName}  /> */}
+            {/* <Text style={styles.inputLabe} >Contact</Text> */}
+            {/* <AnimatedTextInput style={styles.input} value={phone} keyboardType={'phone-pad'} onChangeText={setPhone} />  */}
+            
+            <Text style={styles.inputLabe} >Class</Text>
+            <View style={{borderRadius:5,overflow: 'hidden',borderWidth:2,borderColor:primary,marginHorizontal:30}} >
+                <Picker 
+                    style={styles.picker} 
+                    selectedValue={clas}
+                    onValueChange={(itemValue, itemIndex) =>
+                    setClass(itemValue)}
+                    >
+                    
+                    <Picker.Item style={styles.items}  label="10" value="10" />
+                    <Picker.Item style={styles.items} label="+1" value="+1" />
+                    <Picker.Item style={styles.items} label="+2" value="+2" />
+                    <Picker.Item style={styles.items} label="others" value="others" />
+                </Picker>
+            </View>
         
-        <Text style={styles.inputLabe} >Class</Text>
-        <View style={{borderRadius:5,overflow: 'hidden',borderWidth:2,borderColor:primary,marginHorizontal:30}} >
-            <Picker 
-                style={styles.picker} 
-                selectedValue={clas}
-                onValueChange={(itemValue, itemIndex) =>
-                setClass(itemValue)}
-                >
-                
-                <Picker.Item style={styles.items}  label="10" value="10" />
-                <Picker.Item style={styles.items} label="+1" value="+1" />
-                <Picker.Item style={styles.items} label="+2" value="+2" />
-                <Picker.Item style={styles.items} label="others" value="others" />
-            </Picker>
-        </View>
+        
  
         
         <Text style={[styles.fullDetailsWarning,{display : detailWarn ? "flex" : "none"}]} >Enter full details</Text>
@@ -223,10 +230,10 @@ const Details = ({navigation,route}) =>{
         <Text style={styles.reg} >Login</Text>
 
         
-        <Text style={styles.inputLabe} >user Name</Text>
-        <TextInput style={[styles.input]} onChangeText={setUserName} placeholder='     user Name' />
-        <Text style={styles.inputLabe} >Phone</Text>
-        <TextInput style={styles.input} onChangeText={setPhone} keyboardType={'phone-pad'} placeholder='     phone'/>
+        {/* <Text style={styles.inputLabe} >user Name</Text> */}
+        <TextInput style={[styles.input]} value={userName} onChangeText={setUserName} placeholder='     user Name' />
+        {/* <Text style={styles.inputLabe} >Phone</Text> */}
+        <TextInput style={styles.input} value={phone} onChangeText={setPhone} keyboardType={'phone-pad'} placeholder='     phone'/>
         
         <Text style={{color:'red',textAlign:'center',display:loginWarn ? 'flex' :'none'}} >{errorType}</Text>
         
@@ -268,7 +275,7 @@ const styles = StyleSheet.create({
         paddingHorizontal:30,
         borderColor:primary,
         borderWidth:2,
-        paddingVertical:5 ,
+        paddingVertical:10 ,
     },
     picker:{
         color:white,
@@ -291,12 +298,11 @@ const styles = StyleSheet.create({
         elevation:10
     },
     inputLabe:{
-        marginLeft:40,
+        marginLeft:50,
         color:white,
         marginTop:3,
         backgroundColor:background,
         alignSelf:'flex-start'
-
     },
     modelbackground:{
         backgroundColor:'#04103a99',
