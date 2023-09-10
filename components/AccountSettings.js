@@ -4,7 +4,7 @@ import firestore from '@react-native-firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
-import { faAngleDown, faAngleUp, faArrowDownShortWide, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faAngleUp, faArrowDownShortWide, faCheck, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 
 const search = firestore().collection('Users');
 
@@ -196,7 +196,7 @@ const AccountSettings = ({navigation}) =>{
                     <TextInput value={userName} onChangeText={setUserName} style={[styles.input,{backgroundColor:Colors.secondary,color:Colors.text,fontFamily:Colors.Medium}]} />
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >{status ? status : ''}</Text>
                     <TouchableOpacity onPress={ChangeUserName} style={[styles.update,{backgroundColor:Colors.secondary}]} >
-                        <Text style={{color:userName ? Colors.text : Colors.primary,fontFamily:Colors.Medium,textAlign:'center'}} >Update</Text>
+                        <FontAwesomeIcon icon={faCheck} />
                     </TouchableOpacity>
                 </View>
             </TouchableOpacity>
@@ -255,14 +255,8 @@ const styles = StyleSheet.create({
         marginVertical:10
     },
     update:{
-        paddingHorizontal:20 ,
-        paddingVertical:10,
-        borderRadius:10,
         elevation:10,
-        width:'30%',
-        textAlign:'center',
         alignSelf:'center',
-        marginVertical:10
     }
 })
 

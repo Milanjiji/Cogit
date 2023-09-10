@@ -33,7 +33,7 @@ const Details = ({navigation,route}) =>{
     const [userName,setUserName] = useState('');
     const [phone,setPhone] = useState()
     const [clas, setClass] = useState('10');
-    const [modelVisible,setModalVisible] = useState(false)
+    const [modelVisible,setModalVisible] = useState(true)
     const [detailWarn,setDetailWarn] = useState(false);
     const [LoginType,setLoginType] = useState(true);
     const [loginWarn,setLoginWarn] = useState(true);
@@ -61,35 +61,55 @@ const Details = ({navigation,route}) =>{
         if(
             userName &&  phone && clas 
         ){  
-            
+            setLoading(true); 
+            search.where('phone', '==', phone)
+            .get()
+            .then(querySnapshot => {
+                if(querySnapshot.empty){
+                    const create = async () =>{
                         setLoading(true);
                         console.log(userName,clas,phone);
-                    try{
-                        await AsyncStorage.setItem('userName',JSON.stringify(userName));
-                        await AsyncStorage.setItem('phone', JSON.stringify(phone));
-                        await AsyncStorage.setItem('class', JSON.stringify(clas));
-                        
-                        firestore()
-                            .collection('Users')
-                            .add({
-                                name:userName,
-                                phone:phone,
-                                class:clas})
-                            .then(() => {
-                            console.log('Message sent successfully');
-                            })
-                            .catch((error) => {
-                            console.log('Error sending message:', error);
-                            });
-                            console.log("items saved successfully");
-                            setModalVisible(true)
-                            setLoading(false)
-                    }catch(e){
-                        console.log("error while adding data: ",e);
-                        setLoading(false);
+                        try{
+                            await AsyncStorage.setItem('userName',JSON.stringify(userName));
+                            await AsyncStorage.setItem('phone', JSON.stringify(phone));
+                            await AsyncStorage.setItem('class', JSON.stringify(clas));
+                                    
+                                firestore()
+                                    .collection('Users')
+                                    .add({
+                                        name:userName,
+                                        phone:phone,
+                                        class:clas})
+                                    .then(() => {
+                                        console.log('Message sent successfully');
+                                        })
+                                    .catch((error) => {
+                                        console.log('Error sending message:', error);
+                                        });
+                                    console.log("items saved successfully");
+                                    setModalVisible(true)
+                                    setLoading(false)
+                            }catch(e){
+                                console.log("error while adding data: ",e);
+                                setLoading(false);
+                            }
+                            setDetailWarn(false);
+                            setLoading(false);
                     }
-                    setDetailWarn(false);
-                    setLoading(false);
+                    create()
+                }else{
+                    querySnapshot.forEach(doc => {
+                        
+                       console.log("a account exists");
+                        
+                        });
+                }
+                
+            })
+            .catch(error => {
+                console.log('Error getting documents: ', error);
+            });
+            
                     
             
             
@@ -105,8 +125,9 @@ const Details = ({navigation,route}) =>{
     }
     const loginTypeToggler = () =>{
         setLoginType(!LoginType);
+        setUserName('');
+        setPhone('');
     }
-    // login
 
     const uploadData = async(userName,phone,clas) =>{
         try{
@@ -155,7 +176,7 @@ const Details = ({navigation,route}) =>{
 
     }
 
-    console.log(textStor);
+    console.log(userName,phone);
 
 
     return(
@@ -171,7 +192,7 @@ const Details = ({navigation,route}) =>{
                 width:width/2,
                 height:height/4
             }]}>
-                <Text style={{color:white,fontWeight:600}} >Sign Up Successfull</Text> 
+                <Text style={{color:white,fontWeight:600}} >You are now in</Text> 
                 <FontAwesomeIcon size={60} color={white} icon={faCheckCircle} />
                 <TouchableOpacity>
                     <Text onPress={()=>{navigation.navigate('Home');setModalVisible(false)}} style={styles.next} >Next</Text>
@@ -187,16 +208,12 @@ const Details = ({navigation,route}) =>{
     <View style={{display: LoginType ? 'flex' :'none'}} >
         
         <Text style={styles.reg} >Let's get you signed up first</Text>
-            <CutomTextInput onTextChange={setTextStor} />
-            {/* <Text style={[styles.inputLabe,{marginBottom:-35}]} >User Name</Text> */}
-            {/* <AnimatedTextInput textInputProps={{
-                keyboardType: 'email-address',
-            }} label={"hello world"} style={styles.input} value={userName}  onChangeText={setUserName}  /> */}
-            {/* <Text style={styles.inputLabe} >Contact</Text> */}
-            {/* <AnimatedTextInput style={styles.input} value={phone} keyboardType={'phone-pad'} onChangeText={setPhone} />  */}
+
+            <CutomTextInput keyboardType="email-address" label="User Name" borderColor={white} horizontal={30} marginTop={20} value={userName} onTextChange={setUserName} />
+            <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={10} value={phone} onTextChange={setPhone} />
             
             <Text style={styles.inputLabe} >Class</Text>
-            <View style={{borderRadius:5,overflow: 'hidden',borderWidth:2,borderColor:primary,marginHorizontal:30}} >
+            <View style={{borderRadius:10,overflow: 'hidden',borderWidth:1,borderColor:white,marginHorizontal:30}} >
                 <Picker 
                     style={styles.picker} 
                     selectedValue={clas}
@@ -230,10 +247,9 @@ const Details = ({navigation,route}) =>{
         <Text style={styles.reg} >Login</Text>
 
         
-        {/* <Text style={styles.inputLabe} >user Name</Text> */}
-        <TextInput style={[styles.input]} value={userName} onChangeText={setUserName} placeholder='     user Name' />
-        {/* <Text style={styles.inputLabe} >Phone</Text> */}
-        <TextInput style={styles.input} value={phone} onChangeText={setPhone} keyboardType={'phone-pad'} placeholder='     phone'/>
+        
+        <CutomTextInput keyboardType="email-address" label="User Name" borderColor={white} horizontal={30} marginTop={10} value={userName} onTextChange={setUserName} />
+        <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={10} value={phone} onTextChange={setPhone} />
         
         <Text style={{color:'red',textAlign:'center',display:loginWarn ? 'flex' :'none'}} >{errorType}</Text>
         
@@ -298,11 +314,12 @@ const styles = StyleSheet.create({
         elevation:10
     },
     inputLabe:{
-        marginLeft:50,
+        marginLeft:40,
         color:white,
-        marginTop:3,
+        marginTop:10,
         backgroundColor:background,
-        alignSelf:'flex-start'
+        alignSelf:'flex-start',
+        marginBottom:3
     },
     modelbackground:{
         backgroundColor:'#04103a99',
@@ -313,17 +330,17 @@ const styles = StyleSheet.create({
     modalContainer:{
         backgroundColor:primary,
         borderRadius:20,
-        borderColor:white,
-        borderWidth:1,
         justifyContent:'space-around',
-        alignItems:'center'
+        alignItems:'center',
+        elevation:10
     },
     next:{
         borderColor:white,
         borderWidth:1,
         paddingHorizontal:30,
         paddingVertical:5,
-        color:white
+        color:white,
+        borderRadius:10
     },
     fullDetailsWarning:{
         color:'red',

@@ -105,7 +105,7 @@ const BriefClassification = ({route,navigation}) =>{
                                 navigation.navigate('Brief',{note:matchedArray})
                               }}
                                 key={item.chapter}  style={[styles.btn,{flex:1,justifyContent:'space-between',flexDirection:'row'}]} >
-                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >{item.chapter}</Text>
+                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >{item.chapter}</Text>
                                 <FontAwesomeIcon color={Colors.text} icon={faAngleRight} />
                             </TouchableOpacity>
                         );

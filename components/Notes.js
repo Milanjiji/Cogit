@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
         fontFamily:Colors.Medium,
         padding: 14,
         marginHorizontal:10,
+        fontSize:12
       }
     
 })

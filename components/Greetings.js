@@ -78,7 +78,7 @@ const Greetings = ({navigation}) =>{
             </View>
 
             <TouchableOpacity onPress={()=>navigation.navigate('TedEd')} style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center'}} >
-                <Text style={{width:'40%',color:Colors.text,fontFamily:Colors.Medium}} >Discover fascinating subjects and broaden your horizons with TED-Ed classes.{"\n"}
+                <Text style={{width:'40%',color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Discover fascinating subjects and broaden your horizons with TED-Ed classes.{"\n"}
                 <Text style={{fontSize:24}} >Watch{"\n"} 
                 <Text style={{color:"red",fontFamily:Colors.Bold}} >TED </Text>
                 <Text style={{fontFamily:Colors.Bold}} >ED</Text>
@@ -105,7 +105,7 @@ const Greetings = ({navigation}) =>{
             </TouchableOpacity>
 
             <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',marginHorizontal:15,backgroundColor:Colors.hashWhite,borderRadius:10,marginTop:100}} >
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,padding: 10,}} >{quote}</Text>  
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,padding: 10,fontSize:12}} >{quote}</Text>  
             </View>
             
             

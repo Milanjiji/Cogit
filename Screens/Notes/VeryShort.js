@@ -28,7 +28,7 @@ const VeryShort = ({navigation,route}) =>{
                         return(
                             <View>
                                 <Text style={{color:Colors.text,fontFamily:Colors.Bold,marginTop:10}}  >{item.Topic}</Text>
-                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:20}} >{item.Definition}</Text>
+                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:20,fontSize:12}} >{item.Definition}</Text>
                             </View>
                         )
                     })

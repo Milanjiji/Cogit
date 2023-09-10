@@ -113,7 +113,7 @@ const VeryShortClassification = ({route,navigation}) =>{
                                 navigation.navigate('VeryShort',{note:matchedArray})
                               }}
                                 key={item.Chapter}  style={[styles.btn,{flex:1,justifyContent:'space-between',flexDirection:'row',alignItems:'center'}]} >
-                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >{item.Chapter}</Text>
+                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >{item.Chapter}</Text>
                                 <FontAwesomeIcon color={Colors.text}  icon={faAngleRight} />
                             </TouchableOpacity>
                         );

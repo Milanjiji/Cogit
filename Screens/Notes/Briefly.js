@@ -22,20 +22,20 @@ const Brief = ({navigation,route}) =>{
         <View style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around'}} >
             <Header navigation={navigation}  title="Maths" info=""/>
             <ScrollView style={{flex: 1,paddingHorizontal:12}} >
-                <Text style={{color:Colors.text,fontFamily:Colors.Bold,textAlign:'center',fontSize:28,marginTop:10}} >{note.chapter}</Text>
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginTop:10}} >{note.chapterOverview}</Text>
+                <Text style={{color:Colors.text,fontFamily:Colors.Bold,textAlign:'center',fontSize:18,marginTop:10}} >{note.chapter}</Text>
+                <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginTop:10,fontSize:12}} >{note.chapterOverview}</Text>
                 {
                     note.topics.map(item => {
                         return(
                             <View>
-                                <Text style={{color:Colors.text,textAlign:'center',marginTop:10,fontFamily:Colors.Bold}} >{item.title}</Text>
+                                <Text style={{color:Colors.text,textAlign:'center',marginTop:10,fontFamily:Colors.Bold,fontSize:18}} >{item.title}</Text>
                                 <View>
                                     {
                                         item.content.map(item =>{
                                             return(
                                                 <View>
-                                                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginTop:10}} >{item.definition}: </Text>
-                                                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:20}} >{item.example}</Text>
+                                                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginTop:10,fontSize:14}} >{item.definition}: </Text>
+                                                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:20,fontSize:12}} >{item.example}</Text>
                                                 </View>
                                             )
                                         })

@@ -85,36 +85,36 @@ const Classification = ({navigation,route}) =>{
                 <Header navigation={navigation}  title={title} info="" sideBar={true} />
                 <TouchableOpacity onPress={()=>{navigation.navigate('VeryShortNoteClassification',{sub:sub})}} style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10}} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Walk Through</Text>
-                    <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:12}} >Topics from chapters</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Just main topics from chapters</Text>
                 </TouchableOpacity>
                 <View style={styles.grid} >
                     <TouchableOpacity onPress={()=>{navigation.navigate('BriefClassfication',{sub:sub})}} style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Chapter Explained Briefly</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:12}} >Chapter explained briefly</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Chapter explained briefly</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Explantion video of core topics</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:12}} >Each Topic explained induvidually</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Each Topic explained induvidually</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.grid} >
                     <TouchableOpacity onPress={()=>{navigation.navigate('DeepClassfication',{sub:sub})}} style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Explanation</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:12}} >Explaination and definition of topics.</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Explaination and definition of topics.</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>{navigation.navigate('VideoClassification',{sub:sub})}}  style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Video Class</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:12}} >Video Classes</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Video Classes</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.grid} >
                     <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Mock Text</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:12}} >Simple Mock tests</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Simple Mock tests</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Mock Text</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:12}} >Advanced Mock tests</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Advanced Mock tests</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -122,12 +122,12 @@ const Classification = ({navigation,route}) =>{
                   sub == 'math' ?  
                   <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Complete Equations</Text>
-                    <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:12}} >Complete Equations with uses and definition</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Complete Equations with uses and definition</Text>
                   </TouchableOpacity> : ''     
                 }
                 <View style={{backgroundColor:Colors.hashWhite,margin:5,borderRadius:10,marginBottom:20}} >
                     <TouchableOpacity onPress={NoteToggler} style={{backgroundColor:Colors.primary,padding: 10,flexDirection:'row',justifyContent:'space-between',alignItems:'center',borderTopRightRadius:10,borderTopLeftRadius:10,borderBottomRightRadius:noteToggle ? 0 : 10,borderBottomLeftRadius:noteToggle ? 0 : 10}} >
-                        <Text style={{color:noteToggle ? Colors.text : `${Colors.text}50`,fontFamily:Colors.Medium}} >Note!</Text>
+                        <Text style={{color:noteToggle ? Colors.text : `${Colors.text}50`,fontFamily:Colors.Medium}} >Hey user</Text>
                         <FontAwesomeIcon color={noteToggle ? Colors.text : `${Colors.text}50`}  icon={noteToggle ? faAngleUp : faAngleDown} />
                     </TouchableOpacity>
                     <View style={{padding: 10,display:noteToggle ? 'flex' :'none'}} >
@@ -138,7 +138,6 @@ const Classification = ({navigation,route}) =>{
                             value={message}
                             onChangeText={setMessage}
                             textAlignVertical="top"
-                            placeholderTextColor={Colors.Background}
                             style={{color:Colors.text,backgroundColor:Colors.secondary,borderRadius:10,elevation:10,marginVertical:10,paddingHorizontal:10,lineHeight:2,}}
                             numberOfLines={6} />
                         <Text style={{color:'red',textAlign:'center',fontFamily:Colors.Medium,fontSize:12,display : noMesgWarn ? 'flex' :'none'}} >Type any message!</Text>
