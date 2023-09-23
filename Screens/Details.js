@@ -33,7 +33,7 @@ const Details = ({navigation,route}) =>{
     const [userName,setUserName] = useState('');
     const [phone,setPhone] = useState()
     const [clas, setClass] = useState('10');
-    const [modelVisible,setModalVisible] = useState(true)
+    const [modelVisible,setModalVisible] = useState(false);
     const [detailWarn,setDetailWarn] = useState(false);
     const [LoginType,setLoginType] = useState(true);
     const [loginWarn,setLoginWarn] = useState(true);
@@ -248,7 +248,14 @@ const Details = ({navigation,route}) =>{
 
         
         
-        <CutomTextInput keyboardType="email-address" label="User Name" borderColor={white} horizontal={30} marginTop={10} value={userName} onTextChange={setUserName} />
+        <CutomTextInput 
+            keyboardType="email-address" 
+            label="User Name" 
+            borderColor={white} 
+            horizontal={30} 
+            marginTop={10} 
+            value={userName} 
+            onTextChange={setUserName} />
         <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={10} value={phone} onTextChange={setPhone} />
         
         <Text style={{color:'red',textAlign:'center',display:loginWarn ? 'flex' :'none'}} >{errorType}</Text>

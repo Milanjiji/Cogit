@@ -25,7 +25,6 @@ const ArticleView = ({route,navigation}) =>{
     
     return(
         <View style={{flex:1,backgroundColor:Colors.Background}} >
-            <Header navigation={navigation} title="Community" info='ellipsis' />
             <ScrollView showsVerticalScrollIndicator={false} style={{flex:1,margin:10,}} >
                <Text style={[styles.title,{color:Colors.text}]} >{data.title}</Text>
                <Text style={[styles.overView,{color:Colors.text}]} >{data.overView}</Text>

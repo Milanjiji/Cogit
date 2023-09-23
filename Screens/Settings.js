@@ -7,10 +7,13 @@ import AboutTheApp from "../components/AboutTheApp";
 import HelpAndSupport from "../components/HelpAndSupportSettings";
 import UserDetails from "../components/UserDetails";
 import SideBar from "../components/SideBar";
+import firestore from '@react-native-firebase/firestore';
+
 
 const Setting = ({navigation,route}) =>{
 
     const [Colors,setColors] = useState([]);
+    const [posts,setPosts] = useState([]);
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
@@ -18,6 +21,7 @@ const Setting = ({navigation,route}) =>{
             setColors(colors);
         }
         getColors();
+        
     },[])
 
     return(

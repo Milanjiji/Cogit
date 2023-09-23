@@ -65,6 +65,7 @@ import Classes from "../Screens/LearnC/Class";
 import VeryShortClassification from "../Screens/Notes/VeryShortClassification";
 import VeryShort from "../Screens/Notes/VeryShort";
 import TrackPlayerDemo from "../Screens/TrackPlayerDemo";
+import Report from "../Screens/Report";
 
 
 
@@ -261,6 +262,9 @@ const Screens = () =>{
            <Stack.Screen
            name="TrackPlayer" 
            component={TrackPlayerDemo} />
+           <Stack.Screen
+           name="Report" 
+           component={Report} />
   
         </Stack.Navigator>
       </NavigationContainer>

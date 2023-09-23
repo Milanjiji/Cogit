@@ -7,11 +7,12 @@ import HomePageFootor from '../components/HomePageFootor';
 import Colors from '../colors.json'
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { faEllipsisV, faHamburger, faListDots, faUser } from '@fortawesome/free-solid-svg-icons';
+import RenderCommunityArticle from '../components/RenderCommunity';
 
 const Community = ({navigation}) =>{
     const [data,setData] = useState([])
     const [Colors,setColors] = useState([]);
-
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -25,7 +26,10 @@ const Community = ({navigation}) =>{
     useEffect(() => {
         const get = async () =>{
             const CommunityData = await firestore().collection('Community').get();
-            const data = CommunityData.docs.map(doc => doc.data())
+            const data = CommunityData.docs.map(doc => ({
+                i:doc.id,
+                ...doc.data()
+              }))
             setData(data);
         }
         get();
@@ -36,22 +40,44 @@ const Community = ({navigation}) =>{
         navigation.navigate('ViewArticle',{title,overView,content,id})
       }
       const renderItem = ({item}) =>{
+
+        
+
         return(
-            <TouchableOpacity style={[styles.container,{backgroundColor:Colors.primary}]} onPress={()=>goToView(item.Title,item.overView,item.content,item.id)} >
-                <Text style={[styles.Title,{color:Colors.text}]}  >{item.Title}</Text>
-                <Text style={[styles.overView,{color:Colors.text}]}  >{item.overView}</Text>
+            <TouchableOpacity style={[styles.container,{backgroundColor:Colors.primary,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}]} onPress={()=>goToView(item.Title,item.overView,item.content,item.id)} >
+                <View style={{width:'70%'}} >
+                    <Text style={[styles.Title,{color:Colors.text}]}  >{item.Title}</Text>
+                    <Text style={[styles.overView,{color:Colors.text}]}  >{item.overView}</Text>
+                </View>
+                <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center'}} >
+                    <TouchableOpacity style={{backgroundColor:Colors.hashWhite,padding: 10,}} >
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Report</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity  >
+                        <FontAwesomeIcon icon={faEllipsisV} color={Colors.text} />
+                    </TouchableOpacity>
+                </View>
+                
             </TouchableOpacity>
         )
       }
     return(
         <View style={[styles.App,{backgroundColor:Colors.Background}]} >
-            <Header navigation={navigation} info="" title={'Community'} />
+            <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',marginVertical:10}} >
+                <TouchableOpacity>
+                    <FontAwesomeIcon icon={faUser} color={Colors.text} />
+                </TouchableOpacity>
+                <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Community</Text>
+                <TouchableOpacity>
+                    <FontAwesomeIcon icon={faPlusSquare} color={Colors.text} />
+                </TouchableOpacity>
+            </View>
             <View style={{flex:1}} >
                 
                 <FlatList
                 data={data}
                 keyExtractor={(item)=>item.id}
-                renderItem={renderItem}
+                renderItem={ (i)=> <RenderCommunityArticle item={i} navigation={navigation} />}
                 />
             </View>
             
@@ -78,7 +104,8 @@ const styles = StyleSheet.create({
         color:Colors.white
     },
     container:{
-        margin:10,
+        marginVertical:5,
+        marginHorizontal:10,
         padding:8,
         backgroundColor:Colors.primary,
         borderRadius:10,

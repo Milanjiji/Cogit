@@ -5,13 +5,16 @@ import Colors from '../colors.json'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import LinearGradient from "react-native-linear-gradient";
 import focus from '../assets/images/focus.png'
-import { faAngleUp, faCake, faHeadphones, faTemperatureThreeQuarters, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faAngleUp, faCake, faHeadphones, faMessage, faQuestionCircle, faTemperatureThreeQuarters, faTrash, faUsersBetweenLines, faUsersCog } from "@fortawesome/free-solid-svg-icons";
+import mesh from '../assets/images/CommunityBackground.png'
+import { Overlay } from "@chatscope/chat-ui-kit-react";
 
 // go through instagram and get the music for focus mode
 
 
 const HomePageBar = ({navigation,...props}) =>{
     const [Colors,setColors] = useState([]);
+    const [cheakDisplay,setCheakDisplay] = useState(false);
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -20,6 +23,9 @@ const HomePageBar = ({navigation,...props}) =>{
             setColors(colors);
         }
         getColors();
+        if(props.item !== "com"  ){
+            setCheakDisplay(true);
+        }
     },[])
 
 
@@ -31,20 +37,26 @@ const HomePageBar = ({navigation,...props}) =>{
       
     return(
         <View style={[styles.App,{backgroundColor:Colors.Background,marginHorizontal:props.margin ? 8 : 0}]} >
-            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary,flexDirection:props.item == "c" ? "row" : "column",height:props.item == "c" ? 50 : 70 ,display:props.item !== "com" ? "flex" :"none"}]} onPress={()=>goTo(props.navigate)}>
+            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary,flexDirection:props.item == "c" ? "row" : "column",height:props.item == "c" ? 50 : 70 ,display:cheakDisplay ? "flex" :"none"}]} onPress={()=>goTo(props.navigate)}>
                         <LinearGradient
                         colors={['#00000010', '#00000050']} 
                         style={{width:50,height:50,marginRight:10,borderTopLeftRadius:10,borderBottomLeftRadius:10,alignItems:'center',justifyContent:'center',display:props.item == "c"? "flex" :'none'}} >
-                            <Text style={{fontSize:20}} >$_</Text>
+                            <Text style={{fontSize:20,color:Colors.text}} >$_</Text>
                         </LinearGradient>
                         <View style={{display: props.item !== "c"  ?'flex' :'none' ,flex:1 ,alignItems:'center',justifyContent:'center'}} >
-                          <FontAwesomeIcon size={20}  color={Colors.text} icon={ props.item == "focus" ? faHeadphones : props.item == "recycle" ? faTrash : props.item == "skills" ? faCake : faAngleUp}/>
+                          <FontAwesomeIcon size={20}  color={Colors.text} icon={ props.item == "focus" ? faHeadphones : props.item == "recycle" ? faTrash : props.item == "skills" ? faCake : props.item == "Forum" ? faMessage : props.item == "Ted" ? faQuestionCircle : faAngleUp}/>
                         </View>
                         <Text style={[styles.community_Text,{color:Colors.text,flex:1,textAlignVertical:'center',marginTop:props.item == "c"  ? 0 : -20}]} >{props.title}</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.community,{backgroundColor:Colors.primary,height:props.item == "c" ? 50 : 70 ,display:props.item == "com" ? "flex" :"none",alignItems:'flex-start'}]} onPress={()=>goTo(props.navigate)}>
-                <Text style={[styles.community_Text,{color:Colors.text,flex:1,textAlignVertical:'top',textAlign:'left',fontSize:16,marginTop:10,marginLeft:10}]} >{props.title}</Text>
+            <TouchableOpacity style={[styles.community,{height:props.item == "c" ? 50 : 40 ,display:props.item == "com" ? "flex" :"none",marginBottom:20,marginTop:20,overflow:'hidden'}]} onPress={()=>goTo(props.navigate)}>
+                <ImageBackground source={mesh} style={{width:'100%'}} >
+                  <View style={{alignItems:'center',flexDirection:'row',justifyContent:'space-between'}} >
+                    <Text style={[styles.community_Text,{color:Colors.text,marginLeft:20,fontSize:14}]} >{props.title}</Text>
+                    <FontAwesomeIcon style={{marginRight:20,marginTop:10}} size={80} icon={faUsersCog} color={Colors.text} />
+                  </View>
+                </ImageBackground>
             </TouchableOpacity>
+            
         </View>
     )
 }

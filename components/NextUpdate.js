@@ -31,7 +31,7 @@ const NextUpdate = ({navigation}) => {
             </View>
             <View style={{flexDirection:'row',}}  >
                 <FontAwesomeIcon icon={faAngleRight} color={Colors.text} />
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10,fontSize:12}} >Books: which is not on school curriculum</Text>
+                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10,fontSize:12}} >Books: which is not from school curriculum</Text>
             </View>
         </View>
         <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginBottom:10,fontSize:12}}  >Note : This is not a stably maintained app due to some lack of resourse, so we cant currently say when will be the next update</Text>
@@ -46,8 +46,9 @@ const NextUpdate = ({navigation}) => {
 const styles = StyleSheet.create({
   background:{
     flex:1,
-    padding: 10,
-    margin:10
+    padding: 15,
+    margin:10,
+    paddingRight:10
   },
 });
 

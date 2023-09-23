@@ -1,4 +1,4 @@
-import { faHeart as faHeartFree} from '@fortawesome/free-regular-svg-icons';
+import { faHeart as faHeartFree, faPlusSquare} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React,{useEffect,useState} from 'react'
 import {FlatList, StyleSheet, Text,TouchableOpacity,View,ScrollView} from 'react-native'
@@ -6,7 +6,7 @@ import Header from '../components/Header';
 import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import {  faCopy,faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
+import {  faArrowDown, faCopy,faHeart as faHeartSolid, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import Clipboard from '@react-native-clipboard/clipboard';
 import firestore from '@react-native-firebase/firestore';
 
@@ -19,9 +19,9 @@ const Skills = ({navigation,route}) =>{
     const [Colors,setColors] = useState([]);
     const [likedData,setLikedData] = useState([{id:20}]);
     const [loading,setLoading] = useState(false);
-    
-
-    const reload = route.params?.reload;
+    const [startId,setStartId] = useState(21);
+    const [lastId,setLastId] = useState(41);
+    const [endReached,setEndReached] = useState(false);
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -31,21 +31,19 @@ const Skills = ({navigation,route}) =>{
             console.log(colors);
         }
         getColors();
-        
-        
+            
     },[])
     useEffect(() => {
         const get = async () =>{
             setLoading(true);
             console.log('true');
-            const CommunityData = await firestore().collection('Skills').get();
+            const CommunityData = await firestore().collection('Skills').orderBy('id', 'desc').limit(20).get();
             const data = CommunityData.docs.map(doc => ({
                 i:doc.id,
                 ...doc.data()
               }));
             setData(data);
             setLoading(false);
-            console.log('false');
             console.log(data);
         }
         get();
@@ -55,13 +53,40 @@ const Skills = ({navigation,route}) =>{
             if(value){
                 setLikedData(value)
             }
-            console.log(value,'helo');
             
         }
         getLikedData();
       }, []);
 
-      
+      const fetcLast10 = async () =>{
+        try {
+        
+            const querySnapshot = await firestore()
+              .collection('Skills')
+              .where('id', '>=', startId)
+              .where('id', '<=', lastId)
+              .get();
+        
+            const documentsInRange = [];
+        
+            querySnapshot.forEach((doc) => {
+              const data = doc.data();
+              documentsInRange.push({
+                id: doc.id,
+                ...data,
+              });
+            });
+        
+            console.log(documentsInRange.length)
+            setEndReached(documentsInRange.length == 0 ? true : false);
+            setData([...data,...documentsInRange])
+            setStartId(startId + 20);
+            setLastId(lastId + 20);
+          } catch (error) {
+            console.error('Error fetching documents in range:', error);
+          }
+      }
+
       const Copy = (text) =>{
         Clipboard.setString(text);
       }
@@ -96,12 +121,7 @@ const Skills = ({navigation,route}) =>{
                   
             }else{
                 console.log('its alreaddy liked');
-            }
-        
-        
-            
-              
-              
+            }      
         }
         
         
@@ -117,12 +137,11 @@ const Skills = ({navigation,route}) =>{
       const renderItem = ({item}) =>{
 
         return(
-            <View  style={{backgroundColor:Colors.primary,marginHorizontal:3,marginVertical:3,borderRadius:10,elevation:10,padding: 8,}} >
+            <View  style={{backgroundColor:Colors.primary,marginHorizontal:10,marginVertical:3,borderRadius:10,elevation:10,padding: 8,}} >
                 
                 <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20,marginVertical:3}} >{item.title}</Text>
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginVertical:3}} >{item.userName}</Text>
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginVertical:3}} >{item.more}</Text>
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginVertical:3}} >See More at : (Click the link's to copy )</Text>
                     {
                         item.seeMore ? 
                             <TouchableOpacity onPress={()=> Copy(item.seeMore)} style={{flexDirection:'row',alignItems:'center',marginVertical:3}} >
@@ -163,13 +182,18 @@ const Skills = ({navigation,route}) =>{
                             </TouchableOpacity>     
                              : ''                        
                     }
-                <View style={{flexDirection:'row',marginVertical:5 }} >
-                    <TouchableOpacity onPress={()=> liketext(item.i,item.likes)} >
-                        <FontAwesomeIcon icon={CheackIfLiked(item.i) ? faHeartSolid : faHeartFree }  size={22} color={Colors.text} />
+                <View style={{flexDirection:'row',marginVertical:5 ,justifyContent:'space-between'}} >
+                   <View style={{flexDirection:'row'}} >
+                        <TouchableOpacity onPress={()=> liketext(item.i,item.likes)} >
+                            <FontAwesomeIcon icon={CheackIfLiked(item.i) ? faHeartSolid : faHeartFree }   color={Colors.text} />
+                        </TouchableOpacity>
+                        
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:30}} >{item.likes} Likes</Text>
+
+                   </View>
+                    <TouchableOpacity onPress={()=> navigation.navigate('Report',{page:'skills',id:item.i})} style={{paddingHorizontal:10,marginLeft:10}} >
+                        <Text style={{color:Colors.text}} >Report</Text>
                     </TouchableOpacity>
-                    
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:30}} >{item.likes} Likes</Text>
-                    
                 </View>   
                
                 
@@ -180,10 +204,15 @@ const Skills = ({navigation,route}) =>{
       
     return(
         <ScrollView showsVerticalScrollIndicator={false} style={[styles.App,{backgroundColor:Colors.Background}]} >
-            <Header navigation={navigation} info="post" title={'Skills'}   />
-            <TouchableOpacity onPress={()=>navigation.navigate('OwnPosts')} style={{borderRadius:10,padding: 10,backgroundColor:Colors.hashWhite}} >
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >Posts</Text>
-            </TouchableOpacity>
+            <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',height:40}} >
+                <TouchableOpacity onPress={()=> navigation.navigate('Settings')} >
+                    <FontAwesomeIcon color={Colors.text} size={20} icon={faUserCircle} />
+                </TouchableOpacity>
+                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Skills</Text>
+                <TouchableOpacity onPress={()=>navigation.navigate('PostSkills')} >
+                    <FontAwesomeIcon color={Colors.text} size={20}  icon={faPlusSquare} />
+                </TouchableOpacity>
+            </View>
             <View style={{flex:1}} >
                 <Text style={{ display:loading ? 'flex' : 'none' , color:Colors.text,textAlign:'center',fontFamily:Colors.Medium}} >Loading...</Text>
                 <FlatList
@@ -191,6 +220,12 @@ const Skills = ({navigation,route}) =>{
                 keyExtractor={(item)=>item.i}
                 renderItem={renderItem}
                 />
+            </View>
+            <View>
+                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12,textAlign:'center',marginTop:10,marginBottom:5}} >{endReached ? "you reached the end..., go study mate." : "Load More"}</Text>
+                <TouchableOpacity onPress={fetcLast10} style={{backgroundColor:Colors.hashWhite,borderRadius:10,marginHorizontal:50,padding:10,alignItems:'center',justifyContent: 'center',marginBottom:10}} >
+                    <FontAwesomeIcon color={Colors.text} icon={faArrowDown} />
+                </TouchableOpacity>
             </View>
         </ScrollView>
     )

@@ -85,14 +85,14 @@ const Homepage = ({navigation,route}) =>{
                     <HomePageBar  height={120} navigation={navigation} item={"c"} title={'Learn C++ (without pc)'}  navigate={"ClassificationC"}  disc={'Embark on an empowering coding journey with our free, on-the-go app featuring an integrated C++ code editor, available in Malayalam, allowing you to learn and practice C++ anytime, anywhere!'} />
                 </View>
                 <View style={{flexDirection:'row',paddingHorizontal:10}} >
-                    <HomePageBar  height={120} navigation={navigation} item={"focus"} title={'Focus'}  navigate={'Focus'}  disc={'Neuro science mixed music,helps students to get more focus'} />
-                    <HomePageBar  height={120} navigation={navigation} item={"recycle"} title={'Re:Cycle'}  navigate={'ReCycle'}  disc={'Group of students who like some recycling,just join them do some good.'} />
-                    <HomePageBar height={120} navigation={navigation} item={"skills"} title={'Skills'}  navigate={'Skills'}  disc={'This is where students show what they can do other than studies'} />
+                    <HomePageBar  height={120} navigation={navigation} item={"focus"} title={'Focus'}  navigate={'Focus'}  />
+                    <HomePageBar  height={120} navigation={navigation} item={"recycle"} title={'Re:Cycle'}  navigate={'ReCycle'}   />
+                    <HomePageBar height={120} navigation={navigation} item={"skills"} title={'Skills'}  navigate={'Skills'}   />
                 </View>  
-                
-                
-                <View style={{marginHorizontal:10}} >
-                </View>
+                <View style={{flexDirection:'row',paddingHorizontal:10}} >
+                    <HomePageBar  height={120} navigation={navigation} item={"Forum"} spc={true} title={'Forum'}  navigate={'Forum'}   />
+                    <HomePageBar  height={120} navigation={navigation} item={"Ted"} title={'Ted Ed'}  navigate={'TedEd'}  />
+                </View>  
                  
                 <View>
                     <Notes navigation={navigation} />
@@ -100,7 +100,7 @@ const Homepage = ({navigation,route}) =>{
                     
                    
                     <View style={{flexDirection:'row',paddingHorizontal:10}} >
-                        <HomePageBar height={120} navigation={navigation} item={"com"} title={'Community'}  navigate={'Community'}  disc={'This is where students share their Notes and other News like tips'} />
+                        <HomePageBar height={120} navigation={navigation} item={"com"} spc={true} title={'Community'}  navigate={'Community'}   />
                     </View>
                     <NextUpdate navigation={navigation} />
                 

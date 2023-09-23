@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import firestore from '@react-native-firebase/firestore';
+import CutomTextInput from "../../components/CutomTextInput";
 
 
 const Classification = ({navigation,route}) =>{
@@ -132,16 +133,27 @@ const Classification = ({navigation,route}) =>{
                     </TouchableOpacity>
                     <View style={{padding: 10,display:noteToggle ? 'flex' :'none'}} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Note: If you come across anything that might not be necessary or if you feel something is missing, please don't hesitate to send us a message.</Text>
-                        <TextInput
+                        {/* <TextInput
                             placeholder="Feel free to type your message, and if you prefer, kindly include your preferred method of communication for the response." 
                             multiline
                             value={message}
                             onChangeText={setMessage}
                             textAlignVertical="top"
                             style={{color:Colors.text,backgroundColor:Colors.secondary,borderRadius:10,elevation:10,marginVertical:10,paddingHorizontal:10,lineHeight:2,}}
-                            numberOfLines={6} />
-                        <Text style={{color:'red',textAlign:'center',fontFamily:Colors.Medium,fontSize:12,display : noMesgWarn ? 'flex' :'none'}} >Type any message!</Text>
-                        <TouchableOpacity onPress={sendMessage} style={{backgroundColor:Colors.primary,padding: 10,justifyContent:'center',alignItems:'center',borderRadius:10,elevation:10}} >
+                            numberOfLines={6} /> */}
+
+                    <CutomTextInput 
+                            keyboardType="email-address" 
+                            label="Feel free to type your message" 
+                            borderColor={Colors.text} 
+                            horizontal={5} 
+                            marginTop={10} 
+                            value={message} 
+                            textColor={Colors.text}
+                            color={Colors.text}
+                            onTextChange={setMessage} />   
+                        <Text style={{color:'red',textAlign:'center',fontFamily:Colors.Medium,fontSize:12,display : noMesgWarn ? 'flex' :'none',marginTop:10}} >Type any message!</Text>
+                        <TouchableOpacity onPress={sendMessage} style={{backgroundColor:Colors.primary,padding: 10,justifyContent:'center',alignItems:'center',borderRadius:10,elevation:10,marginTop:10}} >
                             <FontAwesomeIcon icon={faPaperPlane} color={Colors.white}  />
                         </TouchableOpacity>
                     </View>

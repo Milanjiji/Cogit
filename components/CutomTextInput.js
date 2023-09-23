@@ -8,6 +8,7 @@ import Animated, {
     useAnimatedStyle,
     interpolate,
   } from 'react-native-reanimated';
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const CutomTextInput = (props) =>{
     const [focused,setFocused] = useState(false);
@@ -39,13 +40,15 @@ const CutomTextInput = (props) =>{
       })
     return(
         <View style={{borderColor:props.borderColor,borderWidth:1,borderRadius:10,paddingHorizontal:10,marginHorizontal:props.horizontal,marginVertical:props.marginVertical,marginTop:props.marginTop}} >
-            <Animated.Text style={[heightAnimatedStyle,{marginTop:-10,position:'relative'}]} >{props.label}</Animated.Text>
+            <Animated.Text style={[heightAnimatedStyle,{marginTop:-10,position:'relative',color:props.color,fontFamily:props.fontFamily}]} >{props.label}</Animated.Text>
             <TextInput 
-                style={{marginTop:-2}}
+                placeholderTextColor={props.placeholderColor}
+                style={{marginTop:0,color:props.textColor}}
                 value={props.value} 
                 onFocus={toggle}
                 keyboardType={props.keyboardType}
-                onChangeText={handleTextChange} />
+                onChangeText={handleTextChange} 
+                multiline={true} />
         </View>
     )
 }

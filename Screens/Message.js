@@ -4,6 +4,7 @@ import Colors from '../colors.json'
 import firestore from '@react-native-firebase/firestore';
 import HomePageFootor from '../components/HomePageFootor';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import SideBar from '../components/SideBar';
 
 
 
@@ -85,25 +86,24 @@ const SendMessage = ({navigation}) => {
   return (
     <View
       style={[styles.background,{backgroundColor:Colors.Background}]} >
-        
-        <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginTop:10}} >Tell us what you like to do:</Text>
-        <TextInput 
-            onChangeText={setMessage}
-            value={message}
-            placeholder='Tell everything, No limits' 
-            style={{backgroundColor:Colors.primary,elevation:10,borderRadius:10,padding: 10,marginVertical:10,fontFamily:Colors.Medium}}
-            multiline={true}
-            numberOfLines={undefined}  />
-        <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginVertical:10}} >Tell us how can we contact you back: </Text>
-        <TextInput onChangeText={setContact} value={contact} placeholder='Any (phone or whatsapp or email or insta)' style={{backgroundColor:Colors.primary,elevation:10,borderRadius:10,padding: 10,marginVertical:10}}  />  
-        <Text style={{color:'red',fontFamily:Colors.Medium,marginVertical:10,display : warn ? 'flex' :'none',textAlign:'center'}} >Submittion not completed</Text>
-        <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginVertical:10,textAlign:'center',padding: 10,}} >{note}</Text>
-        <View style={{flex: 1,}} ></View>
-        <TouchableOpacity onPress={handleSend}  style={{borderRadius:50,backgroundColor:Colors.primary,elevation:10,padding:10,marginVertical:10}} >
-            <Text style={{color:Colors.white,fontFamily:Colors.Medium,textAlign:'center'}} >Send Message</Text>
-        </TouchableOpacity>
-        <View style={{height:50}} ></View>
-        <HomePageFootor navigation={navigation} />
+        <View style={{flex: 1,}} >
+          <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginTop:10}} >Tell us what you like to do:</Text>
+          <TextInput 
+              onChangeText={setMessage}
+              value={message}
+              placeholder='Tell everything, No limits' 
+              style={{backgroundColor:Colors.primary,elevation:10,borderRadius:10,padding: 10,marginVertical:10,fontFamily:Colors.Medium}}
+              multiline={true}
+              numberOfLines={undefined}  />
+          <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginVertical:10}} >Tell us how can we contact you back: </Text>
+          <TextInput onChangeText={setContact} value={contact} placeholder='Any (phone or whatsapp or email or insta)' style={{backgroundColor:Colors.primary,elevation:10,borderRadius:10,padding: 10,marginVertical:10}}  />  
+          <Text style={{color:'red',fontFamily:Colors.Medium,marginVertical:10,display : warn ? 'flex' :'none',textAlign:'center'}} >Submittion not completed</Text>
+          <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginVertical:10,textAlign:'center',padding: 10,}} >{note}</Text>
+          <View style={{flex: 1,}} ></View>
+          <TouchableOpacity onPress={handleSend}  style={{borderRadius:50,backgroundColor:Colors.primary,elevation:10,padding:10,marginVertical:10}} >
+              <Text style={{color:Colors.white,fontFamily:Colors.Medium,textAlign:'center'}} >Send Message</Text>
+          </TouchableOpacity>
+        </View>
     </View>
   );
 };

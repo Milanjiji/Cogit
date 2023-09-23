@@ -39,13 +39,27 @@ const PostSkill = ({navigation}) =>{
         }
         lastId();
         const getName = async() =>{
-            const name = await AsyncStorage.getItem('userName');
+            const name = JSON.parse(await AsyncStorage.getItem('userName'));
             setName(name);
             console.log(name);
         }   
         getName();
     },[])
-
+    const setItemToAsync = async ({title,more,id,insta,face,tweet,yt,seeMore}) =>{
+        const getLastData = JSON.stringify(await AsyncStorage.getItem('Posts'))
+        try {
+            if(getLastData !== null){
+                await AsyncStorage.setItem('Posts',JSON.stringify([...getLastData,{title:title,more:more,id:id,insta:insta ? insta : '',face:face ? face : '',tweet:tweet ? tweet : '',yt:yt ? yt : '',seeMore:seeMore ? seeMore : ''}]));
+            }else{
+                await AsyncStorage.setItem('Posts',JSON.stringify({title:title,more:more,id:id,insta:insta ? insta : '',face:face ? face : '',tweet:tweet ? tweet : '',yt:yt ? yt : '',seeMore:seeMore ? seeMore : ''}));
+            }
+            
+            console.log("successfully set post to async");
+        } catch (error) {
+            console.log("error from async storage while setting post to async",error);
+        }
+        
+    }
     const Submit = async() =>{
         
             if(
@@ -73,6 +87,7 @@ const PostSkill = ({navigation}) =>{
                             })
                             .then(() => {
                             console.log('Message sent successfully');
+                            setItemToAsync(title,disc,totalArticles+1,insta ? insta : '',face ? face : '',tweet ? tweet : '',yt ? yt : '',link ? link :'')
                             setMsgSuccess(true);
                             setTitle('');
                             setDisc('');
