@@ -20,58 +20,53 @@ import NextUpdate from '../components/NextUpdate';
 const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191748';
 
 const Homepage = ({navigation,route}) =>{
-    const width = Dimensions.get('window').width;
-    const [prevSectionDisplay,setPrevSectionDisplay] = useState();
-    const [Achivemenet,setAchivement] = useState();
-    const [notes,setNotes] = useState();
     const [Colors,setColors] = useState([]);
-    const [cStage,setCStage] = useState(false);
+    const [userId,setUserId] = useState("none");
+
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
-            console.log(colors);
         }
         getColors();
-        const getSettings = async() =>{
-            try {
-                const prevDisplay = await AsyncStorage.getItem('SmallIconStatus');
-                const value = JSON.parse(prevDisplay)
-                setPrevSectionDisplay(value);
-            } catch (error) {
-                console.log(error);
-            }
+        
+         const getUsersId = async () =>{
+
+          const name = JSON.parse(await AsyncStorage.getItem('userName'))
+          console.log('trying to get the userId');
+          try {
+            const querySnapshot = await firestore()
+              .collection('Users')
+              .where('userName', '==', name)
+              .get();
+        
+            const documentsInRange = [];
+        
+            querySnapshot.forEach((doc) => {
+              const data = doc.data();
+              documentsInRange.push({
+                Id: doc.id,
+                ...data,
+              });
+            });
             
+            console.log(documentsInRange)
+            setUserId(documentsInRange.Id);
+            
+          } catch (error) {
+            console.error('Error fetching documents in range:', error);
+          }
         }
-        getSettings();
-        const getSecondSettings = async() =>{
-            try {
-                const prevDisplay = await AsyncStorage.getItem('AchivementStatus');
-                const value = JSON.parse(prevDisplay)
-                setAchivement(value);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getSecondSettings();
-        const getThirdSettings = async() =>{
-            try {
-                const prevDisplay = await AsyncStorage.getItem('NoteStatus');
-                const value = JSON.parse(prevDisplay)
-                setNotes(value);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getThirdSettings();
-        const getStage = async() =>{
-            const stage = JSON.parse(await AsyncStorage.getItem('LevelC'));
-            if(stage !== null){
-                setCStage(true);
-            }
-        }
-        getStage();
+        console.log('====================================');
+        console.log("app startted");
+        console.log('====================================');
+        return () => {
+            console.log('====================================');
+            console.log("app closed");
+            console.log('====================================');
+        };
+        
     },[])
     return(
             <View  style={[styles.background,{backgroundColor:Colors.Background,flexDirection:'row'}]} >

@@ -3,11 +3,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from './colors.json'
 import Screens from './components/Screens';
 import TrackPlayer,{Capability} from 'react-native-track-player';
+import { TimerProvider } from './components/TimerContext'
+import firestore from '@react-native-firebase/firestore';
+
 
 const App = () => {
 
   useEffect(()=>{
-    
+
 
     const setColors = async () =>{
       const data = JSON.stringify(Colors);
@@ -50,14 +53,24 @@ const App = () => {
     //   // console.log("admob Initialization Complete , adapter Status: ", adapterStatuses);
     //   // "react-native-svg": "^13.8.0"
     // });
-  },[])
-  useEffect(() => {
+
+   
+  
+
+
     return () => {
       TrackPlayer.reset();
     };
-  }, []);
+  },[])
   
-  return  <Screens /> ;
+  // return  <Screens /> ;
+
+  return (
+    <TimerProvider>
+      <Screens />
+    </TimerProvider>
+  );
+
 }
 // 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
 

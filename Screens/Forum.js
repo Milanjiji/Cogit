@@ -43,23 +43,6 @@ const Forum = ({navigation}) =>{
             .orderBy('id', 'desc')
             .limit(200)
             .onSnapshot((querySnapshot) => {
-                const changes = querySnapshot.docChanges();
-                const newItems = [];
-          
-                // changes.forEach((change) => {
-                //     if (change.type === 'added') {
-                //       newItems.push(change.doc.data());
-                //     } else if (change.type === 'modified') {
-                //       // Handle modifications if needed
-                //     } else if (change.type === 'removed') {
-                //       // Handle deletions if needed
-                //     }
-                //   });
-            
-                //   if (newItems.length > 0) {
-                //     setData((prevData) => [...prevData, ...newItems.reverse()]);
-                //     setIdCounter(newItems[newItems.length - 1].id);
-                //   }
                 const items = [];
                 let counter = 0;
                 querySnapshot.forEach((documentSnapshot) => {
@@ -67,7 +50,7 @@ const Forum = ({navigation}) =>{
                 counter = documentSnapshot.data().id
                 
                 });
-                const sortedData = items.sort((a, b) => b.id - a.id);
+                const sortedData = items.sort((a, b) => a.id - b.id);
                 setData(sortedData);
             });
             fetchUserReply();
@@ -128,20 +111,20 @@ const Forum = ({navigation}) =>{
             <SideBar navigation={navigation} page={"Forum"} />
 
             <View style={{flex: 1,}} >
-           <View style={{height:height,justifyContent:'space-around', display:display === true ? 'flex' : "none",elevation:10 }} >
-                <View style={[styles.warning,{backgroundColor:Colors.primary}]} >
-                    <Text style={[styles.warningText,{color:Colors.text}]} >
-                    Welcome to our chat forum! This is a place for people to talk about different things openly. We want everyone to be kind and avoid posting anything mean or wrong. This includes saying things that hurt others, attacking them personally, or sending too many messages. If we see someone doing these things, we'll have to ban them from the forum. We want everyone to feel happy and safe here, so please follow these rules. We're excited to see you join the fun and talk about interesting things!
-                    </Text>
-                    <TouchableOpacity onPress={handleUserReply} >
-                        <Text style={[styles.reply,{color:Colors.text,backgroundColor:Colors.secondary}]} >OK I GOT IT!</Text>
-                    </TouchableOpacity>
+                <View style={{height:height,justifyContent:'space-around', display:display === true ? 'flex' : "none",elevation:10 }} >
+                        <View style={[styles.warning,{backgroundColor:Colors.primary}]} >
+                            <Text style={[styles.warningText,{color:Colors.text}]} >
+                            Welcome to our chat forum! This is a place for people to talk about different things openly. We want everyone to be kind and avoid posting anything mean or wrong. This includes saying things that hurt others, attacking them personally, or sending too many messages. If we see someone doing these things, we'll have to ban them from the forum. We want everyone to feel happy and safe here, so please follow these rules. We're excited to see you join the fun and talk about interesting things!
+                            </Text>
+                            <TouchableOpacity onPress={handleUserReply} >
+                                <Text style={[styles.reply,{color:Colors.text,backgroundColor:Colors.secondary}]} >OK I GOT IT!</Text>
+                            </TouchableOpacity>
+                        </View>
+                    
                 </View>
             
-           </View>
-            
-            <FlatList
-            
+                <FlatList
+                
                 ref={flatListRef}
                 data={data}
                 renderItem={renderItem}
@@ -151,12 +134,12 @@ const Forum = ({navigation}) =>{
                 onLayout={handleContentSizeChange}
                 />
             
-            <View style={[styles.Input,{backgroundColor:Colors.primary}]} >
-                <TextInput placeholderTextColor={colors.white} value={message} onChangeText={setMessage}  style={styles.textInput} placeholder="Type your message Here" />
-                <TouchableOpacity onPress={handleSend} style={styles.Send} >
-                    <FontAwesomeIcon size={25} color={message ? Colors.text : Colors.secondary} icon={faPaperPlane} />
-                </TouchableOpacity>
-            </View>
+                <View style={[styles.Input,{backgroundColor:Colors.primary}]} >
+                    <TextInput placeholderTextColor={colors.white} value={message} onChangeText={setMessage}  style={styles.textInput} placeholder="Type your message Here" />
+                    <TouchableOpacity onPress={handleSend} style={styles.Send} >
+                        <FontAwesomeIcon size={25} color={message ? Colors.text : Colors.secondary} icon={faPaperPlane} />
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     );

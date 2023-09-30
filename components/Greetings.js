@@ -6,6 +6,10 @@ import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import ted  from  '../assets/images/ted.png'
 import Quotes from '../assets/others/quotes.json'
+import { useTimer } from '../components/TimerContext';
+import Timer from './Timer'
+
+
 const date = new Date();
 
 const Greetings = ({navigation}) =>{
@@ -14,6 +18,8 @@ const Greetings = ({navigation}) =>{
     const [name,setName] = useState('');
     const [Colors,setColors] = useState([]);
     const [quote,setQuote] = useState('');
+    const { seconds, isRunning,minutes } = useTimer();
+
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -72,11 +78,13 @@ const Greetings = ({navigation}) =>{
     return(
         <View style={{marginBottom:10}} >
             {/* <Header navigation={navigation} title="Cogit" info='home' /> */}
+
+            <Timer/>
             <View style={[styles.body,{marginTop:20}]} >
                     <Text style={[styles.title,{color:Colors.text}]} > Hello {name}</Text>
                     <Text style={[styles.time,{color:Colors.text}]} >{message}</Text>
             </View>
-
+            
             <TouchableOpacity onPress={()=>navigation.navigate('TedEd')} style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center'}} >
                 <Text style={{width:'40%',color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Discover fascinating subjects and broaden your horizons with TED-Ed classes.{"\n"}
                 <Text style={{fontSize:24}} >Watch{"\n"} 
@@ -103,7 +111,7 @@ const Greetings = ({navigation}) =>{
                     </View>
                 </View>
             </TouchableOpacity>
-
+            
             <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',marginHorizontal:15,backgroundColor:Colors.hashWhite,borderRadius:10,marginTop:100}} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,padding: 10,fontSize:12}} >{quote}</Text>  
             </View>
