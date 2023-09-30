@@ -6,7 +6,6 @@ import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import ted  from  '../assets/images/ted.png'
 import Quotes from '../assets/others/quotes.json'
-import { useTimer } from '../components/TimerContext';
 import Timer from './Timer'
 
 
@@ -18,7 +17,6 @@ const Greetings = ({navigation}) =>{
     const [name,setName] = useState('');
     const [Colors,setColors] = useState([]);
     const [quote,setQuote] = useState('');
-    const { seconds, isRunning,minutes } = useTimer();
 
 
     useEffect(()=>{
@@ -32,13 +30,11 @@ const Greetings = ({navigation}) =>{
         const getFocusModeStatus = async() =>{
             const data = await AsyncStorage.getItem('FocusModeRunning');
             const value = JSON.parse(data);
-            console.log(value);
         }
         getFocusModeStatus()
 
         const selectQuote = () => {
             const random = Math.floor(Math.random() * 74);
-            console.log(random,Quotes[random]);
             setQuote(Quotes[random]);
         }
         selectQuote();

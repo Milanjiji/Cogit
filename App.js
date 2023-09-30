@@ -4,7 +4,6 @@ import Colors from './colors.json'
 import Screens from './components/Screens';
 import TrackPlayer,{Capability} from 'react-native-track-player';
 import { TimerProvider } from './components/TimerContext'
-import firestore from '@react-native-firebase/firestore';
 
 
 const App = () => {

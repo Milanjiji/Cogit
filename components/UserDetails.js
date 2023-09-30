@@ -74,26 +74,7 @@ const UserDetails = ({navigation}) => {
     if(timesOfRetry < 2){
       getPosts();
     }
-    const renderItem = ({item}) =>{
-      
-      return(
-        <View style={{backgroundColor:Colors.primary,borderRadius:10,marginVertical:5,elevation:10,marginHorizontal:5,padding: 10}} >
-          <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}} >
-            <Text style={{color:Colors.text,fontFamily:Colors.Medium,maxWidth:'80%'}} >{item.title}</Text>
-            <View style={{flexDirection:'row',alignItems:'center'}} >
-              <FontAwesomeIcon size={12} color={Colors.text} icon={faHeart} />
-              <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12,marginLeft:10}} >{item.likes}</Text>
-            </View>
-          </View>
-          <TouchableOpacity  >
-            <Text style={{color:`${Colors.text}70`,fontFamily:Colors.Medium,fontSize:12,marginTop:0}} >More...</Text>
-          </TouchableOpacity>
-          <View>
-            <Text>{item.more}</Text>
-          </View>
-        </View>
-      )
-    }
+    
   return (
     <View
       style={[styles.background,{borderRadius:10,backgroundColor:'#ffffff25'}]} >

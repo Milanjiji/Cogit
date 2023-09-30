@@ -41,7 +41,7 @@ const HomePageBar = ({navigation,...props}) =>{
                         <LinearGradient
                         colors={['#00000010', '#00000050']} 
                         style={{width:50,height:50,marginRight:10,borderTopLeftRadius:10,borderBottomLeftRadius:10,alignItems:'center',justifyContent:'center',display:props.item == "c"? "flex" :'none'}} >
-                            <Text style={{fontSize:20,color:Colors.text}} >$_</Text>
+                            <Text style={{fontSize:20,color:Colors.text}} >{">_"}</Text>
                         </LinearGradient>
                         <View style={{display: props.item !== "c"  ?'flex' :'none' ,flex:1 ,alignItems:'center',justifyContent:'center'}} >
                           <FontAwesomeIcon size={20}  color={Colors.text} icon={ props.item == "focus" ? faHeadphones : props.item == "recycle" ? faTrash : props.item == "skills" ? faCake : props.item == "Forum" ? faMessage : props.item == "Ted" ? faQuestionCircle : faAngleUp}/>

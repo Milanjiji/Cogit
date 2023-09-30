@@ -15,13 +15,14 @@ import HomePageBar from '../components/HomePageBar';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import SideBar from '../components/SideBar';
 import NextUpdate from '../components/NextUpdate';
+import firestore from '@react-native-firebase/firestore';
+
 
 // ted ed classes
 const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191748';
 
 const Homepage = ({navigation,route}) =>{
     const [Colors,setColors] = useState([]);
-    const [userId,setUserId] = useState("none");
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -31,43 +32,14 @@ const Homepage = ({navigation,route}) =>{
         }
         getColors();
         
-         const getUsersId = async () =>{
+         
 
-          const name = JSON.parse(await AsyncStorage.getItem('userName'))
-          console.log('trying to get the userId');
-          try {
-            const querySnapshot = await firestore()
-              .collection('Users')
-              .where('userName', '==', name)
-              .get();
         
-            const documentsInRange = [];
-        
-            querySnapshot.forEach((doc) => {
-              const data = doc.data();
-              documentsInRange.push({
-                Id: doc.id,
-                ...data,
-              });
-            });
-            
-            console.log(documentsInRange)
-            setUserId(documentsInRange.Id);
-            
-          } catch (error) {
-            console.error('Error fetching documents in range:', error);
-          }
-        }
-        console.log('====================================');
-        console.log("app startted");
-        console.log('====================================');
-        return () => {
-            console.log('====================================');
-            console.log("app closed");
-            console.log('====================================');
-        };
         
     },[])
+
+   
+    
     return(
             <View  style={[styles.background,{backgroundColor:Colors.Background,flexDirection:'row'}]} >
 
