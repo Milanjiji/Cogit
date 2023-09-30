@@ -78,7 +78,7 @@ enableScreens();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="Splash"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
+        <Stack.Navigator initialRouteName="Details"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
         <Stack.Screen
             name="Splash" 
             component={LoadScreen} /> 

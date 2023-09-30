@@ -23,6 +23,7 @@ const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191
 
 const Homepage = ({navigation,route}) =>{
     const [Colors,setColors] = useState([]);
+    const [ban,setBan] = useState(false);
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -32,10 +33,38 @@ const Homepage = ({navigation,route}) =>{
         }
         getColors();
         
-         
+        const getBanDetails = async () =>{
 
-        
-        
+            const name = JSON.parse(await AsyncStorage.getItem('userName'))
+            console.log("trying to get the posts",name);
+            try {
+              const querySnapshot = await firestore()
+                .collection('Users')
+                .where('name', '==', name)
+                .get();
+          
+              const documentsInRange = [];
+          
+              querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                documentsInRange.push({
+                  Id: doc.id,
+                  ...data,
+                });
+              });
+              
+              console.log(documentsInRange[0].ban)
+              if(documentsInRange[0].ban){
+                setBan(true);
+              }
+              
+            } catch (error) {
+              console.error('Error fetching documents in range:', error);
+            }
+      
+          }      
+        getBanDetails();
+
     },[])
 
    

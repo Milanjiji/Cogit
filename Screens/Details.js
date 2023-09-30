@@ -16,7 +16,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import firestore from '@react-native-firebase/firestore';
 import SplashScreen from 'react-native-splash-screen';
-import AnimatedTextInput from 'react-native-animated-placeholder-textinput';
 import CutomTextInput from '../components/CutomTextInput';
 
 
@@ -39,8 +38,7 @@ const Details = ({navigation,route}) =>{
     const [loginWarn,setLoginWarn] = useState(true);
     const [errorType,setErrorType] = useState('');
     const [loading,setLoading] = useState(false);
-
-    const [textStor,setTextStor] = useState('')
+    const [accountExists,setAccountExists] = useState(false);
 
     const search = firestore().collection('Users');
     
@@ -62,7 +60,9 @@ const Details = ({navigation,route}) =>{
             userName &&  phone && clas 
         ){  
             setLoading(true); 
-            search.where('phone', '==', phone)
+            setAccountExists(false);
+            search.where('phone', '==', phone )
+            search.where('name', '==', userName )
             .get()
             .then(querySnapshot => {
                 if(querySnapshot.empty){
@@ -98,21 +98,16 @@ const Details = ({navigation,route}) =>{
                     }
                     create()
                 }else{
-                    querySnapshot.forEach(doc => {
-                        
-                       console.log("a account exists");
-                        
+                    querySnapshot.forEach(doc => {  
+                        console.log("a account exists");
+                        setLoading(false)
+                        setAccountExists(true);
                         });
                 }
-                
             })
             .catch(error => {
                 console.log('Error getting documents: ', error);
             });
-            
-                    
-            
-            
             }else{
             setDetailWarn(true);
             console.log(userName);
@@ -209,8 +204,8 @@ const Details = ({navigation,route}) =>{
         
         <Text style={styles.reg} >Let's get you signed up first</Text>
 
-            <CutomTextInput keyboardType="email-address" label="User Name" borderColor={white} horizontal={30} marginTop={20} value={userName} onTextChange={setUserName} />
-            <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={10} value={phone} onTextChange={setPhone} />
+            <CutomTextInput keyboardType="email-address" label="User Name" borderColor={white} horizontal={30} marginTop={20} value={userName} onTextChange={setUserName} color="white" textColor="white" />
+            <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={10} value={phone} onTextChange={setPhone} color="white" textColor="white" />
             
             <Text style={styles.inputLabe} >Class</Text>
             <View style={{borderRadius:10,overflow: 'hidden',borderWidth:1,borderColor:white,marginHorizontal:30}} >
@@ -233,6 +228,7 @@ const Details = ({navigation,route}) =>{
         
         <Text style={[styles.fullDetailsWarning,{display : detailWarn ? "flex" : "none"}]} >Enter full details</Text>
         <Text style={[styles.fullDetailsWarning,{display : loading ? "flex" : "none",color:white}]} >creating account</Text>
+        <Text style={[styles.fullDetailsWarning,{display : accountExists ? "flex" : "none",color:white}]} >Account with same name or phone already exists.</Text>
         
         <TouchableOpacity onPress={Submit} >
             <Text style={[styles.btn,{backgroundColor:!loading ? '#12156c' : '#12156c50',color:!loading ? '#ffffff' : '#ffffff50'}]} >Register</Text>
@@ -255,8 +251,10 @@ const Details = ({navigation,route}) =>{
             horizontal={30} 
             marginTop={10} 
             value={userName} 
-            onTextChange={setUserName} />
-        <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={10} value={phone} onTextChange={setPhone} />
+            onTextChange={setUserName}
+            color="white" 
+            textColor="white" />
+        <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={10} value={phone} onTextChange={setPhone} color="white" textColor="white"  />
         
         <Text style={{color:'red',textAlign:'center',display:loginWarn ? 'flex' :'none'}} >{errorType}</Text>
         

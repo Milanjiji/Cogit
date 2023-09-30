@@ -1,14 +1,11 @@
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import React, { useState } from "react";
-import { TextInput, View,Text, Button } from "react-native";
+import { TextInput, View} from "react-native";
 import Animated, {
     useSharedValue,
     withTiming,
     Easing,
     useAnimatedStyle,
-    interpolate,
   } from 'react-native-reanimated';
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const CutomTextInput = (props) =>{
     const [focused,setFocused] = useState(false);
@@ -26,7 +23,6 @@ const CutomTextInput = (props) =>{
                 easing: Easing.linear,
               });
               setFocused(!focused);
-              console.log("animation worked");
         }
     }
     const handleTextChange = (text) =>{
