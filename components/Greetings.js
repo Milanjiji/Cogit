@@ -7,6 +7,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import ted  from  '../assets/images/ted.png'
 import Quotes from '../assets/others/quotes.json'
 import Timer from './Timer'
+import focusImage from '../assets/images/focused.png'
+import skillImg from '../assets/images/skills.png'
+import forumImg from '../assets/images/forum.png'
 
 
 const date = new Date();
@@ -17,6 +20,8 @@ const Greetings = ({navigation}) =>{
     const [name,setName] = useState('');
     const [Colors,setColors] = useState([]);
     const [quote,setQuote] = useState('');
+    const [page,setPage] = useState(1);
+    const [isRunning,setIsRunning] = useState(true);
 
 
     useEffect(()=>{
@@ -38,12 +43,25 @@ const Greetings = ({navigation}) =>{
             setQuote(Quotes[random]);
         }
         selectQuote();
-
-        
-
-        
     },[])
 
+    useEffect(() => {
+        let interval;
+        if (isRunning) {
+          interval = setInterval(() => {
+            setPage((prevPage) => prevPage + 1);
+          }, 5000);
+        } else {
+          clearInterval(interval);
+        }
+    
+        return () => clearInterval(interval);
+      }, [isRunning]);
+
+      if(page >= 5){
+        setPage(1);
+      }
+    
     
 
     useEffect(()=>{
@@ -81,7 +99,7 @@ const Greetings = ({navigation}) =>{
                     <Text style={[styles.time,{color:Colors.text}]} >{message}</Text>
             </View>
             
-            <TouchableOpacity onPress={()=>navigation.navigate('TedEd')} style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center'}} >
+            <TouchableOpacity onPress={()=>navigation.navigate('TedEd')} style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',display:page == 1 ? 'flex' : 'none'}} >
                 <Text style={{width:'40%',color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Discover fascinating subjects and broaden your horizons with TED-Ed classes.{"\n"}
                 <Text style={{fontSize:24}} >Watch{"\n"} 
                 <Text style={{color:"red",fontFamily:Colors.Bold}} >TED </Text>
@@ -96,9 +114,9 @@ const Greetings = ({navigation}) =>{
                                     <View style={{flex: 1}} >
 
                                     </View>
-                                        <View style={{backgroundColor:'yellow',width:100,height:20,flexDirection:'row',borderRadius:2,margin:3,justifyContent:'space-around'}} >
-                                            <FontAwesomeIcon icon={faStar} color='black' />
-                                            <Text style={{color:Colors.black,fontFamily:Colors.Bold}} >Featured</Text>
+                                        <View style={{backgroundColor:'yellow',width:100,height:15,flexDirection:'row',borderRadius:2,margin:3,justifyContent:'space-around'}} >
+                                            <FontAwesomeIcon size={12} icon={faStar} color='black' />
+                                            <Text style={{color:Colors.black,fontFamily:Colors.Medium,fontSize:12}} >Featured</Text>
                                         </View>
                                   
                                 </View>
@@ -107,8 +125,30 @@ const Greetings = ({navigation}) =>{
                     </View>
                 </View>
             </TouchableOpacity>
+
+            <TouchableOpacity style={{marginHorizontal:10,marginLeft:20,height:250,display:page == 2 ? 'flex' : 'none'}} >
+                <ImageBackground source={focusImage} style={{flex: 1,}} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:30}} >Be Focused!</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium}}  >Use FocusMode for better focus</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Turn on now!</Text>
+                </ImageBackground>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{marginHorizontal:10,marginLeft:20,height:270,display:page == 3 ? 'flex' : 'none'}} >
+                <ImageBackground source={skillImg} style={{flex: 1,}} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:30}} >Show what you can do</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Show your skills right now!</Text>
+                </ImageBackground>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={{marginHorizontal:10,marginLeft:20,height:270,display:page == 4 ? 'flex' : 'none'}} >
+                <ImageBackground source={forumImg} style={{flex: 1,}} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:30}} >Get in Touch</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >find new people.</Text>
+                </ImageBackground>
+            </TouchableOpacity>
             
-            <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',marginHorizontal:15,backgroundColor:Colors.hashWhite,borderRadius:10,marginTop:100}} >
+            <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',marginHorizontal:15,backgroundColor:Colors.hashWhite,borderRadius:10,marginTop:page == 1 ? 100 : 0}} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,padding: 10,fontSize:12}} >{quote}</Text>  
             </View>
             
