@@ -13,7 +13,7 @@ export const TimerProvider = ({ children }) => {
   const [leftStudyTime,setLeftStudyTime] = useState(0);
   const [leftIntTime,setLeftIntTime] = useState(0);
   const [State,setState] = useState(false);
-
+  const [timer,setTimer] = useState(true);
 
   useEffect(() => {
     let interval;
@@ -32,26 +32,35 @@ export const TimerProvider = ({ children }) => {
     if(seconds === 60){
       setMinutes(minutes+1)
     } 
-    
-    if(!State){
-      setLeftStudyTime((studyTime * 60) - (minutes *60 + seconds));
-      if((studyTime * 60) - (minutes *60 + seconds) === 0)  {
-        setState(true);
-        console.log('====================================');
-        console.log("reached the macimium staudy time");
-        console.log('====================================');
-        resetTimer();
+    if(timer){
+      console.log('====================================');
+      console.log("running with timer ");
+      console.log('====================================');
+      if(!State){
+        setLeftStudyTime((studyTime * 60) - (minutes *60 + seconds));
+        if((studyTime * 60) - (minutes *60 + seconds) === 0)  {
+          setState(true);
+          console.log('====================================');
+          console.log("reached the macimium staudy time");
+          console.log('====================================');
+          resetTimer();
+        }
+      }else{
+        setLeftIntTime((int * 60) - (minutes * 60 + seconds));
+        if((int * 60) - (minutes * 60 + seconds) === 0)  {
+          setState(false);
+          console.log('====================================');
+          console.log("reached the macimium intreval time ");
+          console.log('====================================');
+          resetTimer();
+        }
       }
     }else{
-      setLeftIntTime((int * 60) - (minutes * 60 + seconds));
-      if((int * 60) - (minutes * 60 + seconds) === 0)  {
-        setState(false);
-        console.log('====================================');
-        console.log("reached the macimium intreval time ");
-        console.log('====================================');
-        resetTimer();
-      }
+      console.log('====================================');
+      console.log("running without timer");
+      console.log('====================================');
     }
+    
   },[seconds])
 
 
@@ -77,6 +86,9 @@ export const TimerProvider = ({ children }) => {
   const intTimer = (value) =>{
     setInt(value)
   }
+  const setTimerStates = (value) =>{
+    setTimer(value);
+  }
 
   const value = {
     seconds,
@@ -89,7 +101,8 @@ export const TimerProvider = ({ children }) => {
     intTimer,
     leftStudyTime,
     leftIntTime,
-    State
+    State,
+    setTimerStates
   };
 
   return (

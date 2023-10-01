@@ -25,7 +25,7 @@ const FocusMode = ({navigation}) => {
   const [intModal,setIntModel] = useState(false);
   const [intTime,setIntTime] = useState(5);
   const [music,setMusic] = useState(true);
-  const { seconds, isRunning, startTimer, stopTimer, resetTimer,minutes,studyTimer,intTimer, leftStudyTime,leftIntTime,State} = useTimer();
+  const { seconds, isRunning, startTimer, stopTimer, resetTimer,minutes,studyTimer,intTimer, leftStudyTime,leftIntTime,State,setTimerStates} = useTimer();
 
 
   useEffect(()=>{
@@ -41,28 +41,8 @@ const FocusMode = ({navigation}) => {
         }
     }
     getColors();
-    // const getLastTime = async () =>{
-    //   const lastTime = JSON.parse(await AsyncStorage.getItem('Focus'))
-    //   console.log("last time",lastTime);
-    //   setRunning(lastTime.isFoucs);
-    //   setMin(lastTime.min);
-    //   setSec(lastTime.sec);
-    //   if(lastTime){
-    //     setStartUpdation(true);
-    //   }
-    // } 
-    // getLastTime();
+
   },[])
-
-  // const UpdateFocusTime = async ()=>{
-  //   await AsyncStorage.setItem('Focus',JSON.stringify({isFoucs:running,min:min,sec:sec}))
-  //   console.log("Updating every : ",min,sec);
-  // }
-  // if(startUpdation){
-  //   setTimeout(UpdateFocusTime,1000)
-  // }
-
-
 
   useTrackPlayerEvents(['playback-state'],async (states)=>{
     console.log(states.state,"the playbackstate");
@@ -78,26 +58,6 @@ const FocusMode = ({navigation}) => {
     }
   })
 
-  // useEffect(() => {
-  //   let intervalId;
-  //   if (running) {
-  //     intervalId = setInterval(() => {
-  //       setSec(prevTime => prevTime + 1);
-  //     }, 1000);
-  //   }
-  //   return () => clearInterval(intervalId);
-  // }, [running]);
-
-  
-
-  
-
-  // const rotateStyle = useAnimatedStyle(() => {
-  //   const rotate = interpolate(rotation.value, [0, 720], [0, 2 * Math.PI]);
-  //   return {
-  //     transform: [{ rotate: `${rotate}rad` }],
-  //   };
-  // });
   useEffect(()=>{
     const addTrack = async () =>{
       const tracks = [
@@ -131,22 +91,7 @@ const FocusMode = ({navigation}) => {
 
   }
   addTrack();
-//   const getFocusTime = async () =>{
-//     const isFocus = JSON.parse(await AsyncStorage.getItem('isFocus'))
-//     console.log("trying to get the focus time",isFocus);
-//     if(isFocus.state){
-//       console.log("there is is focus,the time is runnning",isFocus);
-//       setRunning(isFocus.state)
-//       setMin(isFocus.min)
-//       setSec(isFocus.sec)
-//     }else if(!isFocus.state){
-//       console.log("the focus mode is not runnng",isFocus);
-//       setRunning(isFocus.state)
-//       setMin(isFocus.min)
-//       setSec(isFocus.sec)
-//     }
-// }
-// getFocusTime();
+
   },[])
 
     console.log('====================================');
@@ -205,6 +150,11 @@ const FocusMode = ({navigation}) => {
 
   const reset = () =>{
     resetTimer();
+  }
+
+  const setTimerState = () =>{
+    setTimer(!timer);
+    setTimerStates(!timer)
   }
 
   
@@ -283,14 +233,15 @@ const FocusMode = ({navigation}) => {
           <View>
 
             <View style={{margin:10,backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,alignItems:'center',display:isRunning ? 'flex' :'none'}} >
-                <Text  style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:30}} >{Math.floor( State ?  leftIntTime : leftStudyTime / 60)}:{State ?  leftIntTime : leftStudyTime % 60}</Text>
+                <Text  style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:30 ,display : timer ? 'flex' :'none'}} >{Math.floor( State ?  leftIntTime : leftStudyTime / 60)}:{State ?  leftIntTime : leftStudyTime % 60}</Text>
+                <Text  style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:30,display : !timer ? 'flex' :'none'}} >00:00</Text>
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >remaining</Text>
             </View>
 
             <View style={{margin:10,backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,display:isRunning ? 'none' :'flex'}} >
               <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Timer</Text>
-                <TouchableOpacity onPress={()=> setTimer(!timer)} style={{alignItems:'center'}} >
+                <TouchableOpacity onPress={setTimerState} style={{alignItems:'center'}} >
                   <FontAwesomeIcon color={Colors.text} size={25} icon={timer ? faToggleOn : faToggleOff} />
                 </TouchableOpacity>
               </View>
