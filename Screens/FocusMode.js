@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, StyleSheet,Modal} from 'react-native';
 import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faAngleLeft, faAngleRight, faDownload, faMusic, faPause, faPlay, faRefresh, faSquare, faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons';
+import { faAnchor, faAngleLeft, faAngleRight, faDownload, faDroplet, faFire, faHandsBubbles, faLeaf, faMusic, faPause, faPlay, faRandom, faRefresh, faSquare, faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons';
 import Animated, {
   useSharedValue,
   withTiming,
@@ -14,18 +14,23 @@ import Animated, {
 import TrackPlayer,{useTrackPlayerEvents} from 'react-native-track-player';
 import SideBar from '../components/SideBar';
 import { useTimer } from '../components/TimerContext';
+import randomMusic from '../assets/MusicLinks.json'
 
 const FocusMode = ({navigation}) => {
   const [Colors,setColors] = useState([]);
   const [btnColors,setBtnColors] = useState(["white","","#12156c"]);
+
+
   const padding = useSharedValue(20);
+
+  const [loadingPlayBack,setPlayBack] = useState(false);
   const [timer,setTimer] = useState(true);
   const [studyModal,setStudyModel] = useState(false);
   const [studyTime,setStudyTime] = useState(30);
   const [intModal,setIntModel] = useState(false);
   const [intTime,setIntTime] = useState(5);
   const [music,setMusic] = useState(true);
-  const { seconds, isRunning, startTimer, stopTimer, resetTimer,minutes,studyTimer,intTimer, leftStudyTime,leftIntTime,State,setTimerStates} = useTimer();
+  const { seconds, isRunning, startTimer, stopTimer, resetTimer,minutes,studyTimer,intTimer, leftStudyTime,leftIntTime,State,setTimerStates,setMinutes} = useTimer();
 
 
   useEffect(()=>{
@@ -41,6 +46,7 @@ const FocusMode = ({navigation}) => {
         }
     }
     getColors();
+    console.log(randomMusic);
 
   },[])
 
@@ -55,38 +61,25 @@ const FocusMode = ({navigation}) => {
     }else if(states.state == "paused"){
       stopTimer();
       console.log("state not playing so starting timer:",states.state);
+    }else if(states.state == "connecting"){
+      console.log("playback state is actually conecting ");
+      setPlayBack(false);
+    }else if(states.state == "ready"){
+      console.log("playback state is ready");
+      setPlayBack(true);
     }
-  })
+  }) 
+
+  
 
   useEffect(()=>{
     const addTrack = async () =>{
-      const tracks = [
-        {
-            url: "https://drive.google.com/uc?id=1akxUUlBRo1gLJScImdgKUef2KnccZkeX", // Load media from the app bundle
-            title: 'title 0',
-            artist: 'artist 0',
-        },
-        {
-            url: "https://drive.google.com/uc?id=1Xo4I6t2jTFVR6oqU4rcEjZypIAUTDQ86", // Load media from the app bundle
-            title: 'title 1',
-            artist: 'artis 1',
-        },
-        {
-            url: "https://drive.google.com/uc?id=1hqk2jnDw-sQ2SMFljhw_XynQ5v8MQGVl", // Load media from the app bundle
-            title: 'title 0',
-            artist: 'artist 0',
-        },
-        {
-            url: "https://drive.google.com/uc?id=1ldB7IV8HrTk09hTOxaiKWGXeJcp9K17p", // Load media from the app bundle
-            title: 'title 1',
-            artist: 'artis 1',
-        }
-      ]
       const queue = await TrackPlayer.getQueue();
       if(queue.length == 0){
-      await TrackPlayer.add(tracks);
+      await TrackPlayer.add(randomMusic);
       }else{
         console.log("somthing in the quese");
+        setPlayBack(true);
       }
 
   }
@@ -94,9 +87,114 @@ const FocusMode = ({navigation}) => {
 
   },[])
 
-    console.log('====================================');
-      console.log(seconds,isRunning,minutes);
-      console.log('====================================');
+
+  const changeTrack = async(mode) =>{
+      
+      try {
+        await TrackPlayer.reset();
+      } catch (error) {
+        console.log("error while resetting theplayer",error);
+      }
+      const track2 = [
+        {
+          url: "https://cdn.pixabay.com/audio/2021/08/29/audio_4b2c695936.mp3", // Load media from the app bundle
+          title: 'rain music',
+          artist: 'artist 1',
+      },
+      ]
+      const track3 = [
+        {
+          url: "https://drive.google.com/uc?id=1Ku2G8uVCyN1g_-MhFRlqW3LMnRpQIQsQ", // Load media from the app bundle
+          title: 'title 0',
+          artist: 'artist 0',
+      },
+      ]
+      const track4 = [
+        {
+          url: "https://cdn.pixabay.com/audio/2022/10/14/audio_9939f792cb.mp3", // Load media from the app bundle
+          title: 'title 0',
+          artist: 'artist 0',
+      },
+      ]
+      const track5 = [
+        {
+          url: "https://drive.google.com/uc?id=1aCZz0jyvlCtccP_OKWtStAzdJml7yAw-", // Load media from the app bundle
+          title: 'title 0',
+          artist: 'artist 0',
+      },
+      ]
+      if(mode == 1){
+        try {
+          console.log("addsing the random songs");
+          const queue = await TrackPlayer.getQueue();
+          if(queue.length == 0){
+            await TrackPlayer.add(randomMusic);
+            console.log("adding the random music to the queue");
+            }else{
+              console.log("ressing has not done there is still some thing in the queue");
+            }
+        } catch (error) {
+          console.log("error while addin gthe songs mode :random",error);
+        }
+      } 
+      if(mode == 2){
+        try {
+          console.log("addsing the rain songs");
+          const queue = await TrackPlayer.getQueue();
+          if(queue.length == 0){
+            await TrackPlayer.add(track2);
+            console.log("adding the rain music to the queue");
+            }else{
+              console.log("ressing has not done there is still some thing in the queue");
+            }
+        } catch (error) {
+          console.log("error while addin gthe songs mode :rain");
+        }
+      } 
+      if(mode == 3){
+        try {
+          const queue = await TrackPlayer.getQueue();
+          console.log("addsing the fire songs");
+          if(queue.length == 0){
+            await TrackPlayer.add(track3);
+            console.log("adding the fire music to the queue");
+            }else{
+              console.log("ressing has not done there is still some thing in the queue");
+            }
+        } catch (error) {
+          console.log("error while addin gthe songs mode :fire");
+        }
+      } 
+      if(mode == 4){
+        try {
+          const queue = await TrackPlayer.getQueue();
+          console.log("addsing the nature songs");
+          if(queue.length == 0){
+            await TrackPlayer.add(track4);
+            console.log("adding the natuer music to the queue");
+            }else{
+              console.log("ressing has not done there is still some thing in the queue");
+            }
+        } catch (error) {
+          console.log("error while addin gthe songs mode :nature");
+        }
+      } 
+      if(mode == 5){
+        try {
+          const queue = await TrackPlayer.getQueue();
+          console.log("addsing the sea wawes songs");
+          if(queue.length == 0){
+            await TrackPlayer.add(track5);
+            console.log("adding the wawes music to the queue");
+            }else{
+              console.log("ressing has not done there is still some thing in the queue");
+            }
+        } catch (error) {
+          console.log("error while addin gthe songs mode :wawes");
+        }
+      } 
+  }
+
 
       useEffect(() => {
         if (seconds === 60) {
@@ -122,6 +220,7 @@ const FocusMode = ({navigation}) => {
       padding: padding.value
     }
   })
+  
 
   const play = async () =>{
     if(music){
@@ -150,6 +249,7 @@ const FocusMode = ({navigation}) => {
 
   const reset = () =>{
     resetTimer();
+    setMinutes(0);
   }
 
   const setTimerState = () =>{
@@ -167,7 +267,16 @@ const FocusMode = ({navigation}) => {
      }
       
       <View style={styles.App} >
-
+      <Modal
+            animationType="fade"
+            transparent={true}
+            visible={!loadingPlayBack}
+          >
+            <View style={{backgroundColor:Colors.primary,flex: 1,marginHorizontal:40,marginLeft:70,marginVertical:200,borderRadius:50,justifyContent: 'center',alignItems:'center',marginTop:250}} >
+              <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center'}} >Loading...</Text>
+              <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center',padding: 10,}} >If it takes long , {"\n"}there will be a problem with your internet</Text>
+            </View>
+          </Modal>
       <Modal
             animationType="fade"
             transparent={true}
@@ -264,15 +373,17 @@ const FocusMode = ({navigation}) => {
           </View>
           
 
+          
+            <View style={{padding: 20,borderRadius:210,borderWidth:10,borderColor:btnColors[1],backgroundColor:btnColors[1],marginTop:-20,justifyContent:'center',alignItems:'center',margin:10}} >
+              <Animated.View style={[paddingAnimatedStyle,{padding: 20,borderRadius:180,borderWidth:10,borderColor:btnColors[0],backgroundColor:btnColors[0],justifyContent:'center',alignItems:'center'}]} >
+                <View 
+                  style={[styles.btn_Container,{backgroundColor:Colors.primary,height: 250,width:250,justifyContent:'center',alignItems:'center'}]} >
+                  <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:55}} >{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</Text>
+                </View >
+            </Animated.View>
+            </View>
+          
 
-          <View style={{padding: 20,borderRadius:210,borderWidth:10,borderColor:btnColors[1],backgroundColor:btnColors[1],marginTop:-20,justifyContent:'center',alignItems:'center',margin:10}} >
-            <Animated.View style={[paddingAnimatedStyle,{padding: 20,borderRadius:180,borderWidth:10,borderColor:btnColors[0],backgroundColor:btnColors[0],justifyContent:'center',alignItems:'center'}]} >
-              <View 
-                style={[styles.btn_Container,{backgroundColor:Colors.primary,height: 250,width:250,justifyContent:'center',alignItems:'center'}]} >
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:55}} >{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</Text>
-              </View >
-           </Animated.View>
-          </View>
           <View style={{flexDirection:'row',justifyContent: 'center',alignItems:'center',borderRadius:10,marginHorizontal:10}} >
               
               <TouchableOpacity onPress={reset} style={[{padding: 20,borderColor:Colors.text,width:'33%',alignItems:'center',justifyContent:'center',}]} >
@@ -287,6 +398,24 @@ const FocusMode = ({navigation}) => {
                 <FontAwesomeIcon  color={music ? Colors.text : `${Colors.text}50`} icon={faMusic} />
               </TouchableOpacity> 
           </View>
+
+            <View style={{backgroundColor:Colors.primary,marginTop:10,marginBottom:10,marginHorizontal:20,padding: 10,borderRadius:10,flexDirection:'row',justifyContent:'space-around',alignItems:'center',opacity:music ? 1 : 0.3,display : isRunning ? 'none' :'flex'}} >
+              <TouchableOpacity onPress={()=>changeTrack(2)} >
+                <FontAwesomeIcon color={Colors.text} icon={faDroplet} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>changeTrack(3)} >
+                <FontAwesomeIcon color={Colors.text} icon={faFire} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>changeTrack(4)} >
+                <FontAwesomeIcon color={Colors.text} icon={faLeaf} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>changeTrack(5)} >
+                <FontAwesomeIcon color={Colors.text} icon={faAnchor} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>changeTrack(1)} >
+                <FontAwesomeIcon color={Colors.text} icon={faRandom} />
+              </TouchableOpacity>
+            </View>
         
       </View>
       

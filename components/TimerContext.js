@@ -93,6 +93,7 @@ export const TimerProvider = ({ children }) => {
   const value = {
     seconds,
     minutes,
+    setMinutes,
     isRunning,
     startTimer,
     stopTimer,

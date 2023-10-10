@@ -45,7 +45,6 @@ const Homepage = ({navigation,route}) =>{
               setBan(true);
             }
             const name = JSON.parse(await AsyncStorage.getItem('userName'))
-            console.log("trying to get the posts",name);
             try {
               const querySnapshot = await firestore()
                 .collection('Users')
@@ -62,16 +61,10 @@ const Homepage = ({navigation,route}) =>{
                 });
               });
               
-              console.log(documentsInRange[0].ban);
-              console.log(documentsInRange[0].banRea);
               if(documentsInRange[0].ban){
-                console.log(documentsInRange[0].banRea)
                 setBanReason(documentsInRange[0].banRea)
                 setBan(true);
                 await AsyncStorage.setItem('ban',JSON.stringify(true));
-                console.log('====================================');
-                console.log("account actually banned");
-                console.log('====================================');
               }else{
                 setBan(false);
                 await AsyncStorage.setItem('ban',JSON.stringify(false));
