@@ -1,5 +1,5 @@
 import React ,{useState,useEffect,useRef} from "react";
-import { View, Text, TextInput, TouchableOpacity,StyleSheet, FlatList,Dimensions } from "react-native";
+import { View, Text, TextInput, TouchableOpacity,StyleSheet, FlatList,Dimensions, Modal } from "react-native";
 import firestore from '@react-native-firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
@@ -15,6 +15,8 @@ const Forum = ({navigation}) =>{
     const [display,setDisplay] = useState(true);
     const [Colors,setColors] = useState([]);
     const [lastId,setLastId] = useState(0);
+    const [groundState,setGroundState] = useState(true);
+    const [reason,setReason] = useState('technical Issue')
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
@@ -28,6 +30,21 @@ const Forum = ({navigation}) =>{
             console.log('totaol event => ',chatdata.size);
         };
         getLastId();
+        const forumState = async () =>{
+            try {
+                const CommunityData = await firestore().collection('ForumState').get();
+                const data = CommunityData.docs.map(doc => ({
+                i:doc.id,
+                ...doc.data()
+              }));
+              console.log(data[0].state);
+              setGroundState(data[0].state);
+              setReason(data[0].reason);
+            } catch (error) {
+                
+            }
+        }
+        forumState();
     },[])
 
     const height = Dimensions.get('window').height;
@@ -96,21 +113,20 @@ const Forum = ({navigation}) =>{
         setDisplay(false);
       }
 
-      //renderItem = {
-        // <Component
-        //      return(
-        //      <View></View>
-        // )
-        // 
-    //   }
+      
     
 
     return(
         <View style={[styles.background,{backgroundColor:Colors.Background,flexDirection:'row'}]}  >
 
             <SideBar navigation={navigation} page={"Forum"} />
-
-            <View style={{flex: 1,}} >
+            
+                <View style={{backgroundColor:Colors.Background,flex: 1,alignItems:'center',justifyContent: 'center',paddingHorizontal:10,display : groundState ? 'none' :'flex'}} >
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >Sorry, ground will be closed for some period due to some techincal reason</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginTop:10}} ><Text style={{fontFamily:Colors.Bold}} >reason: </Text>{reason}</Text>
+                </View>
+        
+            <View style={{flex: 1,display:groundState ? 'flex' :'none'}} >
                 <View style={{height:height,justifyContent:'space-around', display:display === true ? 'flex' : "none",elevation:10 }} >
                         <View style={[styles.warning,{backgroundColor:Colors.primary}]} >
                             <Text style={[styles.warningText,{color:Colors.text}]} >
