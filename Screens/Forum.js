@@ -2,7 +2,7 @@ import React ,{useState,useEffect,useRef} from "react";
 import { View, Text, TextInput, TouchableOpacity,StyleSheet, FlatList,Dimensions, Modal } from "react-native";
 import firestore from '@react-native-firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faInfoCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import colors  from '../colors.json'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SideBar from "../components/SideBar";
@@ -63,7 +63,11 @@ const Forum = ({navigation}) =>{
                 const items = [];
                 let counter = 0;
                 querySnapshot.forEach((documentSnapshot) => {
-                items.push(documentSnapshot.data());
+                const dataWithId = {
+                    i: documentSnapshot.id,
+                    ...documentSnapshot.data(),
+                  };
+                items.push(dataWithId);
                 counter = documentSnapshot.data().id
                 
                 });
@@ -92,17 +96,38 @@ const Forum = ({navigation}) =>{
         }
         
       }
-    
+      
+      const deleteMsg = async (messageId,Name) =>{
+        console.log("trying to delete the document");
+        if(name == Name){
+            console.log("deletinf the docueme");
+            try {
+                console.log("deleting");
+                firestore()
+                    .collection('ChatData') 
+                    .doc(messageId)
+                    .delete()
+                    .then(() => {
+                        console.log('Message deleted successfully.');
+                    })
+                    .catch((error) => {
+                        console.error('Error deleting message: ', error);
+                    });
+            } catch (error) {
+                console.log(error);
+            }
+        }
+      }
       const renderItem = ({ item }) => {
         return (
-            <View style={[styles.item,{
+            <TouchableOpacity activeOpacity={item.name === name ? 0.5 : 1} onLongPress={()=>deleteMsg(item.i,item.name)} style={[styles.item,{
                 alignSelf: item.name === name ? 'flex-end' :'flex-start',
                 backgroundColor:Colors.primary,
                 elevation:10
                 }]} key={item.id}>
                 <Text style={{color:Colors.text,alignSelf: item.name === name ? 'flex-end' :'flex-start',fontSize:9}} >{item.name}</Text>
                 <Text style={{color:Colors.text}} >{item.message}</Text>
-            </View>
+            </TouchableOpacity>
         );
       }
       
@@ -132,6 +157,10 @@ const Forum = ({navigation}) =>{
                             <Text style={[styles.warningText,{color:Colors.text}]} >
                             Welcome to our chat forum! This is a place for people to talk about different things openly. We want everyone to be kind and avoid posting anything mean or wrong. This includes saying things that hurt others, attacking them personally, or sending too many messages. If we see someone doing these things, we'll have to ban them from the forum. We want everyone to feel happy and safe here, so please follow these rules. We're excited to see you join the fun and talk about interesting things!
                             </Text>
+                            <View style={{flexDirection:'row',alignItems:'center',marginHorizontal:10,justifyContent:'center',marginVertical:10}} >
+                                <FontAwesomeIcon color={Colors.text} icon={faInfoCircle} />
+                                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10}} >Delete msg : Touch and hold until it delete</Text>
+                            </View>
                             <TouchableOpacity onPress={handleUserReply} >
                                 <Text style={[styles.reply,{color:Colors.text,backgroundColor:Colors.secondary}]} >OK I GOT IT!</Text>
                             </TouchableOpacity>
