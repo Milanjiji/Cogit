@@ -69,7 +69,6 @@ const Forum = ({navigation}) =>{
                   };
                 items.push(dataWithId);
                 counter = documentSnapshot.data().id
-                
                 });
                 const sortedData = items.sort((a, b) => a.id - b.id);
                 setData(sortedData);

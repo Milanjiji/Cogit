@@ -30,45 +30,24 @@ const Community = ({navigation}) =>{
                 i:doc.id,
                 ...doc.data()
               }))
-            setData(data);
+            const sortedData = data.sort((a, b) => b.id - a.id);
+            console.log(sortedData,"sorted data");
+            setData(sortedData);
         }
         get();
         
       }, []);
 
-      const goToView = (title,overView,content,id)=>{
-        navigation.navigate('ViewArticle',{title,overView,content,id})
-      }
-      const renderItem = ({item}) =>{
-
-        
-
-        return(
-            <TouchableOpacity style={[styles.container,{backgroundColor:Colors.primary,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}]} onPress={()=>goToView(item.Title,item.overView,item.content,item.id)} >
-                <View style={{width:'70%'}} >
-                    <Text style={[styles.Title,{color:Colors.text}]}  >{item.Title}</Text>
-                    <Text style={[styles.overView,{color:Colors.text}]}  >{item.overView}</Text>
-                </View>
-                <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center'}} >
-                    <TouchableOpacity style={{backgroundColor:Colors.hashWhite,padding: 10,}} >
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Report</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity  >
-                        <FontAwesomeIcon icon={faEllipsisV} color={Colors.text} />
-                    </TouchableOpacity>
-                </View>
-                
-            </TouchableOpacity>
-        )
-      }
+      
+      
     return(
         <View style={[styles.App,{backgroundColor:Colors.Background}]} >
             <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center',marginVertical:10}} >
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.navigate('Settings')} >
                     <FontAwesomeIcon icon={faUser} color={Colors.text} />
                 </TouchableOpacity>
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Community</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>navigation.navigate('AddArticle')} >
                     <FontAwesomeIcon icon={faPlusSquare} color={Colors.text} />
                 </TouchableOpacity>
             </View>

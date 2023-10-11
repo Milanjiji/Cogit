@@ -98,6 +98,8 @@ const UserDetails = ({navigation}) => {
           keyExtractor={item => item.title}
           renderItem={ (i) => <RenderPosts item={i} />}
           />
+
+          
         </View>
     </View>
   );
