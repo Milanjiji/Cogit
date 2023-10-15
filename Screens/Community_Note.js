@@ -31,7 +31,6 @@ const Community = ({navigation}) =>{
                 ...doc.data()
               }))
             const sortedData = data.sort((a, b) => b.id - a.id);
-            console.log(sortedData,"sorted data");
             setData(sortedData);
         }
         get();

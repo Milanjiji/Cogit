@@ -10,6 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import PreviewArticle from '../components/PreviewArticle';
 
 const AddArticle = ({navigation}) =>{
+    const [name,setName] = useState('')
     const [title,setTitle] = useState('');
     const [article,setArticle] = useState('');
     const [extra,setExtra] = useState('');
@@ -35,6 +36,12 @@ const AddArticle = ({navigation}) =>{
             console.log('totaol event => ',users.size);
         }
         lastId();
+        const getUserDetails = async() =>{
+            const name = JSON.parse(await AsyncStorage.getItem('userName'))
+            console.log(name);
+            setName(name);
+        }
+        getUserDetails();
     },[])
 
     const Submit = async() =>{
@@ -57,13 +64,15 @@ const AddArticle = ({navigation}) =>{
                                content:article,
                                overView:overView,
                                extra:extra,
-                               id:totalArticles+1
+                               id:totalArticles+1,
+                               name:name,
+                               like:0
                         })
                         .then(() => {
                         console.log('Message sent successfully');
                         setMsgSuccess(true);
                         setAddPreviewToggler(true);
-                        setBtnText('Preview');
+                        setBtnText('Back');
                         setTitle('');
                         setArticle('');
                         setOverView('');
@@ -78,7 +87,11 @@ const AddArticle = ({navigation}) =>{
                 }catch(e){
                     console.log("error while adding data: ",e);
                 }
-            } else{
+            } 
+            else if (btnText === 'Back') {
+                navigation.navigate('Home')
+            }
+            else{
                 setWarn(true);
             }
         }
@@ -124,6 +137,7 @@ const AddArticle = ({navigation}) =>{
                 <TouchableOpacity onPress={Submit} style={[styles.postBtn,{backgroundColor:Colors.secondary}]} >
                     <Text style={[styles.postBtnText,{color:Colors.text}]} >{btnText}</Text>
                 </TouchableOpacity>  
+
             </View>
             
         </View>

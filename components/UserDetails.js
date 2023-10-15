@@ -8,6 +8,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 import firestore from '@react-native-firebase/firestore';
 import RenderPosts from './RenderPosts';
+import RenderArticle from './RenderArticles';
 
 
 
@@ -17,8 +18,11 @@ const UserDetails = ({navigation}) => {
   const [phone,setPhone] = useState('');
   const [clas,setClass] = useState('');
   const [timesOfRetry,setTimesOfRetry] = useState(0);
+  const [timesOfArticleRetry,setTimesOfArticleRetry] = useState(0);
   const [data,setData] = useState([]);
   const [postCount,setPostCount] = useState(0);
+  const [articles,setArticles] = useState([]);
+  const [articleCount,setArticleCount] = useState(0);
     useEffect(()=>{
         const getColors = async()=>{
             const data = await AsyncStorage.getItem('Colors');
@@ -40,16 +44,13 @@ const UserDetails = ({navigation}) => {
     },[])
    
     const getPosts = async () =>{
-
       console.log("trying to get the posts",name);
       try {
         const querySnapshot = await firestore()
           .collection('Skills')
           .where('userName', '==', name)
           .get();
-    
         const documentsInRange = [];
-    
         querySnapshot.forEach((doc) => {
           const data = doc.data();
           documentsInRange.push({
@@ -57,7 +58,6 @@ const UserDetails = ({navigation}) => {
             ...data,
           });
         });
-        
         console.log(documentsInRange)
         setData(documentsInRange);
         setTimesOfRetry(timesOfRetry+1);
@@ -69,10 +69,38 @@ const UserDetails = ({navigation}) => {
       } catch (error) {
         console.error('Error fetching documents in range:', error);
       }
-
     }
+    const getArticles = async () =>{
+      console.log("trying to get the articles",name);
+      try {
+        const querySnapshot = await firestore()
+          .collection('Community')
+          .where('name', '==', name)
+          .get();
+        const documentsInRange = [];
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          documentsInRange.push({
+            Id: doc.id,
+            ...data,
+          });
+        });
+        console.log(documentsInRange,"articles")
+        setArticles(documentsInRange);
+        setTimesOfArticleRetry(timesOfArticleRetry+1);
+        if(documentsInRange == 0){
+          setArticleCount(0);
+        }else{
+          setArticleCount(documentsInRange.length)
+        }
+      } catch (error) {
+        console.error('Error fetching documents in range:', error);
+      }
+    }
+
     if(timesOfRetry < 2){
       getPosts();
+      getArticles();
     }
     
   return (
@@ -91,12 +119,17 @@ const UserDetails = ({navigation}) => {
             </View>
         </View>
         <View style={{marginHorizontal:5,marginVertical:10}} >
-          <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginBottom:10}} >Posts ({postCount})</Text>
+          <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginBottom:10}} >Posts ({postCount+articleCount})</Text>
 
           <FlatList
           data={data}
           keyExtractor={item => item.title}
           renderItem={ (i) => <RenderPosts item={i} />}
+          />
+          <FlatList
+          data={articles}
+          keyExtractor={item => item.title}
+          renderItem={ (i) => <RenderArticle item={i} />}
           />
 
           
