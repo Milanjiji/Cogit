@@ -272,9 +272,11 @@ const FocusMode = ({navigation}) => {
             transparent={true}
             visible={!loadingPlayBack}
           >
-            <View style={{backgroundColor:Colors.primary,flex: 1,marginHorizontal:40,marginLeft:70,marginVertical:200,borderRadius:50,justifyContent: 'center',alignItems:'center',marginTop:250}} >
-              <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center'}} >Loading...</Text>
-              <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center',padding: 10,}} >If it takes long , {"\n"}there will be a problem with your internet</Text>
+            <View style={{flex: 1,justifyContent:'center',alignItems:'center'}} >
+              <View style={{backgroundColor:Colors.primary,marginHorizontal:40,marginLeft:70,borderRadius:10,justifyContent: 'center',alignItems:'center',padding: 10,borderColor:Colors.hashWhite,borderWidth:1}} >
+                <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center'}} >Loading...</Text>
+                <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center',padding: 10,}} >If it takes long , {"\n"}there will be a problem with your internet</Text>
+              </View>
             </View>
           </Modal>
       <Modal
