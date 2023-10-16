@@ -104,7 +104,7 @@ const FocusMode = ({navigation}) => {
       ]
       const track3 = [
         {
-          url: "https://drive.google.com/uc?id=1Ku2G8uVCyN1g_-MhFRlqW3LMnRpQIQsQ", // Load media from the app bundle
+          url: "https://drive.google.com/uc?id=13qJ3N68YpZKadSIs3o0JUBk4u1jLDUmI", // Load media from the app bundle
           title: 'title 0',
           artist: 'artist 0',
       },
