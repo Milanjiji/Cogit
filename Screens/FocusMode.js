@@ -343,11 +343,11 @@ const FocusMode = ({navigation}) => {
 
           <View>
 
-            <View style={{margin:10,backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,alignItems:'center',display:isRunning ? 'flex' :'none'}} >
+            {/* <View style={{margin:10,backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,alignItems:'center',display:isRunning ? 'flex' :'none'}} >
                 <Text  style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:30 ,display : timer ? 'flex' :'none'}} >{Math.floor( State ?  leftIntTime : leftStudyTime / 60)}:{State ?  leftIntTime : leftStudyTime % 60}</Text>
                 <Text  style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:30,display : !timer ? 'flex' :'none'}} >00:00</Text>
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >remaining</Text>
-            </View>
+            </View> */}
 
             <View style={{margin:10,backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,display:isRunning ? 'none' :'flex'}} >
               <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}} >
@@ -376,14 +376,17 @@ const FocusMode = ({navigation}) => {
           
 
           
-            <View style={{padding: 20,borderRadius:210,borderWidth:10,borderColor:btnColors[1],backgroundColor:btnColors[1],marginTop:-20,justifyContent:'center',alignItems:'center',margin:10}} >
-              <Animated.View style={[paddingAnimatedStyle,{padding: 20,borderRadius:180,borderWidth:10,borderColor:btnColors[0],backgroundColor:btnColors[0],justifyContent:'center',alignItems:'center'}]} >
-                <View 
-                  style={[styles.btn_Container,{backgroundColor:Colors.primary,height: 250,width:250,justifyContent:'center',alignItems:'center'}]} >
-                  <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:55}} >{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</Text>
-                </View >
-            </Animated.View>
-            </View>
+          <View style={{justifyContent:'center',alignItems:'center'}} >
+           
+          <Animated.View style={[paddingAnimatedStyle,{padding: 0,backgroundColor:'#ffffff60',justifyContent:'center',alignItems:'center',borderRadius:150}]} >
+            <View 
+              style={[styles.btn_Container,{backgroundColor:Colors.primary,height: 250,width:250,justifyContent:'center',alignItems:'center'}]} >
+             <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:55,display: timer ? 'none' :'flex'}} >{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</Text>
+             <Text  style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:55 ,display : timer ? 'flex' :'none'}} >{Math.floor( State ?  leftIntTime : leftStudyTime / 60)}:{State ?  leftIntTime : leftStudyTime % 60}</Text>
+             </View >
+          </Animated.View>
+           
+          </View>  
           
 
           <View style={{flexDirection:'row',justifyContent: 'center',alignItems:'center',borderRadius:10,marginHorizontal:10}} >
