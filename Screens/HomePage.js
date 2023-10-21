@@ -18,6 +18,7 @@ import SideBar from '../components/SideBar';
 import NextUpdate from '../components/NextUpdate';
 import firestore from '@react-native-firebase/firestore';
 import CutomTextInput from '../components/CutomTextInput';
+import Tools from '../components/Tools';
 
 
 // ted ed classes
@@ -147,14 +148,28 @@ const Homepage = ({navigation,route}) =>{
                 <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:Colors.Background,paddingBottom:150,flex: 1,}}  >
                 <Greetings navigation={navigation} />
 
+                <Tools navigation={navigation} colors={Colors} />
+                {/* <View style={{flexDirection:'row',alignItems:'center'}} >
+                  <View style={{flex: 1,}} >
+                    <HomePageBar  height={220} navigation={navigation} item={"focus"} title={'Focus'}  navigate={'Focus'}  />
+                  </View>
+                  <View>
+                    <View>
+                      <HomePageBar  height={120} navigation={navigation} item={"c"} title={'Learn C++ (without pc)'}  navigate={"ClassificationC"}  disc={'Embark on an empowering coding journey with our free, on-the-go app featuring an integrated C++ code editor, available in Malayalam, allowing you to learn and practice C++ anytime, anywhere!'} />
+                    </View>
+                    <View>
+                      <HomePageBar  height={120} navigation={navigation} item={"recycle"} title={'Re:Cycle'}  navigate={'ReCycle'}   />
+                      <HomePageBar height={120} navigation={navigation} item={"skills"} title={'Skills'}  navigate={'Skills'}   />
+                    </View>
+                    <View>
+                      <HomePageBar height={120} navigation={navigation} item={"com"} spc={true} title={'Community'}  navigate={'Community'}   />
+                    </View>
+                  </View>
+                </View> */}
                 <View style={{marginHorizontal:10}} >
-                    <HomePageBar  height={120} navigation={navigation} item={"c"} title={'Learn C++ (without pc)'}  navigate={"ClassificationC"}  disc={'Embark on an empowering coding journey with our free, on-the-go app featuring an integrated C++ code editor, available in Malayalam, allowing you to learn and practice C++ anytime, anywhere!'} />
                 </View>
                 <View style={{flexDirection:'row',paddingHorizontal:10}} >
-                    <HomePageBar  height={120} navigation={navigation} item={"focus"} title={'Focus'}  navigate={'Focus'}  />
-                    <HomePageBar  height={120} navigation={navigation} item={"recycle"} title={'Re:Cycle'}  navigate={'ReCycle'}   />
-                    <HomePageBar height={120} navigation={navigation} item={"skills"} title={'Skills'}  navigate={'Skills'}   />
-                </View>  
+                    </View>  
                 <View style={{flexDirection:'row',paddingHorizontal:10}} >
                     <HomePageBar  height={120} navigation={navigation} item={"Forum"} spc={true} title={'Forum'}  navigate={'Forum'}   />
                     <HomePageBar  height={120} navigation={navigation} item={"Ted"} title={'Ted Ed'}  navigate={'TedEd'}  />
@@ -166,7 +181,6 @@ const Homepage = ({navigation,route}) =>{
                     
                   
                     <View style={{flexDirection:'row',paddingHorizontal:10}} >
-                        <HomePageBar height={120} navigation={navigation} item={"com"} spc={true} title={'Community'}  navigate={'Community'}   />
                     </View>
                     <NextUpdate navigation={navigation} />
 
