@@ -1,11 +1,8 @@
-import React,{useEffect,useState} from "react";
-import { Settings, View } from "react-native";
+import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { TransitionPresets } from '@react-navigation/stack';
 import { enableScreens } from 'react-native-screens';
-import SplashScreen from "react-native-splash-screen";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 import Homepage from '../Screens/HomePage'
@@ -66,6 +63,7 @@ import VeryShortClassification from "../Screens/Notes/VeryShortClassification";
 import VeryShort from "../Screens/Notes/VeryShort";
 import TrackPlayerDemo from "../Screens/TrackPlayerDemo";
 import Report from "../Screens/Report";
+import TaskManager from "../Screens/TaskManager";
 
 
 
@@ -265,6 +263,10 @@ const Screens = () =>{
            <Stack.Screen
            name="Report" 
            component={Report} />
+           <Stack.Screen
+           name="TaskManager" 
+           component={TaskManager} />
+
   
         </Stack.Navigator>
       </NavigationContainer>

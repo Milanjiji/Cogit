@@ -5,8 +5,7 @@ import {
     View,
     Dimensions,
     Text,
-    Image,
-    ImageBackground,
+    StatusBar,
     TouchableOpacity
   } from 'react-native';
 import Notes from '../components/Notes';
@@ -19,6 +18,7 @@ import NextUpdate from '../components/NextUpdate';
 import firestore from '@react-native-firebase/firestore';
 import CutomTextInput from '../components/CutomTextInput';
 import Tools from '../components/Tools';
+import Tasks from '../components/Tasks';
 
 
 // ted ed classes
@@ -118,6 +118,7 @@ const Homepage = ({navigation,route}) =>{
     
     return(
            <View style={{flex: 1,}} >  
+           <StatusBar backgroundColor="#000000"/>
             <View style={{flex: 1,backgroundColor:Colors.Background,padding: 10,display:ban ? 'flex' :'none'}} >
               <View style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,flex: 1,justifyContent:'center',alignItems:'center'}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Sorry User</Text>
@@ -149,32 +150,7 @@ const Homepage = ({navigation,route}) =>{
                 <Greetings navigation={navigation} />
 
                 <Tools navigation={navigation} colors={Colors} />
-                {/* <View style={{flexDirection:'row',alignItems:'center'}} >
-                  <View style={{flex: 1,}} >
-                    <HomePageBar  height={220} navigation={navigation} item={"focus"} title={'Focus'}  navigate={'Focus'}  />
-                  </View>
-                  <View>
-                    <View>
-                      <HomePageBar  height={120} navigation={navigation} item={"c"} title={'Learn C++ (without pc)'}  navigate={"ClassificationC"}  disc={'Embark on an empowering coding journey with our free, on-the-go app featuring an integrated C++ code editor, available in Malayalam, allowing you to learn and practice C++ anytime, anywhere!'} />
-                    </View>
-                    <View>
-                      <HomePageBar  height={120} navigation={navigation} item={"recycle"} title={'Re:Cycle'}  navigate={'ReCycle'}   />
-                      <HomePageBar height={120} navigation={navigation} item={"skills"} title={'Skills'}  navigate={'Skills'}   />
-                    </View>
-                    <View>
-                      <HomePageBar height={120} navigation={navigation} item={"com"} spc={true} title={'Community'}  navigate={'Community'}   />
-                    </View>
-                  </View>
-                </View> */}
-                <View style={{marginHorizontal:10}} >
-                </View>
-                <View style={{flexDirection:'row',paddingHorizontal:10}} >
-                    </View>  
-                <View style={{flexDirection:'row',paddingHorizontal:10}} >
-                    <HomePageBar  height={120} navigation={navigation} item={"Forum"} spc={true} title={'Forum'}  navigate={'Forum'}   />
-                    <HomePageBar  height={120} navigation={navigation} item={"Ted"} title={'Ted Ed'}  navigate={'TedEd'}  />
-                </View>  
-                
+                <Tasks navigation={navigation} Colors={Colors} />                
                 <View>
                     <Notes navigation={navigation} />
                 </View>

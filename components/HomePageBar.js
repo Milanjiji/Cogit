@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Colors from '../colors.json'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import LinearGradient from "react-native-linear-gradient";
-import focus from '../assets/images/focus.png'
 import { faAngleUp, faCake, faHeadphones, faMessage, faQuestionCircle, faTemperatureThreeQuarters, faTrash, faUsersBetweenLines, faUsersCog } from "@fortawesome/free-solid-svg-icons";
 import mesh from '../assets/images/CommunityBackground.png'
 import { Overlay } from "@chatscope/chat-ui-kit-react";

@@ -161,7 +161,7 @@ const Forum = ({navigation}) =>{
                                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10}} >Delete msg : Touch and hold until it delete</Text>
                             </View>
                             <TouchableOpacity onPress={handleUserReply} >
-                                <Text style={[styles.reply,{color:Colors.text,backgroundColor:Colors.secondary}]} >OK I GOT IT!</Text>
+                                <Text style={[styles.reply,{color:Colors.text,backgroundColor:'#7300e6'}]} >OK I GOT IT!</Text>
                             </TouchableOpacity>
                         </View>
                     
@@ -181,7 +181,7 @@ const Forum = ({navigation}) =>{
                 <View style={[styles.Input,{backgroundColor:Colors.primary}]} >
                     <TextInput placeholderTextColor={colors.white} value={message} onChangeText={setMessage}  style={styles.textInput} placeholder="Type your message Here" />
                     <TouchableOpacity onPress={handleSend} style={styles.Send} >
-                        <FontAwesomeIcon size={25} color={message ? Colors.text : Colors.secondary} icon={faPaperPlane} />
+                        <FontAwesomeIcon size={25} color={message ? '#7300e6' : '#ffffff10'} icon={faPaperPlane} />
                     </TouchableOpacity>
                 </View>
             </View>
