@@ -2,9 +2,9 @@ import { React,useState,useEffect } from "react";
 import {View,Text,TouchableOpacity} from 'react-native'
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faEllipsisV, faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import firestore from '@react-native-firebase/firestore';
+import { storage } from "../Storage";
 
 
 const search = firestore().collection('Community');
@@ -19,7 +19,7 @@ const RenderCommunityArticle = ({item,navigation}) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
             setLikes(item.item.like)
@@ -30,14 +30,14 @@ const RenderCommunityArticle = ({item,navigation}) =>{
     useEffect(()=>{
         const getLikedData = async () =>{
             try {
-                const fetch = JSON.parse(await AsyncStorage.getItem('LikedCommunityData'))
+                const fetch = JSON.parse(storage.getString('LikedCommunityData'))
                 if(fetch !== null){
                     setLikedData(fetch);
                     const idExists = fetch.some(data => data.id == item.item.id);
                     setLiked(idExists);
                 }else{
                     setLikedData([{id:'2131234'}])
-                    await AsyncStorage.setItem('LikedCommunityData',JSON.stringify([{id:4}]))
+                    storage.set('LikedCommunityData',JSON.stringify([{id:4}]))
                 }
             } catch (error) {
                 console.log("error getting liked data",error);
@@ -56,9 +56,7 @@ const RenderCommunityArticle = ({item,navigation}) =>{
     const Likedata = async () =>{
         if(!liked){
             try {
-                
                 const documentRef = search.doc(item.item.i);
-            
                 await documentRef.update({
                   like: item.item.like+1,
                 });
@@ -66,7 +64,7 @@ const RenderCommunityArticle = ({item,navigation}) =>{
                 setLikes(item.item.like + 1)
 
                 const StringifiedData = JSON.stringify([...likedData,{id:item.item.id}])
-                AsyncStorage.setItem('LikedCommunityData',StringifiedData);
+                storage.set('LikedCommunityData',StringifiedData)
               } catch (error) {
                 console.error('Error updating document field:', error);
               }

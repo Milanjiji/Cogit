@@ -1,15 +1,14 @@
 import React,{useState,useEffect} from "react"
 import { StyleSheet, Text, View } from "react-native"
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import HomePageFootor from "../components/HomePageFootor";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { storage } from "../Storage";
 
 const AboutUs = ({navigation}) =>{
     const [Colors,setColors] = useState([]);
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView,TouchableOpacity} from 'react-native';
-import Header from '../../components/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Code from '../../components/Code';
 
@@ -51,7 +50,6 @@ const Array = ({navigation}) => {
   return (
     <View
       style={{backgroundColor:Colors.Background,flex: 1,}} >
-          <Header navigation={navigation} title='Array' info=''  />    
         <ScrollView showsVerticalScrollIndicator={false} style={{padding: 10,}} >
             
             <View>

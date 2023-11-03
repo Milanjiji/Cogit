@@ -1,9 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 
-// Create a context
 const TimerContext = createContext();
 
-// Create a TimerProvider component to wrap your app with
 export const TimerProvider = ({ children }) => {
   const [seconds, setSeconds] = useState(0);
   const [isRunning, setIsRunning] = useState(false);

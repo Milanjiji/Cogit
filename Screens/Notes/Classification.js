@@ -1,14 +1,12 @@
 import React,{useState,useEffect} from "react";
-import { View,Text, TouchableOpacity, StyleSheet,TextInput, ScrollView,KeyboardAvoidingView } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import Header from "../../components/Header";
-import HomePageFootor from "../../components/HomePageFootor";
+import { View,Text, TouchableOpacity, StyleSheet, ScrollView,KeyboardAvoidingView } from "react-native";
 import SideBar from "../../components/SideBar";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import firestore from '@react-native-firebase/firestore';
 import CutomTextInput from "../../components/CutomTextInput";
+import { storage } from "../../Storage";
 
 
 const Classification = ({navigation,route}) =>{
@@ -23,7 +21,7 @@ const Classification = ({navigation,route}) =>{
     const {sub} = route.params;
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
         }
@@ -46,11 +44,10 @@ const Classification = ({navigation,route}) =>{
         }
         fetchId();
         const fetchDetails = async () =>{
-            const name = await AsyncStorage.getItem('userName');
-            const phone = await AsyncStorage.getItem('phone');
+            const name = storage.getString('userName')
+            const phone = storage.getString('phone')
             setName(name);
             setPhone(phone);
-            console.log(name,phone);
           }
           fetchDetails();
     },[])
@@ -82,8 +79,7 @@ const Classification = ({navigation,route}) =>{
         <KeyboardAvoidingView style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around',flexDirection:'row'}} >
            <SideBar navigation={navigation} page={"Notes"} />
 
-            <ScrollView style={{flex: 1,paddingHorizontal:10}} >
-                <Header navigation={navigation}  title={title} info="" sideBar={true} />
+            <View style={{flex: 1,paddingHorizontal:10,justifyContent: 'center',}} >
                 <TouchableOpacity onPress={()=>{navigation.navigate('VeryShortNoteClassification',{sub:sub})}} style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10}} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Walk Through</Text>
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Just main topics from chapters</Text>
@@ -161,7 +157,7 @@ const Classification = ({navigation,route}) =>{
 
                 
 
-            </ScrollView>
+            </View>
         </KeyboardAvoidingView>
     )
 }

@@ -1,17 +1,15 @@
 import React,{useState,useEffect} from "react";
 import { View,Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import Header from "../../components/Header";
-import HomePageFootor from "../../components/HomePageFootor";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCaretSquareRight, faCircleNotch, faDotCircle, faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
+import { storage } from "../../Storage";
 
 const DeepExplanation = ({navigation,route}) =>{
     const [Colors,setColors] = useState([])
     const {note} = route.params;
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }
@@ -22,7 +20,6 @@ const DeepExplanation = ({navigation,route}) =>{
 
     return(
         <View style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around'}} >
-            <Header navigation={navigation}  title="Maths" info=""/>
             <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1,paddingHorizontal:12}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Bold,textAlign:'center',fontSize:28,marginTop:10}} >{note.chapter}</Text>
                 {

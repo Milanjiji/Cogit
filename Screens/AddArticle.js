@@ -1,13 +1,9 @@
-import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React,{useEffect,useState} from 'react'
-import {FlatList, ScrollView, StyleSheet, Text,TouchableOpacity,View,TextInput} from 'react-native'
-import Header from '../components/Header';
-import HomePageFootor from '../components/HomePageFootor';
+import {ScrollView, StyleSheet, Text,TouchableOpacity,View,TextInput} from 'react-native'
 import Colors from '../colors.json'
 import firestore from '@react-native-firebase/firestore';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import PreviewArticle from '../components/PreviewArticle';
+import { storage } from '../Storage';
 
 const AddArticle = ({navigation}) =>{
     const [name,setName] = useState('')
@@ -25,7 +21,7 @@ const AddArticle = ({navigation}) =>{
     useEffect(()=>{
         setMsgSuccess(false);
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
         }
@@ -37,7 +33,7 @@ const AddArticle = ({navigation}) =>{
         }
         lastId();
         const getUserDetails = async() =>{
-            const name = JSON.parse(await AsyncStorage.getItem('userName'))
+            const name = JSON.parse(storage.getString('userName'))
             console.log(name);
             setName(name);
         }
@@ -102,7 +98,6 @@ const AddArticle = ({navigation}) =>{
     
     return(
         <View style={{flex: 1,backgroundColor:Colors.Background}} >
-            <Header navigation={navigation} info="ellipsis" title={'Post'} />
             <View style={{flex:1}} >
                 <ScrollView showsVerticalScrollIndicator={false} style={{display:addPreviewToggler ? 'flex' :'none'}} >
                     <View style={{marginHorizontal:20,marginTop:10}} >

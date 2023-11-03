@@ -1,8 +1,5 @@
 import React,{useState,useEffect} from "react";
 import { View,Text, TouchableOpacity, StyleSheet,FlatList, ScrollView } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import Header from "../../components/Header";
-import HomePageFootor from "../../components/HomePageFootor";
 
 import Class10Math from './../../assets/rawNotes/Class10Maths.json'
 import Class10Bio from './../../assets/rawNotes/Class10Bio.json'
@@ -20,6 +17,7 @@ import Class12Phy from './../../assets/rawNotes/Class12Phy.json'
 import Class12MChem from './../../assets/rawNotes/Class12Chem.json'
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { storage } from "../../Storage";
 
 const BriefClassification = ({route,navigation}) =>{
     const [Colors,setColors] = useState([]);
@@ -28,7 +26,7 @@ const BriefClassification = ({route,navigation}) =>{
     const {sub} = route.params;
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
 
@@ -38,7 +36,7 @@ const BriefClassification = ({route,navigation}) =>{
         getColors();
 
         const setNotes = async() =>{
-            const clas = await AsyncStorage.getItem('class');
+            const clas = storage.getString('class')
             const value = JSON.parse(clas);
             console.log(value,sub);
 
@@ -92,7 +90,6 @@ const BriefClassification = ({route,navigation}) =>{
     
     return(
         <View style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around'}} >
-            <Header navigation={navigation}  title="Maths" info=""/>
             <ScrollView showsVerticalScrollIndicator={false} style={{flex: 1,marginTop:10}} >
                
                 {

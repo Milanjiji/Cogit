@@ -6,6 +6,7 @@ import { faInfoCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import colors  from '../colors.json'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import SideBar from "../components/SideBar";
+import { storage } from "../Storage";
 
 
 const Forum = ({navigation}) =>{
@@ -19,7 +20,8 @@ const Forum = ({navigation}) =>{
     const [reason,setReason] = useState('technical Issue')
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            // const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }
@@ -51,14 +53,14 @@ const Forum = ({navigation}) =>{
     const flatListRef = useRef(null);
     useEffect(() => {
         const fetchUserReply = async () =>{
-            const name = await AsyncStorage.getItem('userName');
+            const name = storage.getString('userName')
             setName(name);
             
         }
         const unsubscribe = firestore()
             .collection('ChatData')
             .orderBy('id', 'desc')
-            .limit(200)
+            .limit(50)
             .onSnapshot((querySnapshot) => {
                 const items = [];
                 let counter = 0;

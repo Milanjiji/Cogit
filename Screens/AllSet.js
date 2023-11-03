@@ -1,11 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import React, { useEffect } from "react";
 import { View,Text, StyleSheet, TouchableOpacity } from "react-native";
 import  Colors  from "../colors.json";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import SplashScreen from "react-native-splash-screen";
-import { WebView } from 'react-native-webview';
-import { Image } from "react-native-svg";
 
 const AllSet  = ({navigation}) =>{
     useEffect(()=>{
@@ -15,9 +11,7 @@ const AllSet  = ({navigation}) =>{
         navigation.navigate('Home');
         
     }
-    // <WebView source={{ uri: 'https://www.w3schools.com/cpp/trycpp.asp?filename=demo_compiler' }} />
-
-    const Card = ({marginLeft,marginRight,text,subText,width,flex}) =>{
+    const Card = ({marginLeft,marginRight,text,subText,flex}) =>{
         return(
             <View style={{backgroundColor:Colors.primary,borderRadius:10,borderColor:Colors.hashWhite,borderWidth:1,elevation:10,marginLeft:marginLeft ? marginLeft : 0,marginRight:marginRight ? marginRight : 0,paddingVertical:10,flex: flex,marginHorizontal:20}} >
                 <Text style={{color:Colors.white,fontFamily:Colors.Medium,paddingHorizontal: 10,paddingBottom:8,textAlign:'center'}} >{text}</Text>

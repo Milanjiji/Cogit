@@ -1,6 +1,5 @@
-import { faCake, faHeadphonesSimple, faMessage, faQuestion, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCake, faMessage, faQuestion, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react'
 import { View,Text, TouchableOpacity } from 'react-native'
 const Tools = ({navigation,colors}) =>{

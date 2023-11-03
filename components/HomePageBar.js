@@ -1,14 +1,11 @@
 import React,{useEffect,useState} from "react";
-import { Text, View,StyleSheet, TouchableOpacity, Dimensions,ScrollView,ImageBackground, Image } from "react-native";
+import { Text, View,StyleSheet, TouchableOpacity,ImageBackground } from "react-native";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Colors from '../colors.json'
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import LinearGradient from "react-native-linear-gradient";
-import { faAngleUp, faCake, faHeadphones, faMessage, faQuestionCircle, faTemperatureThreeQuarters, faTrash, faUsersBetweenLines, faUsersCog } from "@fortawesome/free-solid-svg-icons";
+import { faAngleUp, faCake, faHeadphones, faMessage, faQuestionCircle, faTrash, faUsersCog } from "@fortawesome/free-solid-svg-icons";
 import mesh from '../assets/images/CommunityBackground.png'
-import { Overlay } from "@chatscope/chat-ui-kit-react";
-
-// go through instagram and get the music for focus mode
+import { storage } from "../Storage";
 
 
 const HomePageBar = ({navigation,...props}) =>{
@@ -17,7 +14,7 @@ const HomePageBar = ({navigation,...props}) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }

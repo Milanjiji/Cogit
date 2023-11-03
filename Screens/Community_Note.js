@@ -2,13 +2,11 @@ import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React,{useEffect,useState} from 'react'
 import {FlatList, StyleSheet, Text,TouchableOpacity,View} from 'react-native'
-import Header from '../components/Header';
-import HomePageFootor from '../components/HomePageFootor';
 import Colors from '../colors.json'
 import firestore from '@react-native-firebase/firestore';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { faEllipsisV, faHamburger, faListDots, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 import RenderCommunityArticle from '../components/RenderCommunity';
+import { storage } from '../Storage';
 
 const Community = ({navigation}) =>{
     const [data,setData] = useState([])
@@ -16,7 +14,7 @@ const Community = ({navigation}) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
         }

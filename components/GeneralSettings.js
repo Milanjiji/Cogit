@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useRef} from "react";
 import {View,Text,StyleSheet,Dimensions, TouchableOpacity} from 'react-native'
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import Colors from '../colors.json'
+import { storage } from "../Storage";
 
 
 const ScreenWidth = Dimensions.get('window').width
@@ -13,7 +13,7 @@ const GeneralSetting = () =>{
     const [reload,setReload] = useState(false);
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
         }
@@ -23,7 +23,7 @@ const GeneralSetting = () =>{
       
     
     const changeColor = async(theme) =>{
-        const data = await AsyncStorage.getItem('Colors');
+        const data = storage.getString('Colors')
         const colors = JSON.parse(data);
 
         if(theme === 'normal'){
@@ -31,7 +31,7 @@ const GeneralSetting = () =>{
             colors.primary = "#12156c";
             colors.secondary = "#0e1158";
             colors.text = "#ffffff";
-            AsyncStorage.setItem('Colors',JSON.stringify(colors));
+            storage.set('Colors',JSON.stringify(colors));
             setBorder(1);
             setReload(true);
         }else if(theme === 'dark'){
@@ -39,7 +39,7 @@ const GeneralSetting = () =>{
             colors.primary = "#1a1a1a";
             colors.secondary = "#7300e6";
             colors.text = "#ffffff";
-            AsyncStorage.setItem('Colors',JSON.stringify(colors))
+            storage.set('Colors',JSON.stringify(colors))
             setReload(true);
             setBorder(2);
         }else if(theme === 'light'){
@@ -48,7 +48,7 @@ const GeneralSetting = () =>{
             colors.secondary = "#595959";
             colors.text = "#000000";
             colors.hashWhite = "#00000020"
-            AsyncStorage.setItem('Colors',JSON.stringify(colors))
+            storage.set('Colors',JSON.stringify(colors))
             setReload(true);
             setBorder(3);
         }else{

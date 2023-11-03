@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 import { View,Text } from "react-native";
 import { WebView } from 'react-native-webview';
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { storage } from "../Storage";
 
 const Code = () =>{
     const [Colors,setColors] = useState([]);
@@ -9,7 +9,7 @@ const Code = () =>{
     
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }

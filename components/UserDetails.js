@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faHeart, faPhone} from '@fortawesome/free-solid-svg-icons';
+import {  faPhone} from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 import firestore from '@react-native-firebase/firestore';
 import RenderPosts from './RenderPosts';
 import RenderArticle from './RenderArticles';
+import { storage } from '../Storage';
 
 
 
@@ -25,18 +25,18 @@ const UserDetails = ({navigation}) => {
   const [articleCount,setArticleCount] = useState(0);
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }
         getColors();
         const getDetails = async() =>{
-            const Name = JSON.parse(await AsyncStorage.getItem('userName'));
+            const Name = JSON.parse(storage.getString('userName'));
             setName(Name);
             console.log(Name);
-            const Phone = JSON.parse(await AsyncStorage.getItem('phone'));
+            const Phone = JSON.parse(storage.getString('phone'));
             setPhone(Phone);
-            const Clas = JSON.parse(await AsyncStorage.getItem('class'));
+            const Clas = JSON.parse(storage.getString('class'));
             setClass(Clas);
         }
         getDetails();

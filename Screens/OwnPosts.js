@@ -2,13 +2,12 @@ import { faHeart as faHeartFree} from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React,{useEffect,useState} from 'react'
 import {FlatList, StyleSheet, Text,TouchableOpacity,View,ScrollView} from 'react-native'
-import Header from '../components/Header';
 import Colors from '../colors.json'
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import {  faCopy,faHeart as faHeartSolid } from '@fortawesome/free-solid-svg-icons';
 import Clipboard from '@react-native-clipboard/clipboard';
 import firestore from '@react-native-firebase/firestore';
+import { storage } from '../Storage';
 
 
 
@@ -23,7 +22,7 @@ const OwnPosts = ({navigation,route}) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
             console.log(colors);
@@ -41,7 +40,7 @@ const OwnPosts = ({navigation,route}) =>{
                 i:doc.id,
                 ...doc.data()
               }));
-            const name = await AsyncStorage.getItem('userName')
+            const name = storage.getString('userName')
             console.log(name);
             const own = data.filter(item => name === item.userName)
             console.log(own);
@@ -52,7 +51,7 @@ const OwnPosts = ({navigation,route}) =>{
         }
         get();
         const getLikedData = async () =>{
-            const data = await AsyncStorage.getItem('likedContents');
+            const data = storage.getString('likedContents');
             const value = JSON.parse(data);
             if(value){
                 setLikedData(value)
@@ -91,7 +90,7 @@ const OwnPosts = ({navigation,route}) =>{
                       setLikedData([...likedData,{id:id}])
     
                       const StringifiedData = JSON.stringify([...likedData,{id:id}])
-                      AsyncStorage.setItem('likedContents',StringifiedData);
+                      storage.set('likedContents',StringifiedData);
                     console.log('Document field updated successfully');
                   } catch (error) {
                     console.error('Error updating document field:', error);
@@ -143,7 +142,7 @@ const OwnPosts = ({navigation,route}) =>{
                         setLikedData([...likedData,{id:id}])
         
                         const StringifiedData = JSON.stringify([...likedData,{id:id}])
-                        AsyncStorage.setItem('likedContents',StringifiedData);
+                        storage.set('likedContents',StringifiedData);
                         console.log('Document field updated successfully');
                     } catch (error) {
                         console.error('Error updating document field:', error);
@@ -223,7 +222,6 @@ const OwnPosts = ({navigation,route}) =>{
       
     return(
         <ScrollView showsVerticalScrollIndicator={false} style={[styles.App,{backgroundColor:Colors.Background}]} >
-            <Header navigation={navigation} info="post" title={'Skills'}   />
         
             <View style={{flex:1}} >
                 <Text style={{ display:loading ? 'flex' : 'none' , color:Colors.text,textAlign:'center',fontFamily:Colors.Medium}} >Loading...</Text>

@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {View,Text, StyleSheet,  ScrollView} from 'react-native'
 import Colors from '../colors.json'
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { storage } from "../Storage";
 
 
 const PreviewArticle = ({title,overView,content,extra}) =>{
@@ -9,7 +9,7 @@ const PreviewArticle = ({title,overView,content,extra}) =>{
     
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }

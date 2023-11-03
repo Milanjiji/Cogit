@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from "react";
 import { View,Text,TouchableOpacity } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import CutomTextInput from "../components/CutomTextInput";
 import firestore from '@react-native-firebase/firestore';
+import { storage } from "../Storage";
 
 const Report = ({navigation,route}) =>{
 
@@ -14,8 +14,8 @@ const Report = ({navigation,route}) =>{
     const [send,setSend] = useState(false);
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
-            const name = JSON.parse(await AsyncStorage.getItem('userName'))
+            const data = storage.getString('Colors');
+            const name = JSON.parse(storage.getString('userName'))
             const colors = JSON.parse(data);
             setColors(colors);
             setName(name);

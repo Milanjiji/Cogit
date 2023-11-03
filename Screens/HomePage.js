@@ -19,6 +19,7 @@ import firestore from '@react-native-firebase/firestore';
 import CutomTextInput from '../components/CutomTextInput';
 import Tools from '../components/Tools';
 import Tasks from '../components/Tasks';
+import { storage } from '../Storage';
 
 
 // ted ed classes
@@ -33,7 +34,7 @@ const Homepage = ({navigation,route}) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
         }
@@ -41,11 +42,13 @@ const Homepage = ({navigation,route}) =>{
         
         const getBanDetails = async () =>{
             
-            const banReport = JSON.parse(await AsyncStorage.getItem('ban'));
+            const banReport = JSON.parse(storage.getString('ban'));
+            // 
             if(banReport){
               setBan(true);
             }
-            const name = JSON.parse(await AsyncStorage.getItem('userName'))
+            const name = JSON.parse(storage.getString('userName'))
+            // 
             try {
               const querySnapshot = await firestore()
                 .collection('Users')
@@ -65,10 +68,13 @@ const Homepage = ({navigation,route}) =>{
               if(documentsInRange[0].ban){
                 setBanReason(documentsInRange[0].banRea)
                 setBan(true);
-                await AsyncStorage.setItem('ban',JSON.stringify(true));
+                // await AsyncStorage.setItem('ban',JSON.stringify(true));
+                storage.set('ban',false);
               }else{
                 setBan(false);
-                await AsyncStorage.setItem('ban',JSON.stringify(false));
+                // await AsyncStorage.setItem('ban',JSON.stringify(false));
+                storage.set('ban',false)
+                // 
               }
               
             } catch (error) {
@@ -81,8 +87,11 @@ const Homepage = ({navigation,route}) =>{
     },[])
 
   const sendReport = async () =>{
-      const name = JSON.parse(await AsyncStorage.getItem('userName'))
-      const phone = JSON.parse(await AsyncStorage.getItem('phone'))
+      // const name = JSON.parse(await AsyncStorage.getItem('userName'))
+      // const phone = JSON.parse(await AsyncStorage.getItem('phone'))
+      // 
+      const name = storage.getString('userName')
+      const phone = storage.getString('phone')
 
       if(
         report
@@ -118,7 +127,7 @@ const Homepage = ({navigation,route}) =>{
     
     return(
            <View style={{flex: 1,}} >  
-           <StatusBar backgroundColor="#000000"/>
+           <StatusBar backgroundColor={Colors.Background}/>
             <View style={{flex: 1,backgroundColor:Colors.Background,padding: 10,display:ban ? 'flex' :'none'}} >
               <View style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,flex: 1,justifyContent:'center',alignItems:'center'}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Sorry User</Text>

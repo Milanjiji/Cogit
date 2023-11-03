@@ -2,9 +2,9 @@ import { faAngleUp, faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { React,useState,useEffect } from "react";
 import { View,Text,TouchableOpacity } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { faFacebook, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import firestore from '@react-native-firebase/firestore';
+import { storage } from "../Storage";
 
 
 
@@ -15,7 +15,7 @@ const RenderPosts = ({item}) =>{
     const [conform,setConform] = useState(false);
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }

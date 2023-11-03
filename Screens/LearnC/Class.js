@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView,TouchableOpacity} from 'react-native';
-import Header from '../../components/Header';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Code from '../../components/Code';
+import { storage } from '../../Storage';
 
 
 
@@ -13,20 +13,20 @@ const Classes = ({navigation}) => {
     
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }
         getColors();
 
         const getLang = async() =>{
-            const lang = JSON.parse(await AsyncStorage.getItem("C++Lang"));
+            const lang = storage.getBoolean("C++Lang");
             console.log("lang",lang);
-            if(lang !== null){
+            if(lang !== undefined){
                 setLang(lang)
             }else{
                 setLang(false);
-                await AsyncStorage.setItem("C++Lang",JSON.stringify(false))
+                storage.set("C++Lang",false)
             }
           }
           getLang()
@@ -50,8 +50,7 @@ const Classes = ({navigation}) => {
   
   return (
     <View
-      style={{backgroundColor:Colors.Background,flex: 1,}} >
-          <Header navigation={navigation} title='Classes' info=''  />    
+      style={{backgroundColor:Colors.Background,flex: 1,}} > 
         <ScrollView showsVerticalScrollIndicator={false} style={{padding: 10,}} >
             
             <View>

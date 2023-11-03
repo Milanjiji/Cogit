@@ -2,9 +2,8 @@ import React ,{useState,useEffect,useRef} from "react";
 import { View, Text, TextInput, TouchableOpacity,StyleSheet, FlatList,Dimensions } from "react-native";
 import firestore from '@react-native-firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { faSquare } from "@fortawesome/free-regular-svg-icons";
-import { faAngleDown, faAngleRight, faAngleUp, faArrowDownShortWide, faCheckSquare } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight} from "@fortawesome/free-solid-svg-icons";
+import { storage } from "../Storage";
 
 const search = firestore().collection('Users');
 
@@ -13,7 +12,7 @@ const AboutTheApp = ({navigation}) =>{
     const [Colors,setColors] = useState([]);
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }

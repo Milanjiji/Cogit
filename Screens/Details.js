@@ -17,10 +17,10 @@ import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import firestore from '@react-native-firebase/firestore';
 import SplashScreen from 'react-native-splash-screen';
 import CutomTextInput from '../components/CutomTextInput';
+import { storage } from '../Storage';
 
 
 const primary = "#12156c"
-const secondry = "#283459"
 const background = "#2b1499";
 const white = "white"
 const Bold = "Montserrat-Bold"
@@ -39,9 +39,7 @@ const Details = ({navigation,route}) =>{
     const [errorType,setErrorType] = useState('');
     const [loading,setLoading] = useState(false);
     const [accountExists,setAccountExists] = useState(false);
-
     const search = firestore().collection('Users');
-    
     const height = Dimensions.get('window').height;
     const width = Dimensions.get('window').width;
 
@@ -55,7 +53,6 @@ const Details = ({navigation,route}) =>{
 
    
     const Submit = async () =>{
-        
         if(
             userName &&  phone && clas 
         ){  
@@ -70,9 +67,12 @@ const Details = ({navigation,route}) =>{
                         setLoading(true);
                         console.log(userName,clas,phone);
                         try{
-                            await AsyncStorage.setItem('userName',JSON.stringify(userName));
-                            await AsyncStorage.setItem('phone', JSON.stringify(phone));
-                            await AsyncStorage.setItem('class', JSON.stringify(clas));
+                            storage.set('userName',JSON.stringify(userName))
+                            storage.set('phone',JSON.stringify(phone))
+                            storage.set('class',JSON.stringify(clas))
+                            // await AsyncStorage.setItem('userName',JSON.stringify(userName));
+                            // await AsyncStorage.setItem('phone', JSON.stringify(phone));
+                            // await AsyncStorage.setItem('class', JSON.stringify(clas));
                                     
                                 firestore()
                                     .collection('Users')
@@ -115,8 +115,6 @@ const Details = ({navigation,route}) =>{
             console.log(phone);
             setLoading(false);
         }
-        
-        
     }
     const loginTypeToggler = () =>{
         setLoginType(!LoginType);
@@ -126,9 +124,12 @@ const Details = ({navigation,route}) =>{
 
     const uploadData = async(userName,phone,clas) =>{
         try{
-            await AsyncStorage.setItem('userName',JSON.stringify(userName));
-            await AsyncStorage.setItem('phone', JSON.stringify(phone));
-            await AsyncStorage.setItem('class', JSON.stringify(clas));
+            storage.set('userName',JSON.stringify(userName))
+            storage.set('phone',JSON.stringify(phone))
+            storage.set('class',JSON.stringify(clas))
+            // await AsyncStorage.setItem('userName',JSON.stringify(userName));
+            // await AsyncStorage.setItem('phone', JSON.stringify(phone));
+            // await AsyncStorage.setItem('class', JSON.stringify(clas));
         }catch(e){
             console.log('err');
         }

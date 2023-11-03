@@ -2,12 +2,9 @@ import { faPlusSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React,{useEffect,useState} from 'react'
 import {FlatList, ScrollView, StyleSheet, Text,TouchableOpacity,View,TextInput} from 'react-native'
-import Header from '../components/Header';
-import HomePageFootor from '../components/HomePageFootor';
 import Colors from '../colors.json'
 import firestore from '@react-native-firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import PreviewArticle from '../components/PreviewArticle';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const PostSkill = ({navigation}) =>{
@@ -121,7 +118,6 @@ const PostSkill = ({navigation}) =>{
     
     return(
         <View style={{flex: 1,backgroundColor:Colors.Background}} >
-            <Header navigation={navigation} info="" title={'Post'} />
             <View style={{flex:1}} >
 
                 <ScrollView showsVerticalScrollIndicator={false} >

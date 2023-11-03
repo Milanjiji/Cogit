@@ -3,17 +3,15 @@ import { Text, View,StyleSheet, TouchableOpacity, ScrollView,Linking,TextInput} 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Colors from '../colors.json'
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Header from "../components/Header";
-import HomePageFootor from "../components/HomePageFootor";
-import { faHeart, faPaperPlane, faPhone, faPlane } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faPaperPlane} from "@fortawesome/free-solid-svg-icons";
 import firestore from '@react-native-firebase/firestore';
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import SideBar from "../components/SideBar";
+import { storage } from "../Storage";
 
 
 
 
-const ReCycle = ({navigation,...props}) =>{
+const ReCycle = ({navigation}) =>{
     const [Colors,setColors] = useState([]);
     const [name,setName] = useState('');
     const [Phone,setPhone] = useState('');
@@ -39,38 +37,32 @@ const ReCycle = ({navigation,...props}) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            // const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
         }
         getColors();
         const getDetails = async() =>{
-            const Name = await AsyncStorage.getItem('userName');
+            const Name = JSON.parse(storage.getString('userName'))
             setName(Name);
-            const Phone = await AsyncStorage.getItem('phone');
+            const Phone = JSON.parse(storage.getString('phone'))
             setPhone(Phone);
-            const Clas = await AsyncStorage.getItem('class');
+            const Clas = JSON.parse(storage.getString('class'))
             setClass(Clas);
-            const School = await AsyncStorage.getItem('school');
-            setSchool(School);
-            const Email = await AsyncStorage.getItem('email');
-            setEmail(Email);
 
-            const support = await AsyncStorage.getItem('ReCycleSupported');
-            const RecycleSupport = JSON.parse(support);
-            if(RecycleSupport){
+            const support = storage.getBoolean('ReCycleSupported')
+            if(support){
                 setSupported(true);
-                // AsyncStorage.setItem('ReCycleSupported',JSON.stringify(false))
 
             }else{
-                AsyncStorage.setItem('ReCycleSupported',JSON.stringify(false))
+                storage.set('ReCycleSupported',false)
                 setSupported(false);
 
             }
 
-            const joined = await AsyncStorage.getItem('joinedRecycle');
-            const RecycleJoin = JSON.parse(joined);
-            if(RecycleJoin){
+            const joined = storage.getBoolean('joinedRecycle');
+            if(joined){
                 setJoin(true);
             }else{
                 setJoin(false);
@@ -81,7 +73,7 @@ const ReCycle = ({navigation,...props}) =>{
             const users = await firestore().collection('ReCycleSupport').get();
             // console.log(users.size);
             setLead(users.size);
-            console.log(Name,Phone,Clas,School);
+            console.log(Name,Phone,Clas);
         }
         getDetails();
     },[])
@@ -97,13 +89,13 @@ const support = () =>{
         })
         .then(() => {
             console.log('Message sent successfully');
-            AsyncStorage.setItem('ReCycleSupported',JSON.stringify(true));
+            storage.set('ReCycleSupported',true)
             setSupported(true)
         })
         .catch((error) => {
             console.log('Error sending message:', error);
             setSupported(false);
-            AsyncStorage.setItem('ReCycleSupported',JSON.stringify(false));
+            storage.set('ReCycleSupported',false)
         });
     }catch(e){
         console.log(e);
@@ -116,20 +108,18 @@ const join = async() =>{
         .collection('ReCycle')
         .add({
             name:name,
-            school:school,
             phone:Phone,
             class:clas,
-            school,school
         })
         .then(() => {
             console.log('Message sent successfully');
-            AsyncStorage.setItem('joinedRecycle',JSON.stringify(true))
+            storage.set('joinedRecycle',true)
             setJoin(true);
         })
         .catch((error) => {
-        console.log('Error sending message:', error);
-        AsyncStorage.setItem('joinedRecycle',JSON.stringify(false))
-        setJoin(false);
+            console.log('Error sending message:', error);
+            storage.set('joinedRecycle',false)
+            setJoin(false);
         });
        
     }catch(e){
@@ -150,8 +140,6 @@ const handleSend = () => {
             name:name,
             message:message,
             phone:Phone,
-            email:email,
-            school:school
            })
           .then(() => {
             console.log('Message sent successfully');

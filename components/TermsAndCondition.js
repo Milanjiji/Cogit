@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from "react"
 import { ScrollView, StyleSheet, Text, View } from "react-native"
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { storage } from "../Storage";
 
 const TermsCondition = ({navigation}) =>{
     const [Colors,setColors] = useState([]);
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }

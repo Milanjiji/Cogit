@@ -5,18 +5,17 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBullseye, faChartArea, faFileCode, faGear, faHome, faStickyNote } from "@fortawesome/free-solid-svg-icons";
 import { faMessage } from "@fortawesome/free-regular-svg-icons";
+import { storage } from "../Storage";
 
 
 const SideBar  =  ({navigation,page}) =>{
     const [Colors,setColors] = useState([]);
 
-  
-      
-
     useEffect(()=>{
         
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            // const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
         }

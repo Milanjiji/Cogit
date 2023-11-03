@@ -1,7 +1,5 @@
 import React,{useState,useEffect} from "react";
 import {View,Text, StyleSheet, FlatList, ScrollView, PermissionsAndroid} from 'react-native'
-import Header from "../components/Header";
-import HomePageFootor from "../components/HomePageFootor";
 import Colors from '../colors.json'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 

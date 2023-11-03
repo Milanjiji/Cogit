@@ -1,15 +1,13 @@
 import React,{useState,useEffect} from "react";
 import { View,Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import Header from "../../components/Header";
-import HomePageFootor from "../../components/HomePageFootor";
+import { storage } from "../../Storage";
 
 const Brief = ({navigation,route}) =>{
     const [Colors,setColors] = useState([])
     const {note} = route.params;
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
         }
@@ -20,7 +18,6 @@ const Brief = ({navigation,route}) =>{
 
     return(
         <View style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around'}} >
-            <Header navigation={navigation}  title="Maths" info=""/>
             <ScrollView style={{flex: 1,paddingHorizontal:12}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Bold,textAlign:'center',fontSize:18,marginTop:10}} >{note.chapter}</Text>
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginTop:10,fontSize:12}} >{note.chapterOverview}</Text>

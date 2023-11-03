@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView,TouchableOpacity} from 'react-native';
-import Header from '../../components/Header';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { storage } from '../../Storage';
 
 
 
@@ -14,27 +13,27 @@ const CClass = ({navigation}) => {
     
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
         }
         getColors();
 
         const getLang = async() =>{
-          const lang = JSON.parse(await AsyncStorage.getItem("C++Lang"));
-          console.log("lang",lang);
-          if(lang !== null){
+          const lang = storage.getBoolean('C++Lang')
+          if(lang !== undefined){
               setLang(lang)
           }else{
               setLang(false);
-              await AsyncStorage.setItem("C++Lang",JSON.stringify(false))
+              console.log('place of ');
+              storage.set('C++Lang',false)
           }
         }
         getLang()
     },[]);
     const changeLanuage = async() =>{
-      await AsyncStorage.setItem("C++Lang",JSON.stringify(!lang));
-      setLang(!lang);
+      storage.set('C++Lang',!lang)
+      setLang(!lang)
   }
 
     const Button = ({text,no,to}) =>{
@@ -52,7 +51,6 @@ const CClass = ({navigation}) => {
   return (
     <View
       style={{backgroundColor:Colors.Background,flex: 1,}} >
-          <Header navigation={navigation} title='C++' info=''  />    
           
         <ScrollView showsVerticalScrollIndicator={false} >
 

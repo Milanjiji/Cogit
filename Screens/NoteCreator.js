@@ -1,8 +1,6 @@
 import React,{useState,useEffect,useRef} from "react";
 import {View,Text,ScrollView,StyleSheet,TextInput,Dimensions, TouchableOpacity,Touchable} from 'react-native'
 import Colors from '../colors.json';
-import Header from "../components/Header";
-import HomePageFootor from "../components/HomePageFootor";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
@@ -51,7 +49,6 @@ const NoteCreator = ({navigation,route}) =>{
     }
         return(
         <View style={[styles.body,{backgroundColor:'transparent'}]} >
-            <Header title={title} info={""} />
             <ScrollView style={styles.area} showsVerticalScrollIndicator={false} >
                 <TouchableOpacity activeOpacity={1} style={{height:height-100}} onPress={focusToTextInput} >
 

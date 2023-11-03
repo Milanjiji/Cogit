@@ -15,6 +15,7 @@ import TrackPlayer,{useTrackPlayerEvents} from 'react-native-track-player';
 import SideBar from '../components/SideBar';
 import { useTimer } from '../components/TimerContext';
 import randomMusic from '../assets/MusicLinks.json'
+import { storage } from '../Storage';
 
 const FocusMode = ({navigation}) => {
   const [Colors,setColors] = useState([]);
@@ -35,7 +36,8 @@ const FocusMode = ({navigation}) => {
 
   useEffect(()=>{
     const getColors = async()=>{
-        const data = await AsyncStorage.getItem('Colors');
+        // const data = await AsyncStorage.getItem('Colors');
+        const data = storage.getString('Colors')
         const colors = JSON.parse(data);
         setColors(colors);
         
@@ -343,11 +345,7 @@ const FocusMode = ({navigation}) => {
 
           <View>
 
-            {/* <View style={{margin:10,backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,alignItems:'center',display:isRunning ? 'flex' :'none'}} >
-                <Text  style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:30 ,display : timer ? 'flex' :'none'}} >{Math.floor( State ?  leftIntTime : leftStudyTime / 60)}:{State ?  leftIntTime : leftStudyTime % 60}</Text>
-                <Text  style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:30,display : !timer ? 'flex' :'none'}} >00:00</Text>
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >remaining</Text>
-            </View> */}
+            
 
             <View style={{margin:10,backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,display:isRunning ? 'none' :'flex'}} >
               <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}} >

@@ -1,20 +1,15 @@
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import React,{useEffect,useState,useRef} from 'react'
-import {View,Text, StyleSheet,ImageBackground,TouchableOpacity} from 'react-native'
+import React,{useEffect,useState} from 'react'
+import {View,Text, StyleSheet} from 'react-native'
 import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage'
-import ted  from  '../assets/images/ted.png'
 import Quotes from '../assets/others/quotes.json'
 import Timer from './Timer'
-import focusImage from '../assets/images/focused.png'
-import skillImg from '../assets/images/skills.png'
-import forumImg from '../assets/images/forum.png'
+import { storage } from '../Storage'
 
 
 const date = new Date();
 
-const Greetings = ({navigation}) =>{
+const Greetings = () =>{
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleString('en-US', { hour: 'numeric', hour12: false }));
     const [message,setMessage] = useState();
     const [name,setName] = useState('');
@@ -24,14 +19,16 @@ const Greetings = ({navigation}) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            // const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
         }
         getColors();
 
         const getFocusModeStatus = async() =>{
-            const data = await AsyncStorage.getItem('FocusModeRunning');
+            // const data = await AsyncStorage.getItem('FocusModeRunning');
+            const data = storage.getString('FocusModeRunning')
             const value = JSON.parse(data);
         }
         getFocusModeStatus()
@@ -50,8 +47,9 @@ const Greetings = ({navigation}) =>{
     useEffect(()=>{
         const getName = async() =>{
             try{
-                const Name = JSON.parse(await AsyncStorage.getItem('userName'));
-                setName(Name);
+                // const Name = JSON.parse(await AsyncStorage.getItem('userName'));
+                const Name = storage.getString('userName')
+                setName(JSON.parse(Name));
             }catch(e){
                 console.log(e);
             }

@@ -1,16 +1,12 @@
-import { faBookOpen } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import React,{useState,useEffect} from 'react';
-import {  faMusic, faFilm } from '@fortawesome/free-solid-svg-icons';
+
+import React from 'react';
 import { View,
         Text,
         StyleSheet,
         TouchableOpacity,
         Dimensions,
-        Animated
         } from 'react-native'
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import Colors from '../colors.json'
 
 const secondry = "#3fb0c9"
@@ -19,26 +15,10 @@ const fontBold = "Montserrat-Bold"
 
 
 const GetStarted = ({navigation}) =>{
-    const [delay,setDelay] = useState(false);
-    const [name,setname] = useState("");
-    const height = Dimensions.get('window').height
     const width = Dimensions.get('window').width
-    useEffect(()=>{
-        // const getDetails = async() =>{
-        //     const name = await AsyncStorage.getItem('userName');
-        //     console.log(name);
-        //     setname(name);
-        // }
-    },[])
-    
-    
-    
+
     return (
-
         <View style={styles.background} >
-          
-
-            
                 <View style={{flex: 1,}}  > 
                     <Text style={styles.name} >Cogit</Text>
                     <View style={{flex:1,justifyContent:'space-around',marginTop:-100}} >
@@ -48,19 +28,13 @@ const GetStarted = ({navigation}) =>{
                         }]} >Transform the way you learn with Cogit</Text>
                         <Text style={styles.smallquote} >Get ahead in your studies with Cogit {"\n"} - the student-friendly app.</Text>
                     </View>
-                    
-
                     </View>
-                    
                     <TouchableOpacity onPress={()=>{
                         navigation.navigate('Details')
                     }} >
                         <Text style={[styles.btn,{}]} >Get Started</Text>
                     </TouchableOpacity>
                 </View>
-            
-            
-            
         </View>
         
 

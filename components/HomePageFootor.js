@@ -1,28 +1,16 @@
 import React,{useEffect,useState} from 'react';
 import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
     StyleSheet,
     Text,
     TouchableOpacity,
-    useColorScheme,
-    View,
   } from 'react-native';
   
   import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-  import {  faAdd, faBook, faGear, faHome, faMessage } from '@fortawesome/free-solid-svg-icons';
-import { faFileText, faUser } from '@fortawesome/free-solid-svg-icons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+  import { faBook, faHome, faMessage } from '@fortawesome/free-solid-svg-icons';
 import LinearGradient from 'react-native-linear-gradient';
+import { storage } from '../Storage';
 
 
-  const primary = "#04103a"
-const secondry = "#283459"
-
-const black = "black"
-const white = "white"
-const ExtraBold = 'Montserrat-ExtraBold';
 
 const HomePageFootor = (props) =>{
    
@@ -31,7 +19,7 @@ const HomePageFootor = (props) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.set('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }

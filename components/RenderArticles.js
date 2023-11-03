@@ -1,9 +1,9 @@
 import React,{useEffect,useState} from "react";
 import { View,Text, TouchableOpacity } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleUp, faTrash } from "@fortawesome/free-solid-svg-icons";
 import firestore from '@react-native-firebase/firestore';
+import { storage } from "../Storage";
 
 
 const RenderArticle = ({item}) =>{
@@ -13,7 +13,7 @@ const RenderArticle = ({item}) =>{
     const [delPost,setDelPost] = useState(true)
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }

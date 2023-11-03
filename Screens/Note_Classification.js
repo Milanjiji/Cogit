@@ -1,7 +1,5 @@
 import React, { useState,useEffect,useRef } from 'react'
 import { Text, View,StyleSheet, ScrollView, TouchableOpacity, TextInput,Dimensions, FlatList, Touchable } from 'react-native';
-import Header from '../components/Header';
-import HomePageFootor from '../components/HomePageFootor';
 import Colors from '../colors.json';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
@@ -78,7 +76,6 @@ const Note_Classification = ({navigation}) =>{
     } 
     return (
       <SafeAreaView style={[styles.body,{backgroundColor:Colors.Background}]} >
-        <Header title={"Notes"} info='' />
         {emptyList ? 
         <View style={[styles.emptyList,{backgroundColor:Colors.hashWhite}]} >
         <Text style={[styles.emptyListText,{color:Colors.text}]} >No Notes to display{"\n"} Create one from the button below</Text>

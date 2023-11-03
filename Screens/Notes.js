@@ -2,8 +2,6 @@ import React,{useEffect,useState} from "react";
 import { Text, View,StyleSheet, TouchableOpacity, Dimensions,ScrollView,ImageBackground, Image } from "react-native";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Colors from '../colors.json'
-import Header from "../components/Header";
-import HomePageFootor from "../components/HomePageFootor";
 import firestore from '@react-native-firebase/firestore';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";

@@ -1,18 +1,18 @@
 import React,{useState,useEffect} from "react";
 import { View,Text, TouchableOpacity } from "react-native";
 import { useTimer } from '../components/TimerContext';
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faSquare } from "@fortawesome/free-solid-svg-icons";
+import { storage } from "../Storage";
 
 
 const Timer = () =>{
     const [Colors,setColors] = useState([]);
-    const { seconds, isRunning,minutes,studyTime,int,leftStudyTime,leftIntTime,State,resetTimer,stopTimer } = useTimer();
+    const {  isRunning,leftStudyTime,leftIntTime,State,resetTimer,stopTimer } = useTimer();
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }

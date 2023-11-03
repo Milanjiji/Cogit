@@ -6,7 +6,6 @@ import { enableScreens } from 'react-native-screens';
 
 
 import Homepage from '../Screens/HomePage'
-import Model from "../Screens/Notes/Model";
 import Classification from "../Screens/Notes/Classification";
 import Forum from "../Screens/Forum";
 import GetStarted from "../Screens/GetStarted";
@@ -17,7 +16,6 @@ import FocusMode from "../Screens/FocusMode";
 import Notes from "../Screens/Notes";
 import Community from "../Screens/Community_Note";
 import ArticleView from "../Screens/ArticleView";
-import Missions from "../Screens/Missions";
 import LoadingAnimation from "./LoadingAnimation";
 import AllSet from "../Screens/AllSet";
 import Setting from "../Screens/Settings";
@@ -34,7 +32,6 @@ import PostSkill from "../Screens/PostSkills";
 import ReCycle from "../Screens/ReCycle";
 import VideoClass from "../Screens/Notes/VideoClass";
 import VideoClassification from "../Screens/Notes/VideoClassification";
-import SendMessage from "../Screens/Message";
 import LoadScreen from "../Screens/SplashScreen";
 import TedEd from "../Screens/TedEd";
 import OwnPosts from "../Screens/OwnPosts";
@@ -61,9 +58,9 @@ import Function from "../Screens/LearnC/Functions";
 import Classes from "../Screens/LearnC/Class";
 import VeryShortClassification from "../Screens/Notes/VeryShortClassification";
 import VeryShort from "../Screens/Notes/VeryShort";
-import TrackPlayerDemo from "../Screens/TrackPlayerDemo";
 import Report from "../Screens/Report";
 import TaskManager from "../Screens/TaskManager";
+import Test from "../Screens/TestStorage";
 
 
 
@@ -98,9 +95,6 @@ const Screens = () =>{
            name="NoteCreator" 
            component={NoteCreator} />
           <Stack.Screen
-           name="Model" 
-           component={Model} />
-          <Stack.Screen
            name="MathsClassification" 
            component={Classification} />
           
@@ -119,9 +113,6 @@ const Screens = () =>{
            <Stack.Screen
            name="ViewArticle" 
            component={ArticleView} /> 
-           <Stack.Screen
-           name="Missions" 
-           component={Missions} />
            <Stack.Screen
            name="Animation" 
            component={LoadingAnimation} /> 
@@ -176,9 +167,6 @@ const Screens = () =>{
             <Stack.Screen
            name="VideoClass" 
            component={VideoClass} />
-           <Stack.Screen
-           name="SendMessage" 
-           component={SendMessage} />
            <Stack.Screen
            name="TedEd" 
            component={TedEd} />
@@ -258,14 +246,14 @@ const Screens = () =>{
            name="VeryShort" 
            component={VeryShort} />
            <Stack.Screen
-           name="TrackPlayer" 
-           component={TrackPlayerDemo} />
-           <Stack.Screen
            name="Report" 
            component={Report} />
            <Stack.Screen
            name="TaskManager" 
            component={TaskManager} />
+            <Stack.Screen
+           name="Test" 
+           component={Test} />
 
   
         </Stack.Navigator>

@@ -2,13 +2,13 @@ import { faHeart as faHeartFree, faPlusSquare} from '@fortawesome/free-regular-s
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React,{useEffect,useState} from 'react'
 import {FlatList, StyleSheet, Text,TouchableOpacity,View,ScrollView} from 'react-native'
-import Header from '../components/Header';
 import Colors from '../colors.json'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import {  faArrowDown, faCopy,faHeart as faHeartSolid, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import Clipboard from '@react-native-clipboard/clipboard';
 import firestore from '@react-native-firebase/firestore';
+import { storage } from '../Storage';
 
 
 
@@ -25,7 +25,8 @@ const Skills = ({navigation,route}) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            // const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
             console.log(colors);
@@ -48,7 +49,7 @@ const Skills = ({navigation,route}) =>{
         }
         get();
         const getLikedData = async () =>{
-            const data = await AsyncStorage.getItem('likedContents');
+            const data = storage.getString('likedContents')
             const value = JSON.parse(data);
             if(value){
                 setLikedData(value)
@@ -113,7 +114,7 @@ const Skills = ({navigation,route}) =>{
                       setLikedData([...likedData,{id:id}])
     
                       const StringifiedData = JSON.stringify([...likedData,{id:id}])
-                      AsyncStorage.setItem('likedContents',StringifiedData);
+                      storage.set('likedContents',StringifiedData)
                     console.log('Document field updated successfully');
                   } catch (error) {
                     console.error('Error updating document field:', error);
