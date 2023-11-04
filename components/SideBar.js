@@ -13,7 +13,6 @@ const SideBar  =  ({navigation,page}) =>{
     useEffect(()=>{
         
         const getColors = async()=>{
-            // const data = await AsyncStorage.getItem('Colors');
             const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
