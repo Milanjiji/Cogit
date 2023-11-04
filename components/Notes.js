@@ -26,7 +26,7 @@ const Notes = ({navigation,route,...props}) =>{
         navigation.navigate(place,{sub:sub});
     }
     return(
-            <View style={{marginVertical:10,marginHorizontal:10}} >
+            <View style={{marginBottom:10,marginHorizontal:10}} >
                     
                     <View style={{flexDirection:'row',flex: 1,justifyContent:'space-around',marginVertical:10}} >
                         <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','math')} >

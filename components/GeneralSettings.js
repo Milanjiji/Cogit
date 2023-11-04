@@ -42,15 +42,6 @@ const GeneralSetting = () =>{
             storage.set('Colors',JSON.stringify(colors))
             setReload(true);
             setBorder(2);
-        }else if(theme === 'light'){
-            colors.Background = "#ffffff";
-            colors.primary = "#bfbfbf";
-            colors.secondary = "#595959";
-            colors.text = "#000000";
-            colors.hashWhite = "#00000020"
-            storage.set('Colors',JSON.stringify(colors))
-            setReload(true);
-            setBorder(3);
         }else{
         console.log("No color");
         }
@@ -66,24 +57,17 @@ const GeneralSetting = () =>{
             <View style={styles.themeContainer} >
                 <Text style={[styles.themeTitle,{color:Colors.text}]} >Use Theme:</Text>
                 <View style={styles.themeSelectionContainer} >
-                    <TouchableOpacity onPress={() => changeColor('normal')} >
+                    <TouchableOpacity onPress={() => changeColor('normal')} style={{elevation:20}} >
                         <View style={[styles.theme,{backgroundColor:'#2b1499',borderWidth:border === 1 ? 2 : 0}]} >
                             <View style={[styles.boxInside1,{backgroundColor:'#12156c'}]} ></View>
                             <View style={[styles.boxInside2,{backgroundColor:'#0e1158'}]}  ></View>
                             <View style={styles.boxInside2} ></View>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity  onPress={() => changeColor('dark')} >
+                    <TouchableOpacity  onPress={() => changeColor('dark')} style={{elevation:20}} >
                         <View style={[styles.theme,{backgroundColor:'#0d0d0d',borderWidth:border === 2 ? 2 : 0}]} >
                             <View style={[styles.boxInside1,{backgroundColor:'#333333'}]} ></View>
                             <View style={[styles.boxInside2,{backgroundColor:'#262626'}]} ></View>
-                            <View style={styles.boxInside2} ></View>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity  onPress={() => changeColor('light')} >
-                        <View style={[styles.theme,{backgroundColor:'#ffffff',borderWidth:border === 3 ? 3 : 0,borderColor:'black'}]} >
-                            <View style={[styles.boxInside1,{backgroundColor:'#bfbfbf'}]} ></View>
-                            <View style={[styles.boxInside2,{backgroundColor:'#595959'}]} ></View>
                             <View style={styles.boxInside2} ></View>
                         </View>
                     </TouchableOpacity>

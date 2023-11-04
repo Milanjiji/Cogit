@@ -19,7 +19,6 @@ const Forum = ({navigation}) =>{
     const [reason,setReason] = useState('technical Issue')
     useEffect(()=>{
         const getColors = async()=>{
-            // const data = await AsyncStorage.getItem('Colors');
             const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
@@ -92,7 +91,6 @@ const Forum = ({navigation}) =>{
                 console.log('Error sending message:', error);
               });
         }else{
-            setWarn(true)
         }
         
       }
@@ -162,7 +160,7 @@ const Forum = ({navigation}) =>{
                                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10}} >Delete msg : Touch and hold until it delete</Text>
                             </View>
                             <TouchableOpacity onPress={handleUserReply} >
-                                <Text style={[styles.reply,{color:Colors.text,backgroundColor:'#7300e6'}]} >OK I GOT IT!</Text>
+                                <Text style={[styles.reply,{color:Colors.text,backgroundColor:Colors.secondary}]} >OK I GOT IT!</Text>
                             </TouchableOpacity>
                         </View>
                     

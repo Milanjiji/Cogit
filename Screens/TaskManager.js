@@ -290,6 +290,7 @@ const TaskManager = ({navigation}) =>{
     }
 
     const addTasks = async () =>{
+        console.log(taskPos);
         if (addNewTask) {
             if(newTask){
                 if(taskPos == 0){
@@ -298,6 +299,104 @@ const TaskManager = ({navigation}) =>{
                         const data = JSON.stringify([...task1,{id:id,task:newTask,c:true}])
                         setTask1([...task1,{id:id,task:newTask,c:true}]);
                         storage.set('Task1',data);
+                        setAddNewTask(false);
+                        setNewTask('');
+                        console.log(data);
+
+                    } catch (error) {
+                        console.log(error);
+                    }
+
+                }else if(taskPos == 1){
+                    const id = Math.floor(Math.random() *100);
+                    try {
+                        const data = JSON.stringify([...task2,{id:id,task:newTask,c:true}])
+                        setTask2([...task2,{id:id,task:newTask,c:true}]);
+                        storage.set('Task2',data);
+                        setAddNewTask(false);
+                        setNewTask('');
+                        console.log(data);
+
+                    } catch (error) {
+                        console.log(error);
+                    }
+
+                }else if(taskPos == 2){
+                    const id = Math.floor(Math.random() *100);
+                    try {
+                        const data = JSON.stringify([...task3,{id:id,task:newTask,c:true}])
+                        setTask3([...task3,{id:id,task:newTask,c:true}]);
+                        storage.set('Task3',data);
+                        setAddNewTask(false);
+                        setNewTask('');
+                        console.log(data);
+
+                    } catch (error) {
+                        console.log(error);
+                    }
+
+                }else if(taskPos == 3){
+                    const id = Math.floor(Math.random() *100);
+                    try {
+                        const data = JSON.stringify([...task4,{id:id,task:newTask,c:true}])
+                        setTask4([...task4,{id:id,task:newTask,c:true}]);
+                        storage.set('Task4',data);
+                        setAddNewTask(false);
+                        setNewTask('');
+                        console.log(data);
+
+                    } catch (error) {
+                        console.log(error);
+                    }
+
+                }else if(taskPos == 4){
+                    const id = Math.floor(Math.random() *100);
+                    try {
+                        const data = JSON.stringify([...task5,{id:id,task:newTask,c:true}])
+                        setTask5([...task5,{id:id,task:newTask,c:true}]);
+                        storage.set('Task5',data);
+                        setAddNewTask(false);
+                        setNewTask('');
+                        console.log(data);
+
+                    } catch (error) {
+                        console.log(error);
+                    }
+
+                }else if(taskPos == 5){
+                    const id = Math.floor(Math.random() *100);
+                    try {
+                        const data = JSON.stringify([...task6,{id:id,task:newTask,c:true}])
+                        setTask6([...task6,{id:id,task:newTask,c:true}]);
+                        storage.set('Task6',data);
+                        setAddNewTask(false);
+                        setNewTask('');
+                        console.log(data,"from taskPos 6");
+
+                    } catch (error) {
+                        console.log(error);
+                    }
+
+                }else if(taskPos == 6){
+                    const id = Math.floor(Math.random() *100);
+                    try {
+                        const data = JSON.stringify([...task7,{id:id,task:newTask,c:true}])
+                        setTask7([...task7,{id:id,task:newTask,c:true}]);
+                        storage.set('Task7',data);
+                        setAddNewTask(false);
+                        setNewTask('');
+                        console.log(data);
+
+                    } catch (error) {
+                        console.log(error);
+                    }
+
+                }else if(taskPos == 7){
+                    const id = Math.floor(Math.random() *100);
+                    try {
+                        const data = JSON.stringify([...task8,{id:id,task:newTask,c:true}])
+                        setTask8([...task8,{id:id,task:newTask,c:true}]);
+                        storage.set('Task8',data);
                         setAddNewTask(false);
                         setNewTask('');
                         console.log(data);
@@ -328,32 +427,32 @@ const TaskManager = ({navigation}) =>{
 
     return(
         <View style={{backgroundColor:Colors.Background,flex: 1}} >
-            <Text style={{color:`${Colors.text}20`,fontFamily:Colors.Bold,fontSize:26,padding: 20,}} >TaskManager</Text>
+            <Text style={{color:`${Colors.text}50`,fontFamily:Colors.Bold,fontSize:26,padding: 20,}} >TaskManager</Text>
             <View style={{flex: 1,flexDirection:'row'}} >
                 <View style={{width:50,borderColor:Colors.primary,borderRightWidth:1,alignItems:'center',paddingVertical:20}} >
                     <TouchableOpacity onPress={()=>setTaskPos(0)} style={{paddingVertical:5,paddingHorizontal:10}} >
-                        <Text style={{color:taskPos == 0 ? Colors.secondary : Colors.text}} >1</Text>
+                        <Text style={{color:taskPos == 0 ? Colors.text : `${Colors.text}50`}} >1</Text>
                     </TouchableOpacity  >
                     <TouchableOpacity onPress={()=>setTaskPos(1)} style={{paddingVertical:10,paddingHorizontal:10}} >
-                        <Text style={{color:taskPos == 1 ? Colors.secondary : Colors.text}} >2</Text>
+                        <Text style={{color:taskPos == 1 ? Colors.text : `${Colors.text}50`}} >2</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>setTaskPos(2)} style={{paddingVertical:10,paddingHorizontal:10}} >
-                        <Text style={{color:taskPos == 2 ? Colors.secondary : Colors.text}} >3</Text>
+                        <Text style={{color:taskPos == 2 ? Colors.text : `${Colors.text}50`}} >3</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>setTaskPos(3)} style={{paddingVertical:10,paddingHorizontal:10}} >
-                        <Text style={{color:taskPos == 3 ? Colors.secondary : Colors.text}} >4</Text>
+                        <Text style={{color:taskPos == 3 ? Colors.text : `${Colors.text}50`}} >4</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>setTaskPos(4)} style={{paddingVertical:10,paddingHorizontal:10}} >
-                        <Text style={{color:taskPos == 4 ? Colors.secondary : Colors.text}} >5</Text>
+                        <Text style={{color:taskPos == 4 ? Colors.text : `${Colors.text}50`}} >5</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>setTaskPos(5)} style={{paddingVertical:10,paddingHorizontal:10}} >
-                        <Text style={{color:taskPos == 5 ? Colors.secondary : Colors.text}} >6</Text>
+                        <Text style={{color:taskPos == 5 ? Colors.text : `${Colors.text}50`}} >6</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>setTaskPos(6)} style={{paddingVertical:10,paddingHorizontal:10}} >
-                        <Text style={{color:taskPos == 6 ? Colors.secondary : Colors.text}} >7</Text>
+                        <Text style={{color:taskPos == 6 ? Colors.text : `${Colors.text}50`}} >7</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>setTaskPos(7)} style={{paddingVertical:10,paddingHorizontal:10}} >
-                        <Text style={{color:taskPos == 7 ? Colors.secondary : Colors.text}} >8</Text>
+                        <Text style={{color:taskPos == 7 ? Colors.text : `${Colors.text}50`}} >8</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{flex: 1,padding: 10,}} >
@@ -366,7 +465,7 @@ const TaskManager = ({navigation}) =>{
                             onChangeText={setNewTitle}
                             placeholderTextColor={Colors.text}  />
                         <TouchableOpacity onPress={updateTitle} >
-                            <FontAwesomeIcon color={editTitle ? Colors.text :`${Colors.text}20` } icon={editTitle ? faCheckSquare : faPencil} />
+                            <FontAwesomeIcon color={editTitle ? Colors.text :`${Colors.text}50` } icon={editTitle ? faCheckSquare : faPencil} />
                         </TouchableOpacity>
                     </View>
                     <View style={{paddingLeft : 20,paddingTop:20}} >
@@ -386,7 +485,7 @@ const TaskManager = ({navigation}) =>{
                             onChangeText={setNewTask}
                             placeholderTextColor={`${Colors.text}50`} />
                         <TouchableOpacity onPress={addTasks} style={{marginVertical:10,alignSelf:'flex-end',paddingLeft:10,paddingTop:13}} >
-                            <FontAwesomeIcon color={Colors.secondary} icon={addNewTask ? faCheck : faPlug}   />
+                            <FontAwesomeIcon color={Colors.text} icon={addNewTask ? faCheck : faPlug}   />
                         </TouchableOpacity>
                     </KeyboardAvoidingView>
                     

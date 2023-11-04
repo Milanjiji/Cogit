@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View,
         Text,
         StyleSheet,
@@ -8,6 +8,8 @@ import { View,
         } from 'react-native'
 
 import Colors from '../colors.json'
+import SplashScreen from "react-native-splash-screen";
+
 
 const secondry = "#3fb0c9"
 const white = "white"
@@ -16,6 +18,10 @@ const fontBold = "Montserrat-Bold"
 
 const GetStarted = ({navigation}) =>{
     const width = Dimensions.get('window').width
+
+    useEffect(()=>{
+         SplashScreen.hide();
+    },[])
 
     return (
         <View style={styles.background} >

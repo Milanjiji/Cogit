@@ -15,7 +15,6 @@ const Greetings = () =>{
     const [Colors,setColors] = useState([]);
     const [quote,setQuote] = useState('');
 
-
     useEffect(()=>{
         const getColors = async()=>{
             const data = storage.getString('Colors')
@@ -23,12 +22,6 @@ const Greetings = () =>{
             setColors(colors);
         }
         getColors();
-
-        const getFocusModeStatus = async() =>{
-            const data = storage.getString('FocusModeRunning')
-            const value = JSON.parse(data);
-        }
-        getFocusModeStatus()
 
         const selectQuote = () => {
             const random = Math.floor(Math.random() * 74);
@@ -71,7 +64,7 @@ const Greetings = () =>{
 
             <Timer/>
             <View style={[styles.body,{marginTop:20}]} >
-                    <Text style={[styles.title,{color:Colors.text}]} > Hello <Text style={{color:'#7300e6'}} >{name}</Text></Text>
+                    <Text style={[styles.title,{color:Colors.text}]} > Hello <Text style={{color:Colors.text}} >{name}</Text></Text>
                     <Text style={[styles.time,{color:Colors.text}]} >{message}</Text>
             </View>
             

@@ -11,7 +11,6 @@ import {
 import Notes from '../components/Notes';
 import Greetings from '../components/Greetings';
  
-import HomePageBar from '../components/HomePageBar';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import SideBar from '../components/SideBar';
 import NextUpdate from '../components/NextUpdate';
@@ -20,6 +19,7 @@ import CutomTextInput from '../components/CutomTextInput';
 import Tools from '../components/Tools';
 import Tasks from '../components/Tasks';
 import { storage } from '../Storage';
+import SplashScreen from "react-native-splash-screen";
 
 
 // ted ed classes
@@ -37,9 +37,10 @@ const Homepage = ({navigation,route}) =>{
             const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
+            console.log(colors);
         }
         getColors();
-        
+        SplashScreen.hide();
         const getBanDetails = async () =>{
             
             const banReport = JSON.parse(storage.getString('ban'));

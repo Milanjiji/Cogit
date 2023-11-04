@@ -35,10 +35,7 @@ const SideBar  =  ({navigation,page}) =>{
                 <Text style={{display:page == "Focus" ? "none" : "flex",transform: [{ rotate: '-90deg' }],width:100,color:page == "Focus" ? Colors.text : `${Colors.text}99`,fontFamily:Color.Bold,marginRight:-20,fontSize:12}} >Focus</Text>
                 <FontAwesomeIcon color={Colors.text} size={18} style={{marginLeft:20,display:page != "Focus" ? "none" : "flex"}} icon={faBullseye} />
             </TouchableOpacity>
-            <TouchableOpacity style={{marginBottom:page == "Notes" ? -70 : 0}} onPress={()=>{navigation.navigate('Notes')}} >
-                <Text style={{display:page == "Notes" ? "none" : "flex",transform: [{ rotate: '-90deg' }],width:100,color:page == "Notes" ? Colors.text : `${Colors.text}99`,fontFamily:Color.Bold,marginRight:-20,fontSize:12}} >Notes</Text>
-                <FontAwesomeIcon color={Colors.text} size={18} style={{marginLeft:page == "Notes" ? 15 : 20,display:page != "Notes" ? "none" : "flex",marginBottom:-10}} icon={faStickyNote} />
-            </TouchableOpacity>
+            
             <TouchableOpacity onPress={()=>{navigation.navigate('Code')}} >
                 <Text style={{display:page == "Code" ? "none" : "flex",transform: [{ rotate: '-90deg' }],width:100,color:page == "Code" ? Colors.text : `${Colors.text}99`,fontFamily:Color.Bold,marginRight:-20,fontSize:12}} >Code</Text>
                 <FontAwesomeIcon color={Colors.text} size={18} style={{marginLeft:20,display:page != "Code" ? "none" : "flex"}} icon={faFileCode} />

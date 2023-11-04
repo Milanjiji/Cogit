@@ -13,7 +13,7 @@ import Details from "../Screens/Details";
 import NoteCreator from "../Screens/NoteCreator";
 import Note_Classification from "../Screens/Note_Classification";
 import FocusMode from "../Screens/FocusMode";
-import Notes from "../Screens/Notes";
+// import Notes from "../Screens/Notes";
 import Community from "../Screens/Community_Note";
 import ArticleView from "../Screens/ArticleView";
 import LoadingAnimation from "./LoadingAnimation";
@@ -103,9 +103,9 @@ const Screens = () =>{
           <Stack.Screen
            name="Focus" 
            component={FocusMode} />  
-           <Stack.Screen
+           {/* <Stack.Screen
            name="Notes" 
-           component={Notes} /> 
+           component={Notes} />  */}
            <Stack.Screen
            name="Community" 
            component={Community} />

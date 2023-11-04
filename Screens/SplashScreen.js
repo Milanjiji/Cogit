@@ -11,11 +11,11 @@ const LoadScreen = ({navigation}) =>{
             console.log(name);
             if(name){
                 navigation.navigate('Home');
-                SplashScreen.hide();
+                // SplashScreen.hide();
                 console.log("home");
             }else{
                 navigation.navigate('getStarted');
-                SplashScreen.hide();
+                // SplashScreen.hide();
             }
         }
         getAccInfo();
