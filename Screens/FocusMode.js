@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet,Modal} from 'react-native';
 import Colors from '../colors.json'
-import AsyncStorage from '@react-native-async-storage/async-storage';
+ 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAnchor, faAngleLeft, faAngleRight, faDownload, faDroplet, faFire, faHandsBubbles, faLeaf, faMusic, faPause, faPlay, faRandom, faRefresh, faSquare, faToggleOff, faToggleOn } from '@fortawesome/free-solid-svg-icons';
 import Animated, {

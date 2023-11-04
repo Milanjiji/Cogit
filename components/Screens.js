@@ -60,7 +60,6 @@ import VeryShortClassification from "../Screens/Notes/VeryShortClassification";
 import VeryShort from "../Screens/Notes/VeryShort";
 import Report from "../Screens/Report";
 import TaskManager from "../Screens/TaskManager";
-import Test from "../Screens/TestStorage";
 
 
 
@@ -251,9 +250,6 @@ const Screens = () =>{
            <Stack.Screen
            name="TaskManager" 
            component={TaskManager} />
-            <Stack.Screen
-           name="Test" 
-           component={Test} />
 
   
         </Stack.Navigator>

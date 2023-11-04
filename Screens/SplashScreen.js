@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import {ImageBackground, View } from "react-native";
 import logo from '../android/app/src/main/res/drawable/launch_screen.png'
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import SplashScreen from "react-native-splash-screen";
 import { storage } from "../Storage";
 

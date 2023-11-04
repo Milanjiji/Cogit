@@ -1,7 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import {View,Text, StyleSheet} from 'react-native'
 import Colors from '../colors.json'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import Quotes from '../assets/others/quotes.json'
 import Timer from './Timer'
 import { storage } from '../Storage'
@@ -19,7 +18,6 @@ const Greetings = () =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            // const data = await AsyncStorage.getItem('Colors');
             const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
@@ -27,7 +25,6 @@ const Greetings = () =>{
         getColors();
 
         const getFocusModeStatus = async() =>{
-            // const data = await AsyncStorage.getItem('FocusModeRunning');
             const data = storage.getString('FocusModeRunning')
             const value = JSON.parse(data);
         }
@@ -47,7 +44,6 @@ const Greetings = () =>{
     useEffect(()=>{
         const getName = async() =>{
             try{
-                // const Name = JSON.parse(await AsyncStorage.getItem('userName'));
                 const Name = storage.getString('userName')
                 setName(JSON.parse(Name));
             }catch(e){

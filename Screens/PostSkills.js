@@ -4,7 +4,7 @@ import React,{useEffect,useState} from 'react'
 import {FlatList, ScrollView, StyleSheet, Text,TouchableOpacity,View,TextInput} from 'react-native'
 import Colors from '../colors.json'
 import firestore from '@react-native-firebase/firestore';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+ 
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 const PostSkill = ({navigation}) =>{

@@ -4,7 +4,6 @@ import firestore from '@react-native-firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faInfoCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import colors  from '../colors.json'
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import SideBar from "../components/SideBar";
 import { storage } from "../Storage";
 

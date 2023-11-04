@@ -11,7 +11,7 @@ import {
   } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import { useState,useEffect,useRef } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage'; 
+  
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import firestore from '@react-native-firebase/firestore';

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView,TouchableOpacity} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+ 
 import Code from '../../components/Code';
 import { storage } from '../../Storage';
 

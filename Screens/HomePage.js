@@ -10,7 +10,7 @@ import {
   } from 'react-native';
 import Notes from '../components/Notes';
 import Greetings from '../components/Greetings';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+ 
 import HomePageBar from '../components/HomePageBar';
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import SideBar from '../components/SideBar';
@@ -168,10 +168,6 @@ const Homepage = ({navigation,route}) =>{
                     <View style={{flexDirection:'row',paddingHorizontal:10}} >
                     </View>
                     <NextUpdate navigation={navigation} />
-
-                        
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginVertical:10}} > Copyright © 2023 Cogit</Text>
-                  
                   
                 </ScrollView>
 

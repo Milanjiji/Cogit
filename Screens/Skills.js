@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React,{useEffect,useState} from 'react'
 import {FlatList, StyleSheet, Text,TouchableOpacity,View,ScrollView} from 'react-native'
 import Colors from '../colors.json'
-import AsyncStorage from '@react-native-async-storage/async-storage';
+ 
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import {  faArrowDown, faCopy,faHeart as faHeartSolid, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import Clipboard from '@react-native-clipboard/clipboard';

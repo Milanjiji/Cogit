@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+ 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faAngleRight} from '@fortawesome/free-solid-svg-icons';
 import { storage } from '../Storage';

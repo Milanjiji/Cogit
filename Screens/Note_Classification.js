@@ -3,7 +3,7 @@ import { Text, View,StyleSheet, ScrollView, TouchableOpacity, TextInput,Dimensio
 import Colors from '../colors.json';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faMinusCircle, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+ 
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Note_Classification = ({navigation}) =>{

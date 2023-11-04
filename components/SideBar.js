@@ -1,7 +1,6 @@
 import React,{useEffect,useState} from "react";
 import { View,Text,TouchableOpacity } from "react-native";
 import Color from '../colors.json'
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faBullseye, faChartArea, faFileCode, faGear, faHome, faStickyNote } from "@fortawesome/free-solid-svg-icons";
 import { faMessage } from "@fortawesome/free-regular-svg-icons";

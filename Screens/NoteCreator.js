@@ -1,9 +1,9 @@
 import React,{useState,useEffect,useRef} from "react";
 import {View,Text,ScrollView,StyleSheet,TextInput,Dimensions, TouchableOpacity,Touchable} from 'react-native'
 import Colors from '../colors.json';
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
+import { storage } from "../Storage";
 
 const NoteCreator = ({navigation,route}) =>{
     const [note,setNote] = useState('');
@@ -16,7 +16,7 @@ const NoteCreator = ({navigation,route}) =>{
 
     useEffect(()=>{
         const getNote = async () =>{
-            const Notes = await AsyncStorage.getItem(id);
+            const Notes = storage.getString(id);
             if(Notes){
                 setNote(Notes) 
             }else{
@@ -29,7 +29,7 @@ const NoteCreator = ({navigation,route}) =>{
     },[])
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }
@@ -39,7 +39,7 @@ const NoteCreator = ({navigation,route}) =>{
 
     const SaveNote = async(text) =>{
         setNote(text);
-        await AsyncStorage.setItem(id,note);
+        storage.set(id,note);
     }
     const focusToTextInput = () =>{
         textInput.current.focus();

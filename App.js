@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import Colors from './colors.json'
 import Screens from './components/Screens';
 import TrackPlayer from 'react-native-track-player';

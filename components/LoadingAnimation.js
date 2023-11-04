@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Animated, Easing, StyleSheet, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+ 
 
 const LoadingAnimation = ({children}) => {
   const sizeAnimation = useRef(new Animated.Value(150)).current;

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { View,Text, TouchableOpacity,TextInput, FlatList ,KeyboardAvoidingView} from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCheck, faPencil, faPlug,} from "@fortawesome/free-solid-svg-icons";
 import { faCheckSquare, faSquare } from "@fortawesome/free-regular-svg-icons";

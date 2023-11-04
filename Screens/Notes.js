@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import Colors from '../colors.json'
 import firestore from '@react-native-firebase/firestore';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import HomePageBar from "../components/HomePageBar";
 import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import SideBar from "../components/SideBar";
+import { storage } from "../Storage";
 
 
 const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191748';
@@ -25,25 +25,15 @@ const Notes = ({navigation}) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }
         getColors();
-        const getSettings = async() =>{
-            const setting1 = await AsyncStorage.getItem('BannerPosition');
-            const parsedSettings1 = JSON.parse(setting1);
-            setBannerPos(parsedSettings1);
-
-            const setting2 = await AsyncStorage.getItem('NotesPosition');
-            const parsedSettings2 = JSON.parse(setting2);
-            setNotesPos(parsedSettings2);
-        }
-        getSettings();
+        
     },[])
 
 
-    const width  = Dimensions.get('window').width;
     const randomId = (id) =>{
         const random = Math.floor(Math.random() * id)
         return random;

@@ -1,6 +1,5 @@
 import React,{useState,useEffect,useCallback} from "react";
 import { View,Text, TouchableOpacity, StyleSheet,FlatList, ScrollView, TextInput } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCheck, faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -25,41 +24,7 @@ const VideoClass = ({route,navigation}) =>{
         }
         getColors();
 
-        // const filterThisNote = (notes) =>{
-
-        //     const filtered = notes.filter((item) => item.title ==  `${sub} ${note.chapter}`)
-
-        //     // console.log(filtered);
-
-        //     if(filtered.title === `${sub} ${note.chapter}`){
-        //         setThisNote(filtered)
-        //         console.log('there is the note');
-        //     }else{
-        //         console.log('there is no note');
-        //         const random = Math.floor(Math.random() * 100);
-        //         const not = [...notes,{id:random,title:`${sub} ${note.chapter}`}]
-        //         AsyncStorage.setItem('Note_Classification',JSON.stringify(not));
-        //         setAllNotes([{id:random,title:`${sub} ${note.chapter}`}]);
-        //         console.log(not);
-        //         setThisNote([{id:random,title:`${sub} ${note.chapter}`}])
-        //     }
-        // }
-        const fetchNote = async() =>{
-            const fetchedTitles = JSON.parse(await AsyncStorage.getItem('Note_Classification'));
-            // console.log(fetchedTitles);
-            if(fetchedTitles){
-                setAllNotes(fetchedTitles);
-                console.log(fetchedTitles);
-                // filterThisNote(fetchedTitles);
-            }else{
-                const random = Math.floor(Math.random() * 100);
-                const notes = [{id:random,title:`${sub} ${note.chapter}`}]
-                AsyncStorage.setItem('Note_Classification',JSON.stringify(notes));
-                setAllNotes(notes);
-                console.log(notes);
-            }
-        }
-        fetchNote();
+        
     
     },[])
 
@@ -70,18 +35,8 @@ const VideoClass = ({route,navigation}) =>{
         }  
     }, []);
 
-    const changeTitle = async() => {
-        
-        try {
-            
-        } catch (error) {
-            
-        }
-    }
-    const setNotes = async() =>{
-        
-
-    }
+    
+    
     
     return(
         <View style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around'}} >

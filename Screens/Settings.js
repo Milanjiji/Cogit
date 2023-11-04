@@ -1,13 +1,11 @@
 import React,{useState,useEffect,} from "react";
 import {View,Text, ScrollView} from 'react-native'
 import GeneralSetting from "../components/GeneralSettings";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import AccountSettings from "../components/AccountSettings";
 import AboutTheApp from "../components/AboutTheApp";
 import HelpAndSupport from "../components/HelpAndSupportSettings";
 import UserDetails from "../components/UserDetails";
 import SideBar from "../components/SideBar";
-import firestore from '@react-native-firebase/firestore';
 import { storage } from "../Storage";
 
 

@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {View,Text, StyleSheet, FlatList, ScrollView, PermissionsAndroid} from 'react-native'
 import Colors from '../colors.json'
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { storage } from "../Storage";
 
 const ArticleView = ({route,navigation}) =>{
     const [data,setData] = useState([])
@@ -10,10 +10,9 @@ const ArticleView = ({route,navigation}) =>{
 
     useEffect(()=>{
         const getColors = async()=>{
-            const data = await AsyncStorage.getItem('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
-            console.log("Colors => ",colors);
         }
         getColors();
     },[])
