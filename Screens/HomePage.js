@@ -11,7 +11,6 @@ import {
 import Notes from '../components/Notes';
 import Greetings from '../components/Greetings';
  
-import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import SideBar from '../components/SideBar';
 import NextUpdate from '../components/NextUpdate';
 import firestore from '@react-native-firebase/firestore';
@@ -22,8 +21,6 @@ import { storage } from '../Storage';
 import SplashScreen from "react-native-splash-screen";
 
 
-// ted ed classes
-const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191748';
 
 const Homepage = ({navigation,route}) =>{
     const [Colors,setColors] = useState([]);

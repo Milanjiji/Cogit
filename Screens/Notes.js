@@ -5,12 +5,9 @@ import Colors from '../colors.json'
 import firestore from '@react-native-firebase/firestore';
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import HomePageBar from "../components/HomePageBar";
-import { BannerAd, BannerAdSize, TestIds } from 'react-native-google-mobile-ads';
 import SideBar from "../components/SideBar";
 import { storage } from "../Storage";
 
-
-const adUnitId = __DEV__ ? TestIds.BANNER : 'ca-app-pub-3471464164746532/1876191748';
 
 
 const Notes = ({navigation}) =>{
