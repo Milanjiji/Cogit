@@ -12,6 +12,7 @@ export const TimerProvider = ({ children }) => {
   const [leftIntTime,setLeftIntTime] = useState(0);
   const [State,setState] = useState(false);
   const [timer,setTimer] = useState(true);
+  const [startTimerWithDelay,setStartTimerWithDelay] = useState(false)
 
   useEffect(() => {
     let interval;
@@ -34,25 +35,14 @@ export const TimerProvider = ({ children }) => {
       console.log('====================================');
       console.log("running with timer ");
       console.log('====================================');
-      if(!State){
         setLeftStudyTime((studyTime * 60) - (minutes *60 + seconds));
         if((studyTime * 60) - (minutes *60 + seconds) === 0)  {
           setState(true);
           console.log('====================================');
           console.log("reached the macimium staudy time");
           console.log('====================================');
-          resetTimer();
+          stopTimer();
         }
-      }else{
-        setLeftIntTime((int * 60) - (minutes * 60 + seconds));
-        if((int * 60) - (minutes * 60 + seconds) === 0)  {
-          setState(false);
-          console.log('====================================');
-          console.log("reached the macimium intreval time ");
-          console.log('====================================');
-          resetTimer();
-        }
-      }
     }else{
       console.log('====================================');
       console.log("running without timer");
@@ -66,10 +56,17 @@ export const TimerProvider = ({ children }) => {
   const startTimer = () => {
     console.log("timer startted");
     setIsRunning(true);
+    setTimeout(() => {
+      setStartTimerWithDelay(true);
+    }, 800);
+
   };
 
   const stopTimer = () => {
     setIsRunning(false);
+    setTimeout(() => {
+      setStartTimerWithDelay(false);
+    }, 800);
     console.log("timer stopped");
   };
 
@@ -101,7 +98,8 @@ export const TimerProvider = ({ children }) => {
     leftStudyTime,
     leftIntTime,
     State,
-    setTimerStates
+    setTimerStates,
+    startTimerWithDelay
   };
 
   return (

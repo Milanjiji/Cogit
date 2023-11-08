@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View,Text, TouchableOpacity,TextInput, FlatList ,KeyboardAvoidingView} from "react-native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faCheck, faPencil, faPlug,} from "@fortawesome/free-solid-svg-icons";
+import { faCancel, faCheck, faPencil, faPlug, faTrash,} from "@fortawesome/free-solid-svg-icons";
 import { faCheckSquare, faSquare } from "@fortawesome/free-regular-svg-icons";
 import { storage } from "../Storage";
 
@@ -21,7 +21,9 @@ const TaskManager = ({navigation}) =>{
     const [taskPos,setTaskPos] = useState(0);
 
     const [addNewTask,setAddNewTask] = useState(false);
-    const [newTask,setNewTask] = useState('')
+    const [newTask,setNewTask] = useState('');
+
+    const [render,setRender] = useState(false)
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -110,63 +112,68 @@ const TaskManager = ({navigation}) =>{
 
     const updateTitle = async() => {
         if(editTitle){
-            if(taskPos == 0 && newTitle){
-                var newTitles = titles;
-                newTitles[0] = newTitle;
-                setTitles(newTitles);
-                console.log(newTitles);
-                storage.set('TaskTitles',JSON.stringify(newTitles))
-                setEditTitle(false);
-                console.log("newTitles adding");
-            }else if(taskPos == 1 && newTitle){
-                var newTitles = titles;
-                newTitles[1] = newTitle;
-                setTitles(newTitles);
-                storage.set('TaskTitles',JSON.stringify(newTitles))
-                setEditTitle(false);
+            if(newTitle){
+                if(taskPos == 0 && newTitle){
+                    var newTitles = titles;
+                    newTitles[0] = newTitle;
+                    setTitles(newTitles);
+                    console.log(newTitles);
+                    storage.set('TaskTitles',JSON.stringify(newTitles))
+                    setEditTitle(false);
+                    console.log("newTitles adding");
+                }else if(taskPos == 1 && newTitle){
+                    var newTitles = titles;
+                    newTitles[1] = newTitle;
+                    setTitles(newTitles);
+                    storage.set('TaskTitles',JSON.stringify(newTitles))
+                    setEditTitle(false);
+                }
+                else if(taskPos == 2 && newTitle){
+                    var newTitles = titles;
+                    newTitles[2] = newTitle;
+                    setTitles(newTitles);
+                    storage.set('TaskTitles',JSON.stringify(newTitles))
+                    setEditTitle(false);
+                }
+                else if(taskPos == 3 && newTitle){
+                    var newTitles = titles;
+                    newTitles[3] = newTitle;
+                    setTitles(newTitles);
+                    storage.set('TaskTitles',JSON.stringify(newTitles))
+                    setEditTitle(false);
+                }
+                else if(taskPos == 4 && newTitle){
+                    var newTitles = titles;
+                    newTitles[4] = newTitle;
+                    setTitles(newTitles);
+                    storage.set('TaskTitles',JSON.stringify(newTitles))
+                    setEditTitle(false);
+                }
+                else if(taskPos == 5 && newTitle){
+                    var newTitles = titles;
+                    newTitles[5] = newTitle;
+                    setTitles(newTitles);
+                    storage.set('TaskTitles',JSON.stringify(newTitles))
+                    setEditTitle(false);
+                }
+                else if(taskPos == 6 && newTitle){
+                    var newTitles = titles;
+                    newTitles[6] = newTitle;
+                    setTitles(newTitles);
+                    storage.set('TaskTitles',JSON.stringify(newTitles))
+                    setEditTitle(false);
+                }
+                else if(taskPos == 7 && newTitle){
+                    var newTitles = titles;
+                    newTitles[7] = newTitle;
+                    setTitles(newTitles);
+                    storage.set('TaskTitles',JSON.stringify(newTitles))
+                    setEditTitle(false);
+                }
+            }else{
+                setEditTitle(!editTitle)
             }
-            else if(taskPos == 2 && newTitle){
-                var newTitles = titles;
-                newTitles[2] = newTitle;
-                setTitles(newTitles);
-                storage.set('TaskTitles',JSON.stringify(newTitles))
-                setEditTitle(false);
-            }
-            else if(taskPos == 3 && newTitle){
-                var newTitles = titles;
-                newTitles[3] = newTitle;
-                setTitles(newTitles);
-                storage.set('TaskTitles',JSON.stringify(newTitles))
-                setEditTitle(false);
-            }
-            else if(taskPos == 4 && newTitle){
-                var newTitles = titles;
-                newTitles[4] = newTitle;
-                setTitles(newTitles);
-                storage.set('TaskTitles',JSON.stringify(newTitles))
-                setEditTitle(false);
-            }
-            else if(taskPos == 5 && newTitle){
-                var newTitles = titles;
-                newTitles[5] = newTitle;
-                setTitles(newTitles);
-                storage.set('TaskTitles',JSON.stringify(newTitles))
-                setEditTitle(false);
-            }
-            else if(taskPos == 6 && newTitle){
-                var newTitles = titles;
-                newTitles[6] = newTitle;
-                setTitles(newTitles);
-                storage.set('TaskTitles',JSON.stringify(newTitles))
-                setEditTitle(false);
-            }
-            else if(taskPos == 7 && newTitle){
-                var newTitles = titles;
-                newTitles[7] = newTitle;
-                setTitles(newTitles);
-                storage.set('TaskTitles',JSON.stringify(newTitles))
-                setEditTitle(false);
-            }
+            
         }else{
             setEditTitle(!editTitle)
         }
@@ -189,100 +196,100 @@ const TaskManager = ({navigation}) =>{
                 console.log(error);
             }
         }else if(taskPos == 1){
-            const updatedData = task1.map(item => {
+            const updatedData = task2.map(item => {
                 if (item.id === id) {
                   return { ...item, c: !item.c};
                 }
                 return item;
               });
             console.log(updatedData);
-            setTask1(updatedData)
+            setTask2(updatedData)
             try {
-                storage.set('Task1',JSON.stringify(updatedData))
+                storage.set('Task2',JSON.stringify(updatedData))
             } catch (error) {
                 console.log(error);
             }
         }else if(taskPos == 2){
-            const updatedData = task1.map(item => {
+            const updatedData = task3.map(item => {
                 if (item.id === id) {
                   return { ...item, c: !item.c};
                 }
                 return item;
               });
             console.log(updatedData);
-            setTask1(updatedData)
+            setTask3(updatedData)
             try {
-                storage.set('Task1',JSON.stringify(updatedData))
+                storage.set('Task3',JSON.stringify(updatedData))
             } catch (error) {
                 console.log(error);
             }
         }else if(taskPos == 3){
-            const updatedData = task1.map(item => {
+            const updatedData = task4.map(item => {
                 if (item.id === id) {
                   return { ...item, c: !item.c};
                 }
                 return item;
               });
             console.log(updatedData);
-            setTask1(updatedData)
+            setTask4(updatedData)
             try {
-                storage.set('Task1',JSON.stringify(updatedData))
+                storage.set('Task4',JSON.stringify(updatedData))
             } catch (error) {
                 console.log(error);
             }
         }else if(taskPos == 4){
-            const updatedData = task1.map(item => {
+            const updatedData = task5.map(item => {
                 if (item.id === id) {
                   return { ...item, c: !item.c};
                 }
                 return item;
               });
             console.log(updatedData);
-            setTask1(updatedData)
+            setTask5(updatedData)
             try {
-                storage.set('Task1',JSON.stringify(updatedData))
+                storage.set('Task5',JSON.stringify(updatedData))
             } catch (error) {
                 console.log(error);
             }
         }else if(taskPos == 5){
-            const updatedData = task1.map(item => {
+            const updatedData = task6.map(item => {
                 if (item.id === id) {
                   return { ...item, c: !item.c};
                 }
                 return item;
               });
             console.log(updatedData);
-            setTask1(updatedData)
+            setTask6(updatedData)
             try {
-                storage.set('Task1',JSON.stringify(updatedData))
+                storage.set('Task6',JSON.stringify(updatedData))
             } catch (error) {
                 console.log(error);
             }
         }else if(taskPos == 6){
-            const updatedData = task1.map(item => {
+            const updatedData = task7.map(item => {
                 if (item.id === id) {
                   return { ...item, c: !item.c};
                 }
                 return item;
               });
             console.log(updatedData);
-            setTask1(updatedData)
+            setTask7(updatedData)
             try {
-                storage.set('Task1',JSON.stringify(updatedData))
+                storage.set('Task7',JSON.stringify(updatedData))
             } catch (error) {
                 console.log(error);
             }
         }else if(taskPos == 7){
-            const updatedData = task1.map(item => {
+            const updatedData = task8.map(item => {
                 if (item.id === id) {
                   return { ...item, c: !item.c};
                 }
                 return item;
               });
             console.log(updatedData);
-            setTask1(updatedData)
+            setTask8(updatedData)
             try {
-                storage.set('Task1',JSON.stringify(updatedData))
+                storage.set('Task8',JSON.stringify(updatedData))
             } catch (error) {
                 console.log(error);
             }
@@ -413,21 +420,81 @@ const TaskManager = ({navigation}) =>{
         
     }
 
+    const deleteTask = async(id) =>{
+        if(taskPos == 0){
+            const filteredData = task1.filter((item) => item.id != id);
+            setTask1(filteredData)
+            storage.set('Task1',JSON.stringify(filteredData))
+            console.log(filteredData,"filteded array");
+        }else if(taskPos == 1){
+            const filteredData = task2.filter((item) => item.id != id);
+            setTask2(filteredData)
+            storage.set('Task2',JSON.stringify(filteredData))
+            console.log(filteredData,"filteded array");
+        }else if(taskPos == 2){
+            const filteredData = task3.filter((item) => item.id != id);
+            setTask3(filteredData)
+            storage.set('Task3',JSON.stringify(filteredData))
+            console.log(filteredData,"filteded array");
+        }else if(taskPos == 3){
+            const filteredData = task4.filter((item) => item.id != id);
+            setTask4(filteredData)
+            storage.set('Task4',JSON.stringify(filteredData))
+            console.log(filteredData,"filteded array");
+        }else if(taskPos == 4){
+            const filteredData = task5.filter((item) => item.id != id);
+            setTask5(filteredData)
+            storage.set('Task5',JSON.stringify(filteredData))
+            console.log(filteredData,"filteded array");
+        }else if(taskPos == 5){
+            const filteredData = task6.filter((item) => item.id != id);
+            setTask6(filteredData)
+            storage.set('Task6',JSON.stringify(filteredData))
+            console.log(filteredData,"filteded array");
+        }else if(taskPos == 6){
+            const filteredData = task7.filter((item) => item.id != id);
+            setTask7(filteredData)
+            storage.set('Task7',JSON.stringify(filteredData))
+            console.log(filteredData,"filteded array");
+        }else if(taskPos == 7){
+            const filteredData = task8.filter((item) => item.id != id);
+            setTask8(filteredData)
+            storage.set('Task8',JSON.stringify(filteredData))
+            console.log(filteredData,"filteded array");
+        }
+    }
     const renderItem = ({item}) =>{
         return(
-            <View style={{flexDirection:'row',alignItems:'center'}} >
-                <TouchableOpacity onPress={()=>TaskDone(item.id)} style={{marginRight:10,marginVertical:5}} >
-                    <FontAwesomeIcon color={Colors.text} icon={item.c ? faSquare : faCheck} />
+            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}} >
+                <View style={{flexDirection:'row',alignItems:'center',}} >
+                    <TouchableOpacity onPress={()=>TaskDone(item.id)} style={{marginRight:10,marginVertical:5}} >
+                        <FontAwesomeIcon color={Colors.text} icon={item.c ? faSquare : faCheck} />
+                    </TouchableOpacity>
+                    <Text style={{color:Colors.text,textDecorationLine:!item.c ? 'line-through' :'none'}} >{item.task}</Text>
+                </View>
+                <TouchableOpacity onPress={()=>deleteTask(item.id)} style={{display : !item.c ? 'flex' : 'none'}} >
+                    <FontAwesomeIcon color={`${Colors.text}50`} icon={faTrash} />
                 </TouchableOpacity>
-                <Text style={{color:Colors.text}} >{item.task}</Text>
             </View>
         )
     }
 
 
+    const iconToggler = () =>{
+        if(editTitle){
+            if(newTitle){
+                return faCheckSquare
+            }else{
+                return faCancel
+            }
+        }else{
+            return faPencil
+        }
+    }
+
     return(
         <View style={{backgroundColor:Colors.Background,flex: 1}} >
-            <Text style={{color:`${Colors.text}50`,fontFamily:Colors.Bold,fontSize:26,padding: 20,}} >TaskManager</Text>
+            <Text style={{color:`${Colors.text}50`,fontFamily:Colors.Bold,fontSize:26,padding: 20,}} >Tracker</Text>
             <View style={{flex: 1,flexDirection:'row'}} >
                 <View style={{width:50,borderColor:Colors.primary,borderRightWidth:1,alignItems:'center',paddingVertical:20}} >
                     <TouchableOpacity onPress={()=>setTaskPos(0)} style={{paddingVertical:5,paddingHorizontal:10}} >
@@ -457,7 +524,7 @@ const TaskManager = ({navigation}) =>{
                 </View>
                 <View style={{flex: 1,padding: 10,}} >
                     <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}} >
-                        <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20,display:editTitle ? 'none' : 'flex'}} >{titles[taskPos]}</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20,display:editTitle ? 'none' : 'flex'}} >{titles[taskPos] ? titles[taskPos] :"Create Title >"}</Text>
                         <TextInput 
                             style={{color:Colors.text,fontFamily:Colors.Bold,fontSize:20,borderColor:Colors.secondary,borderBottomWidth:1,display:editTitle ? 'flex' : 'none',marginTop:-11,flex: 1,}}
                             placeholder={titles[taskPos]} 
@@ -465,12 +532,13 @@ const TaskManager = ({navigation}) =>{
                             onChangeText={setNewTitle}
                             placeholderTextColor={Colors.text}  />
                         <TouchableOpacity onPress={updateTitle} >
-                            <FontAwesomeIcon color={editTitle ? Colors.text :`${Colors.text}50` } icon={editTitle ? faCheckSquare : faPencil} />
+                            <FontAwesomeIcon color={editTitle ? Colors.text :`${Colors.text}50` } icon={iconToggler()} />
                         </TouchableOpacity>
                     </View>
                     <View style={{paddingLeft : 20,paddingTop:20}} >
 
                     <FlatList
+                        extraData={render}
                         data={taskPos === 0 ? task1 : taskPos === 1 ? task2 : taskPos === 2 ? task3 : taskPos === 3 ? task4 : taskPos === 4 ? task5 :taskPos === 5 ? task6 :taskPos === 6 ? task7 :taskPos === 7 ? task8 : []}
                         keyExtractor={(item) => item.id}
                         renderItem={renderItem}

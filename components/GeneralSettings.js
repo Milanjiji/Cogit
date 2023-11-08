@@ -29,7 +29,7 @@ const GeneralSetting = () =>{
         if(theme === 'normal'){
             colors.Background = "#2b1499";
             colors.primary = "#12156c";
-            colors.secondary = "#0e1158";
+            colors.secondary = "#ffa500";
             colors.text = "#ffffff";
             storage.set('Colors',JSON.stringify(colors));
             setBorder(1);

@@ -157,7 +157,10 @@ const Homepage = ({navigation,route}) =>{
                 <Greetings navigation={navigation} />
 
                 <Tools navigation={navigation} colors={Colors} />
-                <Tasks navigation={navigation} Colors={Colors} />                
+                
+                <Tasks  navigation={navigation} Colors={Colors} />   
+                
+
                 <View>
                     <Notes navigation={navigation} />
                 </View>

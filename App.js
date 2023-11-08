@@ -7,12 +7,8 @@ import { storage } from './Storage';
 
 
 
-
 const App = () => {
-
   useEffect(()=>{
-
-
     const setColors = async () =>{
       const data = JSON.stringify(Colors);
       storage.set('Colors',data)
@@ -23,7 +19,7 @@ const App = () => {
     setInitialFocusTime();
     const getItem = async() =>{
       const color = storage.getString('Colors')
-      if(!color){
+      if(color == undefined){
         setColors();
       }
     }

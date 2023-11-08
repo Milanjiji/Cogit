@@ -21,22 +21,22 @@ const FocusMode = ({navigation}) => {
   const [Colors,setColors] = useState([]);
   const [btnColors,setBtnColors] = useState(["white","","#12156c"]);
 
-
   const padding = useSharedValue(20);
+  const marginLeft = useSharedValue(0);
+  const opacity = useSharedValue(1);
 
+  // const [toolsds,setToolsDs] = useState(true);
   const [loadingPlayBack,setPlayBack] = useState(false);
   const [timer,setTimer] = useState(true);
   const [studyModal,setStudyModel] = useState(false);
   const [studyTime,setStudyTime] = useState(30);
-  const [intModal,setIntModel] = useState(false);
-  const [intTime,setIntTime] = useState(5);
   const [music,setMusic] = useState(true);
-  const { seconds, isRunning, startTimer, stopTimer, resetTimer,minutes,studyTimer,intTimer, leftStudyTime,leftIntTime,State,setTimerStates,setMinutes} = useTimer();
+  const [ftimer,setFTimer] = useState(true);
+  const { seconds, isRunning, startTimer, stopTimer, resetTimer,minutes,studyTimer,intTimer, leftStudyTime,leftIntTime,State,setTimerStates,setMinutes,startTimerWithDelay} = useTimer();
 
 
   useEffect(()=>{
     const getColors = async()=>{
-        // const data = await AsyncStorage.getItem('Colors');
         const data = storage.getString('Colors')
         const colors = JSON.parse(data);
         setColors(colors);
@@ -60,9 +60,25 @@ const FocusMode = ({navigation}) => {
     if(states.state == "playing"){
       console.log("state playing so starting timer:",states.state);
       startTimer();
+      marginLeft.value = withTiming(-30,{
+        duration:100,
+        easing: Easing.linear
+      })
+      opacity.value = withTiming(0,{
+        duration:100,
+        easing: Easing.linear
+      })
     }else if(states.state == "paused"){
       stopTimer();
       console.log("state not playing so starting timer:",states.state);
+      marginLeft.value = withTiming(0,{
+        duration:100,
+        easing: Easing.linear
+      })
+      opacity.value = withTiming(1,{
+        duration:100,
+        easing: Easing.linear
+      })
     }else if(states.state == "connecting"){
       console.log("playback state is actually conecting ");
       setPlayBack(false);
@@ -196,16 +212,11 @@ const FocusMode = ({navigation}) => {
         }
       } 
   }
-
-
       useEffect(() => {
         if (seconds === 60) {
           stopTimer();
           resetTimer();
           startTimer();
-          if(timer){
-           
-          }
         }
       }, [seconds]);
     
@@ -214,6 +225,7 @@ const FocusMode = ({navigation}) => {
         duration: 1800,
         easing: Easing.linear,
       });
+      
     }
     
     
@@ -222,7 +234,16 @@ const FocusMode = ({navigation}) => {
       padding: padding.value
     }
   })
-  
+  const marginLeftAnimatedView = useAnimatedStyle(()=>{
+    return{
+      marginLeft : marginLeft.value
+    }
+  })
+  const opacityAnimatedView = useAnimatedStyle(()=>{
+    return{
+      opacity : opacity.value
+    }
+  })
 
   const play = async () =>{
     if(music){
@@ -246,9 +267,25 @@ const FocusMode = ({navigation}) => {
         startTimer();
       }
     }
-    
+    setFTimer(false);
   }
 
+  
+  const displayTimer = () =>{
+    if(startTimerWithDelay){
+      if(ftimer){
+        return true;
+      }else{
+        return true;
+      }
+    }else{
+      if(!ftimer){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  }
   const reset = () =>{
     resetTimer();
     setMinutes(0);
@@ -259,17 +296,18 @@ const FocusMode = ({navigation}) => {
     setTimerStates(!timer)
   }
 
+  console.log(loadingPlayBack,leftStudyTime,leftIntTime);
   
   return (
     <View
       style={[styles.background,{backgroundColor:Colors.Background,flexDirection:'row'}]} >
-     {
-      !isRunning? 
-      <SideBar page="Focus" navigation={navigation} />  : ''
-     }
+     
+      <Animated.View style={[marginLeftAnimatedView]} >
+        <SideBar page="Focus" navigation={navigation} />  
+      </Animated.View> 
       
       <View style={styles.App} >
-      <Modal
+      {/* <Modal
             animationType="fade"
             transparent={true}
             visible={!loadingPlayBack}
@@ -280,7 +318,7 @@ const FocusMode = ({navigation}) => {
                 <Text style={{fontFamily:Colors.Medium,color:Colors.text,textAlign:'center',padding: 10,}} >If it takes long , {"\n"}there will be a problem with your internet</Text>
               </View>
             </View>
-          </Modal>
+          </Modal> */}
       <Modal
             animationType="fade"
             transparent={true}
@@ -312,49 +350,17 @@ const FocusMode = ({navigation}) => {
             </View>
           </Modal>
 
-          <Modal
-            animationType="fade"
-            transparent={true}
-            visible={intModal}
-            onRequestClose={() => setIntModel(false)}
-          >
-            <View style={{backgroundColor:'#00000070',flex: 1,justifyContent:'center',alignItems:'center'}} >
-              <View style={{backgroundColor:Colors.Background,padding: 20,borderRadius:10,marginLeft:20}} >
-                <TouchableOpacity onPress={()=>{setIntTime(5);setIntModel(false);intTimer(1)}} style={{padding: 10,backgroundColor:Colors.primary,borderRadius:10}} >
-                  <Text style={{color:Colors.text}} >1 min</Text>
-                </TouchableOpacity  >
-                <TouchableOpacity onPress={()=>{setIntTime(5);setIntModel(false);intTimer(3)}}   style={{padding: 10,backgroundColor:Colors.primary,borderRadius:10,marginTop:10}} >
-                  <Text style={{color:Colors.text}} >3 min</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{setIntTime(5);setIntModel(false);intTimer(5)}}  style={{padding: 10,backgroundColor:Colors.primary,borderRadius:10,marginTop:10}} >
-                  <Text style={{color:Colors.text}} >5 min</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{setIntTime(5);setIntModel(false);intTimer(10)}}  style={{padding: 10,backgroundColor:Colors.primary,borderRadius:10,marginTop:10}} >
-                  <Text style={{color:Colors.text}} >10 min</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{setIntTime(5);setIntModel(false);intTimer(15)}}  style={{padding: 10,backgroundColor:Colors.primary,borderRadius:10,marginTop:10}} >
-                  <Text style={{color:Colors.text}} >15 min</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>{setIntModel(false)}}  style={{padding: 10,backgroundColor:Colors.primary,borderRadius:10,marginTop:10,alignItems:'center'}} >
-                  <Text style={{color:Colors.text}} >Close</Text>
-                </TouchableOpacity>
-                
-              </View>
-            </View>
-          </Modal>
+          
 
-          <View>
-
-            
-
-            <View style={{margin:10,backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,display:isRunning ? 'none' :'flex'}} >
+          <Animated.View style={[opacityAnimatedView]} >
+            <View style={{margin:10,backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10}} >
               <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Timer</Text>
                 <TouchableOpacity onPress={setTimerState} style={{alignItems:'center'}} >
                   <FontAwesomeIcon color={Colors.text} size={25} icon={timer ? faToggleOn : faToggleOff} />
                 </TouchableOpacity>
               </View>
-              <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',backgroundColor:Colors.secondary,padding: 10,marginVertical:10,borderRadius:10,opacity:timer ? 1 : 0.5}} >
+              <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',backgroundColor:Colors.hashWhite,padding: 10,marginVertical:10,borderRadius:10,opacity:timer ? 1 : 0.5}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Loop of </Text>
                 <View style={{flexDirection:'row',alignItems:'center'}} >
                   <TouchableOpacity onPress={()=>setStudyModel(!studyModal)} style={{backgroundColor:Colors.Background,padding: 5,borderRadius:10}} >
@@ -362,25 +368,22 @@ const FocusMode = ({navigation}) => {
                   </TouchableOpacity>
                   <Text style={{color:Colors.text,fontFamily:Colors.Medium}} > min study</Text>
                 </View>
-                <View style={{flexDirection:'row',alignItems:'center'}} >
-                  <TouchableOpacity onPress={()=>setIntModel(!intModal)} style={{backgroundColor:Colors.Background,padding: 5,borderRadius:10}} >
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >{intTime}</Text>
-                  </TouchableOpacity>
-                  <Text style={{color:Colors.text,fontFamily:Colors.Medium}} > min intreval</Text>
-                </View>
               </View>
             </View>
-          </View>
+          </Animated.View>
           
 
           
           <View style={{justifyContent:'center',alignItems:'center'}} >
            
-          <Animated.View style={[paddingAnimatedStyle,{padding: 0,backgroundColor:'#ffffff60',justifyContent:'center',alignItems:'center',borderRadius:150}]} >
+          <Animated.View style={[paddingAnimatedStyle,{padding: 0,backgroundColor:'#7300e6',justifyContent:'center',alignItems:'center',borderRadius:150}]} >
             <View 
               style={[styles.btn_Container,{backgroundColor:Colors.primary,height: 250,width:250,justifyContent:'center',alignItems:'center'}]} >
-             <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:55,display: timer ? 'none' :'flex'}} >{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</Text>
-             <Text  style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:55 ,display : timer ? 'flex' :'none'}} >{Math.floor( State ?  leftIntTime : leftStudyTime / 60)}:{State ?  leftIntTime : leftStudyTime % 60}</Text>
+                <View style={{display:displayTimer() ? 'flex' :'none'}} >
+                  <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:40,display: timer ? 'none' :'flex'}} >{minutes < 10 ? `0${minutes}` : minutes}:{seconds < 10 ? `0${seconds}` : seconds}</Text>
+                  <Text  style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:40 ,display : timer ? 'flex' :'none'}} >{Math.floor( leftStudyTime / 60)}:{leftStudyTime % 60}</Text>
+                </View>
+                <Text  style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:40 ,display:!displayTimer() ? 'flex' :'none'}} >{studyTime}:00</Text>
              </View >
           </Animated.View>
            
@@ -389,11 +392,11 @@ const FocusMode = ({navigation}) => {
 
           <View style={{flexDirection:'row',justifyContent: 'center',alignItems:'center',borderRadius:10,marginHorizontal:10}} >
               
-              <TouchableOpacity onPress={reset} style={[{padding: 20,borderColor:Colors.text,width:'33%',alignItems:'center',justifyContent:'center',}]} >
+              <TouchableOpacity onPress={reset} style={[{padding: 20,borderColor:Colors.text,width:'33%',alignItems:'center',justifyContent:'center',display:isRunning ? 'none' : 'flex'}]} >
                 <FontAwesomeIcon  color={Colors.text} icon={faSquare} />
               </TouchableOpacity> 
 
-              <TouchableOpacity onPress={play} style={[{padding: 20,borderColor:Colors.text,width:'33%',alignItems:'center',justifyContent:'center',backgroundColor:Colors.primary,elevation:10,borderRadius:40,marginRight:2.5}]} >
+              <TouchableOpacity onPress={play} style={[{padding: 20,borderColor:Colors.text,width:70,height:70,alignItems:'center',justifyContent:'center',backgroundColor:'#7300e6',elevation:10,borderRadius:70,marginRight:2.5}]} >
                 <FontAwesomeIcon size={30} color={Colors.text} icon={!isRunning ? faPlay : faPause} />
               </TouchableOpacity> 
 
@@ -402,7 +405,7 @@ const FocusMode = ({navigation}) => {
               </TouchableOpacity> 
           </View>
 
-            <View style={{backgroundColor:Colors.primary,marginTop:10,marginBottom:10,marginHorizontal:20,padding: 10,borderRadius:10,flexDirection:'row',justifyContent:'space-around',alignItems:'center',opacity:music ? 1 : 0.3,display : isRunning ? 'none' :'flex'}} >
+            <Animated.View style={[opacityAnimatedView,{backgroundColor:Colors.primary,marginTop:10,marginBottom:10,marginHorizontal:20,padding: 10,borderRadius:10,flexDirection:'row',justifyContent:'space-around',alignItems:'center',opacity:music ? 1 : 0.3}]} >
               <TouchableOpacity onPress={()=>changeTrack(2)} >
                 <FontAwesomeIcon color={Colors.text} icon={faDroplet} />
               </TouchableOpacity>
@@ -418,7 +421,7 @@ const FocusMode = ({navigation}) => {
               <TouchableOpacity onPress={()=>changeTrack(1)} >
                 <FontAwesomeIcon color={Colors.text} icon={faRandom} />
               </TouchableOpacity>
-            </View>
+            </Animated.View>
         
       </View>
       
