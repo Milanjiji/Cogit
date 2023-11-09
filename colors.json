@@ -1,7 +1,7 @@
 {   
-    "Background":"#2b1499",
-    "primary":"#12156c",
-    "secondary":"#0e1158",
+    "Background":"#000000",
+    "primary":"#1a1a1a",
+    "secondary":"#7300e6",
     "black":"black",
     "white":"white",
     "Regular":"Montserrat-Regular",

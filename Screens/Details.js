@@ -205,8 +205,8 @@ const Details = ({navigation,route}) =>{
         
         <Text style={styles.reg} >Let's get you signed up first</Text>
 
-            <CutomTextInput keyboardType="email-address" label="User Name" borderColor={white} horizontal={30} marginTop={20} value={userName} onTextChange={setUserName} color="white" textColor="white" />
-            <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={10} value={phone} onTextChange={setPhone} color="white" textColor="white" />
+            <CutomTextInput keyboardType="email-address" label="User Name" borderColor={white} horizontal={30} marginTop={40} value={userName} onTextChange={setUserName} color="white" textColor="white" />
+            <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={25} value={phone} onTextChange={setPhone} color="white" textColor="white" />
             
             <Text style={styles.inputLabe} >Class</Text>
             <View style={{borderRadius:10,overflow: 'hidden',borderWidth:1,borderColor:white,marginHorizontal:30}} >
@@ -232,7 +232,7 @@ const Details = ({navigation,route}) =>{
         <Text style={[styles.fullDetailsWarning,{display : accountExists ? "flex" : "none",color:white}]} >Account with same name or phone already exists.</Text>
         
         <TouchableOpacity onPress={Submit} >
-            <Text style={[styles.btn,{backgroundColor:!loading ? '#12156c' : '#12156c50',color:!loading ? '#ffffff' : '#ffffff50'}]} >Register</Text>
+            <Text style={[styles.btn,{backgroundColor:!loading ? "#7300e6" : '#7300e650',color:!loading ? '#ffffff' : '#ffffff50'}]} >Register</Text>
         </TouchableOpacity>
 
         <TouchableOpacity onPress={loginTypeToggler} >
@@ -257,10 +257,10 @@ const Details = ({navigation,route}) =>{
             textColor="white" />
         <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={10} value={phone} onTextChange={setPhone} color="white" textColor="white"  />
         
-        <Text style={{color:'red',textAlign:'center',display:loginWarn ? 'flex' :'none'}} >{errorType}</Text>
+        <Text style={{color:'red',textAlign:'center',display:loginWarn ? 'flex' :'none',marginTop:10}} >{errorType}</Text>
         
         <TouchableOpacity style={{}} onPress={Login} >
-            <Text style={[styles.btn,{backgroundColor:!loading ? '#12156c' : '#12156c50',color:!loading ? '#ffffff' : '#ffffff50'}]} >Login</Text>
+            <Text style={[styles.btn,{backgroundColor:!loading ? '#7300e6' : '#7300e650',color:!loading ? '#ffffff' : '#ffffff50'}]} >Login</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={loginTypeToggler} >
             <Text style={{color:white,textAlign:'center'}} >Create new account</Text>
@@ -274,7 +274,7 @@ const Details = ({navigation,route}) =>{
 }
 const styles = StyleSheet.create({
     background:{
-        backgroundColor:background,
+        backgroundColor:"#000000",
         flex:1,
         
     },
@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
     },
     items:{
         color:white,
-        backgroundColor:background,
+        backgroundColor:"#000000",
     },
     btn:{
         color:white,
@@ -323,18 +323,18 @@ const styles = StyleSheet.create({
         marginLeft:40,
         color:white,
         marginTop:10,
-        backgroundColor:background,
+        backgroundColor:"#000000",
         alignSelf:'flex-start',
         marginBottom:3
     },
     modelbackground:{
-        backgroundColor:'#04103a99',
+        backgroundColor:'#ffffff10',
         flex:1,
         justifyContent:'space-around',
         alignItems:'center'
     },
     modalContainer:{
-        backgroundColor:primary,
+        backgroundColor:"#7300e6",
         borderRadius:20,
         justifyContent:'space-around',
         alignItems:'center',
