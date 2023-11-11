@@ -63,7 +63,7 @@ const Greetings = () =>{
         <View style={{marginBottom:10}} >
 
             <Timer/>
-            <View style={[styles.body,{marginTop:20}]} >
+            <View style={[styles.body,{marginTop:10}]} >
                     <Text style={[styles.title,{color:Colors.text}]} > Hello <Text style={{color:Colors.text}} >{name}</Text></Text>
                     <Text style={[styles.time,{color:Colors.text}]} >{message}</Text>
             </View>

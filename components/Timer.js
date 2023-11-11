@@ -1,14 +1,19 @@
 import React,{useState,useEffect} from "react";
-import { View,Text, TouchableOpacity } from "react-native";
+import { View,Text } from "react-native";
 import { useTimer } from '../components/TimerContext';
-import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faSquare } from "@fortawesome/free-solid-svg-icons";
 import { storage } from "../Storage";
-
+import Animated, {
+    useSharedValue,
+    withTiming,
+    Easing,
+    useAnimatedStyle,
+  } from 'react-native-reanimated';
 
 const Timer = () =>{
     const [Colors,setColors] = useState([]);
-    const {  isRunning,leftStudyTime,leftIntTime,State,resetTimer,stopTimer } = useTimer();
+    const {  isRunning,leftStudyTime,leftIntTime,State } = useTimer();
+
+    const marginTop = useSharedValue(-50);
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -19,22 +24,30 @@ const Timer = () =>{
         getColors();
     },[])
 
-    const reset  = () =>{
-        stopTimer()
-        resetTimer();
+    if(isRunning){
+        marginTop.value = withTiming(10,{
+            duration:200,
+            easing: Easing.linear
+          })
+    }else{
+        marginTop.value = withTiming(-50,{
+            duration:200,
+            easing: Easing.linear
+          })
     }
+    const marginTopAnimatedValue = useAnimatedStyle(()=>{
+        return{
+          marginTop : marginTop.value
+        }
+      })
 
     return(
-        <View style={{backgroundColor:'#ffffff50',borderRadius:10,margin:5,padding: 5,flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingHorizontal:20,display:isRunning ? 'flex' : 'none'}} >
-            <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Timer </Text>
+        <Animated.View style={[marginTopAnimatedValue,{backgroundColor:Colors.secondary,borderRadius:10,margin:5,padding: 10,flexDirection:'row',justifyContent:'center',alignItems:'center',paddingHorizontal:20}]} >
             <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:'center'}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >remaining: </Text>
                 <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >{Math.floor( State ?  leftIntTime : leftStudyTime / 60)}:{State ?  leftIntTime : leftStudyTime % 60}</Text>
             </View>
-            <TouchableOpacity onPress={reset} >
-                <FontAwesomeIcon color={Colors.text}  icon={faSquare} />
-            </TouchableOpacity>
-        </View>
+        </Animated.View>
     )
 }
 

@@ -9,7 +9,6 @@ import Animated, {
   withTiming,
   Easing,
   useAnimatedStyle,
-  interpolate,
 } from 'react-native-reanimated';
 import TrackPlayer,{useTrackPlayerEvents} from 'react-native-track-player';
 import SideBar from '../components/SideBar';
@@ -19,7 +18,6 @@ import { storage } from '../Storage';
 
 const FocusMode = ({navigation}) => {
   const [Colors,setColors] = useState([]);
-  const [btnColors,setBtnColors] = useState(["white","","#12156c"]);
 
   const padding = useSharedValue(20);
   const marginLeft = useSharedValue(0);
@@ -31,24 +29,25 @@ const FocusMode = ({navigation}) => {
   const [studyModal,setStudyModel] = useState(false);
   const [studyTime,setStudyTime] = useState(30);
   const [music,setMusic] = useState(true);
+  const [musicMode,setMusicMode] = useState(0);
   const [ftimer,setFTimer] = useState(true);
   const { seconds, isRunning, startTimer, stopTimer, resetTimer,minutes,studyTimer,intTimer, leftStudyTime,leftIntTime,State,setTimerStates,setMinutes,startTimerWithDelay} = useTimer();
 
-
+  const shuffleArray = (array)=> {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
   useEffect(()=>{
     const getColors = async()=>{
         const data = storage.getString('Colors')
         const colors = JSON.parse(data);
         setColors(colors);
-        
-        if(colors.Background === "#2b1499"){
-          setBtnColors(["#12156c50","#12156c30","#12156c40","#12156c10"])
-        }else if(colors.Background === "#1a1a1a"){
-          setBtnColors(["#ffffff50","#ffffff30","#1a1a1a40","#1a1a1a10"])
-        }
     }
     getColors();
-    console.log(randomMusic);
+    console.log(shuffleArray(randomMusic));
 
   },[])
 
@@ -91,17 +90,69 @@ const FocusMode = ({navigation}) => {
   
 
   useEffect(()=>{
-    const addTrack = async () =>{
-      const queue = await TrackPlayer.getQueue();
-      if(queue.length == 0){
-      await TrackPlayer.add(randomMusic);
-      }else{
-        console.log("somthing in the quese");
-        setPlayBack(true);
-      }
+ 
+      const getMusicMode = async () =>{
+        
+        const data = storage.getNumber('FocusModeMusic');
+        
+        if(data == undefined){
+            storage.set('FocusModeMusic',1)
+            const queue = await TrackPlayer.getQueue();
+            if(queue.length == 0){
+                console.log("music mode initial");
+                await TrackPlayer.add(shuffleArray(randomMusic));
+                setMusicMode(0)
+            }else{
+                console.log(queue,"something in the queue... from initial mode");
+            }
 
-  }
-  addTrack();
+        }else{
+            setMusicMode(data);
+            const queue = await TrackPlayer.getQueue();
+            if(queue.length == 0){
+                if(data == 1){
+                    console.log("music mode initial from not initial setup...");
+                    await TrackPlayer.add(shuffleArray(randomMusic));
+                }else if(data == 2){
+                    const track2 = [{
+                          url: "https://cdn.pixabay.com/audio/2021/08/29/audio_4b2c695936.mp3", // Load media from the app bundle
+                          title: 'rain music',
+                          artist: 'artist 1',
+                      }]
+                    await TrackPlayer.add(track2);
+                    console.log("music mode 2 rain music");
+                }else if(data == 3){
+                    const track3 = [{
+                          url: "https://drive.google.com/uc?id=13qJ3N68YpZKadSIs3o0JUBk4u1jLDUmI", // Load media from the app bundle
+                          title: 'title 0',
+                          artist: 'artist 0',
+                      }]
+                    await TrackPlayer.add(track3);
+                    console.log("music mode 3 fire music");
+                }else if(data == 4){
+                    const track4 = [{
+                          url: "https://cdn.pixabay.com/audio/2022/10/14/audio_9939f792cb.mp3", // Load media from the app bundle
+                          title: 'title 0',
+                          artist: 'artist 0',
+                      }]
+                    await TrackPlayer.add(track4);
+                    console.log("music mode 4 fire music");
+                }else if(data == 5){
+                    const track5 = [{
+                          url: "https://drive.google.com/uc?id=1aCZz0jyvlCtccP_OKWtStAzdJml7yAw-", // Load media from the app bundle
+                          title: 'title 0',
+                          artist: 'artist 0',
+                      }]
+                    await TrackPlayer.add(track5);
+                    console.log("music mode 4 waves music");
+                }
+            }else{
+                console.log(queue,"something in the queue from user mode ....");
+                setPlayBack(true);
+            }
+        }
+    }
+    getMusicMode();
 
   },[])
 
@@ -146,7 +197,9 @@ const FocusMode = ({navigation}) => {
           console.log("addsing the random songs");
           const queue = await TrackPlayer.getQueue();
           if(queue.length == 0){
-            await TrackPlayer.add(randomMusic);
+            await TrackPlayer.add(shuffleArray(randomMusic));
+            setMusicMode(1)
+            storage.set('FocusModeMusic',1)
             console.log("adding the random music to the queue");
             }else{
               console.log("ressing has not done there is still some thing in the queue");
@@ -161,6 +214,8 @@ const FocusMode = ({navigation}) => {
           const queue = await TrackPlayer.getQueue();
           if(queue.length == 0){
             await TrackPlayer.add(track2);
+            storage.set('FocusModeMusic',2)
+            setMusicMode(2)
             console.log("adding the rain music to the queue");
             }else{
               console.log("ressing has not done there is still some thing in the queue");
@@ -176,6 +231,8 @@ const FocusMode = ({navigation}) => {
           if(queue.length == 0){
             await TrackPlayer.add(track3);
             console.log("adding the fire music to the queue");
+            storage.set('FocusModeMusic',3)
+            setMusicMode(3)
             }else{
               console.log("ressing has not done there is still some thing in the queue");
             }
@@ -190,6 +247,8 @@ const FocusMode = ({navigation}) => {
           if(queue.length == 0){
             await TrackPlayer.add(track4);
             console.log("adding the natuer music to the queue");
+            storage.set('FocusModeMusic',4)
+            setMusicMode(4)
             }else{
               console.log("ressing has not done there is still some thing in the queue");
             }
@@ -203,6 +262,8 @@ const FocusMode = ({navigation}) => {
           console.log("addsing the sea wawes songs");
           if(queue.length == 0){
             await TrackPlayer.add(track5);
+            storage.set('FocusModeMusic',5)
+            setMusicMode(5)
             console.log("adding the wawes music to the queue");
             }else{
               console.log("ressing has not done there is still some thing in the queue");
@@ -225,7 +286,14 @@ const FocusMode = ({navigation}) => {
         duration: 1800,
         easing: Easing.linear,
       });
-      
+      marginLeft.value = withTiming(-30,{
+        duration:100,
+        easing: Easing.linear
+      })
+      opacity.value = withTiming(0,{
+        duration:100,
+        easing: Easing.linear
+      })
     }
     
     
@@ -255,7 +323,9 @@ const FocusMode = ({navigation}) => {
         }
       }else{
         try {
+          stopTimer()
           await TrackPlayer.pause();
+
         } catch (error) {
           console.log("Error playing track:", error);
         }
@@ -407,19 +477,19 @@ const FocusMode = ({navigation}) => {
 
             <Animated.View style={[opacityAnimatedView,{backgroundColor:Colors.primary,marginTop:10,marginBottom:10,marginHorizontal:20,padding: 10,borderRadius:10,flexDirection:'row',justifyContent:'space-around',alignItems:'center',opacity:music ? 1 : 0.3}]} >
               <TouchableOpacity onPress={()=>changeTrack(2)} >
-                <FontAwesomeIcon color={Colors.text} icon={faDroplet} />
+                <FontAwesomeIcon color={musicMode == 2 ? Colors.text : `${Colors.text}50`} icon={faDroplet} />
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>changeTrack(3)} >
-                <FontAwesomeIcon color={Colors.text} icon={faFire} />
+                <FontAwesomeIcon color={musicMode == 3 ? Colors.text : `${Colors.text}50`} icon={faFire} />
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>changeTrack(4)} >
-                <FontAwesomeIcon color={Colors.text} icon={faLeaf} />
+                <FontAwesomeIcon color={musicMode == 4 ? Colors.text : `${Colors.text}50`} icon={faLeaf} />
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>changeTrack(5)} >
-                <FontAwesomeIcon color={Colors.text} icon={faAnchor} />
+                <FontAwesomeIcon color={musicMode == 5 ? Colors.text : `${Colors.text}50`} icon={faAnchor} />
               </TouchableOpacity>
               <TouchableOpacity onPress={()=>changeTrack(1)} >
-                <FontAwesomeIcon color={Colors.text} icon={faRandom} />
+                <FontAwesomeIcon color={musicMode == 1 ? Colors.text : `${Colors.text}50`} icon={faRandom} />
               </TouchableOpacity>
             </Animated.View>
         
