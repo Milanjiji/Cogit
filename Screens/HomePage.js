@@ -28,16 +28,19 @@ const Homepage = ({navigation,route}) =>{
     const [banReason,setBanReason] = useState('');
     const [report,setReport] = useState('');
     const [sending,setSending] = useState('');
-
+    const [stnt,setStnt] = useState(true);
+    console.log(route.params,"route params from homepage");
     useEffect(()=>{
         const getColors = async()=>{
             const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
             console.log(colors);
+            
         }
         getColors();
         SplashScreen.hide();
+
         const getBanDetails = async () =>{
             
             const banReport = JSON.parse(storage.getString('ban'));
@@ -81,8 +84,19 @@ const Homepage = ({navigation,route}) =>{
       
           }      
         getBanDetails();
+        const getUserDetails = async () =>{
+          const clas = JSON.parse(storage.getString('class'));
+          console.log(clas);
+          if(clas === "nStd"){
+            setStnt(false);
+          }else{
+            setStnt(true);
+          }
+        }
+        getUserDetails();
 
     },[])
+
 
   const sendReport = async () =>{
       // const name = JSON.parse(await AsyncStorage.getItem('userName'))
@@ -154,14 +168,14 @@ const Homepage = ({navigation,route}) =>{
                 <SideBar navigation={navigation} page="Cogit" />
 
                 <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:Colors.Background,paddingBottom:150,flex: 1,}}  >
-                <Greetings navigation={navigation} />
+                <Greetings   navigation={navigation} />
 
                 <Tools navigation={navigation} colors={Colors} />
                 
                 <Tasks  navigation={navigation} Colors={Colors} />   
                 
 
-                <View>
+                <View style={{display : stnt ? 'flex' : 'none'}} >
                     <Notes navigation={navigation} />
                 </View>
                     

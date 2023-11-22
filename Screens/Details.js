@@ -11,13 +11,14 @@ import {
   } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 import { useState,useEffect,useRef } from 'react';
-  
+import RNRestart from 'react-native-restart';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import firestore from '@react-native-firebase/firestore';
 import SplashScreen from 'react-native-splash-screen';
 import CutomTextInput from '../components/CutomTextInput';
 import { storage } from '../Storage';
+import { faCheckSquare, faSquare } from '@fortawesome/free-solid-svg-icons';
 
 
 const primary = "#12156c"
@@ -39,6 +40,8 @@ const Details = ({navigation,route}) =>{
     const [errorType,setErrorType] = useState('');
     const [loading,setLoading] = useState(false);
     const [accountExists,setAccountExists] = useState(false);
+    const [tr,setTr] = useState(false);
+    const [nStd,setNStd] = useState(false);
     const search = firestore().collection('Users');
     const height = Dimensions.get('window').height;
     const width = Dimensions.get('window').width;
@@ -54,7 +57,7 @@ const Details = ({navigation,route}) =>{
    
     const Submit = async () =>{
         if(
-            userName &&  phone && clas 
+            userName &&  phone 
         ){  
             setLoading(true); 
             setAccountExists(false);
@@ -69,7 +72,7 @@ const Details = ({navigation,route}) =>{
                         try{
                             storage.set('userName',JSON.stringify(userName))
                             storage.set('phone',JSON.stringify(phone))
-                            storage.set('class',JSON.stringify(clas))
+                            storage.set('class',JSON.stringify( tr ? 'tr' : nStd ? 'nStd' : clas))
                             // await AsyncStorage.setItem('userName',JSON.stringify(userName));
                             // await AsyncStorage.setItem('phone', JSON.stringify(phone));
                             // await AsyncStorage.setItem('class', JSON.stringify(clas));
@@ -79,7 +82,7 @@ const Details = ({navigation,route}) =>{
                                     .add({
                                         name:userName,
                                         phone:phone,
-                                        class:clas})
+                                        class:  tr ? 'tr' : nStd ? 'nStd' : clas})
                                     .then(() => {
                                         console.log('Message sent successfully');
                                         })
@@ -126,10 +129,7 @@ const Details = ({navigation,route}) =>{
         try{
             storage.set('userName',JSON.stringify(userName))
             storage.set('phone',JSON.stringify(phone))
-            storage.set('class',JSON.stringify(clas))
-            // await AsyncStorage.setItem('userName',JSON.stringify(userName));
-            // await AsyncStorage.setItem('phone', JSON.stringify(phone));
-            // await AsyncStorage.setItem('class', JSON.stringify(clas));
+            storage.set('class',clas)
         }catch(e){
             console.log('err');
         }
@@ -191,7 +191,7 @@ const Details = ({navigation,route}) =>{
                 <Text style={{color:white,fontWeight:600}} >You are now in</Text> 
                 <FontAwesomeIcon size={60} color={white} icon={faCheckCircle} />
                 <TouchableOpacity>
-                    <Text onPress={()=>{navigation.navigate('Home');setModalVisible(false)}} style={styles.next} >Next</Text>
+                    <Text onPress={()=>{RNRestart.restart();setModalVisible(false)}} style={styles.next} >Next</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -209,7 +209,7 @@ const Details = ({navigation,route}) =>{
             <CutomTextInput keyboardType="phone-pad" label="Contact" borderColor={white} horizontal={30} marginTop={25} value={phone} onTextChange={setPhone} color="white" textColor="white" />
             
             <Text style={styles.inputLabe} >Class</Text>
-            <View style={{borderRadius:10,overflow: 'hidden',borderWidth:1,borderColor:white,marginHorizontal:30}} >
+            <View style={{borderRadius:10,overflow: 'hidden',borderWidth:1,borderColor:white,marginHorizontal:30,opacity:tr || nStd ? 0.5 :1}} >
                 <Picker 
                     style={styles.picker} 
                     selectedValue={clas}
@@ -223,6 +223,14 @@ const Details = ({navigation,route}) =>{
                     <Picker.Item style={styles.items} label="others" value="others" />
                 </Picker>
             </View>
+            <TouchableOpacity onPress={()=>setTr(!tr)} style={{flexDirection:'row',marginHorizontal:30,marginTop:20}} >
+                <FontAwesomeIcon icon={tr ? faCheckSquare : faSquare} color={white} />
+                <Text style={{color:white,fontFamily:Medium,marginLeft:10}} >Teacher</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>setNStd(!nStd)} style={{flexDirection:'row',marginHorizontal:30,marginTop:20}} >
+                <FontAwesomeIcon icon={nStd ? faCheckSquare : faSquare} color={white} />
+                <Text style={{color:white,fontFamily:Medium,marginLeft:10}} >Not a Student</Text>
+            </TouchableOpacity>
         
         
  

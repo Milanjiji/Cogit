@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import Colors from './colors.json'
 import Screens from './components/Screens';
-import TrackPlayer from 'react-native-track-player';
 import { TimerProvider } from './components/TimerContext'
 import { storage } from './Storage';
-
+import TrackPlayer from 'react-native-track-player';
+import { playBackService } from './service.js';
 
 
 const App = () => {
@@ -24,10 +24,31 @@ const App = () => {
       }
     }
     getItem();
-    
-    return () => {
-      TrackPlayer.reset();
-    };
+    const initlizeTrackPlayer = () =>{
+      const name = storage.getString('userName')
+      if(name !== undefined){
+        if(name !== "undefined")
+        {
+          TrackPlayer.registerPlaybackService(() => playBackService);
+          let isSetUp = false;
+          if(!isSetUp){
+              TrackPlayer.setupPlayer().then(()=>{
+                  isSetUp = true
+                  console.log("trackplayer initiliazed from app registery");
+              })
+          }else{
+              console.log("trackplayer already been initilaized form app registary");
+          }
+        }
+        
+      }else{
+        console.log("trackplayer in the getting started");
+      }
+    }
+    initlizeTrackPlayer();
+    // return () => {
+    //   TrackPlayer.restart();
+    // };
   },[])
 
   return (

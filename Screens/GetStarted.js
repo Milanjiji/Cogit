@@ -9,6 +9,7 @@ import { View,
 
 import Colors from '../colors.json'
 import SplashScreen from "react-native-splash-screen";
+import { storage } from '../Storage';
 
 
 const secondry = "#3fb0c9"
@@ -21,6 +22,7 @@ const GetStarted = ({navigation}) =>{
 
     useEffect(()=>{
          SplashScreen.hide();
+         storage.set('userName','undefined')
     },[])
 
     return (

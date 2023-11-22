@@ -19,6 +19,7 @@ const AccountSettings = ({navigation}) =>{
     const logOut = () =>{
         setLogOutSec(logOutSec+1);
         if(logOutSec === 1){
+            storage.set('userName',"undefined")
             navigation.navigate('Details');
         }
     }
