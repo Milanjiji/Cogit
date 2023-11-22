@@ -72,7 +72,7 @@ const Details = ({navigation,route}) =>{
                         try{
                             storage.set('userName',JSON.stringify(userName))
                             storage.set('phone',JSON.stringify(phone))
-                            storage.set('class',JSON.stringify( tr ? 'tr' : nStd ? 'nStd' : clas))
+                            storage.set('class',JSON.stringify( nStd ? 'nStd' : clas))
                             // await AsyncStorage.setItem('userName',JSON.stringify(userName));
                             // await AsyncStorage.setItem('phone', JSON.stringify(phone));
                             // await AsyncStorage.setItem('class', JSON.stringify(clas));
@@ -223,10 +223,7 @@ const Details = ({navigation,route}) =>{
                     <Picker.Item style={styles.items} label="others" value="others" />
                 </Picker>
             </View>
-            <TouchableOpacity onPress={()=>setTr(!tr)} style={{flexDirection:'row',marginHorizontal:30,marginTop:20}} >
-                <FontAwesomeIcon icon={tr ? faCheckSquare : faSquare} color={white} />
-                <Text style={{color:white,fontFamily:Medium,marginLeft:10}} >Teacher</Text>
-            </TouchableOpacity>
+
             <TouchableOpacity onPress={()=>setNStd(!nStd)} style={{flexDirection:'row',marginHorizontal:30,marginTop:20}} >
                 <FontAwesomeIcon icon={nStd ? faCheckSquare : faSquare} color={white} />
                 <Text style={{color:white,fontFamily:Medium,marginLeft:10}} >Not a Student</Text>

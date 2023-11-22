@@ -114,9 +114,6 @@ const UserDetails = ({navigation}) => {
       }else if(pos == 3){
         storage.set('class',"+2")
         setClass("+2")
-      }else if(pos == 4){
-        storage.set('class',"tr")
-        setClass("tr")
       }else if(pos == 5){
         storage.set('class',"nStd")
         setClass("nStd")
@@ -146,21 +143,18 @@ const UserDetails = ({navigation}) => {
             </View>
             <View style={{marginTop:5,display:posChange?'flex':'none'}} >
               <View style={{flexDirection:'row',marginTop:5,justifyContent:'space-between'}} >
-                <TouchableOpacity onPress={()=>changePos(1)} style={{backgroundColor:Colors.secondary,paddingHorizontal:20,paddingVertical:5,borderRadius:5}} >
+                <TouchableOpacity onPress={()=>changePos(1)} style={{backgroundColor:Colors.secondary,paddingHorizontal:20,paddingVertical:5,borderRadius:5,flex: 1,marginHorizontal:5}} >
                   <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >10</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>changePos(2)} style={{backgroundColor:Colors.secondary,paddingHorizontal:20,paddingVertical:5,borderRadius:5}} >
+                <TouchableOpacity onPress={()=>changePos(2)} style={{backgroundColor:Colors.secondary,paddingHorizontal:20,paddingVertical:5,borderRadius:5,flex: 1,marginHorizontal:5}} >
                   <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >+1</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>changePos(3)} style={{backgroundColor:Colors.secondary,paddingHorizontal:20,paddingVertical:5,borderRadius:5}} >
+                <TouchableOpacity onPress={()=>changePos(3)} style={{backgroundColor:Colors.secondary,paddingHorizontal:20,paddingVertical:5,borderRadius:5,flex: 1,marginHorizontal:5}} >
                   <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >+2</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={()=>changePos(4)} style={{backgroundColor:Colors.secondary,paddingHorizontal:20,paddingVertical:5,borderRadius:5}} >
-                  <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Teacher</Text>
-                </TouchableOpacity>
               </View>
-              <TouchableOpacity onPress={()=>changePos(5)} style={{backgroundColor:Colors.secondary,paddingHorizontal:20,paddingVertical:5,borderRadius:5,marginTop:5}} >
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Not a teacher Nor a student</Text>
+              <TouchableOpacity onPress={()=>changePos(5)} style={{backgroundColor:Colors.secondary,paddingHorizontal:20,paddingVertical:5,borderRadius:5,marginTop:5,marginHorizontal:5}} >
+                <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Not a student</Text>
               </TouchableOpacity>
             </View>
         </View>
