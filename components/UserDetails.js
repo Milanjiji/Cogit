@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import {  faPencil, faPhone} from '@fortawesome/free-solid-svg-icons';
+import {  faExclamationTriangle, faPencil, faPhone} from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 
 import firestore from '@react-native-firebase/firestore';
@@ -156,6 +156,10 @@ const UserDetails = ({navigation}) => {
               <TouchableOpacity onPress={()=>changePos(5)} style={{backgroundColor:Colors.secondary,paddingHorizontal:20,paddingVertical:5,borderRadius:5,marginTop:5,marginHorizontal:5}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium}} >Not a student</Text>
               </TouchableOpacity>
+              <View style={{flexDirection:'row',alignItems:'center',marginHorizontal:10,marginTop:5}} >
+                <FontAwesomeIcon color='yellow' icon={faExclamationTriangle} />
+                <Text style={{marginHorizontal:5,color:Colors.text,fontFamily:Colors.Medium,marginTop:5}} >Reload required to take effect</Text>
+              </View>
             </View>
         </View>
         <View style={{marginHorizontal:5,marginVertical:10}} >

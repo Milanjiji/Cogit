@@ -2,6 +2,8 @@ import React,{useState,useEffect,useRef} from "react";
 import {View,Text,StyleSheet,Dimensions, TouchableOpacity} from 'react-native'
 import Colors from '../colors.json'
 import { storage } from "../Storage";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 
 const ScreenWidth = Dimensions.get('window').width
@@ -73,8 +75,11 @@ const GeneralSetting = () =>{
                     </TouchableOpacity>
                 </View>
             </View>
-            <Text style={[styles.reload,{color:Colors.text,display : reload ? 'flex' :'none' }]} >Reload Application to take effect</Text>
 
+            <View style={{flexDirection:'row',alignItems:'center',marginHorizontal:10,marginTop:5,display : reload ? 'flex' :'none' }} >
+                <FontAwesomeIcon color='yellow' icon={faExclamationTriangle} />
+                <Text style={{marginHorizontal:5,color:Colors.text,fontFamily:Colors.Medium,marginTop:5}} >Reload required to take effect</Text>
+              </View>
         </View>
     );
     

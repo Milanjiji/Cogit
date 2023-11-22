@@ -220,7 +220,6 @@ const Details = ({navigation,route}) =>{
                     <Picker.Item style={styles.items}  label="10" value="10" />
                     <Picker.Item style={styles.items} label="+1" value="+1" />
                     <Picker.Item style={styles.items} label="+2" value="+2" />
-                    <Picker.Item style={styles.items} label="others" value="others" />
                 </Picker>
             </View>
 
