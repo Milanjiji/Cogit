@@ -18,17 +18,17 @@ const Basics = ({navigation}) => {
         }
         getColors();
 
-        const getLang = async() =>{
-            const lang = storage.getBoolean("C++Lang");
-            console.log("lang",lang);
-            if(lang !== undefined){
-                setLang(lang)
-            }else{
-                setLang(false);
-                storage.set("C++Lang",false)
-            }
-          }
-          getLang()
+        // const getLang = async() =>{
+        //     const lang = storage.getBoolean("C++Lang");
+        //     console.log("lang",lang);
+        //     if(lang !== undefined){
+        //         setLang(lang)
+        //     }else{
+        //         setLang(false);
+        //         storage.set("C++Lang",false)
+        //     }
+        //   }
+        //   getLang()
     },[])
     
 

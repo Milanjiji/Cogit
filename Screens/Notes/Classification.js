@@ -27,15 +27,6 @@ const Classification = ({navigation,route}) =>{
         }
         getColors();
         console.log(sub);
-        if(sub=='math'){
-            setTitle('Maths')
-        }else if(sub=='chem'){
-            setTitle('Chemistry')
-        }else if(sub=='phy'){
-            setTitle('Physics')
-        }else if(sub=='bio'){
-            setTitle('Biology')
-        }
         const fetchId = async () =>{
             const users = await firestore().collection('UserReq').get()
             setLastId(users.size);
@@ -81,8 +72,7 @@ const Classification = ({navigation,route}) =>{
 
             <View style={{flex: 1,paddingHorizontal:10,justifyContent: 'center',}} >
                 <TouchableOpacity onPress={()=>{navigation.navigate('VeryShortNoteClassification',{sub:sub})}} style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10}} >
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Walk Through</Text>
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Just main topics from chapters</Text>
+                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Concept Map</Text>
                 </TouchableOpacity>
                 <View style={styles.grid} >
                     <TouchableOpacity onPress={()=>{navigation.navigate('BriefClassfication',{sub:sub})}} style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
@@ -90,36 +80,26 @@ const Classification = ({navigation,route}) =>{
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Chapter explained briefly</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Explantion video of core topics</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Each Topic explained induvidually</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Explantion video from yt</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Embeded best video classes by main yt educational channels in mal</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.grid} >
                     <TouchableOpacity onPress={()=>{navigation.navigate('DeepClassfication',{sub:sub})}} style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Explanation</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Explaination and definition of topics.</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Explaination and definition of topics.This notes does not contain diagrams </Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>{navigation.navigate('VideoClassification',{sub:sub})}}  style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Video Class</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Video Classes</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >HandWritten Notes</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Include almost everything from a chapter</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.grid} >
-                    <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Mock Text</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Simple Mock tests</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Mock Text</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Advanced Mock tests</Text>
-                    </TouchableOpacity>
-                </View>
+                
 
                 {
                   sub == 'math' ?  
                   <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary}]} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Complete Equations</Text>
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Complete Equations with uses and definition</Text>
                   </TouchableOpacity> : ''     
                 }
                 <View style={{backgroundColor:Colors.hashWhite,margin:5,borderRadius:10,marginBottom:20}} >

@@ -6,28 +6,18 @@ import { storage } from '../Storage';
 
 const LearnC = ({navigation}) => {
   const [Colors,setColors] = useState([]);
-  const [lang,setLang] = useState(true);  
+  const [lang,setLang] = useState(false);  
 
     
     useEffect(()=>{
         const getColors = async()=>{
-            const data = storage.set('Colors');
+            const data = storage.getString('Colors');
             const colors = JSON.parse(data);
             setColors(colors);
         }
         getColors();
 
-        const getLang = async() =>{
-            const lang = storage.getBoolean("C++Lang")
-            console.log("lang",lang);
-            if(lang !== undefined){
-                setLang(lang)
-            }else{
-                setLang(false);
-                storage.set("C++Lang",false)
-            }
-          }
-          getLang()
+        
     },[])
     
 

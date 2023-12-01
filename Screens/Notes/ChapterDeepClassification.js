@@ -10,10 +10,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { storage } from "../../Storage";
 
-// import Class11Math from './../../assets/DeepRawNote/Class11Maths.json'
-// import Class11Bio from './../../assets/DeepRawNote/Class11Bio.json'
-// import Class11Phy from './../../assets/DeepRawNote/Class11Phy.json'
-// import Class11MChem from './../../assets/DeepRawNote/Class11Chem.json'
+import Class11Math from './../../assets/DeepRawNote/Class11Maths.json'
+import Class11Bio from './../../assets/DeepRawNote/Class11Bio.json'
+import Class11Phy from './../../assets/DeepRawNote/Class11Phy.json'
+import Class11MChem from './../../assets/DeepRawNote/Class11Chem.json'
 
 // import Class12Math from './../../assets/DeepRawNote/Class12Maths.json'
 // import Class12Bio from './../../assets/DeepRawNote/Class12Bio.json'
@@ -58,20 +58,20 @@ const DeepClassification = ({route,navigation}) =>{
                 }else{
                     console.log('got some problem over the note selections');
                 }
-        //     // }else if(value === '+1') {
-        //     //     console.log("its +1 boys");
-        //     //     if(sub === 'math'){
-        //     //         setNote(Class11Math);
-        //     //     }else if(sub === 'phy'){
-        //     //         setNote(Class11Phy);
-        //     //     }else if(sub === 'chem'){
-        //     //         setNote(Class11MChem);
-        //     //     }else if(sub === 'bio'){
-        //     //         setNote(Class11Bio);
-        //     //     }else{
-        //     //         console.log('got some problem over the note selections');
-        //     //     }
-        //     // }else if(value === '+2') {
+            }else if(value === '+1') {
+                console.log("its +1 boys");
+                if(sub === 'math'){
+                    setNote(Class11Math);
+                }else if(sub === 'phy'){
+                    setNote(Class11Phy);
+                }else if(sub === 'chem'){
+                    setNote(Class11MChem);
+                }else if(sub === 'bio'){
+                    setNote(Class11Bio);
+                }else{
+                    console.log('got some problem over the note selections');
+                }
+            }else if(value === '+2') {
         //     //     console.log("its +2 boys");
         //     //     if(sub === 'math'){
         //     //         setNote(Class12Math);

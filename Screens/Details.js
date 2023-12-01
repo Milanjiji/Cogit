@@ -127,7 +127,7 @@ const Details = ({navigation,route}) =>{
 
     const uploadData = async(userName,phone,clas) =>{
         try{
-            storage.set('userName',JSON.stringify(userName))
+            storage.set('userName',userName)
             storage.set('phone',JSON.stringify(phone))
             storage.set('class',clas)
         }catch(e){

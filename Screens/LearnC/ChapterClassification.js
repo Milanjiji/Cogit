@@ -19,26 +19,13 @@ const CClass = ({navigation}) => {
         }
         getColors();
 
-        const getLang = async() =>{
-          const lang = storage.getBoolean('C++Lang')
-          if(lang !== undefined){
-              setLang(lang)
-          }else{
-              setLang(false);
-              console.log('place of ');
-              storage.set('C++Lang',false)
-          }
-        }
-        getLang()
+        
     },[]);
-    const changeLanuage = async() =>{
-      storage.set('C++Lang',!lang)
-      setLang(!lang)
-  }
+    
 
-    const Button = ({text,no,to}) =>{
+    const Button = ({text,no,to,marginBottom}) =>{
         return(
-            <TouchableOpacity onPress={()=>navigation.navigate(to)}  style={{backgroundColor:Colors.primary,borderRadius:10,marginHorizontal:10,padding: 10,marginVertical:3}} >
+            <TouchableOpacity onPress={()=>navigation.navigate(to)}  style={{backgroundColor:Colors.primary,borderRadius:10,marginHorizontal:10,padding: 10,marginVertical:3,marginBottom:marginBottom ? marginBottom : 3}} >
               <View style={{flexDirection:'row'}} >
                 <FontAwesomeIcon icon={faAngleRight} color={Colors.text}  />
                 <Text style={{color:Colors.white,fontFamily:'monospace'}} > {no} ;</Text>
@@ -50,9 +37,9 @@ const CClass = ({navigation}) => {
 
   return (
     <View
-      style={{backgroundColor:Colors.Background,flex: 1,}} >
+      style={{backgroundColor:Colors.Background,flex: 1}} >
           
-        <ScrollView showsVerticalScrollIndicator={false} >
+        <ScrollView showsVerticalScrollIndicator={false} style={{paddingVertical:20}}>
 
           <Button to="Instruction" text={"Instruction"} no={"01"} />
           <Button to="LearnC" text={"Intro"} no={"02"} />
@@ -73,11 +60,8 @@ const CClass = ({navigation}) => {
           <Button to="Struct" text={"Structures"} no={'16'} />
           <Button to="Pointer" text={"Pointers"} no={'17'} />
           <Button to="Function" text={"Functions"} no={'18'} />
-          <Button to="Class" text={"Classes"} no={'19'} />
+          <Button marginBottom={40} to="Class" text={"Classes"} no={'19'} />
 
-          <TouchableOpacity onPress={changeLanuage}  style={{backgroundColor:Colors.primary,borderRadius:10,padding: 10,elevation:10,marginBottom:10,marginHorizontal:20}} >
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >Switch Lang, Current : {lang ? 'Ma' : 'En'} </Text>
-          </TouchableOpacity>
         </ScrollView>
         
 

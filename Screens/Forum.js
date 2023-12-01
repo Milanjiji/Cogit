@@ -14,7 +14,7 @@ const Forum = ({navigation}) =>{
     const [name,setName] = useState('')
     const [display,setDisplay] = useState(true);
     const [Colors,setColors] = useState([]);
-    const [lastId,setLastId] = useState(0);
+    // const [lastId,setLastId] = useState(0);
     const [groundState,setGroundState] = useState(true);
     const [reason,setReason] = useState('technical Issue')
     useEffect(()=>{
@@ -24,12 +24,12 @@ const Forum = ({navigation}) =>{
             setColors(colors);
         }
         getColors();
-        const getLastId = async() =>{
-            const chatdata = await firestore().collection('ChatData').get()
-            setLastId(chatdata.size);
-            console.log('totaol event => ',chatdata.size);
-        };
-        getLastId();
+        // const getLastId = async() =>{
+        //     const chatdata = await firestore().collection('ChatData').get()
+        //     setLastId(chatdata.size);
+        //     console.log('totaol event => ',chatdata.size);
+        // };
+        // getLastId();
         const forumState = async () =>{
             try {
                 const CommunityData = await firestore().collection('ForumState').get();
@@ -52,8 +52,8 @@ const Forum = ({navigation}) =>{
     useEffect(() => {
         const fetchUserReply = async () =>{
             const name = storage.getString('userName')
-            setName(name);
-            
+            setName(JSON.parse(name));
+            console.log("name of the candidate " );
         }
         const unsubscribe = firestore()
             .collection('ChatData')
@@ -77,12 +77,13 @@ const Forum = ({navigation}) =>{
             return () => unsubscribe();
       }, []);
       
-      const handleSend = () => {
+      const handleSend = async () => {
+        const chatdata = await firestore().collection('ChatData').get()
         if(message){
         
             firestore()
               .collection('ChatData')
-              .add({ id: lastId+1, message,name:name })
+              .add({ id: chatdata.size+1, message,name:name })
               .then(() => {
                 console.log('Message sent successfully');
                 setMessage(''); 
@@ -124,7 +125,7 @@ const Forum = ({navigation}) =>{
                 elevation:10
                 }]} key={item.id}>
                 <Text style={{color:Colors.text,alignSelf: item.name === name ? 'flex-end' :'flex-start',fontSize:9}} >{item.name}</Text>
-                <Text style={{color:Colors.text}} >{item.message}</Text>
+                <Text style={{color:Colors.text,textAlign : item.name === name ? 'right' :'left'}} >{item.message}</Text>
             </TouchableOpacity>
         );
       }

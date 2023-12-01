@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, ScrollView,TouchableOpacity} from 'react-native';
 import Code from '../../components/Code';
-import CodeEditor from '../SampleCodeEditor';
+// import CodeEditor from '../SampleCodeEditor';
 import { storage } from '../../Storage';
 
 
@@ -18,17 +18,7 @@ const Instruction = ({navigation}) => {
         }
         getColors();
 
-        const getLang = async() =>{
-            const lang = storage.getBoolean("C++Lang");
-            console.log("lang",lang);
-            if(lang !== undefined){
-                setLang(lang)
-            }else{
-                setLang(false);
-                storage.set("C++Lang",false)
-            }
-          }
-          getLang()
+        
     },[])
     
 
@@ -45,7 +35,7 @@ const Instruction = ({navigation}) => {
 
     
     
- 
+    // <CodeEditor  />
   
   return (
     <View
@@ -60,12 +50,7 @@ const Instruction = ({navigation}) => {
             <Code title="Hello world" code={"#include <iostream>\nusing namespace std;\n\nint main()\n{\ncout<<\"Hello World!\";\nreturn 0;\n}"}/>
             
             <NormalText eng={"now use the button on top right to copy the code and paste it in the code Editor"} />
-            <NormalText eng={"For example you are now provided with a sample code and Code Editor below."} />
-
-            <Code title="Hello world" code={"#include <iostream>\nusing namespace std;\n\nint main()\n{\ncout<<\"Hello World!\";\nreturn 0;\n}"}/>
-            <NormalText eng={"Note:Clear all things in the code editor before pasting."} />
-
-            <CodeEditor  />
+            <NormalText eng={"Load Code Editor from the home (left side on the side bar)"} />
             
             </View>
 
