@@ -112,10 +112,7 @@ const AddArticle = ({navigation}) =>{
                         <Text style={[styles.label,{color:Colors.text}]} >Article*:</Text>
                         <TextInput placeholder='Content' multiline={true} value={article} onChangeText={setArticle} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
                     </View>
-                    <View style={{marginHorizontal:20}} >
-                        <Text style={[styles.label,{color:Colors.text}]} >Extra(optional):</Text>
-                        <TextInput placeholder='ex: www.youtube.com' value={extra} onChangeText={setExtra} style={[styles.input,{backgroundColor:Colors.primary,color:Colors.text}]}  />
-                    </View>
+                    
                    
                 </ScrollView>
                 <ScrollView showsVerticalScrollIndicator={false} style={{display : !addPreviewToggler ? 'flex': 'none',flex: 1,}} >

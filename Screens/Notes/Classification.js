@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import { View,Text, TouchableOpacity, StyleSheet, ScrollView,KeyboardAvoidingView } from "react-native";
+import { View,Text, TouchableOpacity, StyleSheet, ScrollView,KeyboardAvoidingView, Image } from "react-native";
 import SideBar from "../../components/SideBar";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
@@ -71,13 +71,15 @@ const Classification = ({navigation,route}) =>{
            <SideBar navigation={navigation} page={"Notes"} />
 
             <View style={{flex: 1,paddingHorizontal:10,justifyContent: 'center',}} >
-                <TouchableOpacity onPress={()=>{navigation.navigate('VeryShortNoteClassification',{sub:sub})}} style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10}} >
+                <TouchableOpacity onPress={()=>{navigation.navigate('VeryShortNoteClassification',{sub:sub})}} style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,flexDirection:'row',alignItems:'center',justifyContent:'space-around'}} >
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Concept Map</Text>
+                    <Image style={{width:100,height:100}} source={require('../../assets/images/concept.png')} />
                 </TouchableOpacity>
                 <View style={styles.grid} >
-                    <TouchableOpacity onPress={()=>{navigation.navigate('BriefClassfication',{sub:sub})}} style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Chapter Explained Briefly</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Chapter explained briefly</Text>
+                    
+                    <TouchableOpacity onPress={()=>{navigation.navigate('DeepClassfication',{sub:sub})}} style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Explanation</Text>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Explaination and definition of topics.This notes does not contain diagrams </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Explantion video from yt</Text>
@@ -85,10 +87,6 @@ const Classification = ({navigation,route}) =>{
                     </TouchableOpacity>
                 </View>
                 <View style={styles.grid} >
-                    <TouchableOpacity onPress={()=>{navigation.navigate('DeepClassfication',{sub:sub})}} style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Explanation</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Explaination and definition of topics.This notes does not contain diagrams </Text>
-                    </TouchableOpacity>
                     <TouchableOpacity onPress={()=>{navigation.navigate('VideoClassification',{sub:sub})}}  style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >HandWritten Notes</Text>
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Include almost everything from a chapter</Text>

@@ -22,8 +22,6 @@ import AddArticle from "../Screens/AddArticle";
 import AboutUs from "../Screens/AboutUs";
 import PrivacyPolicy from "./PrivacyAndPolicy";
 import TermsCondition from "./TermsAndCondition";
-import Brief from "../Screens/Notes/Briefly";
-import BriefClassification from "../Screens/Notes/BrieflyClassification";
 import DeepClassification from "../Screens/Notes/ChapterDeepClassification";
 import DeepExplanation from "../Screens/Notes/ChapterDeep";
 import Skills from "../Screens/Skills";
@@ -55,8 +53,6 @@ import Struct from "../Screens/LearnC/Structures";
 import Pointers from "../Screens/LearnC/Pointers";
 import Function from "../Screens/LearnC/Functions";
 import Classes from "../Screens/LearnC/Class";
-import VeryShortClassification from "../Screens/Notes/VeryShortClassification";
-import VeryShort from "../Screens/Notes/VeryShort";
 import Report from "../Screens/Report";
 import TaskManager from "../Screens/TaskManager";
 
@@ -137,12 +133,6 @@ const Screens = () =>{
            <Stack.Screen
            name="Classification" 
            component={Classification} /> 
-           <Stack.Screen
-           name="BriefClassfication" 
-           component={BriefClassification} />
-           <Stack.Screen
-           name="Brief" 
-           component={Brief} />
            <Stack.Screen
            name="DeepClassfication" 
            component={DeepClassification} />
@@ -237,12 +227,7 @@ const Screens = () =>{
            <Stack.Screen
            name="Class" 
            component={Classes} />
-           <Stack.Screen
-           name="VeryShortNoteClassification" 
-           component={VeryShortClassification} />
-           <Stack.Screen
-           name="VeryShort" 
-           component={VeryShort} />
+           
            <Stack.Screen
            name="Report" 
            component={Report} />

@@ -15,16 +15,14 @@ import Class11Bio from './../../assets/DeepRawNote/Class11Bio.json'
 import Class11Phy from './../../assets/DeepRawNote/Class11Phy.json'
 import Class11MChem from './../../assets/DeepRawNote/Class11Chem.json'
 
-// import Class12Math from './../../assets/DeepRawNote/Class12Maths.json'
-// import Class12Bio from './../../assets/DeepRawNote/Class12Bio.json'
-// import Class12Phy from './../../assets/DeepRawNote/Class12Phy.json'
-// import Class12MChem from './../../assets/DeepRawNote/Class12Chem.json'
+import Class12Math from './../../assets/DeepRawNote/Class12Maths.json'
+import Class12Bio from './../../assets/DeepRawNote/Class12Bio.json'
+import Class12Phy from './../../assets/DeepRawNote/Class12Phy.json'
+import Class12MChem from './../../assets/DeepRawNote/Class12Chem.json'
 
 const DeepClassification = ({route,navigation}) =>{
     const [Colors,setColors] = useState([]);
     const [note,setNote] = useState([]);
-    const [clas,setClass] = useState([]);
-    const [title,seTtitle] = useState('');
     const {sub} = route.params;
     useEffect(()=>{
         const getColors = async()=>{
@@ -32,9 +30,6 @@ const DeepClassification = ({route,navigation}) =>{
             const colors = JSON.parse(data);
             console.log(colors);
             setColors(colors);
-
-            
-
         }
         getColors();
 
@@ -44,7 +39,7 @@ const DeepClassification = ({route,navigation}) =>{
             console.log(value);
             setNote(Class10Math);
 
-            if(value === 10) {
+            if(value === '10') {
                 console.log("class 10");
                 if(sub === 'math'){
                     setNote(Class10Math);
@@ -72,21 +67,20 @@ const DeepClassification = ({route,navigation}) =>{
                     console.log('got some problem over the note selections');
                 }
             }else if(value === '+2') {
-        //     //     console.log("its +2 boys");
-        //     //     if(sub === 'math'){
-        //     //         setNote(Class12Math);
-        //     //     }else if(sub === 'phy'){
-        //     //         setNote(Class12Phy);
-        //     //     }else if(sub === 'chem'){
-        //     //         setNote(Class12MChem);
-        //     //     }else if(sub === 'bio'){
-        //     //         setNote(Class12Bio);
-        //     //     }else{
-        //     //         console.log('got some problem over the note selections');
-        //     //     }
-        //     // }
+                console.log("its +2 boys");
+                if(sub === 'math'){
+                    setNote(Class12Math);
+                }else if(sub === 'phy'){
+                    setNote(Class12Phy);
+                }else if(sub === 'chem'){
+                    setNote(Class12MChem);
+                }else if(sub === 'bio'){
+                    setNote(Class12Bio);
+                }else{
+                    console.log('got some problem over the note selections');
+                }
+            }
         }
-    }
         setNotes();
         console.log(sub);
 

@@ -23,7 +23,7 @@ const Community = ({navigation}) =>{
 
     useEffect(() => {
         const get = async () =>{
-            const CommunityData = await firestore().collection('Community').get();
+            const CommunityData = await firestore().collection('Community').orderBy('id', 'desc').limit(50).get();
             const data = CommunityData.docs.map(doc => ({
                 i:doc.id,
                 ...doc.data()
