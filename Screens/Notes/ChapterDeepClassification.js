@@ -35,11 +35,11 @@ const DeepClassification = ({route,navigation}) =>{
 
         const setNotes = async() =>{
             const clas = storage.getString('class')
-            const value = JSON.parse(clas);
-            console.log(value);
+
+            console.log(clas);
             setNote(Class10Math);
 
-            if(value === '10') {
+            if(clas === '10') {
                 console.log("class 10");
                 if(sub === 'math'){
                     setNote(Class10Math);
@@ -53,7 +53,7 @@ const DeepClassification = ({route,navigation}) =>{
                 }else{
                     console.log('got some problem over the note selections');
                 }
-            }else if(value === '+1') {
+            }else if(clas === '+1') {
                 console.log("its +1 boys");
                 if(sub === 'math'){
                     setNote(Class11Math);
@@ -66,7 +66,7 @@ const DeepClassification = ({route,navigation}) =>{
                 }else{
                     console.log('got some problem over the note selections');
                 }
-            }else if(value === '+2') {
+            }else if(clas === '+2') {
                 console.log("its +2 boys");
                 if(sub === 'math'){
                     setNote(Class12Math);

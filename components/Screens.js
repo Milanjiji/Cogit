@@ -55,6 +55,7 @@ import Function from "../Screens/LearnC/Functions";
 import Classes from "../Screens/LearnC/Class";
 import Report from "../Screens/Report";
 import TaskManager from "../Screens/TaskManager";
+import SampleDownloadStore from "../Screens/SmapleDownlaod";
 
 
 
@@ -67,7 +68,7 @@ enableScreens();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="Splash"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
+        <Stack.Navigator initialRouteName="SampleDownload"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
         <Stack.Screen
             name="Splash" 
             component={LoadScreen} /> 
@@ -234,6 +235,9 @@ const Screens = () =>{
            <Stack.Screen
            name="TaskManager" 
            component={TaskManager} />
+           <Stack.Screen
+           name="SampleDownload" 
+           component={SampleDownloadStore} />
 
   
         </Stack.Navigator>

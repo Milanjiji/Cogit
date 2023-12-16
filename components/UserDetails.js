@@ -37,7 +37,7 @@ const UserDetails = ({navigation}) => {
             console.log(Name);
             const Phone = JSON.parse(storage.getString('phone'));
             setPhone(Phone);
-            const Clas = JSON.parse(storage.getString('class'));
+            const Clas = storage.getString('class');
             setClass(Clas);
         }
         getDetails();
@@ -104,7 +104,7 @@ const UserDetails = ({navigation}) => {
       getArticles();
     }
 
-    const changePos = (pos) =>{
+    const changePos = (pos) =>{ 
       if(pos == 1){
         storage.set('class',"10")
         setClass("10")

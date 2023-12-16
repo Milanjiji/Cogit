@@ -72,7 +72,7 @@ const Details = ({navigation,route}) =>{
                         try{
                             storage.set('userName',JSON.stringify(userName))
                             storage.set('phone',JSON.stringify(phone))
-                            storage.set('class',JSON.stringify( nStd ? 'nStd' : clas))
+                            storage.set('class',nStd ? 'nStd' : clas)
                             // await AsyncStorage.setItem('userName',JSON.stringify(userName));
                             // await AsyncStorage.setItem('phone', JSON.stringify(phone));
                             // await AsyncStorage.setItem('class', JSON.stringify(clas));
