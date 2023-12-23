@@ -18,6 +18,7 @@ const Classification = ({navigation,route}) =>{
     const [lastId,setLastId] = useState();
     const [phone,setPhone] = useState('');
     const [name,setName] = useState('');
+    const [clas,setClass] = useState(false);
     const {sub} = route.params;
     useEffect(()=>{
         const getColors = async()=>{
@@ -41,6 +42,14 @@ const Classification = ({navigation,route}) =>{
             setPhone(phone);
           }
           fetchDetails();
+        const fetchClass = () =>{
+            const clas = storage.getString('class')
+            if(clas === '10') {
+                setClass(true)
+            }else{
+                setClass(false)
+            }
+        }
     },[])
 
     const NoteToggler = () =>{
@@ -71,9 +80,17 @@ const Classification = ({navigation,route}) =>{
            <SideBar navigation={navigation} page={"Notes"} />
 
             <View style={{flex: 1,paddingHorizontal:10,justifyContent: 'center',}} >
-                <TouchableOpacity onPress={()=>{navigation.navigate('VeryShortNoteClassification',{sub:sub})}} style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,flexDirection:'row',alignItems:'center',justifyContent:'space-around'}} >
-                    <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Concept Map</Text>
-                    <Image style={{width:100,height:100}} source={require('../../assets/images/concept.png')} />
+                <TouchableOpacity onPress={()=>{navigation.navigate('CmapClassification',{sub:sub})}} style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,flexDirection:'row',alignItems:'center',justifyContent:'space-between',display:clas ? 'none' :'flex'}} >
+                    <View>
+                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18,marginLeft:10}} >Concept Map</Text>
+                        <TouchableOpacity>
+                             <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:11,marginLeft:10,marginTop:5,textDecorationStyle:"solid",textDecorationLine:'underline',textDecorationColor:Colors.text}}  >Credits to {"\n"}FTS Entrance acdmy</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}} >
+                        <Image style={{width:100,height:100,marginRight:-10,marginLeft:20}} source={require('../../assets/images/concept.png')} />
+                        <Text style={{color:'#f6d604',fontFamily:Colors.Medium,transform: [{ rotate: '-90deg' }],fontSize:11}} >Premium</Text>
+                    </View>
                 </TouchableOpacity>
                 <View style={styles.grid} >
                     

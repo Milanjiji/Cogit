@@ -55,7 +55,8 @@ import Function from "../Screens/LearnC/Functions";
 import Classes from "../Screens/LearnC/Class";
 import Report from "../Screens/Report";
 import TaskManager from "../Screens/TaskManager";
-import SampleDownloadStore from "../Screens/SmapleDownlaod";
+import CmapClassification from "../Screens/Notes/CmapClassification";
+import Cmap from "../Screens/Notes/Cmap";
 
 
 
@@ -68,7 +69,7 @@ enableScreens();
 const Screens = () =>{
     return(
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="SampleDownload"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
+        <Stack.Navigator initialRouteName="Splash"  screenOptions={{headerShown:false,...TransitionPresets.FadeFromBottomAndroid}} >
         <Stack.Screen
             name="Splash" 
             component={LoadScreen} /> 
@@ -236,9 +237,11 @@ const Screens = () =>{
            name="TaskManager" 
            component={TaskManager} />
            <Stack.Screen
-           name="SampleDownload" 
-           component={SampleDownloadStore} />
-
+           name="CmapClassification" 
+           component={CmapClassification} />
+           <Stack.Screen
+           name="Cmap" 
+           component={Cmap} />
   
         </Stack.Navigator>
       </NavigationContainer>

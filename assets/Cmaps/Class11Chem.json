@@ -1,0 +1,16 @@
+[
+    {"name":"Some Basic Concepts of Chemistry","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH1.pdf?alt=media&token=81ef9bc1-a3ae-43b8-9b80-af9f723fd769","id":"1"},
+    {"name":"Struture of Atom","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH2.pdf?alt=media&token=7b93e4f2-d6c5-460a-9cd4-bd5414694a87","id":"2"},
+    {"name":"Classification of Elements and Periodicity in Properties","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH3.pdf?alt=media&token=e3b878a0-b15f-4238-b0b6-9cbbfe4a6a71","id":"3"},
+    {"name":"Chemical Bonding and Molecular Stucture","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH4.pdf?alt=media&token=d77d457d-d98b-4b8f-b231-4df10345c999","id":"4"},
+    {"name":"States of Matter","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH5.pdf?alt=media&token=fddb6fcf-1331-4880-a73d-59a50a588435","id":"5"},
+    {"name":"Thermodynamics","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH6.pdf?alt=media&token=9fec6914-ce30-421e-bf9e-b60de79d9e42","id":"6"},
+    {"name":"Equillibrium","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH7.pdf?alt=media&token=678fe6aa-d19a-4274-9ed3-512b93cb2bb4","id":"7"},
+    {"name":"Redox Reactions","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH8.pdf?alt=media&token=77f59ea7-d7ef-48a1-8f3c-e28eb655cf51","id":"8"},
+    {"name":"Hydrogen","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH9.pdf?alt=media&token=f8127350-98b3-427b-bf3d-b6f20f1c5f55","id":"9"},
+    {"name":"The s-block Elements","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH10.pdf?alt=media&token=a4625b11-f1ab-4c9b-b85d-4836280298b3","id":"10"},
+    {"name":"The p-block Elements","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH11.pdf?alt=media&token=678794f5-d90f-4142-acd1-e5f0cfccca44","id":"11"},
+    {"name":"Organic Chemistry - Some Basic Principles and Techniques","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH12.pdf?alt=media&token=96721d8b-728c-4998-93fb-99a443bdd2e5","id":"12"},
+    {"name":"Hydrocarbons","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH13.pdf?alt=media&token=c6138b7b-fd33-4159-9536-4900a60a2efb","id":"13"},
+    {"name":"Enviornmental Chemistry","link":"https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/Class11Chem%2FClass11ChemCMCH14.pdf?alt=media&token=305e8993-f73c-4159-981e-cc1c58dd38a4","id":"14"}
+]

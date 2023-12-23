@@ -3,7 +3,6 @@
  */
 
 import {AppRegistry} from 'react-native';
-import TrackPlayer from 'react-native-track-player';
 import App from './App.js';
 import {name as appName} from './app.json';
     // PushNotification.configure({
