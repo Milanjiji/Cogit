@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import { View,Text, TouchableOpacity, StyleSheet, ScrollView,KeyboardAvoidingView, Image } from "react-native";
+import { View,Text, TouchableOpacity, StyleSheet, ScrollView,KeyboardAvoidingView, Image,Linking } from "react-native";
 import SideBar from "../../components/SideBar";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
@@ -75,6 +75,20 @@ const Classification = ({navigation,route}) =>{
         }
     }
 
+    const openWebsite = () => {
+        const websiteUrl = 'https://maps.app.goo.gl/BeybUjNsUX2DvWNM7'; // Replace with the URL you want to open
+    
+        Linking.canOpenURL(websiteUrl).then((supported) => {
+          if (supported) {
+            // The URL can be opened
+            Linking.openURL(websiteUrl);
+          } else {
+            console.error('Cannot open URL');
+          }
+        }).catch((err) => console.error('An error occurred', err));
+      };
+    
+
     return(
         <KeyboardAvoidingView style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around',flexDirection:'row'}} >
            <SideBar navigation={navigation} page={"Notes"} />
@@ -83,13 +97,13 @@ const Classification = ({navigation,route}) =>{
                 <TouchableOpacity onPress={()=>{navigation.navigate('CmapClassification',{sub:sub})}} style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,flexDirection:'row',alignItems:'center',justifyContent:'space-between',display:clas ? 'none' :'flex'}} >
                     <View>
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18,marginLeft:10}} >Concept Map</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={openWebsite} >
                              <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:11,marginLeft:10,marginTop:5,textDecorationStyle:"solid",textDecorationLine:'underline',textDecorationColor:Colors.text}}  >Credits to {"\n"}FTS Entrance acdmy</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}} >
-                        <Image style={{width:100,height:100,marginRight:-10,marginLeft:20}} source={require('../../assets/images/concept.png')} />
-                        <Text style={{color:'#f6d604',fontFamily:Colors.Medium,transform: [{ rotate: '-90deg' }],fontSize:11}} >Premium</Text>
+                        <Image style={{width:100,height:100,marginLeft:10}} source={require('../../assets/images/concept.png')} />
+                        <Text style={{color:'#f6d604',fontFamily:Colors.Medium,transform: [{ rotate: '-90deg' }],fontSize:11}} >LE</Text>
                     </View>
                 </TouchableOpacity>
                 <View style={styles.grid} >

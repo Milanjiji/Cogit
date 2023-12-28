@@ -1,3 +1,5 @@
+import { faCogs, faFlask, faSuperscript } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import React,{useState,useEffect} from 'react';
 import {
     StyleSheet,
@@ -28,22 +30,20 @@ const Notes = ({navigation,route,...props}) =>{
     return(
             <View style={{marginBottom:10,marginHorizontal:10}} >
                     
-                    <View style={{flexDirection:'row',flex: 1,justifyContent:'space-around',marginVertical:10}} >
-                        <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','math')} >
-                            <Text style={[styles.basic,{backgroundColor:Colors.primary,borderRadius:10,textAlign:'center',color:Colors.text}]} >Maths</Text>
+                    <View style={{flexDirection:'row',flex: 1,justifyContent:'space-around',marginVertical:10,marginHorizontal:10}} >
+                        <TouchableOpacity style={{width:'30%',backgroundColor:Colors.primary,padding:10,borderRadius:5,flexDirection:'column',justifyContent:'space-around',alignItems:'center',paddingVertical:15}} onPress={()=>goTo('Classification','math')} >
+                            <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:11,marginBottom:10}} >Maths</Text>
+                            <FontAwesomeIcon icon={faSuperscript} color={Colors.text} />
                         </TouchableOpacity>
-                        <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','chem')} >
-                            <Text style={[styles.basic,{backgroundColor:Colors.primary,borderRadius:10,textAlign:'center',color:Colors.text}]} >Chemistry</Text>
+                        <TouchableOpacity style={{width:'30%',backgroundColor:Colors.primary,padding:10,borderRadius:5,flexDirection:'column',justifyContent:'space-around',alignItems:'center',paddingVertical:15}} onPress={()=>goTo('Classification','chem')} >
+                            <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:11}} >Chemistry</Text>
+                            <FontAwesomeIcon icon={faFlask} color={Colors.text} />
                         </TouchableOpacity>
-                    </View>
-                    
-                    <View style={{flexDirection:'row',flex: 1,justifyContent:'space-around'}} >
-                        <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','phy')} >
-                            <Text style={[styles.basic,{backgroundColor:Colors.primary,borderRadius:10,textAlign:'center',color:Colors.text}]} >Physics</Text>
+                        <TouchableOpacity style={{width:'30%',backgroundColor:Colors.primary,padding:10,borderRadius:5,flexDirection:'column',justifyContent:'space-around',alignItems:'center',paddingVertical:15}} onPress={()=>goTo('Classification','phy')} >
+                            <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:11}} >Physics</Text>
+                            <FontAwesomeIcon icon={faCogs} color={Colors.text} />
                         </TouchableOpacity>
-                        <TouchableOpacity style={{width:'50%'}} onPress={()=>goTo('Classification','bio')} >
-                            <Text style={[styles.basic,{backgroundColor:Colors.primary,borderRadius:10,textAlign:'center',color:Colors.text}]} >Biology</Text>
-                        </TouchableOpacity>
+                        
                     </View>
                 </View>
           
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
       basic:{
         color:Colors.text,
         fontFamily:Colors.Medium,
-        padding: 14,
+        padding: 8,
         marginHorizontal:10,
         fontSize:12
       }

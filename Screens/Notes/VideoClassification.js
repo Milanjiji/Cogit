@@ -1,46 +1,33 @@
 import React,{useState,useEffect} from "react";
 import { View,Text, TouchableOpacity, StyleSheet,FlatList, ScrollView } from "react-native";
 
-import Class10Math from './../../assets/VideoClass/Class10Maths.json'
+import Class10Math from './../../assets/yt/Class10Maths.json'
 import { storage } from "../../Storage";
-// import Class10Bio from './../../assets/rawNotes/Class10Bio.json'
-// import Class10Phy from './../../assets/rawNotes/Class10Phy.json'
-// import Class10MChem from './../../assets/rawNotes/Class10Chem.json'
+import Class10Phy from './../../assets/yt/Class10Phy.json'
+import Class10MChem from './../../assets/yt/Class10Chem.json'
 
-// import Class11Math from './../../assets/rawNotes/Class11Maths.json'
-// import Class11Bio from './../../assets/rawNotes/Class11Bio.json'
-// import Class11Phy from './../../assets/rawNotes/Class11Phy.json'
-// import Class11MChem from './../../assets/rawNotes/Class11Chem.json'
+import Class11Math from './../../assets/yt/Class11Maths.json'
+import Class11Phy from './../../assets/yt/Class11Phy.json'
+import Class11MChem from './../../assets/yt/Class11Chem.json'
 
-// import Class12Math from './../../assets/rawNotes/Class12Maths.json'
-// import Class12Bio from './../../assets/rawNotes/Class12Bio.json'
-// import Class12Phy from './../../assets/rawNotes/Class12Phy.json'
-// import Class12MChem from './../../assets/rawNotes/Class12Chem.json'
+import Class12Math from './../../assets/yt/Class12Maths.json'
+import Class12Phy from './../../assets/yt/Class12Phy.json'
+import Class12MChem from './../../assets/yt/Class12Chem.json'
 
 const VideoClassification = ({route,navigation}) =>{
     const [Colors,setColors] = useState([]);
     const [note,setNote] = useState([]);
-    const [clas,setClass] = useState([]);
     const {sub} = route.params;
     useEffect(()=>{
         const getColors = async()=>{
             const data = storage.getString('Colors');
             const colors = JSON.parse(data);
-            console.log(colors);
-            // const clas = await AsyncStorage.getItem('class');
-            // const value = JSON.parse(clas);
-            // console.log(value);
             setColors(colors);
-
-            
-
         }
         getColors();
 
         const setNotes = async() =>{
-            const clas = storage.getString('class')
-            const value = JSON.parse(clas);
-            console.log(value);
+            const value = storage.getString('class')
 
             if(value === 10) {
                 console.log("class 10");
