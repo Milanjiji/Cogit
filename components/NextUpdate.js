@@ -24,24 +24,7 @@ const NextUpdate = ({navigation}) => {
   return (
     <View
       style={[styles.background,{borderRadius:10,backgroundColor:Colors.hashWhite,marginHorizontal:15}]} >
-        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >The next update include</Text>
-        <View style={{marginHorizontal:10,marginVertical:10}} >
-            <View style={{flexDirection:'row'}}  >
-                <FontAwesomeIcon icon={faAngleRight} color={Colors.text} />
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10,fontSize:12}} >Ai: chatgpt integration.</Text>
-            </View>
-            <View style={{flexDirection:'row',}}  >
-                <FontAwesomeIcon icon={faAngleRight} color={Colors.text} />
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10,fontSize:12}} >Books: which is not from school curriculum.</Text>
-            </View>
-            <View style={{flexDirection:'row',}}  >
-                <FontAwesomeIcon icon={faAngleRight} color={Colors.text} />
-                <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginLeft:10,fontSize:12}} >Forum : Seperate server options.</Text>
-            </View>
-        </View>
-        <Text style={{color:Colors.text,fontFamily:Colors.Medium,marginBottom:10,fontSize:12}}  >Note : This is not a stably maintained app due to some lack of resourse, so we cant currently say when will be the next update</Text>
-        
-        
+        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Dear users, we are excited to announce that until the next update, we are offering <Text style={{fontFamily:Colors.Bold,color:'#a64dff'}} >premium services for free for ever</Text> to all users who create new accounts. Feel free to share this news with others. Take advantage of this opportunity while it lasts!</Text>
     </View>
   );
 };
@@ -51,7 +34,8 @@ const styles = StyleSheet.create({
     flex:1,
     padding: 15,
     margin:10,
-    paddingRight:10
+    paddingRight:10,
+    marginTop:0
   },
 });
 

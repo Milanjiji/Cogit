@@ -6,14 +6,18 @@ import { View, Text, TouchableOpacity } from "react-native";
 
 const Tasks = ({navigation,Colors}) =>{
     return(
-        <View style={{backgroundColor:Colors.primary,padding: 10,borderRadius:10,marginHorizontal:20,marginVertical:5}} >
-            <TouchableOpacity onPress={()=>navigation.navigate('TaskManager')} style={{flexDirection:'row',justifyContent: 'space-between',alignItems:'center'}} >
+        <View style={{marginHorizontal:20,marginVertical:5,flexDirection:'row',justifyContent:'space-between',alignItems:'center'}} >
+            <TouchableOpacity onPress={()=>navigation.navigate('TaskManager')} style={{backgroundColor:Colors.primary,flexDirection:'row',justifyContent: 'space-between',alignItems:'center',flex:1,padding: 10,borderRadius:10,marginRight:5}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Tasks</Text>
                 <FontAwesomeIcon icon={faAngleRight} color={Colors.secondary} />
             </TouchableOpacity>
-            <View>
-
-            </View>
+            <TouchableOpacity onPress={()=>navigation.navigate('Code')} style={{ backgroundColor:Colors.primary,flexDirection:'row',justifyContent: 'space-between',alignItems:'center',flex:1,padding: 10,borderRadius:10,marginLeft:5,borderColor:Colors.secondary,borderWidth:1}} >
+                <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Code</Text>
+                <View style={{flexDirection:'row',alignItems:'center'}} >
+                    <Text style={{color:'#f6d604',fontFamily:Colors.Medium}} >LE</Text>
+                    <FontAwesomeIcon icon={faAngleRight} color={Colors.secondary} />
+                </View>
+            </TouchableOpacity>
         </View>
     )
 }

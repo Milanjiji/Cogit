@@ -145,7 +145,7 @@ const Tools = ({navigation,colors}) =>{
                 </TouchableOpacity>
                 <View style={{flexDirection:'row',flex: 1}} >
                     <TouchableOpacity onPress={()=>navigation.navigate('Forum')} style={{backgroundColor:colors.primary,paddingHorizontal: 10,paddingVertical:3,borderRadius:5,flex: 1,margin:5,paddingVertical:9,flexDirection:'row',alignItems:'center'}} >
-                        <Text style={{color:colors.text,fontFamily:colors.Medium,fontSize:11,marginRight:20}} >Forum</Text>
+                        <Text style={{color:colors.text,fontFamily:colors.Medium,fontSize:11,marginRight:20}} >Live Chat</Text>
                         <FontAwesomeIcon icon={faMessage} color={colors.text}   />
                     </TouchableOpacity>
                 </View>

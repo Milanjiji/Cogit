@@ -553,7 +553,7 @@ const TaskManager = ({navigation}) =>{
                             onChangeText={setNewTask}
                             placeholderTextColor={`${Colors.text}50`} />
                         <TouchableOpacity onPress={addTasks} style={{marginVertical:10,alignSelf:'flex-end',paddingLeft:10,paddingTop:13}} >
-                            <FontAwesomeIcon color={Colors.text} icon={addNewTask ? faCheck : faPlug}   />
+                            <FontAwesomeIcon color={Colors.secondary} icon={addNewTask ? faCheck : faPlug}   />
                         </TouchableOpacity>
                     </KeyboardAvoidingView>
                     

@@ -112,17 +112,12 @@ const Classification = ({navigation,route}) =>{
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Explanation</Text>
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Explaination and definition of topics.This notes does not contain diagrams </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
+                    <TouchableOpacity onPress={()=>{navigation.navigate('VideoClassification',{sub:sub})}} style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >Explantion video from yt</Text>
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Embeded best video classes by main yt educational channels in mal</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.grid} >
-                    <TouchableOpacity onPress={()=>{navigation.navigate('VideoClassification',{sub:sub})}}  style={[styles.btn,{backgroundColor:Colors.primary,flex:1}]} >
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18}} >HandWritten Notes</Text>
-                        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Include almost everything from a chapter</Text>
-                    </TouchableOpacity>
-                </View>
+                
                 
 
                 {
