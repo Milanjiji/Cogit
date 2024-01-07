@@ -57,6 +57,7 @@ import Report from "../Screens/Report";
 import TaskManager from "../Screens/TaskManager";
 import CmapClassification from "../Screens/Notes/CmapClassification";
 import Cmap from "../Screens/Notes/Cmap";
+import ForumTest from "../Screens/ForumTestEditor";
 
 
 
@@ -242,6 +243,9 @@ const Screens = () =>{
            <Stack.Screen
            name="Cmap" 
            component={Cmap} />
+           <Stack.Screen
+           name="ForumTest" 
+           component={ForumTest} />
   
         </Stack.Navigator>
       </NavigationContainer>

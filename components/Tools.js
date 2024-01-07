@@ -6,6 +6,9 @@ import { storage } from '../Storage';
 import TrackPlayer,{useTrackPlayerEvents} from 'react-native-track-player';
 import randomMusic from '../assets/MusicLinks.json'
 import { useTimer } from '../components/TimerContext';
+import firestore from '@react-native-firebase/firestore';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { useIsFocused } from '@react-navigation/native';
 
 const shuffleArray = (array)=> {
     for (let i = array.length - 1; i > 0; i--) {
@@ -20,8 +23,10 @@ const Tools = ({navigation,colors}) =>{
 
     const [playback,setPlayBack] = useState(false);
     const [music,setMusic] = useState(false);
+    const [newMsgs,setNewMsgs] = useState(0);
+    const [data,setData] = useState([])
     const { seconds, isRunning, startTimer, stopTimer, resetTimer,minutes,studyTimer,intTimer, leftStudyTime,leftIntTime,State,setTimerStates,setMinutes,startTimerWithDelay} = useTimer();
-
+    const isFocused = useIsFocused();
     useEffect(()=>{
         const getMusicMode = async () =>{
             // console.log(randomMusic);
@@ -78,19 +83,57 @@ const Tools = ({navigation,colors}) =>{
                         console.log("music mode 4 waves music");
                     }
                 }else{
-                    console.log(queue,"something in the queue from user mode ....");
+                    
                     setPlayBack(true)
                 }
             }
         }
         getMusicMode();
+       
+    },[])
+    useEffect(()=>{
+      if(isFocused){
+        const unsubscribe = firestore()
+        .collection('ChatData')
+        .orderBy('id', 'desc')
+        .limit(30)
+        .onSnapshot((querySnapshot) => {
+            const items = [];
+            querySnapshot.forEach((documentSnapshot) => {
+            const dataWithId = {
+                i: documentSnapshot.id,
+                ...documentSnapshot.data(),
+              };
+            items.push(dataWithId);
+            });
+            const sortedData = items.sort((a, b) => a.id - b.id);
+            setData(sortedData)
+            if(sortedData.length > 0 ){
+                const lastmsgid = storage.getNumber('LastMsgId')
+                console.log(lastmsgid,"last message id");
+                const ids = sortedData.map(obj => {return obj.id})
+                const lastNewIds = Math.max(...ids)
+                console.log("no oif new Messages =>> ", (lastNewIds - lastmsgid));
+                if(lastNewIds >= lastmsgid && lastmsgid !== 0){
+                  setNewMsgs(lastNewIds - lastmsgid)
+                  
+                }
+            }
+        });
+      
+        console.log("isFouces");
+        return () => unsubscribe();
+      }
+    },[isFocused])
+
+    useEffect(()=>{
+      
     },[])
 
     useTrackPlayerEvents(['playback-state'],async (states)=>{
         console.log(states.state,"the playbackstate from homepage");
         const queue = await TrackPlayer.getCurrentTrack();
         
-        console.log(queue);
         if(states.state == "playing"){
           console.log("state playing so starting timer:",states.state);
           startTimer();
@@ -144,9 +187,9 @@ const Tools = ({navigation,colors}) =>{
                     <Text style={{color:colors.text,fontFamily:colors.Medium}} >Learn C++ <Text style={{fontFamily:'monospace'}} >// Hello world</Text></Text>
                 </TouchableOpacity>
                 <View style={{flexDirection:'row',flex: 1}} >
-                    <TouchableOpacity onPress={()=>navigation.navigate('Forum')} style={{backgroundColor:colors.primary,paddingHorizontal: 10,paddingVertical:3,borderRadius:5,flex: 1,margin:5,paddingVertical:9,flexDirection:'row',alignItems:'center'}} >
+                    <TouchableOpacity onPress={()=>navigation.navigate('Forum')} style={{backgroundColor:colors.primary,paddingHorizontal: 10,paddingVertical:3,borderRadius:5,flex: 1,margin:5,paddingVertical:9,flexDirection:'row',alignItems:'center',justifyContent:'space-between'}} >
                         <Text style={{color:colors.text,fontFamily:colors.Medium,fontSize:11,marginRight:20}} >Live Chat</Text>
-                        <FontAwesomeIcon icon={faMessage} color={colors.text}   />
+                        <Text style={{color:colors.text,fontFamily:colors.Medium,fontSize:11,backgroundColor:Colors.secondary}} >{newMsgs}</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{flexDirection:'row',flex: 1,justifyContent: 'space-around',}} >

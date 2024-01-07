@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faInfoCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import colors  from '../colors.json'
 import SideBar from "../components/SideBar";
+import { useIsFocused } from '@react-navigation/native';
 import { storage } from "../Storage";
 
 
@@ -14,9 +15,12 @@ const Forum = ({navigation}) =>{
     const [name,setName] = useState('')
     const [display,setDisplay] = useState(true);
     const [Colors,setColors] = useState([]);
-    // const [lastId,setLastId] = useState(0);
+    const [lastIdSNP,setLastIdSNP] = useState(0);
     const [groundState,setGroundState] = useState(true);
     const [reason,setReason] = useState('technical Issue')
+    const [newIdStatus,setnewIdStatus] = useState(false);
+    const isFocused = useIsFocused();
+
     useEffect(()=>{
         const getColors = async()=>{
             const data = storage.getString('Colors');
@@ -24,12 +28,6 @@ const Forum = ({navigation}) =>{
             setColors(colors);
         }
         getColors();
-        // const getLastId = async() =>{
-        //     const chatdata = await firestore().collection('ChatData').get()
-        //     setLastId(chatdata.size);
-        //     console.log('totaol event => ',chatdata.size);
-        // };
-        // getLastId();
         const forumState = async () =>{
             try {
                 const CommunityData = await firestore().collection('ForumState').get();
@@ -55,10 +53,20 @@ const Forum = ({navigation}) =>{
             setName(JSON.parse(name));
             console.log("name of the candidate " );
         }
+        
+        fetchUserReply();
+        const setLastId = () => {
+            storage.set('LastMsgId',lastIdSNP)
+        }
+        
+      }, []);
+
+      useEffect(()=>{
+        if(isFocused){
         const unsubscribe = firestore()
             .collection('ChatData')
             .orderBy('id', 'desc')
-            .limit(50)
+            .limit(30)
             .onSnapshot((querySnapshot) => {
                 const items = [];
                 let counter = 0;
@@ -66,16 +74,24 @@ const Forum = ({navigation}) =>{
                 const dataWithId = {
                     i: documentSnapshot.id,
                     ...documentSnapshot.data(),
-                  };
+                };
                 items.push(dataWithId);
                 counter = documentSnapshot.data().id
                 });
                 const sortedData = items.sort((a, b) => a.id - b.id);
                 setData(sortedData);
+            
+                if(sortedData.length > 0){
+                    const ids = sortedData.map(obj => {return obj.id})
+                    const lastId = Math.max(...ids)
+                    console.log(ids," largest id : ",lastId);
+                    storage.set('LastMsgId',lastId)
+                }
             });
-            fetchUserReply();
+            console.log("Forum is Focued")
             return () => unsubscribe();
-      }, []);
+        }
+      },[isFocused])
       
       const handleSend = async () => {
         const chatdata = await firestore().collection('ChatData').get()
