@@ -23,7 +23,7 @@ const Setting = ({navigation,route}) =>{
     },[])
 
     return(
-        <View style={{flex:1,backgroundColor:Colors.Background,flexDirection:'row',alignItems:'center'}} >
+        <View style={{flex:1,backgroundColor:Colors.Background,flexDirection:'row'}} >
             <SideBar navigation={navigation} page={"Settings"} />
             <ScrollView showsVerticalScrollIndicator={false} style={{flex:1,marginLeft:10,marginRight:10}} >
                 <Text style={{color:`${Colors.text}50`,fontFamily:Colors.Bold,textAlign:'center',padding: 20,fontSize:40}} >Settings</Text>

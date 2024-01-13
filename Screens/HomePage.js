@@ -165,9 +165,9 @@ const Homepage = ({navigation,route}) =>{
 
              <View  style={[styles.background,{backgroundColor:Colors.Background,flexDirection:'row',display:!ban ? 'flex' :'none'}]} >
 
-                <SideBar navigation={navigation} page="Cogit" />
-
-                <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:Colors.Background,paddingBottom:150,flex: 1,}}  >
+                <SideBar navigation={navigation} page="Cogit"  />
+              
+                <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:Colors.Background,paddingBottom:0}}  >
                 <Greetings   navigation={navigation} />
 
                 <Tools navigation={navigation} colors={Colors} />
@@ -179,10 +179,7 @@ const Homepage = ({navigation,route}) =>{
                     <Notes navigation={navigation} />
                 </View>
                     
-                  
-                    <View style={{flexDirection:'row',paddingHorizontal:10}} >
-                    </View>
-                    <NextUpdate navigation={navigation} />
+                  <NextUpdate navigation={navigation} />
                   
                 </ScrollView>
 

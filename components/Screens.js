@@ -16,7 +16,6 @@ import FocusMode from "../Screens/FocusMode";
 import Community from "../Screens/Community_Note";
 import ArticleView from "../Screens/ArticleView";
 import LoadingAnimation from "./LoadingAnimation";
-import AllSet from "../Screens/AllSet";
 import Setting from "../Screens/Settings";
 import AddArticle from "../Screens/AddArticle";
 import AboutUs from "../Screens/AboutUs";
@@ -112,9 +111,7 @@ const Screens = () =>{
            <Stack.Screen
            name="Animation" 
            component={LoadingAnimation} /> 
-           <Stack.Screen
-           name="Allset" 
-           component={AllSet} /> 
+            
            <Stack.Screen
            name="Settings" 
            component={Setting} /> 

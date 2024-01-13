@@ -15,6 +15,8 @@ import { storage } from '../Storage';
 
 const Notes = ({navigation,route,...props}) =>{
     const [Colors,setColors] = useState([]);
+    const [std,setStd] = useState(true);
+
     useEffect(()=>{
         const getColors = async()=>{
             const data = storage.getString('Colors')
@@ -22,13 +24,24 @@ const Notes = ({navigation,route,...props}) =>{
             setColors(colors);
         }
         getColors();
+        const stdlevel = async () =>{
+            const data = storage.getString('class');
+            console.log(data);
+            if(data === 'nStd'){
+                setStd(false);
+                console.log("not a student");
+            }else{
+                setStd(true)
+            }
+        }
+        stdlevel();
     },[])
 
     const goTo = (place,sub) =>{
         navigation.navigate(place,{sub:sub});
     }
     return(
-            <View style={{marginBottom:10,marginHorizontal:10}} >
+            <View style={{marginBottom:10,marginHorizontal:10,display:std ? 'flex' :'none'}} >
                     
                     <View style={{flexDirection:'row',flex: 1,justifyContent:'space-around',marginVertical:10,marginHorizontal:10}} >
                         <TouchableOpacity style={{width:'30%',backgroundColor:Colors.primary,padding:10,borderRadius:5,flexDirection:'column',justifyContent:'space-around',alignItems:'center',paddingVertical:15}} onPress={()=>goTo('Classification','math')} >

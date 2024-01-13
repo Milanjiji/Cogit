@@ -114,7 +114,7 @@ const Tools = ({navigation,colors}) =>{
                 const ids = sortedData.map(obj => {return obj.id})
                 const lastNewIds = Math.max(...ids)
                 console.log("no oif new Messages =>> ", (lastNewIds - lastmsgid));
-                if(lastNewIds >= lastmsgid && lastmsgid !== 0){
+                if(lastNewIds >= lastmsgid ){
                   setNewMsgs(lastNewIds - lastmsgid)
                   
                 }

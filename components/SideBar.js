@@ -21,9 +21,9 @@ const SideBar  =  ({navigation,page}) =>{
         getColors();
     },[])
     return(
-        <View style={{height:'95%',width:20,justifyContent: 'space-around',alignItems:'center',marginRight:10}} >
+        <View style={{width:30,justifyContent: 'space-around',alignItems:'center',paddingLeft:20,paddingRight:10,height:'100%'}} >
 
-            <TouchableOpacity style={{marginBottom:page == "Settings" ? -50 : 0}} onPress={()=>{navigation.navigate('Settings')}} >
+            {/* <TouchableOpacity style={{marginBottom:page == "Settings" ? -50 : 0,}} onPress={()=>{navigation.navigate('Settings')}} >
                 <Text style={{display:page == "Settings" ? "none" : "flex",transform: [{ rotate: '-90deg' }],width:100,color:page == "Settings" ? Colors.text : `${Colors.text}99`,fontFamily:Color.Bold,marginRight:-20,fontSize:12}} >Settings</Text>
                 <FontAwesomeIcon color={Colors.text} size={18} style={{marginLeft:20,display:page != "Settings" ? "none" : "flex"}} icon={faGear} />
             </TouchableOpacity>
@@ -43,8 +43,27 @@ const SideBar  =  ({navigation,page}) =>{
             <TouchableOpacity onPress={()=>{navigation.navigate('Home')}} >
                 <Text style={{display:page == "Cogit" ? "none" : "flex",transform: [{ rotate: '-90deg' }],width:100,color:page == "Cogit" ? Colors.text : `${Colors.text}99`,fontFamily:Color.Bold,marginRight:-20,fontSize:12,fontSize:20}} >Cogit</Text>
                 <FontAwesomeIcon color={Colors.text} size={18} style={{marginLeft:20,display:page != "Cogit" ? "none" : "flex"}} icon={faHome} />
+            </TouchableOpacity> */}
+            <TouchableOpacity style={{transform: [{ rotate: '-90deg' }],width:100,alignItems:'center',justifyContent:'center',padding:10}} onPress={()=>{navigation.navigate('Settings')}} >
+                <Text style={{display:page == "Settings" ? "none" : "flex" ,color:page == "Settings" ? Colors.text : `${Colors.text}99`,fontFamily:Color.Bold,fontSize:12}} >Settings</Text>
+                <FontAwesomeIcon color={Colors.text} size={18} style={{marginLeft:20,display:page != "Settings" ? "none" : "flex"}} icon={faGear} />
             </TouchableOpacity>
-
+            <TouchableOpacity style={{transform: [{ rotate: '-90deg' }],width:100,alignItems:'center',justifyContent:'center',padding:10}} onPress={()=>{navigation.navigate('Forum')}}>
+                <Text style={{display:page == "Forum" ? "none" : "flex" ,color:page == "Forum" ? Colors.text : `${Colors.text}99`,fontFamily:Color.Bold,fontSize:12}} >Forum</Text>
+                <FontAwesomeIcon color={Colors.text} size={18} style={{marginLeft:20,display:page != "Forum" ? "none" : "flex"}} icon={faMessage} />
+            </TouchableOpacity>
+            <TouchableOpacity style={{transform: [{ rotate: '-90deg' }],width:100,alignItems:'center',justifyContent:'center',padding:10}} onPress={()=>{navigation.navigate('Focus')}}>
+                <Text style={{display:page == "Focus" ? "none" : "flex" ,color:page == "Focus" ? Colors.text : `${Colors.text}99`,fontFamily:Color.Bold,fontSize:12}} >Focus</Text>
+                <FontAwesomeIcon color={Colors.text} size={18} style={{marginLeft:20,display:page != "Focus" ? "none" : "flex"}} icon={faBullseye} />
+            </TouchableOpacity>
+            <TouchableOpacity style={{transform: [{ rotate: '-90deg' }],width:100,alignItems:'center',justifyContent:'center',padding:10}} onPress={()=>{navigation.navigate('Code')}}>
+                <Text style={{display:page == "Code" ? "none" : "flex" ,color:page == "Code" ? Colors.text : `${Colors.text}99`,fontFamily:Color.Bold,fontSize:12}} >Code</Text>
+                <FontAwesomeIcon color={Colors.text} size={18} style={{marginLeft:20,display:page != "Code" ? "none" : "flex"}} icon={faFileCode} />
+            </TouchableOpacity>
+            <TouchableOpacity style={{transform: [{ rotate: '-90deg' }],width:100,alignItems:'center',justifyContent:'center',padding:10}} onPress={()=>{navigation.navigate('Home')}}>
+                <Text style={{display:page == "Cogit" ? "none" : "flex" ,color:page == "Cogit" ? Colors.text : `${Colors.text}99`,fontFamily:Color.Bold,fontSize:12}} >Cogit</Text>
+                <FontAwesomeIcon color={Colors.text} size={18} style={{marginLeft:20,display:page != "Cogit" ? "none" : "flex"}} icon={faHome} />
+            </TouchableOpacity>
             </View>
     );
 }

@@ -50,6 +50,10 @@ const Details = ({navigation,route}) =>{
    useEffect(()=>{
     SplashScreen.hide();
     setLoading(false);
+    const setLastMsgId = () =>{
+        storage.set('LastMsgId',0)
+    }
+    setLastMsgId();
    },[])
 
    
@@ -73,10 +77,7 @@ const Details = ({navigation,route}) =>{
                             storage.set('userName',JSON.stringify(userName))
                             storage.set('phone',JSON.stringify(phone))
                             storage.set('class',nStd ? 'nStd' : clas)
-                            // await AsyncStorage.setItem('userName',JSON.stringify(userName));
-                            // await AsyncStorage.setItem('phone', JSON.stringify(phone));
-                            // await AsyncStorage.setItem('class', JSON.stringify(clas));
-                                    
+                                
                                 firestore()
                                     .collection('Users')
                                     .add({
@@ -148,10 +149,11 @@ const Details = ({navigation,route}) =>{
                     querySnapshot.forEach(doc => {
                         
                         if(doc.data().name === userName){
-                            uploadData(doc.data().name,doc.data().phone,doc.data().class)
+                            uploadData(doc.data().name,doc.data().phone,doc.data().class);
+                            console.log(doc.data().name,doc.data().phone,doc.data().class,"while loogin in this is the fetched details");
                             setLoginWarn(false);
                             setLoading(false)
-                            navigation.navigate('Allset')
+                            navigation.navigate('Home')
                         }else{
                             setErrorType('Wrong Credinals')
                             setLoginWarn(true);
@@ -172,7 +174,6 @@ const Details = ({navigation,route}) =>{
 
     }
 
-    console.log(userName,phone);
 
 
     return(
@@ -191,7 +192,7 @@ const Details = ({navigation,route}) =>{
                 <Text style={{color:white,fontWeight:600}} >You are now in</Text> 
                 <FontAwesomeIcon size={60} color={white} icon={faCheckCircle} />
                 <TouchableOpacity>
-                    <Text onPress={()=>{RNRestart.restart();setModalVisible(false)}} style={styles.next} >Next</Text>
+                    <Text onPress={()=>{navigation.navigate('Home')}} style={styles.next} >Next</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -233,7 +234,7 @@ const Details = ({navigation,route}) =>{
         
         <Text style={[styles.fullDetailsWarning,{display : detailWarn ? "flex" : "none"}]} >Enter full details</Text>
         <Text style={[styles.fullDetailsWarning,{display : loading ? "flex" : "none",color:white}]} >creating account</Text>
-        <Text style={[styles.fullDetailsWarning,{display : accountExists ? "flex" : "none",color:white}]} >Account with same name or phone already exists.</Text>
+        <Text style={[styles.fullDetailsWarning,{display : accountExists ? "flex" : "none",color:white}]} >Account wit h same name or phone already exists.</Text>
         
         <TouchableOpacity onPress={Submit} >
             <Text style={[styles.btn,{backgroundColor:!loading ? "#7300e6" : '#7300e650',color:!loading ? '#ffffff' : '#ffffff50'}]} >Register</Text>

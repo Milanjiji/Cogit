@@ -23,7 +23,7 @@ const NextUpdate = ({navigation}) => {
   
   return (
     <View
-      style={[styles.background,{borderRadius:10,backgroundColor:Colors.hashWhite,marginHorizontal:15}]} >
+      style={[styles.background,{borderRadius:10,backgroundColor:Colors.hashWhite,marginHorizontal:15,marginTop:5}]} >
         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Dear users, we are excited to announce that until the next update, we are offering <Text style={{fontFamily:Colors.Bold,color:'#a64dff'}} >premium services for free for ever</Text> to all users who create new accounts. Feel free to share this news with others. Take advantage of this opportunity while it lasts!</Text>
     </View>
   );
