@@ -126,15 +126,7 @@ const Details = ({navigation,route}) =>{
         setPhone('');
     }
 
-    const uploadData = async(userName,phone,clas) =>{
-        try{
-            storage.set('userName',userName)
-            storage.set('phone',JSON.stringify(phone))
-            storage.set('class',clas)
-        }catch(e){
-            console.log('err');
-        }
-    }
+   
     const Login = () =>{
         setLoading(true);
         if(userName && phone){
@@ -149,7 +141,10 @@ const Details = ({navigation,route}) =>{
                     querySnapshot.forEach(doc => {
                         
                         if(doc.data().name === userName){
-                            uploadData(doc.data().name,doc.data().phone,doc.data().class);
+                            storage.set('userName',JSON.stringify(doc.data().name))
+                            storage.set('phone',JSON.stringify(doc.data().phone))
+                            storage.set('class',doc.data().class)
+
                             console.log(doc.data().name,doc.data().phone,doc.data().class,"while loogin in this is the fetched details");
                             setLoginWarn(false);
                             setLoading(false)

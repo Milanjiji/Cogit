@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import { View,Text, TouchableOpacity, StyleSheet, ScrollView,KeyboardAvoidingView, Image,Linking } from "react-native";
+import { View,Text, TouchableOpacity, StyleSheet, ImageBackground,KeyboardAvoidingView, Image,Linking } from "react-native";
 import SideBar from "../../components/SideBar";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +7,7 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import firestore from '@react-native-firebase/firestore';
 import CutomTextInput from "../../components/CutomTextInput";
 import { storage } from "../../Storage";
-
+import background from '../../assets/images/background.png'
 
 const Classification = ({navigation,route}) =>{
     const [Colors,setColors] = useState([])
@@ -20,6 +20,7 @@ const Classification = ({navigation,route}) =>{
     const [name,setName] = useState('');
     const [clas,setClass] = useState(false);
     const {sub} = route.params;
+    const image = {uri: 'https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/background.png?alt=media&token=1d4c61d7-9b63-43a4-a485-9c3674eb442e'};
     useEffect(()=>{
         const getColors = async()=>{
             const data = storage.getString('Colors')
@@ -50,6 +51,7 @@ const Classification = ({navigation,route}) =>{
                 setClass(false)
             }
         }
+        fetchClass();
     },[])
 
     const NoteToggler = () =>{
@@ -90,7 +92,9 @@ const Classification = ({navigation,route}) =>{
     
 
     return(
-        <KeyboardAvoidingView style={{flex: 1,backgroundColor:Colors.Background,justifyContent:'space-around',flexDirection:'row'}} >
+        <ImageBackground source={image} resizeMode="cover" style={{flex:1,backgroundColor:Colors.Backgorund}} >
+        <KeyboardAvoidingView style={{flex: 1,justifyContent:'space-around',flexDirection:'row'}} >
+            
            <SideBar navigation={navigation} page={"Notes"} />
 
             <View style={{flex: 1,paddingHorizontal:10,justifyContent: 'center',}} >
@@ -163,6 +167,7 @@ const Classification = ({navigation,route}) =>{
 
             </View>
         </KeyboardAvoidingView>
+        </ImageBackground>
     )
 }
 const styles = StyleSheet.create({
