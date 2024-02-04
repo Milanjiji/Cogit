@@ -1,5 +1,5 @@
 import React ,{useState,useEffect,useRef} from "react";
-import { View, Text, TextInput, TouchableOpacity,StyleSheet, FlatList,Dimensions, Modal } from "react-native";
+import { View, Text, TextInput, TouchableOpacity,StyleSheet, FlatList,Dimensions, Modal, ImageBackground } from "react-native";
 import firestore from '@react-native-firebase/firestore';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faInfoCircle, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
@@ -7,6 +7,7 @@ import colors  from '../colors.json'
 import SideBar from "../components/SideBar";
 import { useIsFocused } from '@react-navigation/native';
 import { storage } from "../Storage";
+import { Image } from "react-native-svg";
 
 
 const Forum = ({navigation}) =>{
@@ -18,7 +19,8 @@ const Forum = ({navigation}) =>{
     const [lastIdSNP,setLastIdSNP] = useState(0);
     const [groundState,setGroundState] = useState(true);
     const [reason,setReason] = useState('technical Issue')
-    const [newIdStatus,setnewIdStatus] = useState(false);
+    const [sendIcon,setSendIcon] = useState(false);
+    const [sendTimeTextInputOpacity,setSendTimeTextInputOpacity] = useState(true)
     const isFocused = useIsFocused();
 
     useEffect(()=>{
@@ -55,9 +57,7 @@ const Forum = ({navigation}) =>{
         }
         
         fetchUserReply();
-        const setLastId = () => {
-            storage.set('LastMsgId',lastIdSNP)
-        }
+        
         
       }, []);
 
@@ -94,15 +94,18 @@ const Forum = ({navigation}) =>{
       },[isFocused])
       
       const handleSend = async () => {
+        setSendTimeTextInputOpacity(false);
         const chatdata = await firestore().collection('ChatData').get()
         if(message){
-        
+            
+            setSendIcon(false);
             firestore()
               .collection('ChatData')
               .add({ id: chatdata.size+1, message,name:name })
               .then(() => {
                 console.log('Message sent successfully');
                 setMessage(''); 
+                setSendTimeTextInputOpacity(true);
               })
               .catch((error) => {
                 console.log('Error sending message:', error);
@@ -133,15 +136,18 @@ const Forum = ({navigation}) =>{
             }
         }
       }
-      const renderItem = ({ item }) => {
+      const renderItem = ({ item }) =>  { 
+
         return (
             <TouchableOpacity activeOpacity={item.name === name ? 0.5 : 1} onLongPress={()=>deleteMsg(item.i,item.name)} style={[styles.item,{
                 alignSelf: item.name === name ? 'flex-end' :'flex-start',
                 backgroundColor:Colors.primary,
-                elevation:10
+                elevation:10,
+                borderColor:Colors.secondary,
+                borderWidth: item.name === name ? 0.3 : 0
                 }]} key={item.id}>
                 <Text style={{color:Colors.text,alignSelf: item.name === name ? 'flex-end' :'flex-start',fontSize:9}} >{item.name}</Text>
-                <Text style={{color:Colors.text,textAlign : item.name === name ? 'right' :'left'}} >{item.message}</Text>
+                <Text style={{color:Colors.text,textAlign : item.name === name ? 'right' :'left',marginRight:item.name === name ? 10 :0}} >{item.message}</Text>
             </TouchableOpacity>
         );
       }
@@ -157,6 +163,7 @@ const Forum = ({navigation}) =>{
     
 
     return(
+        
         <View style={[styles.background,{backgroundColor:Colors.Background,flexDirection:'row'}]}  >
 
             <SideBar navigation={navigation} page={"Forum"} />
@@ -165,8 +172,8 @@ const Forum = ({navigation}) =>{
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >Sorry, ground will be closed for some period due to some techincal reason</Text>
                     <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center',marginTop:10}} ><Text style={{fontFamily:Colors.Bold}} >reason: </Text>{reason}</Text>
                 </View>
-        
-            <View style={{flex: 1,display:groundState ? 'flex' :'none'}} >
+            <ImageBackground  source={{uri: 'https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/background.png?alt=media&token=1d4c61d7-9b63-43a4-a485-9c3674eb442e'}} resizeMode="cover" style={{flex:1}} >
+            <View style={{flex: 1,display:groundState ? 'flex' :'none',}} >
                 <View style={{height:height,justifyContent:'space-around', display:display === true ? 'flex' : "none",elevation:10 }} >
                         <View style={[styles.warning,{backgroundColor:Colors.primary}]} >
                             <Text style={[styles.warningText,{color:Colors.text}]} >
@@ -182,7 +189,7 @@ const Forum = ({navigation}) =>{
                         </View>
                     
                 </View>
-            
+        
                 <FlatList
                 
                 ref={flatListRef}
@@ -193,15 +200,17 @@ const Forum = ({navigation}) =>{
                 onContentSizeChange={handleContentSizeChange}
                 onLayout={handleContentSizeChange}
                 />
-            
+           
                 <View style={[styles.Input,{backgroundColor:Colors.primary}]} >
-                    <TextInput placeholderTextColor={colors.white} value={message} onChangeText={setMessage}  style={styles.textInput} placeholder="Type your message Here" />
+                    <TextInput placeholderTextColor={colors.white} value={message} onChangeText={(text)=>{setMessage(text);setSendIcon(true)}}  style={{ flex:1,paddingLeft:10,color:colors.white,opacity:sendTimeTextInputOpacity ? 1 : 0.5}} placeholder="Type your message Here" />
                     <TouchableOpacity onPress={handleSend} style={styles.Send} >
-                        <FontAwesomeIcon size={25} color={message ? '#7300e6' : '#ffffff10'} icon={faPaperPlane} />
+                        <FontAwesomeIcon size={25} color={sendIcon ? '#7300e6' : '#ffffff10'} icon={faPaperPlane} />
                     </TouchableOpacity>
                 </View>
             </View>
+            </ImageBackground>
         </View>
+        
     );
 }
 
@@ -219,7 +228,8 @@ const styles = StyleSheet.create({
     textInput:{
         flex:1,
         paddingLeft:10,
-        color:colors.white
+        color:colors.white,
+        opacity:0.5
     },
     Send:{
         padding:12

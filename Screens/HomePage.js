@@ -3,10 +3,10 @@ import {
     ScrollView,
     StyleSheet,
     View,
-    Dimensions,
     Text,
     StatusBar,
-    TouchableOpacity
+    TouchableOpacity,
+    ImageBackground
   } from 'react-native';
 import Notes from '../components/Notes';
 import Greetings from '../components/Greetings';
@@ -19,6 +19,8 @@ import Tools from '../components/Tools';
 import Tasks from '../components/Tasks';
 import { storage } from '../Storage';
 import SplashScreen from "react-native-splash-screen";
+import notifee, { TimestampTrigger, TriggerType } from '@notifee/react-native';
+import NotificationComponent from '../components/Notification';
 
 
 
@@ -35,7 +37,6 @@ const Homepage = ({navigation,route}) =>{
             const data = storage.getString('Colors')
             const colors = JSON.parse(data);
             setColors(colors);
-            console.log(colors);
             
         }
         getColors();
@@ -95,13 +96,60 @@ const Homepage = ({navigation,route}) =>{
         }
         getUserDetails();
 
+        // const getNotificationsdetails = () =>{
+        //   const status = storage.getBoolean('Notifee')
+        //   console.log("Notiofication details : ",status);
+        //   if(status !== undefined){
+        //     console.log("stsus in defined");
+        //     if(status){
+
+        //       async function onCreateTriggerNotification() {
+
+        //         const channelId = await notifee.createChannel({
+        //           id: 'default',
+        //           name: 'Default Channel',
+        //         });
+
+        //         const date = new Date(Date.now());
+        //         date.setHours(11);
+        //         date.setMinutes(1);
+            
+        //         // Create a time-based trigger
+        //         const trigger: TimestampTrigger = {
+        //           type: TriggerType.TIMESTAMP,
+        //           timestamp: date.getTime(), // fire at 11:10am (10 minutes before meeting)
+        //         };
+            
+        //         // Create a trigger notification
+        //         await notifee.createTriggerNotification(
+        //           {
+        //             title: 'New Messages!',
+        //             body: 'new messages in the live chat!',
+        //             android: {
+        //               channelId,
+        //               pressAction: {
+        //                 id: 'default',
+        //               },
+        //             },
+        //           },
+        //           trigger,
+        //         );
+        //       }
+        //       onCreateTriggerNotification();
+        //     }
+
+            
+        //   }else{
+        //     console.log("undefined in the conditions");
+        //     storage.set('Notifee',true)
+        //   }
+        // }
+        // getNotificationsdetails()
     },[])
 
 
   const sendReport = async () =>{
-      // const name = JSON.parse(await AsyncStorage.getItem('userName'))
-      // const phone = JSON.parse(await AsyncStorage.getItem('phone'))
-      // 
+     
       const name = storage.getString('userName')
       const phone = storage.getString('phone')
 
@@ -138,9 +186,10 @@ const Homepage = ({navigation,route}) =>{
   
     
     return(
-           <View style={{flex: 1,}} >  
+      <View style={{flex:1,backgroundColor:Colors.Background}} >
+      <ImageBackground source={{uri: 'https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/background.png?alt=media&token=1d4c61d7-9b63-43a4-a485-9c3674eb442e'}} resizeMode="cover" style={{flex:1}} >
            <StatusBar backgroundColor={Colors.Background}/>
-            <View style={{flex: 1,backgroundColor:Colors.Background,padding: 10,display:ban ? 'flex' :'none'}} >
+            <View style={{flex: 1,padding: 10,display:ban ? 'flex' :'none'}} >
               <View style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,flex: 1,justifyContent:'center',alignItems:'center'}} >
                 <Text style={{color:Colors.text,fontFamily:Colors.Bold}} >Sorry User</Text>
                 <Text style={{color:Colors.text,fontFamily:Colors.Medium,textAlign:'center'}} >Reason : {banReason}</Text>
@@ -163,11 +212,12 @@ const Homepage = ({navigation,route}) =>{
               </View>
             </View>
 
-             <View  style={[styles.background,{backgroundColor:Colors.Background,flexDirection:'row',display:!ban ? 'flex' :'none'}]} >
+             <View  style={[styles.background,{flexDirection:'row',display:!ban ? 'flex' :'none'}]} >
 
                 <SideBar navigation={navigation} page="Cogit"  />
               
-                <ScrollView showsVerticalScrollIndicator={false} style={{backgroundColor:Colors.Background,paddingBottom:0}}  >
+                <ScrollView showsVerticalScrollIndicator={false} style={{paddingBottom:0}}  >
+                <NotificationComponent />
                 <Greetings   navigation={navigation} />
 
                 <Tools navigation={navigation} colors={Colors} />
@@ -185,6 +235,7 @@ const Homepage = ({navigation,route}) =>{
 
 
             </View>
+            </ImageBackground>
            </View>
     );
 }

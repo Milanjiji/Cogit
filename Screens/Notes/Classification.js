@@ -2,12 +2,12 @@ import React,{useState,useEffect} from "react";
 import { View,Text, TouchableOpacity, StyleSheet, ImageBackground,KeyboardAvoidingView, Image,Linking } from "react-native";
 import SideBar from "../../components/SideBar";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faAngleLeft, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import firestore from '@react-native-firebase/firestore';
 import CutomTextInput from "../../components/CutomTextInput";
 import { storage } from "../../Storage";
-import background from '../../assets/images/background.png'
+
 
 const Classification = ({navigation,route}) =>{
     const [Colors,setColors] = useState([])
@@ -20,7 +20,8 @@ const Classification = ({navigation,route}) =>{
     const [name,setName] = useState('');
     const [clas,setClass] = useState(false);
     const {sub} = route.params;
-    const image = {uri: 'https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/background.png?alt=media&token=1d4c61d7-9b63-43a4-a485-9c3674eb442e'};
+
+
     useEffect(()=>{
         const getColors = async()=>{
             const data = storage.getString('Colors')
@@ -90,14 +91,16 @@ const Classification = ({navigation,route}) =>{
         }).catch((err) => console.error('An error occurred', err));
       };
     
-
+    
     return(
-        <ImageBackground source={image} resizeMode="cover" style={{flex:1,backgroundColor:Colors.Backgorund}} >
+        <View style={{flex:1,backgroundColor:Colors.Background}} >
+        <ImageBackground source={{uri: 'https://firebasestorage.googleapis.com/v0/b/fir-e4bcf.appspot.com/o/background.png?alt=media&token=1d4c61d7-9b63-43a4-a485-9c3674eb442e'}} resizeMode="cover" style={{flex:1}} >
         <KeyboardAvoidingView style={{flex: 1,justifyContent:'space-around',flexDirection:'row'}} >
             
            <SideBar navigation={navigation} page={"Notes"} />
 
             <View style={{flex: 1,paddingHorizontal:10,justifyContent: 'center',}} >
+                
                 <TouchableOpacity onPress={()=>{navigation.navigate('CmapClassification',{sub:sub})}} style={{backgroundColor:Colors.hashWhite,padding: 10,borderRadius:10,flexDirection:'row',alignItems:'center',justifyContent:'space-between',display:clas ? 'none' :'flex'}} >
                     <View>
                         <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:18,marginLeft:10}} >Concept Map</Text>
@@ -168,6 +171,7 @@ const Classification = ({navigation,route}) =>{
             </View>
         </KeyboardAvoidingView>
         </ImageBackground>
+        </View>
     )
 }
 const styles = StyleSheet.create({

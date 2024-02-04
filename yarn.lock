@@ -1966,10 +1966,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     "fastq" "^1.6.0"
 
-"@notifee/react-native@^7.8.0":
-  "integrity" "sha512-sx8h62U4FrR4pqlbN1rkgPsdamDt9Tad0zgfO6VtP6rNJq/78k8nxUnh0xIX3WPDcCV8KAzdYCE7+UNvhF1CpQ=="
-  "resolved" "https://registry.npmjs.org/@notifee/react-native/-/react-native-7.8.0.tgz"
-  "version" "7.8.0"
+"@notifee/react-native@^7.8.2":
+  "integrity" "sha512-VG4IkWJIlOKqXwa3aExC3WFCVCGCC9BA55Ivg0SMRfEs+ruvYy/zlLANcrVGiPtgkUEryXDhA8SXx9+JcO8oLA=="
+  "resolved" "https://registry.npmjs.org/@notifee/react-native/-/react-native-7.8.2.tgz"
+  "version" "7.8.2"
 
 "@pkgjs/parseargs@^0.11.0":
   "integrity" "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="
@@ -2244,6 +2244,11 @@
 "@react-native-firebase/firestore@^17.4.1":
   "integrity" "sha512-tqTIZZeDzQZnAj7oWrS2nhJRuhmgDzekMcNIUWtj+say7pcfm3LM7twqpz6AqZdrKvZvdEG/9uPTGFG3An0kOQ=="
   "resolved" "https://registry.npmjs.org/@react-native-firebase/firestore/-/firestore-17.4.1.tgz"
+  "version" "17.4.1"
+
+"@react-native-firebase/messaging@^17.4.1":
+  "integrity" "sha512-Sn4YVD2yOqAZfrY5KMeIFoh2f+JaQX/V/I7dSQX5vZ8RjP9cWVPJlA/CdLdORCe0DhusZMBJJfsJzCteQi8iiw=="
+  "resolved" "https://registry.npmjs.org/@react-native-firebase/messaging/-/messaging-17.4.1.tgz"
   "version" "17.4.1"
 
 "@react-native-picker/picker@^2.4.8":
@@ -7130,6 +7135,11 @@
   "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
+
+"react-native-background-fetch@^4.2.1":
+  "integrity" "sha512-UePBlP2Az6PWrIDCoGDYl0IlimvV+TFl/5XUmL4KIo7xPK7TSZru1nYHH7uskW2an5AW39ko3mbV2w/+1LxsnQ=="
+  "resolved" "https://registry.npmjs.org/react-native-background-fetch/-/react-native-background-fetch-4.2.1.tgz"
+  "version" "4.2.1"
 
 "react-native-blob-util@^0.19.5", "react-native-blob-util@>=0.13.7":
   "integrity" "sha512-01g3UUWwUhPwfnRiLlFwZp1L52iMX+OLWKa7KVqwQpx+QUsdbZ0IhdFayaFqISdBHjQ+id9fMcuC2Sx1uVdXgQ=="
