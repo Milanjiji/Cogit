@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect } from 'react';
 import messaging from '@react-native-firebase/messaging';
 
-
 const NotificationComponent = () => {
-  
   useEffect(()=>{
     console.log("Notifcation initilization statrted");
 
