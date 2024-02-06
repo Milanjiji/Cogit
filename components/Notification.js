@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import notifee, { TimestampTrigger, TriggerType, TimeUnit, EventType } from '@notifee/react-native';
-import BackgroundFetch from 'react-native-background-fetch';
+
 import { storage } from '../Storage'; // Import your storage library
 import messaging from '@react-native-firebase/messaging';
 import Details from '../Screens/Details';

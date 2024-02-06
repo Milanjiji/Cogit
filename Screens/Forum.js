@@ -7,7 +7,8 @@ import colors  from '../colors.json'
 import SideBar from "../components/SideBar";
 import { useIsFocused } from '@react-navigation/native';
 import { storage } from "../Storage";
-import { Image } from "react-native-svg";
+import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
+
 
 
 const Forum = ({navigation}) =>{
@@ -22,6 +23,9 @@ const Forum = ({navigation}) =>{
     const [sendIcon,setSendIcon] = useState(false);
     const [sendTimeTextInputOpacity,setSendTimeTextInputOpacity] = useState(true)
     const isFocused = useIsFocused();
+    const [adState,setAdState] = useState(false);
+
+    const adUnitId = adState ? 'ca-app-pub-3471464164746532/1876191748' : 'ca-app-pub-';
 
     useEffect(()=>{
         const getColors = async()=>{
@@ -45,6 +49,21 @@ const Forum = ({navigation}) =>{
             }
         }
         forumState();
+
+        const getAdStatus =  async () =>{
+            const querySnapshot = await firestore()
+                  .collection('AdPer')
+                  .get();
+            const data = querySnapshot.docs.map(doc => ({
+                  i:doc.id,
+                  ...doc.data()
+                }));
+            console.log(data[0].state);
+            setAdState(data[0].state);
+          }
+
+          getAdStatus();
+
     },[])
 
     const height = Dimensions.get('window').height;
@@ -187,8 +206,15 @@ const Forum = ({navigation}) =>{
                                 <Text style={[styles.reply,{color:Colors.text,backgroundColor:Colors.secondary}]} >OK I GOT IT!</Text>
                             </TouchableOpacity>
                         </View>
-                    
                 </View>
+
+                <View style={{position:'absolute',top:0,display:adState ? 'flex' : 'none' }} >
+                    <BannerAd
+                        unitId={adUnitId}
+                        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+                    />
+                </View>
+
         
                 <FlatList
                 

@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
- 
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faAngleRight} from '@fortawesome/free-solid-svg-icons';
+import {View, Text, StyleSheet} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
 import { storage } from '../Storage';
 
 
@@ -10,7 +8,7 @@ import { storage } from '../Storage';
 
 const NextUpdate = ({navigation}) => {
   const [Colors,setColors] = useState([]);
-   
+  const [message,setMessage] = useState("")
     useEffect(()=>{
         const getColors = async()=>{
             const data = storage.getString('Colors')
@@ -18,13 +16,25 @@ const NextUpdate = ({navigation}) => {
             setColors(colors);
         }
         getColors();
+        const getMessage = async ()=>{
+          const querySnapshot = await firestore()
+                .collection('HomePageMessage')
+                .get();
+          const data = querySnapshot.docs.map(doc => ({
+                i:doc.id,
+                ...doc.data()
+              }));
+          console.log("Home page message",data[0].message);
+          setMessage(data[0].message)
+        }
+        getMessage();
     },[])
 
   
   return (
     <View
       style={[styles.background,{borderRadius:10,backgroundColor:Colors.hashWhite,marginHorizontal:15,marginTop:5}]} >
-        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >Dear users, we are excited to announce that until the next update, we are offering <Text style={{fontFamily:Colors.Bold,color:'#a64dff'}} >premium services for free for ever</Text> to all users who create new accounts. Feel free to share this news with others. Take advantage of this opportunity while it lasts!</Text>
+        <Text style={{color:Colors.text,fontFamily:Colors.Medium,fontSize:12}} >{message}</Text>
     </View>
   );
 };

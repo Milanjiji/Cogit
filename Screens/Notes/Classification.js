@@ -7,6 +7,8 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import firestore from '@react-native-firebase/firestore';
 import CutomTextInput from "../../components/CutomTextInput";
 import { storage } from "../../Storage";
+import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
+
 
 
 const Classification = ({navigation,route}) =>{
@@ -19,6 +21,8 @@ const Classification = ({navigation,route}) =>{
     const [phone,setPhone] = useState('');
     const [name,setName] = useState('');
     const [clas,setClass] = useState(false);
+    const [adState,setAdState] = useState(false);
+    const adUnitId = adState ? 'ca-app-pub-3471464164746532/1876191748' : 'ca-app-pub-';
     const {sub} = route.params;
 
 
@@ -36,7 +40,23 @@ const Classification = ({navigation,route}) =>{
             console.log(users.size);
             
         }
+
         fetchId();
+
+        const getAdStatus =  async () =>{
+            const querySnapshot = await firestore()
+                  .collection('AdPer')
+                  .get();
+            const data = querySnapshot.docs.map(doc => ({
+                  i:doc.id,
+                  ...doc.data()
+                }));
+            console.log("ADSTATE => ",data[0].state);
+            setAdState(data[0].state);
+          }
+
+          getAdStatus();
+
         const fetchDetails = async () =>{
             const name = storage.getString('userName')
             const phone = storage.getString('phone')
@@ -126,6 +146,13 @@ const Classification = ({navigation,route}) =>{
                 </View>
                 
                 
+                <View style={{position:'absolute',bottom:0,display:adState ? 'flex' :'none'}} >
+                    <BannerAd
+                        unitId={adUnitId}
+                        size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+
+                    />
+                </View>
 
                 {
                   sub == 'math' ?  

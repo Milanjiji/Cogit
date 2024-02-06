@@ -83,6 +83,7 @@ const Details = ({navigation,route}) =>{
                                     .add({
                                         name:userName,
                                         phone:phone,
+                                        ban:false,
                                         class:  tr ? 'tr' : nStd ? 'nStd' : clas})
                                     .then(() => {
                                         console.log('Message sent successfully');

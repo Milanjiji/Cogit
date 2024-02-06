@@ -19,9 +19,9 @@ import Tools from '../components/Tools';
 import Tasks from '../components/Tasks';
 import { storage } from '../Storage';
 import SplashScreen from "react-native-splash-screen";
-import notifee, { TimestampTrigger, TriggerType } from '@notifee/react-native';
 import NotificationComponent from '../components/Notification';
-
+import mobileAds from 'react-native-google-mobile-ads';
+import { BannerAd, BannerAdSize } from 'react-native-google-mobile-ads';
 
 
 const Homepage = ({navigation,route}) =>{
@@ -31,8 +31,12 @@ const Homepage = ({navigation,route}) =>{
     const [report,setReport] = useState('');
     const [sending,setSending] = useState('');
     const [stnt,setStnt] = useState(true);
-    console.log(route.params,"route params from homepage");
+    const [adState,setAdState] = useState(false);
+
+   
+    const adUnitId = adState ? 'ca-app-pub-3471464164746532/1876191748' : 'ca-app-pub-';
     useEffect(()=>{
+        SplashScreen.hide();
         const getColors = async()=>{
             const data = storage.getString('Colors')
             const colors = JSON.parse(data);
@@ -40,16 +44,32 @@ const Homepage = ({navigation,route}) =>{
             
         }
         getColors();
-        SplashScreen.hide();
 
+        const getAdStatus =  async () =>{
+          const querySnapshot = await firestore()
+                .collection('AdPer')
+                .get();
+          const data = querySnapshot.docs.map(doc => ({
+                i:doc.id,
+                ...doc.data()
+              }));
+          console.log(data[0].state);
+          setAdState(data[0].state);
+        }
+        getAdStatus();
+
+        mobileAds()
+        .initialize()
+        .then(adapterStatuses => {
+        });
         const getBanDetails = async () =>{
             
-            const banReport = JSON.parse(storage.getString('ban'));
+            const banReport = storage.getString('ban')
             // 
             if(banReport){
               setBan(true);
             }
-            const name = JSON.parse(storage.getString('userName'))
+            const name = storage.getString('userName')
             // 
             try {
               const querySnapshot = await firestore()
@@ -66,7 +86,7 @@ const Homepage = ({navigation,route}) =>{
                   ...data,
                 });
               });
-              
+
               if(documentsInRange[0].ban){
                 setBanReason(documentsInRange[0].banRea)
                 setBan(true);
@@ -86,8 +106,7 @@ const Homepage = ({navigation,route}) =>{
           }      
         getBanDetails();
         const getUserDetails = async () =>{
-          const clas = JSON.parse(storage.getString('class'));
-          console.log(clas);
+          const clas = storage.getString('class');
           if(clas === "nStd"){
             setStnt(false);
           }else{
@@ -96,55 +115,7 @@ const Homepage = ({navigation,route}) =>{
         }
         getUserDetails();
 
-        // const getNotificationsdetails = () =>{
-        //   const status = storage.getBoolean('Notifee')
-        //   console.log("Notiofication details : ",status);
-        //   if(status !== undefined){
-        //     console.log("stsus in defined");
-        //     if(status){
-
-        //       async function onCreateTriggerNotification() {
-
-        //         const channelId = await notifee.createChannel({
-        //           id: 'default',
-        //           name: 'Default Channel',
-        //         });
-
-        //         const date = new Date(Date.now());
-        //         date.setHours(11);
-        //         date.setMinutes(1);
-            
-        //         // Create a time-based trigger
-        //         const trigger: TimestampTrigger = {
-        //           type: TriggerType.TIMESTAMP,
-        //           timestamp: date.getTime(), // fire at 11:10am (10 minutes before meeting)
-        //         };
-            
-        //         // Create a trigger notification
-        //         await notifee.createTriggerNotification(
-        //           {
-        //             title: 'New Messages!',
-        //             body: 'new messages in the live chat!',
-        //             android: {
-        //               channelId,
-        //               pressAction: {
-        //                 id: 'default',
-        //               },
-        //             },
-        //           },
-        //           trigger,
-        //         );
-        //       }
-        //       onCreateTriggerNotification();
-        //     }
-
-            
-        //   }else{
-        //     console.log("undefined in the conditions");
-        //     storage.set('Notifee',true)
-        //   }
-        // }
-        // getNotificationsdetails()
+       
     },[])
 
 
@@ -223,13 +194,18 @@ const Homepage = ({navigation,route}) =>{
                 <Tools navigation={navigation} colors={Colors} />
                 
                 <Tasks  navigation={navigation} Colors={Colors} />   
-                
+                <BannerAd
+                    style={{display:adState ? 'flex' : 'none'}}
+                    unitId={adUnitId}
+                    size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+                  />
 
                 <View style={{display : stnt ? 'flex' : 'none'}} >
                     <Notes navigation={navigation} />
                 </View>
                     
                   <NextUpdate navigation={navigation} />
+                  
                   
                 </ScrollView>
 

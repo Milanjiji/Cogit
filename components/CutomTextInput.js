@@ -35,7 +35,7 @@ const CutomTextInput = (props) =>{
         }
       })
     return(
-        <View style={{borderColor:props.borderColor,borderWidth:1,borderRadius:10,paddingHorizontal:10,marginHorizontal:props.horizontal,marginVertical:props.marginVertical,marginTop:props.marginTop}} >
+        <View style={{borderColor:props.borderColor,borderWidth:1,borderRadius:10,paddingHorizontal:15,marginHorizontal:props.horizontal,marginVertical:props.marginVertical,marginTop:props.marginTop}} >
             <Animated.Text style={[heightAnimatedStyle,{marginTop:-10,position:'relative',color:props.color,fontFamily:props.fontFamily}]} >{props.label}</Animated.Text>
             <TextInput 
                 placeholderTextColor={props.placeholderColor}
